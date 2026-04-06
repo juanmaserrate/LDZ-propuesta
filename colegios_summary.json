@@ -1,0 +1,4369 @@
+{
+  "zonas_pliego": [
+    "Zona 1",
+    "Zona 2",
+    "Zona 3",
+    "Zona 4",
+    "Zona 5",
+    "Zona 6",
+    "Zona 7",
+    "Zona 8",
+    "Zona 9",
+    "Zona 10",
+    "Zona 11",
+    "Zona 12"
+  ],
+  "localidades": [
+    "Banfield",
+    "Ingeniero Budge",
+    "Llavallol",
+    "Lomas Centro",
+    "Parque Barón",
+    "San José",
+    "Santa Marta",
+    "Temperley",
+    "Turdera",
+    "Villa Albertina",
+    "Villa Centenario",
+    "Villa Fiorito"
+  ],
+  "depot": {
+    "lat": -34.8353338,
+    "lng": -58.4233261,
+    "address": "Ombú 1269, Parque Industrial Burzaco"
+  },
+  "schools": [
+    {
+      "nombre": "PP 49",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7394312,
+      "lng": -58.4328766,
+      "cupos": {
+        "modulos": 230,
+        "comedor": 0,
+        "dmc": 247,
+        "dmc_comedor": 247,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 56",
+      "localidad": "Villa Fiorito",
+      "zona_pliego": "Zona 1",
+      "lat": -34.708243,
+      "lng": -58.4365432,
+      "cupos": {
+        "modulos": 400,
+        "comedor": 300,
+        "dmc": 400,
+        "dmc_comedor": 700,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI CC 2",
+      "localidad": "San José",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7633164,
+      "lng": -58.3756688,
+      "cupos": {
+        "modulos": 150,
+        "comedor": 100,
+        "dmc": 100,
+        "dmc_comedor": 200,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 6",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7432808,
+      "lng": -58.388239,
+      "cupos": {
+        "modulos": 420,
+        "comedor": 0,
+        "dmc": 600,
+        "dmc_comedor": 600,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 1",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7453466,
+      "lng": -58.3995995,
+      "cupos": {
+        "modulos": 450,
+        "comedor": 0,
+        "dmc": 500,
+        "dmc_comedor": 500,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 63",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7566317,
+      "lng": -58.391327,
+      "cupos": {
+        "modulos": 75,
+        "comedor": 126,
+        "dmc": 95,
+        "dmc_comedor": 221,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 91",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7487797,
+      "lng": -58.4024221,
+      "cupos": {
+        "modulos": 375,
+        "comedor": 0,
+        "dmc": 0,
+        "dmc_comedor": 0,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 21",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7487797,
+      "lng": -58.4024221,
+      "cupos": {
+        "modulos": 451,
+        "comedor": 1275,
+        "dmc": 1100,
+        "dmc_comedor": 2375,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 933",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7487797,
+      "lng": -58.4024221,
+      "cupos": {
+        "modulos": 218,
+        "comedor": 0,
+        "dmc": 218,
+        "dmc_comedor": 218,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "EE 503",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7529442,
+      "lng": -58.4068783,
+      "cupos": {
+        "modulos": 60,
+        "comedor": 60,
+        "dmc": 111,
+        "dmc_comedor": 171,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 902",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7524762,
+      "lng": -58.407524,
+      "cupos": {
+        "modulos": 130,
+        "comedor": 0,
+        "dmc": 135,
+        "dmc_comedor": 135,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 919",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7692992,
+      "lng": -58.3948739,
+      "cupos": {
+        "modulos": 110,
+        "comedor": 0,
+        "dmc": 110,
+        "dmc_comedor": 110,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI CC 3",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7758816,
+      "lng": -58.3971199,
+      "cupos": {
+        "modulos": 70,
+        "comedor": 55,
+        "dmc": 55,
+        "dmc_comedor": 110,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 9",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7633025,
+      "lng": -58.4033619,
+      "cupos": {
+        "modulos": 262,
+        "comedor": 242,
+        "dmc": 242,
+        "dmc_comedor": 484,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 34",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7582647,
+      "lng": -58.4108071,
+      "cupos": {
+        "modulos": 395,
+        "comedor": 0,
+        "dmc": 650,
+        "dmc_comedor": 650,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 930",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7581944,
+      "lng": -58.4109198,
+      "cupos": {
+        "modulos": 120,
+        "comedor": 0,
+        "dmc": 120,
+        "dmc_comedor": 120,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 901",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7581944,
+      "lng": -58.4109198,
+      "cupos": {
+        "modulos": 150,
+        "comedor": 0,
+        "dmc": 160,
+        "dmc_comedor": 160,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 89",
+      "localidad": "Parque Barón",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7433427,
+      "lng": -58.4100662,
+      "cupos": {
+        "modulos": 0,
+        "comedor": 45,
+        "dmc": 45,
+        "dmc_comedor": 90,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 70",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7241926,
+      "lng": -58.439518,
+      "cupos": {
+        "modulos": 400,
+        "comedor": 400,
+        "dmc": 400,
+        "dmc_comedor": 800,
+        "patios": 35,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 87",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7241604,
+      "lng": -58.440293,
+      "cupos": {
+        "modulos": 250,
+        "comedor": 200,
+        "dmc": 296,
+        "dmc_comedor": 496,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 906",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7615463,
+      "lng": -58.3983414,
+      "cupos": {
+        "modulos": 100,
+        "comedor": 0,
+        "dmc": 111,
+        "dmc_comedor": 111,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 37",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7615463,
+      "lng": -58.3983414,
+      "cupos": {
+        "modulos": 440,
+        "comedor": 486,
+        "dmc": 486,
+        "dmc_comedor": 972,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 15",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7389709,
+      "lng": -58.403935,
+      "cupos": {
+        "modulos": 330,
+        "comedor": 0,
+        "dmc": 336,
+        "dmc_comedor": 336,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 953",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 1",
+      "lat": -34.7507727,
+      "lng": -58.4653111,
+      "cupos": {
+        "modulos": 140,
+        "comedor": 146,
+        "dmc": 217,
+        "dmc_comedor": 363,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 903",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 2",
+      "lat": -34.7432754,
+      "lng": -58.3916316,
+      "cupos": {
+        "modulos": 150,
+        "comedor": 0,
+        "dmc": 150,
+        "dmc_comedor": 150,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 904",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 2",
+      "lat": -34.7484194,
+      "lng": -58.393011,
+      "cupos": {
+        "modulos": 170,
+        "comedor": 0,
+        "dmc": 175,
+        "dmc_comedor": 175,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 909",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 2",
+      "lat": -34.7908064,
+      "lng": -58.4093319,
+      "cupos": {
+        "modulos": 60,
+        "comedor": 0,
+        "dmc": 70,
+        "dmc_comedor": 70,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 913",
+      "localidad": "San José",
+      "zona_pliego": "Zona 2",
+      "lat": -34.755464,
+      "lng": -58.378257,
+      "cupos": {
+        "modulos": 230,
+        "comedor": 0,
+        "dmc": 233,
+        "dmc_comedor": 233,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 914",
+      "localidad": "San José",
+      "zona_pliego": "Zona 2",
+      "lat": -34.7481507,
+      "lng": -58.3741333,
+      "cupos": {
+        "modulos": 125,
+        "comedor": 0,
+        "dmc": 125,
+        "dmc_comedor": 125,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 916",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 2",
+      "lat": -34.76159410212766,
+      "lng": -58.39650139574468,
+      "cupos": {
+        "modulos": 80,
+        "comedor": 0,
+        "dmc": 80,
+        "dmc_comedor": 80,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 924",
+      "localidad": "San José",
+      "zona_pliego": "Zona 2",
+      "lat": -34.7695176,
+      "lng": -58.3693719,
+      "cupos": {
+        "modulos": 130,
+        "comedor": 0,
+        "dmc": 130,
+        "dmc_comedor": 130,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 927",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 2",
+      "lat": -34.72478017234043,
+      "lng": -58.427028770212765,
+      "cupos": {
+        "modulos": 145,
+        "comedor": 0,
+        "dmc": 145,
+        "dmc_comedor": 145,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 941",
+      "localidad": "San José",
+      "zona_pliego": "Zona 2",
+      "lat": -34.761423,
+      "lng": -58.35192,
+      "cupos": {
+        "modulos": 200,
+        "comedor": 0,
+        "dmc": 190,
+        "dmc_comedor": 190,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 88",
+      "localidad": "San José",
+      "zona_pliego": "Zona 2",
+      "lat": -34.755195489361704,
+      "lng": -58.37815375531915,
+      "cupos": {
+        "modulos": 250,
+        "comedor": 0,
+        "dmc": 400,
+        "dmc_comedor": 400,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 86",
+      "localidad": "San José",
+      "zona_pliego": "Zona 2",
+      "lat": -34.765873,
+      "lng": -58.378362,
+      "cupos": {
+        "modulos": 205,
+        "comedor": 150,
+        "dmc": 205,
+        "dmc_comedor": 355,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 81",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 2",
+      "lat": -34.779597,
+      "lng": -58.381716,
+      "cupos": {
+        "modulos": 105,
+        "comedor": 0,
+        "dmc": 90,
+        "dmc_comedor": 90,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 66",
+      "localidad": "San José",
+      "zona_pliego": "Zona 2",
+      "lat": -34.7698072,
+      "lng": -58.3697119,
+      "cupos": {
+        "modulos": 261,
+        "comedor": 0,
+        "dmc": 240,
+        "dmc_comedor": 240,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 68",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 2",
+      "lat": -34.76183124255319,
+      "lng": -58.396520314893614,
+      "cupos": {
+        "modulos": 292,
+        "comedor": 309,
+        "dmc": 309,
+        "dmc_comedor": 618,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 40",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 2",
+      "lat": -34.7827965,
+      "lng": -58.3919436,
+      "cupos": {
+        "modulos": 270,
+        "comedor": 270,
+        "dmc": 400,
+        "dmc_comedor": 670,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 13",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 2",
+      "lat": -34.76183124255319,
+      "lng": -58.396520314893614,
+      "cupos": {
+        "modulos": 473,
+        "comedor": 273,
+        "dmc": 273,
+        "dmc_comedor": 546,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 28",
+      "localidad": "San José",
+      "zona_pliego": "Zona 2",
+      "lat": -34.7504698,
+      "lng": -58.3715004,
+      "cupos": {
+        "modulos": 190,
+        "comedor": 0,
+        "dmc": 190,
+        "dmc_comedor": 190,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 32",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 2",
+      "lat": -34.779597,
+      "lng": -58.381716,
+      "cupos": {
+        "modulos": 243,
+        "comedor": 230,
+        "dmc": 230,
+        "dmc_comedor": 460,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 45",
+      "localidad": "San José",
+      "zona_pliego": "Zona 2",
+      "lat": -34.765873,
+      "lng": -58.378362,
+      "cupos": {
+        "modulos": 224,
+        "comedor": 0,
+        "dmc": 224,
+        "dmc_comedor": 224,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 47",
+      "localidad": "San José",
+      "zona_pliego": "Zona 2",
+      "lat": -34.7698072,
+      "lng": -58.3697119,
+      "cupos": {
+        "modulos": 290,
+        "comedor": 309,
+        "dmc": 309,
+        "dmc_comedor": 618,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 73",
+      "localidad": "San José",
+      "zona_pliego": "Zona 2",
+      "lat": -34.755195489361704,
+      "lng": -58.37815375531915,
+      "cupos": {
+        "modulos": 550,
+        "comedor": 0,
+        "dmc": 670,
+        "dmc_comedor": 670,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 1134",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 2",
+      "lat": -34.7220859,
+      "lng": -58.4325885,
+      "cupos": {
+        "modulos": 50,
+        "comedor": 0,
+        "dmc": 200,
+        "dmc_comedor": 200,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "pp 2437",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 2",
+      "lat": -34.7335363,
+      "lng": -58.4448484,
+      "cupos": {
+        "modulos": 57,
+        "comedor": 0,
+        "dmc": 150,
+        "dmc_comedor": 150,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 18A",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 2",
+      "lat": -34.737921,
+      "lng": -58.443867,
+      "cupos": {
+        "modulos": 40,
+        "comedor": 0,
+        "dmc": 0,
+        "dmc_comedor": 0,
+        "patios": 205,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "EE 508",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7388792,
+      "lng": -58.4435356,
+      "cupos": {
+        "modulos": 130,
+        "comedor": 147,
+        "dmc": 258,
+        "dmc_comedor": 405,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 2097",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7209775,
+      "lng": -58.428858,
+      "cupos": {
+        "modulos": 165,
+        "comedor": 0,
+        "dmc": 165,
+        "dmc_comedor": 165,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 71",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7484838,
+      "lng": -58.473543,
+      "cupos": {
+        "modulos": 483,
+        "comedor": 470,
+        "dmc": 470,
+        "dmc_comedor": 940,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 11",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7527522,
+      "lng": -58.4082001,
+      "cupos": {
+        "modulos": 700,
+        "comedor": 491,
+        "dmc": 611,
+        "dmc_comedor": 1102,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 25",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7635403,
+      "lng": -58.431405,
+      "cupos": {
+        "modulos": 370,
+        "comedor": 315,
+        "dmc": 315,
+        "dmc_comedor": 630,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 30",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7259688,
+      "lng": -58.4466946,
+      "cupos": {
+        "modulos": 520,
+        "comedor": 520,
+        "dmc": 600,
+        "dmc_comedor": 1120,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 32",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7459645,
+      "lng": -58.4698924,
+      "cupos": {
+        "modulos": 400,
+        "comedor": 475,
+        "dmc": 475,
+        "dmc_comedor": 950,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 36",
+      "localidad": "Parque Barón",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7340955,
+      "lng": -58.4258247,
+      "cupos": {
+        "modulos": 200,
+        "comedor": 230,
+        "dmc": 230,
+        "dmc_comedor": 460,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 37",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7517585,
+      "lng": -58.4329611,
+      "cupos": {
+        "modulos": 270,
+        "comedor": 350,
+        "dmc": 350,
+        "dmc_comedor": 700,
+        "patios": 85,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 40 SEDE",
+      "localidad": "Parque Barón",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7392064,
+      "lng": -58.4289076,
+      "cupos": {
+        "modulos": 125,
+        "comedor": 275,
+        "dmc": 275,
+        "dmc_comedor": 550,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 40 EXT",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 3",
+      "lat": -34.73714012765957,
+      "lng": -58.433304265957446,
+      "cupos": {
+        "modulos": 140,
+        "comedor": 275,
+        "dmc": 275,
+        "dmc_comedor": 550,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 67",
+      "localidad": "Villa Fiorito",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7053968,
+      "lng": -58.4417674,
+      "cupos": {
+        "modulos": 380,
+        "comedor": 299,
+        "dmc": 452,
+        "dmc_comedor": 751,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MT 9",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7415615,
+      "lng": -58.4724719,
+      "cupos": {
+        "modulos": 854,
+        "comedor": 658,
+        "dmc": 658,
+        "dmc_comedor": 1316,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 2645",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7242316,
+      "lng": -58.4408936,
+      "cupos": {
+        "modulos": 159,
+        "comedor": 250,
+        "dmc": 250,
+        "dmc_comedor": 500,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 19",
+      "localidad": "Parque Barón",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7295589,
+      "lng": -58.4205511,
+      "cupos": {
+        "modulos": 245,
+        "comedor": 279,
+        "dmc": 279,
+        "dmc_comedor": 558,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 38",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7519081,
+      "lng": -58.4323987,
+      "cupos": {
+        "modulos": 375,
+        "comedor": 0,
+        "dmc": 350,
+        "dmc_comedor": 350,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 39",
+      "localidad": "Parque Barón",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7340955,
+      "lng": -58.4258247,
+      "cupos": {
+        "modulos": 240,
+        "comedor": 0,
+        "dmc": 250,
+        "dmc_comedor": 250,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 76",
+      "localidad": "Parque Barón",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7392064,
+      "lng": -58.4289076,
+      "cupos": {
+        "modulos": 230,
+        "comedor": 300,
+        "dmc": 300,
+        "dmc_comedor": 600,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 77",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7262642,
+      "lng": -58.4472674,
+      "cupos": {
+        "modulos": 400,
+        "comedor": 400,
+        "dmc": 400,
+        "dmc_comedor": 800,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 79",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7153972,
+      "lng": -58.4685876,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 300,
+        "dmc": 365,
+        "dmc_comedor": 665,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 81",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 3",
+      "lat": -34.73714012765957,
+      "lng": -58.433304265957446,
+      "cupos": {
+        "modulos": 240,
+        "comedor": 317,
+        "dmc": 349,
+        "dmc_comedor": 666,
+        "patios": 25,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 88",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7259688,
+      "lng": -58.4466946,
+      "cupos": {
+        "modulos": 450,
+        "comedor": 410,
+        "dmc": 509,
+        "dmc_comedor": 919,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 92",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7426989,
+      "lng": -58.4693588,
+      "cupos": {
+        "modulos": 845,
+        "comedor": 800,
+        "dmc": 924,
+        "dmc_comedor": 1724,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 94",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7484838,
+      "lng": -58.473543,
+      "cupos": {
+        "modulos": 900,
+        "comedor": 758,
+        "dmc": 819,
+        "dmc_comedor": 1577,
+        "patios": 42,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 98",
+      "localidad": "Villa Fiorito",
+      "zona_pliego": "Zona 3",
+      "lat": -34.6974909,
+      "lng": -58.4445135,
+      "cupos": {
+        "modulos": 440,
+        "comedor": 350,
+        "dmc": 460,
+        "dmc_comedor": 810,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 63",
+      "localidad": "Villa Fiorito",
+      "zona_pliego": "Zona 3",
+      "lat": -34.7053968,
+      "lng": -58.4417674,
+      "cupos": {
+        "modulos": 650,
+        "comedor": 500,
+        "dmc": 590,
+        "dmc_comedor": 1090,
+        "patios": 30,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 926",
+      "localidad": "Villa Fiorito",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7112413,
+      "lng": -58.4484172,
+      "cupos": {
+        "modulos": 340,
+        "comedor": 340,
+        "dmc": 340,
+        "dmc_comedor": 680,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 4",
+      "localidad": "Parque Barón",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7409839,
+      "lng": -58.4266814,
+      "cupos": {
+        "modulos": 210,
+        "comedor": 540,
+        "dmc": 560,
+        "dmc_comedor": 1100,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 7",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7580002,
+      "lng": -58.4027798,
+      "cupos": {
+        "modulos": 370,
+        "comedor": 370,
+        "dmc": 479,
+        "dmc_comedor": 849,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 12",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7452523,
+      "lng": -58.3971841,
+      "cupos": {
+        "modulos": 600,
+        "comedor": 0,
+        "dmc": 680,
+        "dmc_comedor": 680,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 15",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 4",
+      "lat": -34.75817462340425,
+      "lng": -58.38674770425532,
+      "cupos": {
+        "modulos": 400,
+        "comedor": 490,
+        "dmc": 490,
+        "dmc_comedor": 980,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 22",
+      "localidad": "Villa Fiorito",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7099959,
+      "lng": -58.4507691,
+      "cupos": {
+        "modulos": 700,
+        "comedor": 630,
+        "dmc": 630,
+        "dmc_comedor": 1260,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 73",
+      "localidad": "Villa Fiorito",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7024067,
+      "lng": -58.4402477,
+      "cupos": {
+        "modulos": 280,
+        "comedor": 0,
+        "dmc": 250,
+        "dmc_comedor": 250,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 13",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7654586,
+      "lng": -58.4034059,
+      "cupos": {
+        "modulos": 359,
+        "comedor": 550,
+        "dmc": 550,
+        "dmc_comedor": 1100,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 83",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7248631,
+      "lng": -58.462946,
+      "cupos": {
+        "modulos": 420,
+        "comedor": 490,
+        "dmc": 490,
+        "dmc_comedor": 980,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MT 1",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7582812,
+      "lng": -58.4035202,
+      "cupos": {
+        "modulos": 370,
+        "comedor": 700,
+        "dmc": 700,
+        "dmc_comedor": 1400,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MT 3",
+      "localidad": "San José",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7603175,
+      "lng": -58.3535844,
+      "cupos": {
+        "modulos": 435,
+        "comedor": 800,
+        "dmc": 700,
+        "dmc_comedor": 1500,
+        "patios": 36,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MT 6",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7470736,
+      "lng": -58.3930963,
+      "cupos": {
+        "modulos": 205,
+        "comedor": 1196,
+        "dmc": 1196,
+        "dmc_comedor": 2392,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MT 8",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7288122,
+      "lng": -58.4342531,
+      "cupos": {
+        "modulos": 525,
+        "comedor": 500,
+        "dmc": 500,
+        "dmc_comedor": 1000,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 1",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7580002,
+      "lng": -58.4027798,
+      "cupos": {
+        "modulos": 275,
+        "comedor": 0,
+        "dmc": 350,
+        "dmc_comedor": 350,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 26",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7652091,
+      "lng": -58.4315099,
+      "cupos": {
+        "modulos": 430,
+        "comedor": 460,
+        "dmc": 460,
+        "dmc_comedor": 920,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 67",
+      "localidad": "Villa Fiorito",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7112413,
+      "lng": -58.4484172,
+      "cupos": {
+        "modulos": 650,
+        "comedor": 650,
+        "dmc": 650,
+        "dmc_comedor": 1300,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 85",
+      "localidad": "Villa Fiorito",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7083792,
+      "lng": -58.4490397,
+      "cupos": {
+        "modulos": 761,
+        "comedor": 550,
+        "dmc": 650,
+        "dmc_comedor": 1200,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 86",
+      "localidad": "Villa Fiorito",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7024067,
+      "lng": -58.4402477,
+      "cupos": {
+        "modulos": 628,
+        "comedor": 460,
+        "dmc": 460,
+        "dmc_comedor": 920,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 90",
+      "localidad": "Villa Fiorito",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7099959,
+      "lng": -58.4507691,
+      "cupos": {
+        "modulos": 620,
+        "comedor": 300,
+        "dmc": 450,
+        "dmc_comedor": 750,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 97",
+      "localidad": "Parque Barón",
+      "zona_pliego": "Zona 4",
+      "lat": -34.7297857,
+      "lng": -58.4196105,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 270,
+        "dmc": 270,
+        "dmc_comedor": 540,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "Extensión 80",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 5",
+      "lat": -34.7645,
+      "lng": -58.409355,
+      "cupos": {
+        "modulos": 410,
+        "comedor": 219,
+        "dmc": 349,
+        "dmc_comedor": 568,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 915",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 5",
+      "lat": -34.8066373,
+      "lng": -58.4286211,
+      "cupos": {
+        "modulos": 75,
+        "comedor": 100,
+        "dmc": 100,
+        "dmc_comedor": 200,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 923",
+      "localidad": "San José",
+      "zona_pliego": "Zona 5",
+      "lat": -34.7501332,
+      "lng": -58.3485061,
+      "cupos": {
+        "modulos": 170,
+        "comedor": 0,
+        "dmc": 198,
+        "dmc_comedor": 198,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 1380",
+      "localidad": "San José",
+      "zona_pliego": "Zona 5",
+      "lat": -34.7652401,
+      "lng": -58.3796219,
+      "cupos": {
+        "modulos": 60,
+        "comedor": 0,
+        "dmc": 120,
+        "dmc_comedor": 120,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI CC 4",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 5",
+      "lat": -34.7412514,
+      "lng": -58.443969,
+      "cupos": {
+        "modulos": 142,
+        "comedor": 142,
+        "dmc": 142,
+        "dmc_comedor": 284,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 84",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 5",
+      "lat": -34.8080774,
+      "lng": -58.424879,
+      "cupos": {
+        "modulos": 176,
+        "comedor": 176,
+        "dmc": 296,
+        "dmc_comedor": 472,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 3",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 5",
+      "lat": -34.7884916,
+      "lng": -58.415456,
+      "cupos": {
+        "modulos": 230,
+        "comedor": 555,
+        "dmc": 555,
+        "dmc_comedor": 1110,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 14",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 5",
+      "lat": -34.7753118,
+      "lng": -58.3951084,
+      "cupos": {
+        "modulos": 440,
+        "comedor": 0,
+        "dmc": 863,
+        "dmc_comedor": 863,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 51",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 5",
+      "lat": -34.807104,
+      "lng": -58.421091,
+      "cupos": {
+        "modulos": 340,
+        "comedor": 277,
+        "dmc": 497,
+        "dmc_comedor": 774,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 61",
+      "localidad": "San José",
+      "zona_pliego": "Zona 5",
+      "lat": -34.749442,
+      "lng": -58.379099,
+      "cupos": {
+        "modulos": 147,
+        "comedor": 0,
+        "dmc": 350,
+        "dmc_comedor": 350,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 80",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 5",
+      "lat": -34.7645,
+      "lng": -58.409355,
+      "cupos": {
+        "modulos": 0,
+        "comedor": 255,
+        "dmc": 340,
+        "dmc_comedor": 595,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 8",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 5",
+      "lat": -34.7645,
+      "lng": -58.409355,
+      "cupos": {
+        "modulos": 200,
+        "comedor": 0,
+        "dmc": 391,
+        "dmc_comedor": 391,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 10",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 5",
+      "lat": -34.7397238,
+      "lng": -58.3894683,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 0,
+        "dmc": 400,
+        "dmc_comedor": 400,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 23",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 5",
+      "lat": -34.8080774,
+      "lng": -58.424879,
+      "cupos": {
+        "modulos": 625,
+        "comedor": 0,
+        "dmc": 688,
+        "dmc_comedor": 688,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 29",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 5",
+      "lat": -34.7662836,
+      "lng": -58.4205757,
+      "cupos": {
+        "modulos": 380,
+        "comedor": 0,
+        "dmc": 432,
+        "dmc_comedor": 432,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 30",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 5",
+      "lat": -34.7259688,
+      "lng": -58.4466946,
+      "cupos": {
+        "modulos": 370,
+        "comedor": 0,
+        "dmc": 298,
+        "dmc_comedor": 298,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 34",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 5",
+      "lat": -34.8080774,
+      "lng": -58.424879,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 350,
+        "dmc": 350,
+        "dmc_comedor": 700,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 35",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 5",
+      "lat": -34.7839257,
+      "lng": -58.4189399,
+      "cupos": {
+        "modulos": 205,
+        "comedor": 0,
+        "dmc": 241,
+        "dmc_comedor": 241,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "CEC 805",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7117377,
+      "lng": -58.4620268,
+      "cupos": {
+        "modulos": 219,
+        "comedor": 219,
+        "dmc": 340,
+        "dmc_comedor": 559,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "EE 501",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7579547,
+      "lng": -58.419562,
+      "cupos": {
+        "modulos": 150,
+        "comedor": 150,
+        "dmc": 220,
+        "dmc_comedor": 370,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 920",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7883504,
+      "lng": -58.4208008,
+      "cupos": {
+        "modulos": 57,
+        "comedor": 57,
+        "dmc": 57,
+        "dmc_comedor": 114,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 921",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7760296,
+      "lng": -58.396796,
+      "cupos": {
+        "modulos": 140,
+        "comedor": 139,
+        "dmc": 139,
+        "dmc_comedor": 278,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 928",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7657711,
+      "lng": -58.4203864,
+      "cupos": {
+        "modulos": 139,
+        "comedor": 0,
+        "dmc": 139,
+        "dmc_comedor": 139,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 931",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7600346,
+      "lng": -58.4342658,
+      "cupos": {
+        "modulos": 98,
+        "comedor": 0,
+        "dmc": 98,
+        "dmc_comedor": 98,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 934",
+      "localidad": "Villa Fiorito",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7053968,
+      "lng": -58.4417674,
+      "cupos": {
+        "modulos": 220,
+        "comedor": 197,
+        "dmc": 220,
+        "dmc_comedor": 417,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 907",
+      "localidad": "Parque Barón",
+      "zona_pliego": "Zona 6",
+      "lat": -34.733857,
+      "lng": -58.41478,
+      "cupos": {
+        "modulos": 130,
+        "comedor": 0,
+        "dmc": 134,
+        "dmc_comedor": 134,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI CC 6",
+      "localidad": "Villa Fiorito",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7024082,
+      "lng": -58.4455352,
+      "cupos": {
+        "modulos": 50,
+        "comedor": 55,
+        "dmc": 55,
+        "dmc_comedor": 110,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 43",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7158223,
+      "lng": -58.4379927,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 300,
+        "dmc": 300,
+        "dmc_comedor": 600,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 53",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7611377,
+      "lng": -58.4010405,
+      "cupos": {
+        "modulos": 210,
+        "comedor": 0,
+        "dmc": 215,
+        "dmc_comedor": 215,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 60",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7298585,
+      "lng": -58.4834842,
+      "cupos": {
+        "modulos": 116,
+        "comedor": 0,
+        "dmc": 153,
+        "dmc_comedor": 153,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 74",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 6",
+      "lat": -34.721747593617025,
+      "lng": -58.44322211276595,
+      "cupos": {
+        "modulos": 155,
+        "comedor": 300,
+        "dmc": 300,
+        "dmc_comedor": 600,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 27",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7298585,
+      "lng": -58.4834842,
+      "cupos": {
+        "modulos": 316,
+        "comedor": 326,
+        "dmc": 326,
+        "dmc_comedor": 652,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 33",
+      "localidad": "Parque Barón",
+      "zona_pliego": "Zona 6",
+      "lat": -34.736825,
+      "lng": -58.4112657,
+      "cupos": {
+        "modulos": 350,
+        "comedor": 0,
+        "dmc": 376,
+        "dmc_comedor": 376,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 44",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7183016,
+      "lng": -58.4423069,
+      "cupos": {
+        "modulos": 350,
+        "comedor": 350,
+        "dmc": 350,
+        "dmc_comedor": 700,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 56",
+      "localidad": "San José",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7603175,
+      "lng": -58.3535844,
+      "cupos": {
+        "modulos": 500,
+        "comedor": 448,
+        "dmc": 448,
+        "dmc_comedor": 896,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 84",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7225621,
+      "lng": -58.4423637,
+      "cupos": {
+        "modulos": 413,
+        "comedor": 446,
+        "dmc": 415,
+        "dmc_comedor": 861,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 1009",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 6",
+      "lat": -34.7209775,
+      "lng": -58.428858,
+      "cupos": {
+        "modulos": 250,
+        "comedor": 0,
+        "dmc": 250,
+        "dmc_comedor": 250,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "CEC 801",
+      "localidad": "Parque Barón",
+      "zona_pliego": "Zona 7",
+      "lat": -34.745958,
+      "lng": -58.4260827,
+      "cupos": {
+        "modulos": 180,
+        "comedor": 180,
+        "dmc": 180,
+        "dmc_comedor": 360,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "EE 506",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7668979,
+      "lng": -58.409431,
+      "cupos": {
+        "modulos": 65,
+        "comedor": 70,
+        "dmc": 70,
+        "dmc_comedor": 140,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "EE 507",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 7",
+      "lat": -34.76315005319149,
+      "lng": -58.40399767446809,
+      "cupos": {
+        "modulos": 66,
+        "comedor": 66,
+        "dmc": 80,
+        "dmc_comedor": 146,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 917",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 7",
+      "lat": -34.751326,
+      "lng": -58.4328872,
+      "cupos": {
+        "modulos": 130,
+        "comedor": 0,
+        "dmc": 147,
+        "dmc_comedor": 147,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 937",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7604075,
+      "lng": -58.4476759,
+      "cupos": {
+        "modulos": 170,
+        "comedor": 170,
+        "dmc": 170,
+        "dmc_comedor": 340,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 939",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7291193,
+      "lng": -58.4517145,
+      "cupos": {
+        "modulos": 175,
+        "comedor": 160,
+        "dmc": 160,
+        "dmc_comedor": 320,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 949",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7731711,
+      "lng": -58.442131,
+      "cupos": {
+        "modulos": 91,
+        "comedor": 0,
+        "dmc": 91,
+        "dmc_comedor": 91,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 951",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7481456,
+      "lng": -58.4465936,
+      "cupos": {
+        "modulos": 97,
+        "comedor": 97,
+        "dmc": 97,
+        "dmc_comedor": 194,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 23",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7481456,
+      "lng": -58.4465936,
+      "cupos": {
+        "modulos": 550,
+        "comedor": 598,
+        "dmc": 598,
+        "dmc_comedor": 1196,
+        "patios": 55,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 38",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7452189,
+      "lng": -58.4471356,
+      "cupos": {
+        "modulos": 330,
+        "comedor": 0,
+        "dmc": 380,
+        "dmc_comedor": 380,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 46",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 7",
+      "lat": -34.739903,
+      "lng": -58.4367291,
+      "cupos": {
+        "modulos": 450,
+        "comedor": 450,
+        "dmc": 500,
+        "dmc_comedor": 950,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 59",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7526559,
+      "lng": -58.4071969,
+      "cupos": {
+        "modulos": 250,
+        "comedor": 250,
+        "dmc": 250,
+        "dmc_comedor": 500,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 64",
+      "localidad": "Parque Barón",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7511557,
+      "lng": -58.4197747,
+      "cupos": {
+        "modulos": 130,
+        "comedor": 180,
+        "dmc": 180,
+        "dmc_comedor": 360,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 69",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7450554,
+      "lng": -58.3933776,
+      "cupos": {
+        "modulos": 100,
+        "comedor": 0,
+        "dmc": 100,
+        "dmc_comedor": 100,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MT 2",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7765862,
+      "lng": -58.4084325,
+      "cupos": {
+        "modulos": 137,
+        "comedor": 350,
+        "dmc": 350,
+        "dmc_comedor": 700,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MT 5",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7761611,
+      "lng": -58.4117487,
+      "cupos": {
+        "modulos": 385,
+        "comedor": 1392,
+        "dmc": 435,
+        "dmc_comedor": 1827,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MT 7",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7383918,
+      "lng": -58.3967418,
+      "cupos": {
+        "modulos": 100,
+        "comedor": 440,
+        "dmc": 440,
+        "dmc_comedor": 880,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 3",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7775072,
+      "lng": -58.4059369,
+      "cupos": {
+        "modulos": 150,
+        "comedor": 0,
+        "dmc": 194,
+        "dmc_comedor": 194,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 5",
+      "localidad": "Parque Barón",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7506424,
+      "lng": -58.4198362,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 310,
+        "dmc": 350,
+        "dmc_comedor": 660,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 7",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7488176,
+      "lng": -58.3940788,
+      "cupos": {
+        "modulos": 327,
+        "comedor": 0,
+        "dmc": 326,
+        "dmc_comedor": 326,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 14",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7526559,
+      "lng": -58.4071969,
+      "cupos": {
+        "modulos": 475,
+        "comedor": 0,
+        "dmc": 449,
+        "dmc_comedor": 449,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 21",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7494129,
+      "lng": -58.3944716,
+      "cupos": {
+        "modulos": 480,
+        "comedor": 0,
+        "dmc": 650,
+        "dmc_comedor": 650,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 31",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7445677,
+      "lng": -58.3990646,
+      "cupos": {
+        "modulos": 280,
+        "comedor": 0,
+        "dmc": 280,
+        "dmc_comedor": 280,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 51",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7437455,
+      "lng": -58.3960811,
+      "cupos": {
+        "modulos": 350,
+        "comedor": 0,
+        "dmc": 384,
+        "dmc_comedor": 384,
+        "patios": 45,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 53",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7498391,
+      "lng": -58.4281883,
+      "cupos": {
+        "modulos": 550,
+        "comedor": 500,
+        "dmc": 500,
+        "dmc_comedor": 1000,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 59",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7535491,
+      "lng": -58.4406953,
+      "cupos": {
+        "modulos": 415,
+        "comedor": 400,
+        "dmc": 400,
+        "dmc_comedor": 800,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 60",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 7",
+      "lat": -34.748312908510634,
+      "lng": -58.44368500851064,
+      "cupos": {
+        "modulos": 441,
+        "comedor": 441,
+        "dmc": 430,
+        "dmc_comedor": 871,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 75",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7873503,
+      "lng": -58.3910264,
+      "cupos": {
+        "modulos": 270,
+        "comedor": 290,
+        "dmc": 290,
+        "dmc_comedor": 580,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 25",
+      "localidad": "San José",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7607873,
+      "lng": -58.3523241,
+      "cupos": {
+        "modulos": 577,
+        "comedor": 0,
+        "dmc": 0,
+        "dmc_comedor": 0,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 1182",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 7",
+      "lat": -34.7200159,
+      "lng": -58.4686276,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 0,
+        "dmc": 350,
+        "dmc_comedor": 350,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "Asunciòn de Maria 5729",
+      "localidad": "San José",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7427862,
+      "lng": -58.3505617,
+      "cupos": {
+        "modulos": 30,
+        "comedor": 0,
+        "dmc": 30,
+        "dmc_comedor": 30,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "CEC 802",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7693708,
+      "lng": -58.4015001,
+      "cupos": {
+        "modulos": 185,
+        "comedor": 283,
+        "dmc": 329,
+        "dmc_comedor": 612,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "Didascalio 8301",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 8",
+      "lat": -34.741869,
+      "lng": -58.4765483,
+      "cupos": {
+        "modulos": 30,
+        "comedor": 0,
+        "dmc": 30,
+        "dmc_comedor": 30,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 911",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7769976,
+      "lng": -58.4092747,
+      "cupos": {
+        "modulos": 130,
+        "comedor": 0,
+        "dmc": 159,
+        "dmc_comedor": 159,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 912",
+      "localidad": "San José",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7555208,
+      "lng": -58.345127,
+      "cupos": {
+        "modulos": 107,
+        "comedor": 0,
+        "dmc": 107,
+        "dmc_comedor": 107,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 918",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7392128,
+      "lng": -58.403408,
+      "cupos": {
+        "modulos": 123,
+        "comedor": 0,
+        "dmc": 123,
+        "dmc_comedor": 123,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 5",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7758929,
+      "lng": -58.389098,
+      "cupos": {
+        "modulos": 280,
+        "comedor": 200,
+        "dmc": 294,
+        "dmc_comedor": 494,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 41",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7912111,
+      "lng": -58.4084651,
+      "cupos": {
+        "modulos": 308,
+        "comedor": 280,
+        "dmc": 313,
+        "dmc_comedor": 593,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 44",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7827965,
+      "lng": -58.3919436,
+      "cupos": {
+        "modulos": 155,
+        "comedor": 185,
+        "dmc": 212,
+        "dmc_comedor": 397,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 57",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7690999,
+      "lng": -58.3848868,
+      "cupos": {
+        "modulos": 198,
+        "comedor": 0,
+        "dmc": 534,
+        "dmc_comedor": 534,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 65",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7808214,
+      "lng": -58.411593,
+      "cupos": {
+        "modulos": 209,
+        "comedor": 315,
+        "dmc": 315,
+        "dmc_comedor": 630,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "Niño de Belen 3662",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7696277,
+      "lng": -58.4067885,
+      "cupos": {
+        "modulos": 15,
+        "comedor": 0,
+        "dmc": 15,
+        "dmc_comedor": 15,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "Nuestra Señora de los Milagros 1662",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 8",
+      "lat": -34.730277,
+      "lng": -58.4322014,
+      "cupos": {
+        "modulos": 40,
+        "comedor": 0,
+        "dmc": 40,
+        "dmc_comedor": 40,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 2",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7759648,
+      "lng": -58.3888839,
+      "cupos": {
+        "modulos": 311,
+        "comedor": 311,
+        "dmc": 367,
+        "dmc_comedor": 678,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 6",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7715417,
+      "lng": -58.4056323,
+      "cupos": {
+        "modulos": 241,
+        "comedor": 0,
+        "dmc": 241,
+        "dmc_comedor": 241,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 22",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7959905,
+      "lng": -58.406546,
+      "cupos": {
+        "modulos": 120,
+        "comedor": 128,
+        "dmc": 240,
+        "dmc_comedor": 368,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 20",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7567616,
+      "lng": -58.3912277,
+      "cupos": {
+        "modulos": 100,
+        "comedor": 0,
+        "dmc": 0,
+        "dmc_comedor": 0,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 55",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7886806,
+      "lng": -58.4295052,
+      "cupos": {
+        "modulos": 140,
+        "comedor": 142,
+        "dmc": 145,
+        "dmc_comedor": 287,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 69",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7690999,
+      "lng": -58.3848868,
+      "cupos": {
+        "modulos": 450,
+        "comedor": 0,
+        "dmc": 565,
+        "dmc_comedor": 565,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 72",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 8",
+      "lat": -34.7912111,
+      "lng": -58.4084651,
+      "cupos": {
+        "modulos": 250,
+        "comedor": 0,
+        "dmc": 289,
+        "dmc_comedor": 289,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "CEC 803",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.76537595319149,
+      "lng": -58.36525956382979,
+      "cupos": {
+        "modulos": 180,
+        "comedor": 205,
+        "dmc": 270,
+        "dmc_comedor": 475,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "CFI 1",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7767627,
+      "lng": -58.4089844,
+      "cupos": {
+        "modulos": 177,
+        "comedor": 247,
+        "dmc": 247,
+        "dmc_comedor": 494,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "EE 502",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7689433,
+      "lng": -58.4010141,
+      "cupos": {
+        "modulos": 73,
+        "comedor": 73,
+        "dmc": 150,
+        "dmc_comedor": 223,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "EE 505",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7700974,
+      "lng": -58.3657314,
+      "cupos": {
+        "modulos": 100,
+        "comedor": 90,
+        "dmc": 200,
+        "dmc_comedor": 290,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 935",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7418177,
+      "lng": -58.4512796,
+      "cupos": {
+        "modulos": 75,
+        "comedor": 75,
+        "dmc": 75,
+        "dmc_comedor": 150,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 910",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 9",
+      "lat": -34.8025378,
+      "lng": -58.4090888,
+      "cupos": {
+        "modulos": 155,
+        "comedor": 0,
+        "dmc": 165,
+        "dmc_comedor": 165,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 932",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 9",
+      "lat": -34.8146657,
+      "lng": -58.4321209,
+      "cupos": {
+        "modulos": 40,
+        "comedor": 0,
+        "dmc": 40,
+        "dmc_comedor": 40,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 936",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7509782,
+      "lng": -58.353707,
+      "cupos": {
+        "modulos": 197,
+        "comedor": 0,
+        "dmc": 197,
+        "dmc_comedor": 197,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 950",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7571452,
+      "lng": -58.3481426,
+      "cupos": {
+        "modulos": 140,
+        "comedor": 0,
+        "dmc": 157,
+        "dmc_comedor": 157,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 929",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7626189,
+      "lng": -58.4361466,
+      "cupos": {
+        "modulos": 143,
+        "comedor": 0,
+        "dmc": 143,
+        "dmc_comedor": 143,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 82",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7475871,
+      "lng": -58.3643753,
+      "cupos": {
+        "modulos": 223,
+        "comedor": 223,
+        "dmc": 223,
+        "dmc_comedor": 446,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 8",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7505021,
+      "lng": -58.3492001,
+      "cupos": {
+        "modulos": 330,
+        "comedor": 315,
+        "dmc": 500,
+        "dmc_comedor": 815,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 28",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.761152,
+      "lng": -58.3671271,
+      "cupos": {
+        "modulos": 200,
+        "comedor": 243,
+        "dmc": 243,
+        "dmc_comedor": 486,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 45",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7896444,
+      "lng": -58.4090933,
+      "cupos": {
+        "modulos": 115,
+        "comedor": 107,
+        "dmc": 140,
+        "dmc_comedor": 247,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 47",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7587586,
+      "lng": -58.3515942,
+      "cupos": {
+        "modulos": 231,
+        "comedor": 210,
+        "dmc": 331,
+        "dmc_comedor": 541,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 52",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7883504,
+      "lng": -58.4208008,
+      "cupos": {
+        "modulos": 133,
+        "comedor": 70,
+        "dmc": 80,
+        "dmc_comedor": 150,
+        "patios": 25,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 54",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7583434,
+      "lng": -58.3669697,
+      "cupos": {
+        "modulos": 200,
+        "comedor": 210,
+        "dmc": 155,
+        "dmc_comedor": 365,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 58",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7892076,
+      "lng": -58.4273241,
+      "cupos": {
+        "modulos": 135,
+        "comedor": 274,
+        "dmc": 274,
+        "dmc_comedor": 548,
+        "patios": 24,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 75",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7653174,
+      "lng": -58.3666868,
+      "cupos": {
+        "modulos": 280,
+        "comedor": 0,
+        "dmc": 0,
+        "dmc_comedor": 0,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 77",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7758816,
+      "lng": -58.3971199,
+      "cupos": {
+        "modulos": 210,
+        "comedor": 277,
+        "dmc": 277,
+        "dmc_comedor": 554,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 79",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7431142,
+      "lng": -58.3797908,
+      "cupos": {
+        "modulos": 315,
+        "comedor": 0,
+        "dmc": 315,
+        "dmc_comedor": 315,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 42",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7693733,
+      "lng": -58.3952308,
+      "cupos": {
+        "modulos": 192,
+        "comedor": 100,
+        "dmc": 320,
+        "dmc_comedor": 420,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 4",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7497312,
+      "lng": -58.4757182,
+      "cupos": {
+        "modulos": 187,
+        "comedor": 195,
+        "dmc": 255,
+        "dmc_comedor": 450,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 17",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7527522,
+      "lng": -58.4082001,
+      "cupos": {
+        "modulos": 350,
+        "comedor": 230,
+        "dmc": 250,
+        "dmc_comedor": 480,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 42",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7881313,
+      "lng": -58.419635,
+      "cupos": {
+        "modulos": 140,
+        "comedor": 150,
+        "dmc": 142,
+        "dmc_comedor": 292,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 50",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.761152,
+      "lng": -58.3671271,
+      "cupos": {
+        "modulos": 236,
+        "comedor": 236,
+        "dmc": 236,
+        "dmc_comedor": 472,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 52",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7711501,
+      "lng": -58.3607551,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 280,
+        "dmc": 280,
+        "dmc_comedor": 560,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 54",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7583434,
+      "lng": -58.3669697,
+      "cupos": {
+        "modulos": 205,
+        "comedor": 200,
+        "dmc": 239,
+        "dmc_comedor": 439,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 61",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7627085,
+      "lng": -58.3641252,
+      "cupos": {
+        "modulos": 600,
+        "comedor": 620,
+        "dmc": 620,
+        "dmc_comedor": 1240,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 71",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7939752,
+      "lng": -58.4348671,
+      "cupos": {
+        "modulos": 176,
+        "comedor": 200,
+        "dmc": 200,
+        "dmc_comedor": 400,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 74",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 9",
+      "lat": -34.8066373,
+      "lng": -58.4286211,
+      "cupos": {
+        "modulos": 98,
+        "comedor": 134,
+        "dmc": 134,
+        "dmc_comedor": 268,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 78",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7501332,
+      "lng": -58.3485061,
+      "cupos": {
+        "modulos": 500,
+        "comedor": 570,
+        "dmc": 570,
+        "dmc_comedor": 1140,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 80",
+      "localidad": "San José",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7587586,
+      "lng": -58.3515942,
+      "cupos": {
+        "modulos": 400,
+        "comedor": 0,
+        "dmc": 441,
+        "dmc_comedor": 441,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 24",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7431142,
+      "lng": -58.3797908,
+      "cupos": {
+        "modulos": 329,
+        "comedor": 0,
+        "dmc": 329,
+        "dmc_comedor": 329,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 36",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 9",
+      "lat": -34.7693733,
+      "lng": -58.3952308,
+      "cupos": {
+        "modulos": 250,
+        "comedor": 0,
+        "dmc": 262,
+        "dmc_comedor": 262,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 905",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7483348,
+      "lng": -58.4434372,
+      "cupos": {
+        "modulos": 190,
+        "comedor": 190,
+        "dmc": 190,
+        "dmc_comedor": 380,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 925",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7381174,
+      "lng": -58.4443079,
+      "cupos": {
+        "modulos": 334,
+        "comedor": 334,
+        "dmc": 334,
+        "dmc_comedor": 668,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI CC 5",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7308463,
+      "lng": -58.4751538,
+      "cupos": {
+        "modulos": 80,
+        "comedor": 80,
+        "dmc": 80,
+        "dmc_comedor": 160,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 26",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7385929,
+      "lng": -58.4450646,
+      "cupos": {
+        "modulos": 786,
+        "comedor": 801,
+        "dmc": 810,
+        "dmc_comedor": 1611,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 2",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 10",
+      "lat": -34.8039116,
+      "lng": -58.4248674,
+      "cupos": {
+        "modulos": 310,
+        "comedor": 450,
+        "dmc": 450,
+        "dmc_comedor": 900,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 10",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 10",
+      "lat": -34.764883,
+      "lng": -58.431608,
+      "cupos": {
+        "modulos": 817,
+        "comedor": 0,
+        "dmc": 737,
+        "dmc_comedor": 737,
+        "patios": 60,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 31",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 10",
+      "lat": -34.760679,
+      "lng": -58.4474744,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 465,
+        "dmc": 465,
+        "dmc_comedor": 930,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 39",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7498497,
+      "lng": -58.4502093,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 320,
+        "dmc": 320,
+        "dmc_comedor": 640,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 55",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7380052,
+      "lng": -58.4351644,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 332,
+        "dmc": 330,
+        "dmc_comedor": 662,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 85",
+      "localidad": "San José",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7607873,
+      "lng": -58.3523241,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 250,
+        "dmc": 280,
+        "dmc_comedor": 530,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 62",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7437455,
+      "lng": -58.3960811,
+      "cupos": {
+        "modulos": 200,
+        "comedor": 230,
+        "dmc": 230,
+        "dmc_comedor": 460,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MT 4",
+      "localidad": "Turdera",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7896444,
+      "lng": -58.4090933,
+      "cupos": {
+        "modulos": 465,
+        "comedor": 957,
+        "dmc": 957,
+        "dmc_comedor": 1914,
+        "patios": 30,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 11",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7604309,
+      "lng": -58.4480276,
+      "cupos": {
+        "modulos": 697,
+        "comedor": 668,
+        "dmc": 660,
+        "dmc_comedor": 1328,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 18",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7585379,
+      "lng": -58.3993654,
+      "cupos": {
+        "modulos": 510,
+        "comedor": 560,
+        "dmc": 560,
+        "dmc_comedor": 1120,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 41",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7380052,
+      "lng": -58.4351644,
+      "cupos": {
+        "modulos": 325,
+        "comedor": 355,
+        "dmc": 355,
+        "dmc_comedor": 710,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 48",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7501518,
+      "lng": -58.4423703,
+      "cupos": {
+        "modulos": 428,
+        "comedor": 314,
+        "dmc": 614,
+        "dmc_comedor": 928,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 57",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7368309,
+      "lng": -58.4446973,
+      "cupos": {
+        "modulos": 574,
+        "comedor": 460,
+        "dmc": 460,
+        "dmc_comedor": 920,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 65",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7498497,
+      "lng": -58.4502093,
+      "cupos": {
+        "modulos": 644,
+        "comedor": 618,
+        "dmc": 618,
+        "dmc_comedor": 1236,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 66",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 10",
+      "lat": -34.807104,
+      "lng": -58.421091,
+      "cupos": {
+        "modulos": 533,
+        "comedor": 405,
+        "dmc": 405,
+        "dmc_comedor": 810,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 96 A",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 10",
+      "lat": -34.7388792,
+      "lng": -58.4435356,
+      "cupos": {
+        "modulos": 306,
+        "comedor": 275,
+        "dmc": 260,
+        "dmc_comedor": 535,
+        "patios": 60,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 952",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7758816,
+      "lng": -58.3971199,
+      "cupos": {
+        "modulos": 140,
+        "comedor": 152,
+        "dmc": 152,
+        "dmc_comedor": 304,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI CC 1",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7381481,
+      "lng": -58.4609585,
+      "cupos": {
+        "modulos": 132,
+        "comedor": 100,
+        "dmc": 100,
+        "dmc_comedor": 200,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 9",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7252941,
+      "lng": -58.4636962,
+      "cupos": {
+        "modulos": 750,
+        "comedor": 850,
+        "dmc": 850,
+        "dmc_comedor": 1700,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 24",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7613924,
+      "lng": -58.3935392,
+      "cupos": {
+        "modulos": 900,
+        "comedor": 1000,
+        "dmc": 1000,
+        "dmc_comedor": 2000,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 33",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7223256,
+      "lng": -58.4645076,
+      "cupos": {
+        "modulos": 650,
+        "comedor": 0,
+        "dmc": 833,
+        "dmc_comedor": 833,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 48",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7251236,
+      "lng": -58.4624131,
+      "cupos": {
+        "modulos": 250,
+        "comedor": 250,
+        "dmc": 250,
+        "dmc_comedor": 500,
+        "patios": 60,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 49",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7270067,
+      "lng": -58.477407,
+      "cupos": {
+        "modulos": 319,
+        "comedor": 354,
+        "dmc": 354,
+        "dmc_comedor": 708,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 72",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7268364,
+      "lng": -58.4800984,
+      "cupos": {
+        "modulos": 435,
+        "comedor": 350,
+        "dmc": 350,
+        "dmc_comedor": 700,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 76",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7555515,
+      "lng": -58.4023,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 300,
+        "dmc": 300,
+        "dmc_comedor": 600,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 12",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7248631,
+      "lng": -58.462946,
+      "cupos": {
+        "modulos": 520,
+        "comedor": 467,
+        "dmc": 467,
+        "dmc_comedor": 934,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 43",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7251971,
+      "lng": -58.4635274,
+      "cupos": {
+        "modulos": 620,
+        "comedor": 674,
+        "dmc": 674,
+        "dmc_comedor": 1348,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 46",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7309948,
+      "lng": -58.4652096,
+      "cupos": {
+        "modulos": 719,
+        "comedor": 600,
+        "dmc": 600,
+        "dmc_comedor": 1200,
+        "patios": 35,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 58",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7074748,
+      "lng": -58.4604916,
+      "cupos": {
+        "modulos": 500,
+        "comedor": 500,
+        "dmc": 500,
+        "dmc_comedor": 1000,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 62",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7251236,
+      "lng": -58.4624131,
+      "cupos": {
+        "modulos": 289,
+        "comedor": 350,
+        "dmc": 350,
+        "dmc_comedor": 700,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 82",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7165816,
+      "lng": -58.4625811,
+      "cupos": {
+        "modulos": 727,
+        "comedor": 650,
+        "dmc": 650,
+        "dmc_comedor": 1300,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 83",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7270067,
+      "lng": -58.477407,
+      "cupos": {
+        "modulos": 440,
+        "comedor": 400,
+        "dmc": 400,
+        "dmc_comedor": 800,
+        "patios": 40,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 87",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7268364,
+      "lng": -58.4800984,
+      "cupos": {
+        "modulos": 530,
+        "comedor": 585,
+        "dmc": 585,
+        "dmc_comedor": 1170,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 95",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 11",
+      "lat": -34.7302635,
+      "lng": -58.4657889,
+      "cupos": {
+        "modulos": 600,
+        "comedor": 600,
+        "dmc": 600,
+        "dmc_comedor": 1200,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "CEC 804",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7148563,
+      "lng": -58.465824,
+      "cupos": {
+        "modulos": 262,
+        "comedor": 252,
+        "dmc": 252,
+        "dmc_comedor": 504,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "EE 504",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 12",
+      "lat": -34.72963105319149,
+      "lng": -58.46456429148936,
+      "cupos": {
+        "modulos": 181,
+        "comedor": 262,
+        "dmc": 268,
+        "dmc_comedor": 530,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 922",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 12",
+      "lat": -34.725796,
+      "lng": -58.4468535,
+      "cupos": {
+        "modulos": 238,
+        "comedor": 242,
+        "dmc": 242,
+        "dmc_comedor": 484,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 938",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7458289,
+      "lng": -58.4839823,
+      "cupos": {
+        "modulos": 222,
+        "comedor": 200,
+        "dmc": 200,
+        "dmc_comedor": 400,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 940",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7093195,
+      "lng": -58.4590025,
+      "cupos": {
+        "modulos": 131,
+        "comedor": 131,
+        "dmc": 131,
+        "dmc_comedor": 262,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 942",
+      "localidad": "Lomas Centro",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7654586,
+      "lng": -58.4034059,
+      "cupos": {
+        "modulos": 260,
+        "comedor": 260,
+        "dmc": 260,
+        "dmc_comedor": 520,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 943",
+      "localidad": "Santa Marta",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7498391,
+      "lng": -58.4281883,
+      "cupos": {
+        "modulos": 147,
+        "comedor": 150,
+        "dmc": 150,
+        "dmc_comedor": 300,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 945",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7415615,
+      "lng": -58.4724719,
+      "cupos": {
+        "modulos": 208,
+        "comedor": 210,
+        "dmc": 210,
+        "dmc_comedor": 420,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 946",
+      "localidad": "Temperley",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7788398,
+      "lng": -58.383425,
+      "cupos": {
+        "modulos": 290,
+        "comedor": 280,
+        "dmc": 280,
+        "dmc_comedor": 560,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 947",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7440597,
+      "lng": -58.4553164,
+      "cupos": {
+        "modulos": 176,
+        "comedor": 176,
+        "dmc": 176,
+        "dmc_comedor": 352,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 2645",
+      "localidad": "Villa Centenario",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7242316,
+      "lng": -58.4408936,
+      "cupos": {
+        "modulos": 50,
+        "comedor": 40,
+        "dmc": 40,
+        "dmc_comedor": 80,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "JI 908",
+      "localidad": "Llavallol",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7943731,
+      "lng": -58.4309139,
+      "cupos": {
+        "modulos": 94,
+        "comedor": 150,
+        "dmc": 150,
+        "dmc_comedor": 300,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 29",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7293218,
+      "lng": -58.4520986,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 330,
+        "dmc": 330,
+        "dmc_comedor": 660,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 35",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7418035,
+      "lng": -58.4836746,
+      "cupos": {
+        "modulos": 450,
+        "comedor": 0,
+        "dmc": 0,
+        "dmc_comedor": 0,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 70",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7413307,
+      "lng": -58.4692693,
+      "cupos": {
+        "modulos": 690,
+        "comedor": 690,
+        "dmc": 690,
+        "dmc_comedor": 1380,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 78",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7100276,
+      "lng": -58.4559332,
+      "cupos": {
+        "modulos": 330,
+        "comedor": 248,
+        "dmc": 345,
+        "dmc_comedor": 593,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "MS 50",
+      "localidad": "Parque Barón",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7297857,
+      "lng": -58.4196105,
+      "cupos": {
+        "modulos": 224,
+        "comedor": 300,
+        "dmc": 300,
+        "dmc_comedor": 600,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 16",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7458289,
+      "lng": -58.4839823,
+      "cupos": {
+        "modulos": 1177,
+        "comedor": 1104,
+        "dmc": 1104,
+        "dmc_comedor": 2208,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 64",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7100276,
+      "lng": -58.4559332,
+      "cupos": {
+        "modulos": 343,
+        "comedor": 320,
+        "dmc": 320,
+        "dmc_comedor": 640,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 68",
+      "localidad": "Villa Albertina",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7293218,
+      "lng": -58.4520986,
+      "cupos": {
+        "modulos": 332,
+        "comedor": 299,
+        "dmc": 299,
+        "dmc_comedor": 598,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 89",
+      "localidad": "Ingeniero Budge",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7310684,
+      "lng": -58.4796212,
+      "cupos": {
+        "modulos": 835,
+        "comedor": 0,
+        "dmc": 0,
+        "dmc_comedor": 0,
+        "patios": 0,
+        "desayuno": 0
+      }
+    },
+    {
+      "nombre": "PP 93",
+      "localidad": "Banfield",
+      "zona_pliego": "Zona 12",
+      "lat": -34.7437455,
+      "lng": -58.3960811,
+      "cupos": {
+        "modulos": 478,
+        "comedor": 508,
+        "dmc": 508,
+        "dmc_comedor": 1016,
+        "patios": 0,
+        "desayuno": 0
+      }
+    }
+  ],
+  "totals": {
+    "totModulos": 82334,
+    "totComedor": 64622,
+    "totDmc": 90925,
+    "totDmcComedor": 155547,
+    "totPatios": 892,
+    "totDesayuno": 0
+  },
+  "byZona": {
+    "Zona 1": {
+      "schools": 24,
+      "modulos": 5726,
+      "comedor": 3435,
+      "dmc": 6734,
+      "dmc_comedor": 10169,
+      "patios": 35
+    },
+    "Zona 2": {
+      "schools": 24,
+      "modulos": 4790,
+      "comedor": 1541,
+      "dmc": 5188,
+      "dmc_comedor": 6729,
+      "patios": 205
+    },
+    "Zona 3": {
+      "schools": 26,
+      "modulos": 10211,
+      "comedor": 9169,
+      "dmc": 10979,
+      "dmc_comedor": 20148,
+      "patios": 182
+    },
+    "Zona 4": {
+      "schools": 20,
+      "modulos": 8878,
+      "comedor": 9296,
+      "dmc": 10855,
+      "dmc_comedor": 20151,
+      "patios": 36
+    },
+    "Zona 5": {
+      "schools": 18,
+      "modulos": 4570,
+      "comedor": 2074,
+      "dmc": 6610,
+      "dmc_comedor": 8684,
+      "patios": 0
+    },
+    "Zona 6": {
+      "schools": 19,
+      "modulos": 4163,
+      "comedor": 2987,
+      "dmc": 4535,
+      "dmc_comedor": 7522,
+      "patios": 0
+    },
+    "Zona 7": {
+      "schools": 30,
+      "modulos": 8321,
+      "comedor": 6344,
+      "dmc": 8831,
+      "dmc_comedor": 15175,
+      "patios": 100
+    },
+    "Zona 8": {
+      "schools": 20,
+      "modulos": 3422,
+      "comedor": 1844,
+      "dmc": 4348,
+      "dmc_comedor": 6192,
+      "patios": 0
+    },
+    "Zona 9": {
+      "schools": 35,
+      "modulos": 7615,
+      "comedor": 5534,
+      "dmc": 8460,
+      "dmc_comedor": 13994,
+      "patios": 49
+    },
+    "Zona 10": {
+      "schools": 20,
+      "modulos": 8399,
+      "comedor": 8064,
+      "dmc": 9115,
+      "dmc_comedor": 17179,
+      "patios": 150
+    },
+    "Zona 11": {
+      "schools": 18,
+      "modulos": 8821,
+      "comedor": 8182,
+      "dmc": 9015,
+      "dmc_comedor": 17197,
+      "patios": 135
+    },
+    "Zona 12": {
+      "schools": 22,
+      "modulos": 7418,
+      "comedor": 6152,
+      "dmc": 6255,
+      "dmc_comedor": 12407,
+      "patios": 0
+    }
+  },
+  "byLocalidad": {
+    "Villa Centenario": {
+      "schools": 28,
+      "modulos": 7144,
+      "comedor": 6201,
+      "dmc": 8116,
+      "dmc_comedor": 14317
+    },
+    "Villa Fiorito": {
+      "schools": 13,
+      "modulos": 6119,
+      "comedor": 4631,
+      "dmc": 5607,
+      "dmc_comedor": 10238
+    },
+    "San José": {
+      "schools": 37,
+      "modulos": 9453,
+      "comedor": 5459,
+      "dmc": 9911,
+      "dmc_comedor": 15370
+    },
+    "Banfield": {
+      "schools": 22,
+      "modulos": 6751,
+      "comedor": 3649,
+      "dmc": 9040,
+      "dmc_comedor": 12689
+    },
+    "Lomas Centro": {
+      "schools": 32,
+      "modulos": 9147,
+      "comedor": 7307,
+      "dmc": 10466,
+      "dmc_comedor": 17773
+    },
+    "Temperley": {
+      "schools": 19,
+      "modulos": 3943,
+      "comedor": 2100,
+      "dmc": 5273,
+      "dmc_comedor": 7373
+    },
+    "Parque Barón": {
+      "schools": 14,
+      "modulos": 2864,
+      "comedor": 2909,
+      "dmc": 3729,
+      "dmc_comedor": 6638
+    },
+    "Villa Albertina": {
+      "schools": 30,
+      "modulos": 12690,
+      "comedor": 11291,
+      "dmc": 12032,
+      "dmc_comedor": 23323
+    },
+    "Turdera": {
+      "schools": 15,
+      "modulos": 3201,
+      "comedor": 4521,
+      "dmc": 4611,
+      "dmc_comedor": 9132
+    },
+    "Santa Marta": {
+      "schools": 23,
+      "modulos": 7378,
+      "comedor": 5268,
+      "dmc": 7756,
+      "dmc_comedor": 13024
+    },
+    "Ingeniero Budge": {
+      "schools": 24,
+      "modulos": 9682,
+      "comedor": 7796,
+      "dmc": 9415,
+      "dmc_comedor": 17211
+    },
+    "Llavallol": {
+      "schools": 19,
+      "modulos": 3962,
+      "comedor": 3490,
+      "dmc": 4969,
+      "dmc_comedor": 8459
+    }
+  }
+}

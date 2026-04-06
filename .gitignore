@@ -1,0 +1,28 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# Claude / Antigravity
+.claude/
+.antigravity/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+
+# Node
+node_modules/
+npm-debug.log
+
+# Logs
+*.log
