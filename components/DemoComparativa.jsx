@@ -22,9 +22,9 @@
    - Orden pre-calculado: se usa s.orden_pliego / s.orden_localidad
      directamente del JSON. NO se hace nearest-neighbor en el cliente. */
 
-const DEMO_STEP_MS = 5400;     // duración total de cada paso (zona o localidad)
-const DEMO_OVERLAY_MS = 1400;  // tiempo que se ve el cartel grande tapando el mapa
-const DEMO_REVEAL_MS = 4000;   // tiempo que se ve el ruteo / mapa SIN cartel
+const DEMO_STEP_MS = 3500;     // duración total de cada paso (zona o localidad)
+const DEMO_OVERLAY_MS = 1200;  // tiempo que se ve el cartel grande tapando el mapa
+const DEMO_REVEAL_MS = 2300;   // tiempo que se ve el ruteo / mapa SIN cartel
 const DEMO_INTRO_MS = 2500;
 const DEMO_HIDE_MS = 350;
 const DEMO_END_MS = 2400;
