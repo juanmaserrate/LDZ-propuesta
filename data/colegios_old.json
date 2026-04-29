@@ -1,0 +1,5265 @@
+{
+  "zonas_disponibles": [
+    "Zona 1",
+    "Zona 2",
+    "Zona 3",
+    "Zona 4",
+    "Zona 5",
+    "Zona 6",
+    "Zona 7",
+    "Zona 8",
+    "Zona 9",
+    "Zona 10",
+    "Zona 11",
+    "Zona 12"
+  ],
+  "colegios": [
+    {
+      "id": "PP-49",
+      "nombre": "PP 49",
+      "direccion": "Llaroque 1231",
+      "zona": "Zona 1",
+      "lat": -34.7394312,
+      "lng": -58.4328766,
+      "cupos": {
+        "modulos": 230,
+        "comedor": 0,
+        "dmc": 247,
+        "patios": 0,
+        "dmc_comedor": 247
+      },
+      "orden_pliego": 1,
+      "orden_localidad": 1,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-56",
+      "nombre": "MS 56",
+      "direccion": "Ayolas 1135",
+      "zona": "Zona 1",
+      "lat": -34.708243,
+      "lng": -58.4365432,
+      "cupos": {
+        "modulos": 400,
+        "comedor": 300,
+        "dmc": 400,
+        "patios": 0,
+        "dmc_comedor": 700
+      },
+      "orden_pliego": 2,
+      "orden_localidad": 2,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JICC-2",
+      "nombre": "JI CC 2",
+      "direccion": "Anchoris 4566 Temperley Este",
+      "zona": "Zona 1",
+      "lat": -34.7633164,
+      "lng": -58.3756688,
+      "cupos": {
+        "modulos": 150,
+        "comedor": 100,
+        "dmc": 100,
+        "patios": 0,
+        "dmc_comedor": 200
+      },
+      "orden_pliego": 3,
+      "orden_localidad": 3,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-6",
+      "nombre": "MS 6",
+      "direccion": "Viamonte 1567",
+      "zona": "Zona 1",
+      "lat": -34.7432808,
+      "lng": -58.388239,
+      "cupos": {
+        "modulos": 420,
+        "comedor": 0,
+        "dmc": 600,
+        "patios": 0,
+        "dmc_comedor": 600
+      },
+      "orden_pliego": 4,
+      "orden_localidad": 4,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-1",
+      "nombre": "MS 1",
+      "direccion": "Hipólito Yrigoyen 7731",
+      "zona": "Zona 1",
+      "lat": -34.7453466,
+      "lng": -58.3995995,
+      "cupos": {
+        "modulos": 450,
+        "comedor": 0,
+        "dmc": 500,
+        "patios": 0,
+        "dmc_comedor": 500
+      },
+      "orden_pliego": 5,
+      "orden_localidad": 5,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-63",
+      "nombre": "MS 63",
+      "direccion": "Viamonte 436",
+      "zona": "Zona 1",
+      "lat": -34.7566317,
+      "lng": -58.391327,
+      "cupos": {
+        "modulos": 75,
+        "comedor": 126,
+        "dmc": 95,
+        "patios": 0,
+        "dmc_comedor": 221
+      },
+      "orden_pliego": 6,
+      "orden_localidad": 6,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-91",
+      "nombre": "PP 91",
+      "direccion": "Manuel Castro 990",
+      "zona": "Zona 1",
+      "lat": -34.7487797,
+      "lng": -58.4024221,
+      "cupos": {
+        "modulos": 375,
+        "comedor": 0,
+        "dmc": 0,
+        "patios": 0,
+        "dmc_comedor": 0
+      },
+      "orden_pliego": 7,
+      "orden_localidad": 7,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-21",
+      "nombre": "MS 21",
+      "direccion": "Manuel Castro 990",
+      "zona": "Zona 1",
+      "lat": -34.7487797,
+      "lng": -58.4024221,
+      "cupos": {
+        "modulos": 451,
+        "comedor": 1275,
+        "dmc": 1100,
+        "patios": 0,
+        "dmc_comedor": 2375
+      },
+      "orden_pliego": 8,
+      "orden_localidad": 8,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-933",
+      "nombre": "JI 933",
+      "direccion": "Manuel Castro 990",
+      "zona": "Zona 1",
+      "lat": -34.7487797,
+      "lng": -58.4024221,
+      "cupos": {
+        "modulos": 218,
+        "comedor": 0,
+        "dmc": 218,
+        "patios": 0,
+        "dmc_comedor": 218
+      },
+      "orden_pliego": 9,
+      "orden_localidad": 9,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "EE-503",
+      "nombre": "EE 503",
+      "direccion": "Alvear 563",
+      "zona": "Zona 1",
+      "lat": -34.7529442,
+      "lng": -58.4068783,
+      "cupos": {
+        "modulos": 60,
+        "comedor": 60,
+        "dmc": 111,
+        "patios": 0,
+        "dmc_comedor": 171
+      },
+      "orden_pliego": 10,
+      "orden_localidad": 10,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-902",
+      "nombre": "JI 902",
+      "direccion": "Castelli 840",
+      "zona": "Zona 1",
+      "lat": -34.7524762,
+      "lng": -58.407524,
+      "cupos": {
+        "modulos": 130,
+        "comedor": 0,
+        "dmc": 135,
+        "patios": 0,
+        "dmc_comedor": 135
+      },
+      "orden_pliego": 11,
+      "orden_localidad": 11,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-919",
+      "nombre": "JI 919",
+      "direccion": "Juncal 240",
+      "zona": "Zona 1",
+      "lat": -34.7692992,
+      "lng": -58.3948739,
+      "cupos": {
+        "modulos": 110,
+        "comedor": 0,
+        "dmc": 110,
+        "patios": 0,
+        "dmc_comedor": 110
+      },
+      "orden_pliego": 12,
+      "orden_localidad": 12,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JICC-3",
+      "nombre": "JI CC 3",
+      "direccion": "Monroe 355 Temperley",
+      "zona": "Zona 1",
+      "lat": -34.7758816,
+      "lng": -58.3971199,
+      "cupos": {
+        "modulos": 70,
+        "comedor": 55,
+        "dmc": 55,
+        "patios": 0,
+        "dmc_comedor": 110
+      },
+      "orden_pliego": 13,
+      "orden_localidad": 13,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-9",
+      "nombre": "PP 9",
+      "direccion": "Hipólito Yrigoyen 9243",
+      "zona": "Zona 1",
+      "lat": -34.7633025,
+      "lng": -58.4033619,
+      "cupos": {
+        "modulos": 262,
+        "comedor": 242,
+        "dmc": 242,
+        "patios": 0,
+        "dmc_comedor": 484
+      },
+      "orden_pliego": 14,
+      "orden_localidad": 14,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-34",
+      "nombre": "MS 34",
+      "direccion": "Jose Maria Penna 99",
+      "zona": "Zona 1",
+      "lat": -34.7582647,
+      "lng": -58.4108071,
+      "cupos": {
+        "modulos": 395,
+        "comedor": 0,
+        "dmc": 650,
+        "patios": 0,
+        "dmc_comedor": 650
+      },
+      "orden_pliego": 15,
+      "orden_localidad": 15,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-930",
+      "nombre": "JI 930",
+      "direccion": "Jose Maria Penna 93",
+      "zona": "Zona 1",
+      "lat": -34.7581944,
+      "lng": -58.4109198,
+      "cupos": {
+        "modulos": 120,
+        "comedor": 0,
+        "dmc": 120,
+        "patios": 0,
+        "dmc_comedor": 120
+      },
+      "orden_pliego": 16,
+      "orden_localidad": 16,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-901",
+      "nombre": "JI 901",
+      "direccion": "Jose Maria Penna 93",
+      "zona": "Zona 1",
+      "lat": -34.7581944,
+      "lng": -58.4109198,
+      "cupos": {
+        "modulos": 150,
+        "comedor": 0,
+        "dmc": 160,
+        "patios": 0,
+        "dmc_comedor": 160
+      },
+      "orden_pliego": 17,
+      "orden_localidad": 17,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-89",
+      "nombre": "MS 89",
+      "direccion": "Larroque 2200",
+      "zona": "Zona 1",
+      "lat": -34.7433427,
+      "lng": -58.4100662,
+      "cupos": {
+        "modulos": 0,
+        "comedor": 45,
+        "dmc": 45,
+        "patios": 0,
+        "dmc_comedor": 90
+      },
+      "orden_pliego": 18,
+      "orden_localidad": 18,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-70",
+      "nombre": "PP 70",
+      "direccion": "Gabriel Miró 944",
+      "zona": "Zona 1",
+      "lat": -34.7241926,
+      "lng": -58.439518,
+      "cupos": {
+        "modulos": 400,
+        "comedor": 400,
+        "dmc": 400,
+        "patios": 35,
+        "dmc_comedor": 800
+      },
+      "orden_pliego": 19,
+      "orden_localidad": 19,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-87",
+      "nombre": "MS 87",
+      "direccion": "Ostende 1260",
+      "zona": "Zona 1",
+      "lat": -34.7241604,
+      "lng": -58.440293,
+      "cupos": {
+        "modulos": 250,
+        "comedor": 200,
+        "dmc": 296,
+        "patios": 0,
+        "dmc_comedor": 496
+      },
+      "orden_pliego": 20,
+      "orden_localidad": 20,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-906",
+      "nombre": "JI 906",
+      "direccion": "Av. Meeks 778",
+      "zona": "Zona 1",
+      "lat": -34.7615463,
+      "lng": -58.3983414,
+      "cupos": {
+        "modulos": 100,
+        "comedor": 0,
+        "dmc": 111,
+        "patios": 0,
+        "dmc_comedor": 111
+      },
+      "orden_pliego": 21,
+      "orden_localidad": 21,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-37",
+      "nombre": "PP 37",
+      "direccion": "Meeks 778",
+      "zona": "Zona 1",
+      "lat": -34.7615463,
+      "lng": -58.3983414,
+      "cupos": {
+        "modulos": 440,
+        "comedor": 486,
+        "dmc": 486,
+        "patios": 0,
+        "dmc_comedor": 972
+      },
+      "orden_pliego": 22,
+      "orden_localidad": 22,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-15",
+      "nombre": "PP 15",
+      "direccion": "Alvear 1715",
+      "zona": "Zona 1",
+      "lat": -34.7389709,
+      "lng": -58.403935,
+      "cupos": {
+        "modulos": 330,
+        "comedor": 0,
+        "dmc": 336,
+        "patios": 0,
+        "dmc_comedor": 336
+      },
+      "orden_pliego": 23,
+      "orden_localidad": 23,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-953",
+      "nombre": "JI 953",
+      "direccion": "Calle 109 Nº 1340",
+      "zona": "Zona 1",
+      "lat": -34.7507727,
+      "lng": -58.4653111,
+      "cupos": {
+        "modulos": 140,
+        "comedor": 146,
+        "dmc": 217,
+        "patios": 0,
+        "dmc_comedor": 363
+      },
+      "orden_pliego": 24,
+      "orden_localidad": 24,
+      "zona_pliego": "Zona 1",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-903",
+      "nombre": "JI 903",
+      "direccion": "Belgrano 1645",
+      "zona": "Zona 2",
+      "lat": -34.7432754,
+      "lng": -58.3916316,
+      "cupos": {
+        "modulos": 150,
+        "comedor": 0,
+        "dmc": 150,
+        "patios": 0,
+        "dmc_comedor": 150
+      },
+      "orden_pliego": 1,
+      "orden_localidad": 25,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-904",
+      "nombre": "JI 904",
+      "direccion": "Medrano 175",
+      "zona": "Zona 2",
+      "lat": -34.7484194,
+      "lng": -58.393011,
+      "cupos": {
+        "modulos": 170,
+        "comedor": 0,
+        "dmc": 175,
+        "patios": 0,
+        "dmc_comedor": 175
+      },
+      "orden_pliego": 2,
+      "orden_localidad": 26,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-909",
+      "nombre": "JI 909",
+      "direccion": "Suipacha 362",
+      "zona": "Zona 2",
+      "lat": -34.7908064,
+      "lng": -58.4093319,
+      "cupos": {
+        "modulos": 60,
+        "comedor": 0,
+        "dmc": 70,
+        "patios": 0,
+        "dmc_comedor": 70
+      },
+      "orden_pliego": 3,
+      "orden_localidad": 27,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-913",
+      "nombre": "JI 913",
+      "direccion": "Campos 122",
+      "zona": "Zona 2",
+      "lat": -34.755464,
+      "lng": -58.378257,
+      "cupos": {
+        "modulos": 230,
+        "comedor": 0,
+        "dmc": 233,
+        "patios": 0,
+        "dmc_comedor": 233
+      },
+      "orden_pliego": 4,
+      "orden_localidad": 28,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-914",
+      "nombre": "JI 914",
+      "direccion": "Pintos 1695",
+      "zona": "Zona 2",
+      "lat": -34.7481507,
+      "lng": -58.3741333,
+      "cupos": {
+        "modulos": 125,
+        "comedor": 0,
+        "dmc": 125,
+        "patios": 0,
+        "dmc_comedor": 125
+      },
+      "orden_pliego": 5,
+      "orden_localidad": 29,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-916",
+      "nombre": "JI 916",
+      "direccion": "Av. Alte Brown 2129",
+      "zona": "Zona 2",
+      "lat": -34.76159410212766,
+      "lng": -58.39650139574468,
+      "cupos": {
+        "modulos": 80,
+        "comedor": 0,
+        "dmc": 80,
+        "patios": 0,
+        "dmc_comedor": 80
+      },
+      "orden_pliego": 6,
+      "orden_localidad": 30,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-924",
+      "nombre": "JI 924",
+      "direccion": "Senillosa 310",
+      "zona": "Zona 2",
+      "lat": -34.7695176,
+      "lng": -58.3693719,
+      "cupos": {
+        "modulos": 130,
+        "comedor": 0,
+        "dmc": 130,
+        "patios": 0,
+        "dmc_comedor": 130
+      },
+      "orden_pliego": 7,
+      "orden_localidad": 31,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-927",
+      "nombre": "JI 927",
+      "direccion": "Villa Barcelo 480 Banfield Este",
+      "zona": "Zona 2",
+      "lat": -34.72478017234043,
+      "lng": -58.427028770212765,
+      "cupos": {
+        "modulos": 145,
+        "comedor": 0,
+        "dmc": 145,
+        "patios": 0,
+        "dmc_comedor": 145
+      },
+      "orden_pliego": 8,
+      "orden_localidad": 32,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-941",
+      "nombre": "JI 941",
+      "direccion": "Golondrina 3607",
+      "zona": "Zona 2",
+      "lat": -34.761423,
+      "lng": -58.35192,
+      "cupos": {
+        "modulos": 200,
+        "comedor": 0,
+        "dmc": 190,
+        "patios": 0,
+        "dmc_comedor": 190
+      },
+      "orden_pliego": 9,
+      "orden_localidad": 33,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-88",
+      "nombre": "MS 88",
+      "direccion": "Campos 145 - 1ºpiso",
+      "zona": "Zona 2",
+      "lat": -34.755195489361704,
+      "lng": -58.37815375531915,
+      "cupos": {
+        "modulos": 250,
+        "comedor": 0,
+        "dmc": 400,
+        "patios": 0,
+        "dmc_comedor": 400
+      },
+      "orden_pliego": 10,
+      "orden_localidad": 34,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-86",
+      "nombre": "MS 86",
+      "direccion": "Allemandri 1501",
+      "zona": "Zona 2",
+      "lat": -34.765873,
+      "lng": -58.378362,
+      "cupos": {
+        "modulos": 205,
+        "comedor": 150,
+        "dmc": 205,
+        "patios": 0,
+        "dmc_comedor": 355
+      },
+      "orden_pliego": 11,
+      "orden_localidad": 35,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-81",
+      "nombre": "MS 81",
+      "direccion": "Indalecio Gomez 502",
+      "zona": "Zona 2",
+      "lat": -34.779597,
+      "lng": -58.381716,
+      "cupos": {
+        "modulos": 105,
+        "comedor": 0,
+        "dmc": 90,
+        "patios": 0,
+        "dmc_comedor": 90
+      },
+      "orden_pliego": 12,
+      "orden_localidad": 36,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-66",
+      "nombre": "MS 66",
+      "direccion": "El Zorzal 2093",
+      "zona": "Zona 2",
+      "lat": -34.7698072,
+      "lng": -58.3697119,
+      "cupos": {
+        "modulos": 261,
+        "comedor": 0,
+        "dmc": 240,
+        "patios": 0,
+        "dmc_comedor": 240
+      },
+      "orden_pliego": 13,
+      "orden_localidad": 37,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-68",
+      "nombre": "MS 68",
+      "direccion": "Alte Brown 2153",
+      "zona": "Zona 2",
+      "lat": -34.76183124255319,
+      "lng": -58.396520314893614,
+      "cupos": {
+        "modulos": 292,
+        "comedor": 309,
+        "dmc": 309,
+        "patios": 0,
+        "dmc_comedor": 618
+      },
+      "orden_pliego": 14,
+      "orden_localidad": 38,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-40",
+      "nombre": "PP 40",
+      "direccion": "Perito Moreno 260",
+      "zona": "Zona 2",
+      "lat": -34.7827965,
+      "lng": -58.3919436,
+      "cupos": {
+        "modulos": 270,
+        "comedor": 270,
+        "dmc": 400,
+        "patios": 0,
+        "dmc_comedor": 670
+      },
+      "orden_pliego": 15,
+      "orden_localidad": 39,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-13",
+      "nombre": "PP 13",
+      "direccion": "Avenida Alte Brown 2153",
+      "zona": "Zona 2",
+      "lat": -34.76183124255319,
+      "lng": -58.396520314893614,
+      "cupos": {
+        "modulos": 473,
+        "comedor": 273,
+        "dmc": 273,
+        "patios": 0,
+        "dmc_comedor": 546
+      },
+      "orden_pliego": 16,
+      "orden_localidad": 40,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-28",
+      "nombre": "PP 28",
+      "direccion": "Boulogne Sur Mer 240",
+      "zona": "Zona 2",
+      "lat": -34.7504698,
+      "lng": -58.3715004,
+      "cupos": {
+        "modulos": 190,
+        "comedor": 0,
+        "dmc": 190,
+        "patios": 0,
+        "dmc_comedor": 190
+      },
+      "orden_pliego": 17,
+      "orden_localidad": 41,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-32",
+      "nombre": "PP 32",
+      "direccion": "Indalecio Gomez 502",
+      "zona": "Zona 2",
+      "lat": -34.779597,
+      "lng": -58.381716,
+      "cupos": {
+        "modulos": 243,
+        "comedor": 230,
+        "dmc": 230,
+        "patios": 0,
+        "dmc_comedor": 460
+      },
+      "orden_pliego": 18,
+      "orden_localidad": 42,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-45",
+      "nombre": "PP 45",
+      "direccion": "Allemandri 1501",
+      "zona": "Zona 2",
+      "lat": -34.765873,
+      "lng": -58.378362,
+      "cupos": {
+        "modulos": 224,
+        "comedor": 0,
+        "dmc": 224,
+        "patios": 0,
+        "dmc_comedor": 224
+      },
+      "orden_pliego": 19,
+      "orden_localidad": 43,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-47",
+      "nombre": "PP 47",
+      "direccion": "El Zorzal 2093",
+      "zona": "Zona 2",
+      "lat": -34.7698072,
+      "lng": -58.3697119,
+      "cupos": {
+        "modulos": 290,
+        "comedor": 309,
+        "dmc": 309,
+        "patios": 0,
+        "dmc_comedor": 618
+      },
+      "orden_pliego": 20,
+      "orden_localidad": 44,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-73",
+      "nombre": "PP 73",
+      "direccion": "Gral Campos 145",
+      "zona": "Zona 2",
+      "lat": -34.755195489361704,
+      "lng": -58.37815375531915,
+      "cupos": {
+        "modulos": 550,
+        "comedor": 0,
+        "dmc": 670,
+        "patios": 0,
+        "dmc_comedor": 670
+      },
+      "orden_pliego": 21,
+      "orden_localidad": 45,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-1134",
+      "nombre": "PP 1134",
+      "direccion": "Bolonia 655",
+      "zona": "Zona 2",
+      "lat": -34.7220859,
+      "lng": -58.4325885,
+      "cupos": {
+        "modulos": 50,
+        "comedor": 0,
+        "dmc": 200,
+        "patios": 0,
+        "dmc_comedor": 200
+      },
+      "orden_pliego": 22,
+      "orden_localidad": 46,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "pp-2437",
+      "nombre": "pp 2437",
+      "direccion": "Barcelona 1957",
+      "zona": "Zona 2",
+      "lat": -34.7335363,
+      "lng": -58.4448484,
+      "cupos": {
+        "modulos": 57,
+        "comedor": 0,
+        "dmc": 150,
+        "patios": 0,
+        "dmc_comedor": 150
+      },
+      "orden_pliego": 23,
+      "orden_localidad": 47,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-18A",
+      "nombre": "PP 18A",
+      "direccion": "Espronceda 199",
+      "zona": "Zona 2",
+      "lat": -34.737921,
+      "lng": -58.443867,
+      "cupos": {
+        "modulos": 40,
+        "comedor": 0,
+        "dmc": 0,
+        "patios": 205,
+        "dmc_comedor": 0
+      },
+      "orden_pliego": 24,
+      "orden_localidad": 48,
+      "zona_pliego": "Zona 2",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "EE-508",
+      "nombre": "EE 508",
+      "direccion": "Espronceda 150",
+      "zona": "Zona 3",
+      "lat": -34.7388792,
+      "lng": -58.4435356,
+      "cupos": {
+        "modulos": 130,
+        "comedor": 147,
+        "dmc": 258,
+        "patios": 0,
+        "dmc_comedor": 405
+      },
+      "orden_pliego": 1,
+      "orden_localidad": 49,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-2097",
+      "nombre": "JI 2097",
+      "direccion": "El Plumerillo 769",
+      "zona": "Zona 3",
+      "lat": -34.7209775,
+      "lng": -58.428858,
+      "cupos": {
+        "modulos": 165,
+        "comedor": 0,
+        "dmc": 165,
+        "patios": 0,
+        "dmc_comedor": 165
+      },
+      "orden_pliego": 2,
+      "orden_localidad": 50,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-71",
+      "nombre": "MS 71",
+      "direccion": "Facundo Quiroga 1370",
+      "zona": "Zona 3",
+      "lat": -34.7484838,
+      "lng": -58.473543,
+      "cupos": {
+        "modulos": 483,
+        "comedor": 470,
+        "dmc": 470,
+        "patios": 0,
+        "dmc_comedor": 940
+      },
+      "orden_pliego": 3,
+      "orden_localidad": 51,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-11",
+      "nombre": "MS 11",
+      "direccion": "Campana 524/534",
+      "zona": "Zona 3",
+      "lat": -34.7527522,
+      "lng": -58.4082001,
+      "cupos": {
+        "modulos": 700,
+        "comedor": 491,
+        "dmc": 611,
+        "patios": 0,
+        "dmc_comedor": 1102
+      },
+      "orden_pliego": 4,
+      "orden_localidad": 52,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-25",
+      "nombre": "MS 25",
+      "direccion": "Presidente Perón 4002",
+      "zona": "Zona 3",
+      "lat": -34.7635403,
+      "lng": -58.431405,
+      "cupos": {
+        "modulos": 370,
+        "comedor": 315,
+        "dmc": 315,
+        "patios": 0,
+        "dmc_comedor": 630
+      },
+      "orden_pliego": 5,
+      "orden_localidad": 53,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-30",
+      "nombre": "MS 30",
+      "direccion": "Bucarest 1722",
+      "zona": "Zona 3",
+      "lat": -34.7259688,
+      "lng": -58.4466946,
+      "cupos": {
+        "modulos": 520,
+        "comedor": 520,
+        "dmc": 600,
+        "patios": 0,
+        "dmc_comedor": 1120
+      },
+      "orden_pliego": 6,
+      "orden_localidad": 54,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-32",
+      "nombre": "MS 32",
+      "direccion": "Manuela Pedraza 3280",
+      "zona": "Zona 3",
+      "lat": -34.7459645,
+      "lng": -58.4698924,
+      "cupos": {
+        "modulos": 400,
+        "comedor": 475,
+        "dmc": 475,
+        "patios": 0,
+        "dmc_comedor": 950
+      },
+      "orden_pliego": 7,
+      "orden_localidad": 55,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-36",
+      "nombre": "MS 36",
+      "direccion": "Caraza 1760",
+      "zona": "Zona 3",
+      "lat": -34.7340955,
+      "lng": -58.4258247,
+      "cupos": {
+        "modulos": 200,
+        "comedor": 230,
+        "dmc": 230,
+        "patios": 0,
+        "dmc_comedor": 460
+      },
+      "orden_pliego": 8,
+      "orden_localidad": 56,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-37",
+      "nombre": "MS 37",
+      "direccion": "Mascagni 347",
+      "zona": "Zona 3",
+      "lat": -34.7517585,
+      "lng": -58.4329611,
+      "cupos": {
+        "modulos": 270,
+        "comedor": 350,
+        "dmc": 350,
+        "patios": 85,
+        "dmc_comedor": 700
+      },
+      "orden_pliego": 9,
+      "orden_localidad": 57,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-40SEDE",
+      "nombre": "MS 40 SEDE",
+      "direccion": "Luis Siciliano 1551",
+      "zona": "Zona 3",
+      "lat": -34.7392064,
+      "lng": -58.4289076,
+      "cupos": {
+        "modulos": 125,
+        "comedor": 275,
+        "dmc": 275,
+        "patios": 0,
+        "dmc_comedor": 550
+      },
+      "orden_pliego": 10,
+      "orden_localidad": 58,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-40EXT",
+      "nombre": "MS 40 EXT",
+      "direccion": "Celina de Minetto 1455",
+      "zona": "Zona 3",
+      "lat": -34.73714012765957,
+      "lng": -58.433304265957446,
+      "cupos": {
+        "modulos": 140,
+        "comedor": 275,
+        "dmc": 275,
+        "patios": 0,
+        "dmc_comedor": 550
+      },
+      "orden_pliego": 11,
+      "orden_localidad": 59,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-67",
+      "nombre": "MS 67",
+      "direccion": "Campana 360 Fiorito",
+      "zona": "Zona 3",
+      "lat": -34.7053968,
+      "lng": -58.4417674,
+      "cupos": {
+        "modulos": 380,
+        "comedor": 299,
+        "dmc": 452,
+        "patios": 0,
+        "dmc_comedor": 751
+      },
+      "orden_pliego": 12,
+      "orden_localidad": 60,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MT-9",
+      "nombre": "MT 9",
+      "direccion": "Soldado Rodriguez 1299",
+      "zona": "Zona 3",
+      "lat": -34.7415615,
+      "lng": -58.4724719,
+      "cupos": {
+        "modulos": 854,
+        "comedor": 658,
+        "dmc": 658,
+        "patios": 0,
+        "dmc_comedor": 1316
+      },
+      "orden_pliego": 13,
+      "orden_localidad": 61,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-2645",
+      "nombre": "PP 2645",
+      "direccion": "Ostende y Labarden S/Nro",
+      "zona": "Zona 3",
+      "lat": -34.7242316,
+      "lng": -58.4408936,
+      "cupos": {
+        "modulos": 159,
+        "comedor": 250,
+        "dmc": 250,
+        "patios": 0,
+        "dmc_comedor": 500
+      },
+      "orden_pliego": 14,
+      "orden_localidad": 62,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-19",
+      "nombre": "PP 19",
+      "direccion": "Gabriela Mistral 312",
+      "zona": "Zona 3",
+      "lat": -34.7295589,
+      "lng": -58.4205511,
+      "cupos": {
+        "modulos": 245,
+        "comedor": 279,
+        "dmc": 279,
+        "patios": 0,
+        "dmc_comedor": 558
+      },
+      "orden_pliego": 15,
+      "orden_localidad": 63,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-38",
+      "nombre": "PP 38",
+      "direccion": "Chopin 350",
+      "zona": "Zona 3",
+      "lat": -34.7519081,
+      "lng": -58.4323987,
+      "cupos": {
+        "modulos": 375,
+        "comedor": 0,
+        "dmc": 350,
+        "patios": 0,
+        "dmc_comedor": 350
+      },
+      "orden_pliego": 16,
+      "orden_localidad": 64,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-39",
+      "nombre": "PP 39",
+      "direccion": "Caraza 1760",
+      "zona": "Zona 3",
+      "lat": -34.7340955,
+      "lng": -58.4258247,
+      "cupos": {
+        "modulos": 240,
+        "comedor": 0,
+        "dmc": 250,
+        "patios": 0,
+        "dmc_comedor": 250
+      },
+      "orden_pliego": 17,
+      "orden_localidad": 65,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-76",
+      "nombre": "PP 76",
+      "direccion": "Luis Siciliano 1551",
+      "zona": "Zona 3",
+      "lat": -34.7392064,
+      "lng": -58.4289076,
+      "cupos": {
+        "modulos": 230,
+        "comedor": 300,
+        "dmc": 300,
+        "patios": 0,
+        "dmc_comedor": 600
+      },
+      "orden_pliego": 18,
+      "orden_localidad": 66,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-77",
+      "nombre": "PP 77",
+      "direccion": "Bucarest 1780",
+      "zona": "Zona 3",
+      "lat": -34.7262642,
+      "lng": -58.4472674,
+      "cupos": {
+        "modulos": 400,
+        "comedor": 400,
+        "dmc": 400,
+        "patios": 0,
+        "dmc_comedor": 800
+      },
+      "orden_pliego": 19,
+      "orden_localidad": 67,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-79",
+      "nombre": "PP 79",
+      "direccion": "Azamor 297",
+      "zona": "Zona 3",
+      "lat": -34.7153972,
+      "lng": -58.4685876,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 300,
+        "dmc": 365,
+        "patios": 0,
+        "dmc_comedor": 665
+      },
+      "orden_pliego": 20,
+      "orden_localidad": 68,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-81",
+      "nombre": "PP 81",
+      "direccion": "Celina de Minetto 1455",
+      "zona": "Zona 3",
+      "lat": -34.73714012765957,
+      "lng": -58.433304265957446,
+      "cupos": {
+        "modulos": 240,
+        "comedor": 317,
+        "dmc": 349,
+        "patios": 25,
+        "dmc_comedor": 666
+      },
+      "orden_pliego": 21,
+      "orden_localidad": 69,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-88",
+      "nombre": "PP 88",
+      "direccion": "Bucarest 1722",
+      "zona": "Zona 3",
+      "lat": -34.7259688,
+      "lng": -58.4466946,
+      "cupos": {
+        "modulos": 450,
+        "comedor": 410,
+        "dmc": 509,
+        "patios": 0,
+        "dmc_comedor": 919
+      },
+      "orden_pliego": 22,
+      "orden_localidad": 70,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-92",
+      "nombre": "PP 92",
+      "direccion": "Soldado Britos 1451 Santa Catalina",
+      "zona": "Zona 3",
+      "lat": -34.7426989,
+      "lng": -58.4693588,
+      "cupos": {
+        "modulos": 845,
+        "comedor": 800,
+        "dmc": 924,
+        "patios": 0,
+        "dmc_comedor": 1724
+      },
+      "orden_pliego": 23,
+      "orden_localidad": 71,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-94",
+      "nombre": "PP 94",
+      "direccion": "Facundo Quiroga 1370 Santa Catalina",
+      "zona": "Zona 3",
+      "lat": -34.7484838,
+      "lng": -58.473543,
+      "cupos": {
+        "modulos": 900,
+        "comedor": 758,
+        "dmc": 819,
+        "patios": 42,
+        "dmc_comedor": 1577
+      },
+      "orden_pliego": 24,
+      "orden_localidad": 72,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-98",
+      "nombre": "PP 98",
+      "direccion": "Larrazabal 2879 Fiorito",
+      "zona": "Zona 3",
+      "lat": -34.7,
+      "lng": -58.454,
+      "cupos": {
+        "modulos": 440,
+        "comedor": 350,
+        "dmc": 460,
+        "patios": 0,
+        "dmc_comedor": 810
+      },
+      "orden_pliego": 25,
+      "orden_localidad": 73,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora",
+      "coord_corregida": true
+    },
+    {
+      "id": "PP-63",
+      "nombre": "PP 63",
+      "direccion": "Campana 360 Fiorito",
+      "zona": "Zona 3",
+      "lat": -34.7053968,
+      "lng": -58.4417674,
+      "cupos": {
+        "modulos": 650,
+        "comedor": 500,
+        "dmc": 590,
+        "patios": 30,
+        "dmc_comedor": 1090
+      },
+      "orden_pliego": 26,
+      "orden_localidad": 74,
+      "zona_pliego": "Zona 3",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-926",
+      "nombre": "JI 926",
+      "direccion": "Pio Baroja 2054",
+      "zona": "Zona 4",
+      "lat": -34.7112413,
+      "lng": -58.4484172,
+      "cupos": {
+        "modulos": 340,
+        "comedor": 340,
+        "dmc": 340,
+        "patios": 0,
+        "dmc_comedor": 680
+      },
+      "orden_pliego": 1,
+      "orden_localidad": 75,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-4",
+      "nombre": "MS 4",
+      "direccion": "Larroque 2175",
+      "zona": "Zona 4",
+      "lat": -34.7409839,
+      "lng": -58.4266814,
+      "cupos": {
+        "modulos": 210,
+        "comedor": 540,
+        "dmc": 560,
+        "patios": 0,
+        "dmc_comedor": 1100
+      },
+      "orden_pliego": 2,
+      "orden_localidad": 76,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-7",
+      "nombre": "MS 7",
+      "direccion": "Saenz 450",
+      "zona": "Zona 4",
+      "lat": -34.7580002,
+      "lng": -58.4027798,
+      "cupos": {
+        "modulos": 370,
+        "comedor": 370,
+        "dmc": 479,
+        "patios": 0,
+        "dmc_comedor": 849
+      },
+      "orden_pliego": 3,
+      "orden_localidad": 77,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-12",
+      "nombre": "MS 12",
+      "direccion": "Alberto Larroque 150",
+      "zona": "Zona 4",
+      "lat": -34.7452523,
+      "lng": -58.3971841,
+      "cupos": {
+        "modulos": 600,
+        "comedor": 0,
+        "dmc": 680,
+        "patios": 0,
+        "dmc_comedor": 680
+      },
+      "orden_pliego": 4,
+      "orden_localidad": 78,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-15",
+      "nombre": "MS 15",
+      "direccion": "Dr Carlos Piocollivadino 267",
+      "zona": "Zona 4",
+      "lat": -34.75817462340425,
+      "lng": -58.38674770425532,
+      "cupos": {
+        "modulos": 400,
+        "comedor": 490,
+        "dmc": 490,
+        "patios": 0,
+        "dmc_comedor": 980
+      },
+      "orden_pliego": 5,
+      "orden_localidad": 79,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-22",
+      "nombre": "MS 22",
+      "direccion": "Gabriel Miro 2480",
+      "zona": "Zona 4",
+      "lat": -34.7099959,
+      "lng": -58.4507691,
+      "cupos": {
+        "modulos": 700,
+        "comedor": 630,
+        "dmc": 630,
+        "patios": 0,
+        "dmc_comedor": 1260
+      },
+      "orden_pliego": 6,
+      "orden_localidad": 80,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-73",
+      "nombre": "MS 73",
+      "direccion": "Pilar 120",
+      "zona": "Zona 4",
+      "lat": -34.7024067,
+      "lng": -58.4402477,
+      "cupos": {
+        "modulos": 280,
+        "comedor": 0,
+        "dmc": 250,
+        "patios": 0,
+        "dmc_comedor": 250
+      },
+      "orden_pliego": 7,
+      "orden_localidad": 81,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-13",
+      "nombre": "MS 13",
+      "direccion": "Hipolito Yrigoyen 9428",
+      "zona": "Zona 4",
+      "lat": -34.7654586,
+      "lng": -58.4034059,
+      "cupos": {
+        "modulos": 359,
+        "comedor": 550,
+        "dmc": 550,
+        "patios": 0,
+        "dmc_comedor": 1100
+      },
+      "orden_pliego": 8,
+      "orden_localidad": 82,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-83",
+      "nombre": "MS 83",
+      "direccion": "Quesada 2610",
+      "zona": "Zona 4",
+      "lat": -34.7248631,
+      "lng": -58.462946,
+      "cupos": {
+        "modulos": 420,
+        "comedor": 490,
+        "dmc": 490,
+        "patios": 0,
+        "dmc_comedor": 980
+      },
+      "orden_pliego": 9,
+      "orden_localidad": 83,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MT-1",
+      "nombre": "MT 1",
+      "direccion": "Manuel Castro 161",
+      "zona": "Zona 4",
+      "lat": -34.7582812,
+      "lng": -58.4035202,
+      "cupos": {
+        "modulos": 370,
+        "comedor": 700,
+        "dmc": 700,
+        "patios": 0,
+        "dmc_comedor": 1400
+      },
+      "orden_pliego": 10,
+      "orden_localidad": 84,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MT-3",
+      "nombre": "MT 3",
+      "direccion": "El Tordo 459",
+      "zona": "Zona 4",
+      "lat": -34.7603175,
+      "lng": -58.3535844,
+      "cupos": {
+        "modulos": 435,
+        "comedor": 800,
+        "dmc": 700,
+        "patios": 36,
+        "dmc_comedor": 1500
+      },
+      "orden_pliego": 11,
+      "orden_localidad": 85,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MT-6",
+      "nombre": "MT 6",
+      "direccion": "Gascon 150",
+      "zona": "Zona 4",
+      "lat": -34.7470736,
+      "lng": -58.3930963,
+      "cupos": {
+        "modulos": 205,
+        "comedor": 1196,
+        "dmc": 1196,
+        "patios": 0,
+        "dmc_comedor": 2392
+      },
+      "orden_pliego": 12,
+      "orden_localidad": 86,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MT-8",
+      "nombre": "MT 8",
+      "direccion": "Pio Baroja 1802",
+      "zona": "Zona 4",
+      "lat": -34.7288122,
+      "lng": -58.4342531,
+      "cupos": {
+        "modulos": 525,
+        "comedor": 500,
+        "dmc": 500,
+        "patios": 0,
+        "dmc_comedor": 1000
+      },
+      "orden_pliego": 13,
+      "orden_localidad": 87,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-1",
+      "nombre": "PP 1",
+      "direccion": "Sáenz 450",
+      "zona": "Zona 4",
+      "lat": -34.7580002,
+      "lng": -58.4027798,
+      "cupos": {
+        "modulos": 275,
+        "comedor": 0,
+        "dmc": 350,
+        "patios": 0,
+        "dmc_comedor": 350
+      },
+      "orden_pliego": 14,
+      "orden_localidad": 88,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-26",
+      "nombre": "PP 26",
+      "direccion": "Los Robles 108",
+      "zona": "Zona 4",
+      "lat": -34.7652091,
+      "lng": -58.4315099,
+      "cupos": {
+        "modulos": 430,
+        "comedor": 460,
+        "dmc": 460,
+        "patios": 0,
+        "dmc_comedor": 920
+      },
+      "orden_pliego": 15,
+      "orden_localidad": 89,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-67",
+      "nombre": "PP 67",
+      "direccion": "Pio Baroja2098",
+      "zona": "Zona 4",
+      "lat": -34.7112413,
+      "lng": -58.4484172,
+      "cupos": {
+        "modulos": 650,
+        "comedor": 650,
+        "dmc": 650,
+        "patios": 0,
+        "dmc_comedor": 1300
+      },
+      "orden_pliego": 16,
+      "orden_localidad": 90,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-85",
+      "nombre": "PP 85",
+      "direccion": "B.P. GaldosS 1998",
+      "zona": "Zona 4",
+      "lat": -34.7083792,
+      "lng": -58.4490397,
+      "cupos": {
+        "modulos": 761,
+        "comedor": 550,
+        "dmc": 650,
+        "patios": 0,
+        "dmc_comedor": 1200
+      },
+      "orden_pliego": 17,
+      "orden_localidad": 91,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-86",
+      "nombre": "PP 86",
+      "direccion": "Pilar 120",
+      "zona": "Zona 4",
+      "lat": -34.7024067,
+      "lng": -58.4402477,
+      "cupos": {
+        "modulos": 628,
+        "comedor": 460,
+        "dmc": 460,
+        "patios": 0,
+        "dmc_comedor": 920
+      },
+      "orden_pliego": 18,
+      "orden_localidad": 92,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-90",
+      "nombre": "PP 90",
+      "direccion": "Gabriel Miro 2450",
+      "zona": "Zona 4",
+      "lat": -34.7099959,
+      "lng": -58.4507691,
+      "cupos": {
+        "modulos": 620,
+        "comedor": 300,
+        "dmc": 450,
+        "patios": 0,
+        "dmc_comedor": 750
+      },
+      "orden_pliego": 19,
+      "orden_localidad": 93,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-97",
+      "nombre": "PP 97",
+      "direccion": "Vernet 281",
+      "zona": "Zona 4",
+      "lat": -34.7297857,
+      "lng": -58.4196105,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 270,
+        "dmc": 270,
+        "patios": 0,
+        "dmc_comedor": 540
+      },
+      "orden_pliego": 20,
+      "orden_localidad": 94,
+      "zona_pliego": "Zona 4",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "Extensión-80",
+      "nombre": "Extensión 80",
+      "direccion": "Piaggio 402",
+      "zona": "Zona 5",
+      "lat": -34.7645,
+      "lng": -58.409355,
+      "cupos": {
+        "modulos": 410,
+        "comedor": 219,
+        "dmc": 349,
+        "patios": 0,
+        "dmc_comedor": 568
+      },
+      "orden_pliego": 1,
+      "orden_localidad": 95,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-915",
+      "nombre": "JI 915",
+      "direccion": "Santos Vega y Pareta",
+      "zona": "Zona 5",
+      "lat": -34.8066373,
+      "lng": -58.4286211,
+      "cupos": {
+        "modulos": 75,
+        "comedor": 100,
+        "dmc": 100,
+        "patios": 0,
+        "dmc_comedor": 200
+      },
+      "orden_pliego": 2,
+      "orden_localidad": 96,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-923",
+      "nombre": "JI 923",
+      "direccion": "Moctezuma 498 San Jose Este",
+      "zona": "Zona 5",
+      "lat": -34.7501332,
+      "lng": -58.3485061,
+      "cupos": {
+        "modulos": 170,
+        "comedor": 0,
+        "dmc": 198,
+        "patios": 0,
+        "dmc_comedor": 198
+      },
+      "orden_pliego": 3,
+      "orden_localidad": 97,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-1380",
+      "nombre": "JI 1380",
+      "direccion": "Anchorena 1460",
+      "zona": "Zona 5",
+      "lat": -34.7652401,
+      "lng": -58.3796219,
+      "cupos": {
+        "modulos": 60,
+        "comedor": 0,
+        "dmc": 120,
+        "patios": 0,
+        "dmc_comedor": 120
+      },
+      "orden_pliego": 4,
+      "orden_localidad": 98,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JICC-4",
+      "nombre": "JI CC 4",
+      "direccion": "Martin Rodriguez 2244",
+      "zona": "Zona 5",
+      "lat": -34.7412514,
+      "lng": -58.443969,
+      "cupos": {
+        "modulos": 142,
+        "comedor": 142,
+        "dmc": 142,
+        "patios": 0,
+        "dmc_comedor": 284
+      },
+      "orden_pliego": 5,
+      "orden_localidad": 99,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-84",
+      "nombre": "MS 84",
+      "direccion": "Dr. Melber 2070",
+      "zona": "Zona 5",
+      "lat": -34.8080774,
+      "lng": -58.424879,
+      "cupos": {
+        "modulos": 176,
+        "comedor": 176,
+        "dmc": 296,
+        "patios": 0,
+        "dmc_comedor": 472
+      },
+      "orden_pliego": 6,
+      "orden_localidad": 100,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-3",
+      "nombre": "MS 3",
+      "direccion": "San Blas 309",
+      "zona": "Zona 5",
+      "lat": -34.7884916,
+      "lng": -58.415456,
+      "cupos": {
+        "modulos": 230,
+        "comedor": 555,
+        "dmc": 555,
+        "patios": 0,
+        "dmc_comedor": 1110
+      },
+      "orden_pliego": 7,
+      "orden_localidad": 101,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-14",
+      "nombre": "MS 14",
+      "direccion": "Sta Maria de Oro 44",
+      "zona": "Zona 5",
+      "lat": -34.7753118,
+      "lng": -58.3951084,
+      "cupos": {
+        "modulos": 440,
+        "comedor": 0,
+        "dmc": 863,
+        "patios": 0,
+        "dmc_comedor": 863
+      },
+      "orden_pliego": 8,
+      "orden_localidad": 102,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-51",
+      "nombre": "MS 51",
+      "direccion": "Mercedes 450",
+      "zona": "Zona 5",
+      "lat": -34.807104,
+      "lng": -58.421091,
+      "cupos": {
+        "modulos": 340,
+        "comedor": 277,
+        "dmc": 497,
+        "patios": 0,
+        "dmc_comedor": 774
+      },
+      "orden_pliego": 9,
+      "orden_localidad": 103,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-61",
+      "nombre": "MS 61",
+      "direccion": "MIguel Cané 1264",
+      "zona": "Zona 5",
+      "lat": -34.749442,
+      "lng": -58.379099,
+      "cupos": {
+        "modulos": 147,
+        "comedor": 0,
+        "dmc": 350,
+        "patios": 0,
+        "dmc_comedor": 350
+      },
+      "orden_pliego": 10,
+      "orden_localidad": 104,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-80",
+      "nombre": "MS 80",
+      "direccion": "Piaggio 402",
+      "zona": "Zona 5",
+      "lat": -34.7645,
+      "lng": -58.409355,
+      "cupos": {
+        "modulos": 0,
+        "comedor": 255,
+        "dmc": 340,
+        "patios": 0,
+        "dmc_comedor": 595
+      },
+      "orden_pliego": 11,
+      "orden_localidad": 105,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-8",
+      "nombre": "PP 8",
+      "direccion": "Piaggio 402",
+      "zona": "Zona 5",
+      "lat": -34.7645,
+      "lng": -58.409355,
+      "cupos": {
+        "modulos": 200,
+        "comedor": 0,
+        "dmc": 391,
+        "patios": 0,
+        "dmc_comedor": 391
+      },
+      "orden_pliego": 12,
+      "orden_localidad": 106,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-10",
+      "nombre": "PP 10",
+      "direccion": "Pueyrredón 1840",
+      "zona": "Zona 5",
+      "lat": -34.7397238,
+      "lng": -58.3894683,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 0,
+        "dmc": 400,
+        "patios": 0,
+        "dmc_comedor": 400
+      },
+      "orden_pliego": 13,
+      "orden_localidad": 107,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-23",
+      "nombre": "PP 23",
+      "direccion": "Dr. Melber 2070",
+      "zona": "Zona 5",
+      "lat": -34.8080774,
+      "lng": -58.424879,
+      "cupos": {
+        "modulos": 625,
+        "comedor": 0,
+        "dmc": 688,
+        "patios": 0,
+        "dmc_comedor": 688
+      },
+      "orden_pliego": 14,
+      "orden_localidad": 108,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-29",
+      "nombre": "PP 29",
+      "direccion": "Molina Arrotea 1505",
+      "zona": "Zona 5",
+      "lat": -34.7662836,
+      "lng": -58.4205757,
+      "cupos": {
+        "modulos": 380,
+        "comedor": 0,
+        "dmc": 432,
+        "patios": 0,
+        "dmc_comedor": 432
+      },
+      "orden_pliego": 15,
+      "orden_localidad": 109,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-30",
+      "nombre": "PP 30",
+      "direccion": "Bucarest 1722",
+      "zona": "Zona 5",
+      "lat": -34.7259688,
+      "lng": -58.4466946,
+      "cupos": {
+        "modulos": 370,
+        "comedor": 0,
+        "dmc": 298,
+        "patios": 0,
+        "dmc_comedor": 298
+      },
+      "orden_pliego": 16,
+      "orden_localidad": 110,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-34",
+      "nombre": "PP 34",
+      "direccion": "Dr. Melber 2050",
+      "zona": "Zona 5",
+      "lat": -34.8080774,
+      "lng": -58.424879,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 350,
+        "dmc": 350,
+        "patios": 0,
+        "dmc_comedor": 700
+      },
+      "orden_pliego": 17,
+      "orden_localidad": 111,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-35",
+      "nombre": "PP 35",
+      "direccion": "San Blas 351",
+      "zona": "Zona 5",
+      "lat": -34.7839257,
+      "lng": -58.4189399,
+      "cupos": {
+        "modulos": 205,
+        "comedor": 0,
+        "dmc": 241,
+        "patios": 0,
+        "dmc_comedor": 241
+      },
+      "orden_pliego": 18,
+      "orden_localidad": 112,
+      "zona_pliego": "Zona 5",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "CEC-805",
+      "nombre": "CEC 805",
+      "direccion": "Azamor 232",
+      "zona": "Zona 6",
+      "lat": -34.7117377,
+      "lng": -58.4620268,
+      "cupos": {
+        "modulos": 219,
+        "comedor": 219,
+        "dmc": 340,
+        "patios": 0,
+        "dmc_comedor": 559
+      },
+      "orden_pliego": 1,
+      "orden_localidad": 113,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "EE-501",
+      "nombre": "EE 501",
+      "direccion": "Laprida 1573",
+      "zona": "Zona 6",
+      "lat": -34.7579547,
+      "lng": -58.419562,
+      "cupos": {
+        "modulos": 150,
+        "comedor": 150,
+        "dmc": 220,
+        "patios": 0,
+        "dmc_comedor": 370
+      },
+      "orden_pliego": 2,
+      "orden_localidad": 114,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-920",
+      "nombre": "JI 920",
+      "direccion": "Araguaya 957",
+      "zona": "Zona 6",
+      "lat": -34.7883504,
+      "lng": -58.4208008,
+      "cupos": {
+        "modulos": 57,
+        "comedor": 57,
+        "dmc": 57,
+        "patios": 0,
+        "dmc_comedor": 114
+      },
+      "orden_pliego": 3,
+      "orden_localidad": 115,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-921",
+      "nombre": "JI 921",
+      "direccion": "Juan Zamora y Gabriela Mistral 653",
+      "zona": "Zona 6",
+      "lat": -34.7760296,
+      "lng": -58.396796,
+      "cupos": {
+        "modulos": 140,
+        "comedor": 139,
+        "dmc": 139,
+        "patios": 0,
+        "dmc_comedor": 278
+      },
+      "orden_pliego": 4,
+      "orden_localidad": 116,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-928",
+      "nombre": "JI 928",
+      "direccion": "24 de Mayo 649",
+      "zona": "Zona 6",
+      "lat": -34.7657711,
+      "lng": -58.4203864,
+      "cupos": {
+        "modulos": 139,
+        "comedor": 0,
+        "dmc": 139,
+        "patios": 0,
+        "dmc_comedor": 139
+      },
+      "orden_pliego": 5,
+      "orden_localidad": 117,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-931",
+      "nombre": "JI 931",
+      "direccion": "Jacinto Benavente 498",
+      "zona": "Zona 6",
+      "lat": -34.7600346,
+      "lng": -58.4342658,
+      "cupos": {
+        "modulos": 98,
+        "comedor": 0,
+        "dmc": 98,
+        "patios": 0,
+        "dmc_comedor": 98
+      },
+      "orden_pliego": 6,
+      "orden_localidad": 118,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-934",
+      "nombre": "JI 934",
+      "direccion": "Campana 1216",
+      "zona": "Zona 6",
+      "lat": -34.7053968,
+      "lng": -58.4417674,
+      "cupos": {
+        "modulos": 220,
+        "comedor": 197,
+        "dmc": 220,
+        "patios": 0,
+        "dmc_comedor": 417
+      },
+      "orden_pliego": 7,
+      "orden_localidad": 119,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-907",
+      "nombre": "JI 907",
+      "direccion": "Araoz 1450",
+      "zona": "Zona 6",
+      "lat": -34.733857,
+      "lng": -58.41478,
+      "cupos": {
+        "modulos": 130,
+        "comedor": 0,
+        "dmc": 134,
+        "patios": 0,
+        "dmc_comedor": 134
+      },
+      "orden_pliego": 8,
+      "orden_localidad": 120,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JICC-6",
+      "nombre": "JI CC 6",
+      "direccion": "Mario Bravo 2133",
+      "zona": "Zona 6",
+      "lat": -34.7024082,
+      "lng": -58.4455352,
+      "cupos": {
+        "modulos": 50,
+        "comedor": 55,
+        "dmc": 55,
+        "patios": 0,
+        "dmc_comedor": 110
+      },
+      "orden_pliego": 9,
+      "orden_localidad": 121,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-43",
+      "nombre": "MS 43",
+      "direccion": "Morazan s/n entre Islandia y Australia",
+      "zona": "Zona 6",
+      "lat": -34.7158223,
+      "lng": -58.4379927,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 300,
+        "dmc": 300,
+        "patios": 0,
+        "dmc_comedor": 600
+      },
+      "orden_pliego": 10,
+      "orden_localidad": 122,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-53",
+      "nombre": "MS 53",
+      "direccion": "Mentruyt 1825",
+      "zona": "Zona 6",
+      "lat": -34.7611377,
+      "lng": -58.4010405,
+      "cupos": {
+        "modulos": 210,
+        "comedor": 0,
+        "dmc": 215,
+        "patios": 0,
+        "dmc_comedor": 215
+      },
+      "orden_pliego": 11,
+      "orden_localidad": 123,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-60",
+      "nombre": "MS 60",
+      "direccion": "Laprida 1650",
+      "zona": "Zona 6",
+      "lat": -34.7298585,
+      "lng": -58.4834842,
+      "cupos": {
+        "modulos": 116,
+        "comedor": 0,
+        "dmc": 153,
+        "patios": 0,
+        "dmc_comedor": 153
+      },
+      "orden_pliego": 12,
+      "orden_localidad": 124,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-74",
+      "nombre": "MS 74",
+      "direccion": "Ejercto de los Andes 1318",
+      "zona": "Zona 6",
+      "lat": -34.721747593617025,
+      "lng": -58.44322211276595,
+      "cupos": {
+        "modulos": 155,
+        "comedor": 300,
+        "dmc": 300,
+        "patios": 0,
+        "dmc_comedor": 600
+      },
+      "orden_pliego": 13,
+      "orden_localidad": 125,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-27",
+      "nombre": "PP 27",
+      "direccion": "Laprida 1650",
+      "zona": "Zona 6",
+      "lat": -34.7298585,
+      "lng": -58.4834842,
+      "cupos": {
+        "modulos": 316,
+        "comedor": 326,
+        "dmc": 326,
+        "patios": 0,
+        "dmc_comedor": 652
+      },
+      "orden_pliego": 14,
+      "orden_localidad": 126,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-33",
+      "nombre": "PP 33",
+      "direccion": "Supe 1824",
+      "zona": "Zona 6",
+      "lat": -34.736825,
+      "lng": -58.4112657,
+      "cupos": {
+        "modulos": 350,
+        "comedor": 0,
+        "dmc": 376,
+        "patios": 0,
+        "dmc_comedor": 376
+      },
+      "orden_pliego": 15,
+      "orden_localidad": 127,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-44",
+      "nombre": "PP 44",
+      "direccion": "Islandia 650",
+      "zona": "Zona 6",
+      "lat": -34.7183016,
+      "lng": -58.4423069,
+      "cupos": {
+        "modulos": 350,
+        "comedor": 350,
+        "dmc": 350,
+        "patios": 0,
+        "dmc_comedor": 700
+      },
+      "orden_pliego": 16,
+      "orden_localidad": 128,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-56",
+      "nombre": "PP 56",
+      "direccion": "El Tordo 233",
+      "zona": "Zona 6",
+      "lat": -34.7603175,
+      "lng": -58.3535844,
+      "cupos": {
+        "modulos": 500,
+        "comedor": 448,
+        "dmc": 448,
+        "patios": 0,
+        "dmc_comedor": 896
+      },
+      "orden_pliego": 17,
+      "orden_localidad": 129,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-84",
+      "nombre": "PP 84",
+      "direccion": "Núñez de Arce 1296",
+      "zona": "Zona 6",
+      "lat": -34.7225621,
+      "lng": -58.4423637,
+      "cupos": {
+        "modulos": 413,
+        "comedor": 446,
+        "dmc": 415,
+        "patios": 0,
+        "dmc_comedor": 861
+      },
+      "orden_pliego": 18,
+      "orden_localidad": 130,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-1009",
+      "nombre": "PP 1009",
+      "direccion": "El Plumerillo 769",
+      "zona": "Zona 6",
+      "lat": -34.7209775,
+      "lng": -58.428858,
+      "cupos": {
+        "modulos": 250,
+        "comedor": 0,
+        "dmc": 250,
+        "patios": 0,
+        "dmc_comedor": 250
+      },
+      "orden_pliego": 19,
+      "orden_localidad": 131,
+      "zona_pliego": "Zona 6",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "CEC-801",
+      "nombre": "CEC 801",
+      "direccion": "Las Heras 2203",
+      "zona": "Zona 7",
+      "lat": -34.745958,
+      "lng": -58.4260827,
+      "cupos": {
+        "modulos": 180,
+        "comedor": 180,
+        "dmc": 180,
+        "patios": 0,
+        "dmc_comedor": 360
+      },
+      "orden_pliego": 1,
+      "orden_localidad": 132,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "EE-506",
+      "nombre": "EE 506",
+      "direccion": "Ramon Falcon 780",
+      "zona": "Zona 7",
+      "lat": -34.7668979,
+      "lng": -58.409431,
+      "cupos": {
+        "modulos": 65,
+        "comedor": 70,
+        "dmc": 70,
+        "patios": 0,
+        "dmc_comedor": 140
+      },
+      "orden_pliego": 2,
+      "orden_localidad": 133,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "EE-507",
+      "nombre": "EE 507",
+      "direccion": "Pasaje González 40",
+      "zona": "Zona 7",
+      "lat": -34.76315005319149,
+      "lng": -58.40399767446809,
+      "cupos": {
+        "modulos": 66,
+        "comedor": 66,
+        "dmc": 80,
+        "patios": 0,
+        "dmc_comedor": 146
+      },
+      "orden_pliego": 3,
+      "orden_localidad": 134,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-917",
+      "nombre": "JI 917",
+      "direccion": "Mascagni 395",
+      "zona": "Zona 7",
+      "lat": -34.751326,
+      "lng": -58.4328872,
+      "cupos": {
+        "modulos": 130,
+        "comedor": 0,
+        "dmc": 147,
+        "patios": 0,
+        "dmc_comedor": 147
+      },
+      "orden_pliego": 4,
+      "orden_localidad": 135,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-937",
+      "nombre": "JI 937",
+      "direccion": "Bustos 890",
+      "zona": "Zona 7",
+      "lat": -34.7604075,
+      "lng": -58.4476759,
+      "cupos": {
+        "modulos": 170,
+        "comedor": 170,
+        "dmc": 170,
+        "patios": 0,
+        "dmc_comedor": 340
+      },
+      "orden_pliego": 5,
+      "orden_localidad": 136,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-939",
+      "nombre": "JI 939",
+      "direccion": "La Haya 2155",
+      "zona": "Zona 7",
+      "lat": -34.7291193,
+      "lng": -58.4517145,
+      "cupos": {
+        "modulos": 175,
+        "comedor": 160,
+        "dmc": 160,
+        "patios": 0,
+        "dmc_comedor": 320
+      },
+      "orden_pliego": 6,
+      "orden_localidad": 137,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-949",
+      "nombre": "JI 949",
+      "direccion": "Año del Libertador 206",
+      "zona": "Zona 7",
+      "lat": -34.7731711,
+      "lng": -58.442131,
+      "cupos": {
+        "modulos": 91,
+        "comedor": 0,
+        "dmc": 91,
+        "patios": 0,
+        "dmc_comedor": 91
+      },
+      "orden_pliego": 7,
+      "orden_localidad": 138,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-951",
+      "nombre": "JI 951",
+      "direccion": "Florencio Sanchez 1270",
+      "zona": "Zona 7",
+      "lat": -34.7481456,
+      "lng": -58.4465936,
+      "cupos": {
+        "modulos": 97,
+        "comedor": 97,
+        "dmc": 97,
+        "patios": 0,
+        "dmc_comedor": 194
+      },
+      "orden_pliego": 8,
+      "orden_localidad": 139,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-23",
+      "nombre": "MS 23",
+      "direccion": "Florencio Sanchez 1270",
+      "zona": "Zona 7",
+      "lat": -34.7481456,
+      "lng": -58.4465936,
+      "cupos": {
+        "modulos": 550,
+        "comedor": 598,
+        "dmc": 598,
+        "patios": 55,
+        "dmc_comedor": 1196
+      },
+      "orden_pliego": 9,
+      "orden_localidad": 140,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-38",
+      "nombre": "MS 38",
+      "direccion": "Lope de Vega 1070",
+      "zona": "Zona 7",
+      "lat": -34.7452189,
+      "lng": -58.4471356,
+      "cupos": {
+        "modulos": 330,
+        "comedor": 0,
+        "dmc": 380,
+        "patios": 0,
+        "dmc_comedor": 380
+      },
+      "orden_pliego": 10,
+      "orden_localidad": 141,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-46",
+      "nombre": "MS 46",
+      "direccion": "las tropas y vernet S/N",
+      "zona": "Zona 7",
+      "lat": -34.739903,
+      "lng": -58.4367291,
+      "cupos": {
+        "modulos": 450,
+        "comedor": 450,
+        "dmc": 500,
+        "patios": 0,
+        "dmc_comedor": 950
+      },
+      "orden_pliego": 11,
+      "orden_localidad": 142,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-59",
+      "nombre": "MS 59",
+      "direccion": "Castelli 816",
+      "zona": "Zona 7",
+      "lat": -34.7526559,
+      "lng": -58.4071969,
+      "cupos": {
+        "modulos": 250,
+        "comedor": 250,
+        "dmc": 250,
+        "patios": 0,
+        "dmc_comedor": 500
+      },
+      "orden_pliego": 12,
+      "orden_localidad": 143,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-64",
+      "nombre": "MS 64",
+      "direccion": "Santa Fe 550",
+      "zona": "Zona 7",
+      "lat": -34.7511557,
+      "lng": -58.4197747,
+      "cupos": {
+        "modulos": 130,
+        "comedor": 180,
+        "dmc": 180,
+        "patios": 0,
+        "dmc_comedor": 360
+      },
+      "orden_pliego": 13,
+      "orden_localidad": 144,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-69",
+      "nombre": "MS 69",
+      "direccion": "Alsina 1052",
+      "zona": "Zona 7",
+      "lat": -34.7450554,
+      "lng": -58.3933776,
+      "cupos": {
+        "modulos": 100,
+        "comedor": 0,
+        "dmc": 100,
+        "patios": 0,
+        "dmc_comedor": 100
+      },
+      "orden_pliego": 14,
+      "orden_localidad": 145,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MT-2",
+      "nombre": "MT 2",
+      "direccion": "Lavalle 801",
+      "zona": "Zona 7",
+      "lat": -34.7765862,
+      "lng": -58.4084325,
+      "cupos": {
+        "modulos": 137,
+        "comedor": 350,
+        "dmc": 350,
+        "patios": 0,
+        "dmc_comedor": 700
+      },
+      "orden_pliego": 15,
+      "orden_localidad": 146,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MT-5",
+      "nombre": "MT 5",
+      "direccion": "Pringles 27",
+      "zona": "Zona 7",
+      "lat": -34.7761611,
+      "lng": -58.4117487,
+      "cupos": {
+        "modulos": 385,
+        "comedor": 1392,
+        "dmc": 435,
+        "patios": 0,
+        "dmc_comedor": 1827
+      },
+      "orden_pliego": 16,
+      "orden_localidad": 147,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MT-7",
+      "nombre": "MT 7",
+      "direccion": "Acevedo 1864",
+      "zona": "Zona 7",
+      "lat": -34.7383918,
+      "lng": -58.3967418,
+      "cupos": {
+        "modulos": 100,
+        "comedor": 440,
+        "dmc": 440,
+        "patios": 0,
+        "dmc_comedor": 880
+      },
+      "orden_pliego": 17,
+      "orden_localidad": 148,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-3",
+      "nombre": "PP 3",
+      "direccion": "Av. Hipólito Yrigoyen 10361",
+      "zona": "Zona 7",
+      "lat": -34.7775072,
+      "lng": -58.4059369,
+      "cupos": {
+        "modulos": 150,
+        "comedor": 0,
+        "dmc": 194,
+        "patios": 0,
+        "dmc_comedor": 194
+      },
+      "orden_pliego": 18,
+      "orden_localidad": 149,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-5",
+      "nombre": "PP 5",
+      "direccion": "Juan José Castelli 1710",
+      "zona": "Zona 7",
+      "lat": -34.7506424,
+      "lng": -58.4198362,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 310,
+        "dmc": 350,
+        "patios": 0,
+        "dmc_comedor": 660
+      },
+      "orden_pliego": 19,
+      "orden_localidad": 150,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-7",
+      "nombre": "PP 7",
+      "direccion": "Av. Alsina 1052",
+      "zona": "Zona 7",
+      "lat": -34.7488176,
+      "lng": -58.3940788,
+      "cupos": {
+        "modulos": 327,
+        "comedor": 0,
+        "dmc": 326,
+        "patios": 0,
+        "dmc_comedor": 326
+      },
+      "orden_pliego": 20,
+      "orden_localidad": 151,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-14",
+      "nombre": "PP 14",
+      "direccion": "Castelli 816",
+      "zona": "Zona 7",
+      "lat": -34.7526559,
+      "lng": -58.4071969,
+      "cupos": {
+        "modulos": 475,
+        "comedor": 0,
+        "dmc": 449,
+        "patios": 0,
+        "dmc_comedor": 449
+      },
+      "orden_pliego": 21,
+      "orden_localidad": 152,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-21",
+      "nombre": "PP 21",
+      "direccion": "J.M. Pena 99",
+      "zona": "Zona 7",
+      "lat": -34.7494129,
+      "lng": -58.3944716,
+      "cupos": {
+        "modulos": 480,
+        "comedor": 0,
+        "dmc": 650,
+        "patios": 0,
+        "dmc_comedor": 650
+      },
+      "orden_pliego": 22,
+      "orden_localidad": 153,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-31",
+      "nombre": "PP 31",
+      "direccion": "Av. Hipólito Yrigoyen 7672",
+      "zona": "Zona 7",
+      "lat": -34.7445677,
+      "lng": -58.3990646,
+      "cupos": {
+        "modulos": 280,
+        "comedor": 0,
+        "dmc": 280,
+        "patios": 0,
+        "dmc_comedor": 280
+      },
+      "orden_pliego": 23,
+      "orden_localidad": 154,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-51",
+      "nombre": "PP 51",
+      "direccion": "Muzzili 163",
+      "zona": "Zona 7",
+      "lat": -34.7437455,
+      "lng": -58.3960811,
+      "cupos": {
+        "modulos": 350,
+        "comedor": 0,
+        "dmc": 384,
+        "patios": 45,
+        "dmc_comedor": 384
+      },
+      "orden_pliego": 24,
+      "orden_localidad": 155,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-53",
+      "nombre": "PP 53",
+      "direccion": "Las Tropas y Vernet 1700",
+      "zona": "Zona 7",
+      "lat": -34.7498391,
+      "lng": -58.4281883,
+      "cupos": {
+        "modulos": 550,
+        "comedor": 500,
+        "dmc": 500,
+        "patios": 0,
+        "dmc_comedor": 1000
+      },
+      "orden_pliego": 25,
+      "orden_localidad": 156,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-59",
+      "nombre": "PP 59",
+      "direccion": "Champalanne 2608",
+      "zona": "Zona 7",
+      "lat": -34.7535491,
+      "lng": -58.4406953,
+      "cupos": {
+        "modulos": 415,
+        "comedor": 400,
+        "dmc": 400,
+        "patios": 0,
+        "dmc_comedor": 800
+      },
+      "orden_pliego": 26,
+      "orden_localidad": 157,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-60",
+      "nombre": "PP 60",
+      "direccion": "Cid guido de franc 2520",
+      "zona": "Zona 7",
+      "lat": -34.748312908510634,
+      "lng": -58.44368500851064,
+      "cupos": {
+        "modulos": 441,
+        "comedor": 441,
+        "dmc": 430,
+        "patios": 0,
+        "dmc_comedor": 871
+      },
+      "orden_pliego": 27,
+      "orden_localidad": 158,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-75",
+      "nombre": "PP 75",
+      "direccion": "F.Sanchéz 1311",
+      "zona": "Zona 7",
+      "lat": -34.7873503,
+      "lng": -58.3910264,
+      "cupos": {
+        "modulos": 270,
+        "comedor": 290,
+        "dmc": 290,
+        "patios": 0,
+        "dmc_comedor": 580
+      },
+      "orden_pliego": 28,
+      "orden_localidad": 159,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-25",
+      "nombre": "PP 25",
+      "direccion": "El Zorzal 2793",
+      "zona": "Zona 7",
+      "lat": -34.7607873,
+      "lng": -58.3523241,
+      "cupos": {
+        "modulos": 577,
+        "comedor": 0,
+        "dmc": 0,
+        "patios": 0,
+        "dmc_comedor": 0
+      },
+      "orden_pliego": 29,
+      "orden_localidad": 160,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-1182",
+      "nombre": "PP 1182",
+      "direccion": "Juan M. de Lavardén 2472",
+      "zona": "Zona 7",
+      "lat": -34.7200159,
+      "lng": -58.4686276,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 0,
+        "dmc": 350,
+        "patios": 0,
+        "dmc_comedor": 350
+      },
+      "orden_pliego": 30,
+      "orden_localidad": 161,
+      "zona_pliego": "Zona 7",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "AsunciòndeMaria-5729",
+      "nombre": "Asunciòn de Maria 5729",
+      "direccion": "Armesti 3345",
+      "zona": "Zona 8",
+      "lat": -34.7427862,
+      "lng": -58.3505617,
+      "cupos": {
+        "modulos": 30,
+        "comedor": 0,
+        "dmc": 30,
+        "patios": 0,
+        "dmc_comedor": 30
+      },
+      "orden_pliego": 1,
+      "orden_localidad": 162,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "CEC-802",
+      "nombre": "CEC 802",
+      "direccion": "Av José Garibaldi 1256",
+      "zona": "Zona 8",
+      "lat": -34.7693708,
+      "lng": -58.4015001,
+      "cupos": {
+        "modulos": 185,
+        "comedor": 283,
+        "dmc": 329,
+        "patios": 0,
+        "dmc_comedor": 612
+      },
+      "orden_pliego": 2,
+      "orden_localidad": 163,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "Didascalio-8301",
+      "nombre": "Didascalio 8301",
+      "direccion": "A. Cap. Giaccino 3000",
+      "zona": "Zona 8",
+      "lat": -34.741869,
+      "lng": -58.4765483,
+      "cupos": {
+        "modulos": 30,
+        "comedor": 0,
+        "dmc": 30,
+        "patios": 0,
+        "dmc_comedor": 30
+      },
+      "orden_pliego": 3,
+      "orden_localidad": 164,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-911",
+      "nombre": "JI 911",
+      "direccion": "Lavalle 879",
+      "zona": "Zona 8",
+      "lat": -34.7769976,
+      "lng": -58.4092747,
+      "cupos": {
+        "modulos": 130,
+        "comedor": 0,
+        "dmc": 159,
+        "patios": 0,
+        "dmc_comedor": 159
+      },
+      "orden_pliego": 4,
+      "orden_localidad": 165,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-912",
+      "nombre": "JI 912",
+      "direccion": "San Benito esq. 9 de Julio",
+      "zona": "Zona 8",
+      "lat": -34.7555208,
+      "lng": -58.345127,
+      "cupos": {
+        "modulos": 107,
+        "comedor": 0,
+        "dmc": 107,
+        "patios": 0,
+        "dmc_comedor": 107
+      },
+      "orden_pliego": 5,
+      "orden_localidad": 166,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-918",
+      "nombre": "JI 918",
+      "direccion": "Vieytes 651",
+      "zona": "Zona 8",
+      "lat": -34.7392128,
+      "lng": -58.403408,
+      "cupos": {
+        "modulos": 123,
+        "comedor": 0,
+        "dmc": 123,
+        "patios": 0,
+        "dmc_comedor": 123
+      },
+      "orden_pliego": 6,
+      "orden_localidad": 167,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-5",
+      "nombre": "MS 5",
+      "direccion": "Av. Eva Perón y Albarracín",
+      "zona": "Zona 8",
+      "lat": -34.7758929,
+      "lng": -58.389098,
+      "cupos": {
+        "modulos": 280,
+        "comedor": 200,
+        "dmc": 294,
+        "patios": 0,
+        "dmc_comedor": 494
+      },
+      "orden_pliego": 7,
+      "orden_localidad": 168,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-41",
+      "nombre": "MS 41",
+      "direccion": "Hiólito Yrigoyen 11518",
+      "zona": "Zona 8",
+      "lat": -34.7912111,
+      "lng": -58.4084651,
+      "cupos": {
+        "modulos": 308,
+        "comedor": 280,
+        "dmc": 313,
+        "patios": 0,
+        "dmc_comedor": 593
+      },
+      "orden_pliego": 8,
+      "orden_localidad": 169,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-44",
+      "nombre": "MS 44",
+      "direccion": "Perito Moreno 260",
+      "zona": "Zona 8",
+      "lat": -34.7827965,
+      "lng": -58.3919436,
+      "cupos": {
+        "modulos": 155,
+        "comedor": 185,
+        "dmc": 212,
+        "patios": 0,
+        "dmc_comedor": 397
+      },
+      "orden_pliego": 9,
+      "orden_localidad": 170,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-57",
+      "nombre": "MS 57",
+      "direccion": "Bernardo de Irigoyen 750",
+      "zona": "Zona 8",
+      "lat": -34.7690999,
+      "lng": -58.3848868,
+      "cupos": {
+        "modulos": 198,
+        "comedor": 0,
+        "dmc": 534,
+        "patios": 0,
+        "dmc_comedor": 534
+      },
+      "orden_pliego": 10,
+      "orden_localidad": 171,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-65",
+      "nombre": "MS 65",
+      "direccion": "Huergo 40",
+      "zona": "Zona 8",
+      "lat": -34.7808214,
+      "lng": -58.411593,
+      "cupos": {
+        "modulos": 209,
+        "comedor": 315,
+        "dmc": 315,
+        "patios": 0,
+        "dmc_comedor": 630
+      },
+      "orden_pliego": 11,
+      "orden_localidad": 172,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "NiñodeBelen-3662",
+      "nombre": "Niño de Belen 3662",
+      "direccion": "S. de Bustamante 1530",
+      "zona": "Zona 8",
+      "lat": -34.76,
+      "lng": -58.407,
+      "cupos": {
+        "modulos": 15,
+        "comedor": 0,
+        "dmc": 15,
+        "patios": 0,
+        "dmc_comedor": 15
+      },
+      "orden_pliego": 12,
+      "orden_localidad": 173,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora",
+      "coord_corregida": true
+    },
+    {
+      "id": "NuestraSeñoradelosMilagros-1662",
+      "nombre": "Nuestra Señora de los Milagros 1662",
+      "direccion": "Pto Argentino 1040",
+      "zona": "Zona 8",
+      "lat": -34.730277,
+      "lng": -58.4322014,
+      "cupos": {
+        "modulos": 40,
+        "comedor": 0,
+        "dmc": 40,
+        "patios": 0,
+        "dmc_comedor": 40
+      },
+      "orden_pliego": 13,
+      "orden_localidad": 174,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-2",
+      "nombre": "PP 2",
+      "direccion": "Albarracín 911",
+      "zona": "Zona 8",
+      "lat": -34.7759648,
+      "lng": -58.3888839,
+      "cupos": {
+        "modulos": 311,
+        "comedor": 311,
+        "dmc": 367,
+        "patios": 0,
+        "dmc_comedor": 678
+      },
+      "orden_pliego": 14,
+      "orden_localidad": 175,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-6",
+      "nombre": "PP 6",
+      "direccion": "Garibaldi 1298",
+      "zona": "Zona 8",
+      "lat": -34.7715417,
+      "lng": -58.4056323,
+      "cupos": {
+        "modulos": 241,
+        "comedor": 0,
+        "dmc": 241,
+        "patios": 0,
+        "dmc_comedor": 241
+      },
+      "orden_pliego": 15,
+      "orden_localidad": 176,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-22",
+      "nombre": "PP 22",
+      "direccion": "Santa Teresa 90",
+      "zona": "Zona 8",
+      "lat": -34.7959905,
+      "lng": -58.406546,
+      "cupos": {
+        "modulos": 120,
+        "comedor": 128,
+        "dmc": 240,
+        "patios": 0,
+        "dmc_comedor": 368
+      },
+      "orden_pliego": 16,
+      "orden_localidad": 177,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-20",
+      "nombre": "PP 20",
+      "direccion": "Viamonte 423",
+      "zona": "Zona 8",
+      "lat": -34.7567616,
+      "lng": -58.3912277,
+      "cupos": {
+        "modulos": 100,
+        "comedor": 0,
+        "dmc": 0,
+        "patios": 0,
+        "dmc_comedor": 0
+      },
+      "orden_pliego": 17,
+      "orden_localidad": 178,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-55",
+      "nombre": "PP 55",
+      "direccion": "Nestor De La Peña 654",
+      "zona": "Zona 8",
+      "lat": -34.7886806,
+      "lng": -58.4295052,
+      "cupos": {
+        "modulos": 140,
+        "comedor": 142,
+        "dmc": 145,
+        "patios": 0,
+        "dmc_comedor": 287
+      },
+      "orden_pliego": 18,
+      "orden_localidad": 179,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-69",
+      "nombre": "PP 69",
+      "direccion": "Bernardo de Irigoyen 750",
+      "zona": "Zona 8",
+      "lat": -34.7690999,
+      "lng": -58.3848868,
+      "cupos": {
+        "modulos": 450,
+        "comedor": 0,
+        "dmc": 565,
+        "patios": 0,
+        "dmc_comedor": 565
+      },
+      "orden_pliego": 19,
+      "orden_localidad": 180,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-72",
+      "nombre": "PP 72",
+      "direccion": "Hiólito Yrigoyen 11518",
+      "zona": "Zona 8",
+      "lat": -34.7912111,
+      "lng": -58.4084651,
+      "cupos": {
+        "modulos": 250,
+        "comedor": 0,
+        "dmc": 289,
+        "patios": 0,
+        "dmc_comedor": 289
+      },
+      "orden_pliego": 20,
+      "orden_localidad": 181,
+      "zona_pliego": "Zona 8",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "CEC-803",
+      "nombre": "CEC 803",
+      "direccion": "Jesús R. Olivan (ex México) 163",
+      "zona": "Zona 9",
+      "lat": -34.76537595319149,
+      "lng": -58.36525956382979,
+      "cupos": {
+        "modulos": 180,
+        "comedor": 205,
+        "dmc": 270,
+        "patios": 0,
+        "dmc_comedor": 475
+      },
+      "orden_pliego": 1,
+      "orden_localidad": 182,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "CFI-1",
+      "nombre": "CFI 1",
+      "direccion": "Lavalle 851",
+      "zona": "Zona 9",
+      "lat": -34.7767627,
+      "lng": -58.4089844,
+      "cupos": {
+        "modulos": 177,
+        "comedor": 247,
+        "dmc": 247,
+        "patios": 0,
+        "dmc_comedor": 494
+      },
+      "orden_pliego": 2,
+      "orden_localidad": 183,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "EE-502",
+      "nombre": "EE 502",
+      "direccion": "Garibaldi 253",
+      "zona": "Zona 9",
+      "lat": -34.7689433,
+      "lng": -58.4010141,
+      "cupos": {
+        "modulos": 73,
+        "comedor": 73,
+        "dmc": 150,
+        "patios": 0,
+        "dmc_comedor": 223
+      },
+      "orden_pliego": 3,
+      "orden_localidad": 184,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "EE-505",
+      "nombre": "EE 505",
+      "direccion": "Quilmes 2305",
+      "zona": "Zona 9",
+      "lat": -34.7700974,
+      "lng": -58.3657314,
+      "cupos": {
+        "modulos": 100,
+        "comedor": 90,
+        "dmc": 200,
+        "patios": 0,
+        "dmc_comedor": 290
+      },
+      "orden_pliego": 4,
+      "orden_localidad": 185,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-935",
+      "nombre": "JI 935",
+      "direccion": "Lavarden 195",
+      "zona": "Zona 9",
+      "lat": -34.7418177,
+      "lng": -58.4512796,
+      "cupos": {
+        "modulos": 75,
+        "comedor": 75,
+        "dmc": 75,
+        "patios": 0,
+        "dmc_comedor": 150
+      },
+      "orden_pliego": 5,
+      "orden_localidad": 186,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-910",
+      "nombre": "JI 910",
+      "direccion": "Cuyo 1111",
+      "zona": "Zona 9",
+      "lat": -34.8025378,
+      "lng": -58.4090888,
+      "cupos": {
+        "modulos": 155,
+        "comedor": 0,
+        "dmc": 165,
+        "patios": 0,
+        "dmc_comedor": 165
+      },
+      "orden_pliego": 6,
+      "orden_localidad": 187,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-932",
+      "nombre": "JI 932",
+      "direccion": "Antartida Argentina y Santa Catalina",
+      "zona": "Zona 9",
+      "lat": -34.8146657,
+      "lng": -58.4321209,
+      "cupos": {
+        "modulos": 40,
+        "comedor": 0,
+        "dmc": 40,
+        "patios": 0,
+        "dmc_comedor": 40
+      },
+      "orden_pliego": 7,
+      "orden_localidad": 188,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-936",
+      "nombre": "JI 936",
+      "direccion": "Monroe 185",
+      "zona": "Zona 9",
+      "lat": -34.7509782,
+      "lng": -58.353707,
+      "cupos": {
+        "modulos": 197,
+        "comedor": 0,
+        "dmc": 197,
+        "patios": 0,
+        "dmc_comedor": 197
+      },
+      "orden_pliego": 8,
+      "orden_localidad": 189,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-950",
+      "nombre": "JI 950",
+      "direccion": "Santa Cruz y Hornero 290",
+      "zona": "Zona 9",
+      "lat": -34.7571452,
+      "lng": -58.3481426,
+      "cupos": {
+        "modulos": 140,
+        "comedor": 0,
+        "dmc": 157,
+        "patios": 0,
+        "dmc_comedor": 157
+      },
+      "orden_pliego": 9,
+      "orden_localidad": 190,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-929",
+      "nombre": "JI 929",
+      "direccion": "C.C.Vigil 1059",
+      "zona": "Zona 9",
+      "lat": -34.7626189,
+      "lng": -58.4361466,
+      "cupos": {
+        "modulos": 143,
+        "comedor": 0,
+        "dmc": 143,
+        "patios": 0,
+        "dmc_comedor": 143
+      },
+      "orden_pliego": 10,
+      "orden_localidad": 191,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-82",
+      "nombre": "MS 82",
+      "direccion": "Barilari 3592",
+      "zona": "Zona 9",
+      "lat": -34.7475871,
+      "lng": -58.3643753,
+      "cupos": {
+        "modulos": 223,
+        "comedor": 223,
+        "dmc": 223,
+        "patios": 0,
+        "dmc_comedor": 446
+      },
+      "orden_pliego": 11,
+      "orden_localidad": 192,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-8",
+      "nombre": "MS 8",
+      "direccion": "Yatay 500",
+      "zona": "Zona 9",
+      "lat": -34.7505021,
+      "lng": -58.3492001,
+      "cupos": {
+        "modulos": 330,
+        "comedor": 315,
+        "dmc": 500,
+        "patios": 0,
+        "dmc_comedor": 815
+      },
+      "orden_pliego": 12,
+      "orden_localidad": 193,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-28",
+      "nombre": "MS 28",
+      "direccion": "El Trébol 3785",
+      "zona": "Zona 9",
+      "lat": -34.761152,
+      "lng": -58.3671271,
+      "cupos": {
+        "modulos": 200,
+        "comedor": 243,
+        "dmc": 243,
+        "patios": 0,
+        "dmc_comedor": 486
+      },
+      "orden_pliego": 13,
+      "orden_localidad": 194,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-45",
+      "nombre": "MS 45",
+      "direccion": "Av Antártida Argentina 2251",
+      "zona": "Zona 9",
+      "lat": -34.7896444,
+      "lng": -58.4090933,
+      "cupos": {
+        "modulos": 115,
+        "comedor": 107,
+        "dmc": 140,
+        "patios": 0,
+        "dmc_comedor": 247
+      },
+      "orden_pliego": 14,
+      "orden_localidad": 195,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-47",
+      "nombre": "MS 47",
+      "direccion": "El hornero 4960",
+      "zona": "Zona 9",
+      "lat": -34.7587586,
+      "lng": -58.3515942,
+      "cupos": {
+        "modulos": 231,
+        "comedor": 210,
+        "dmc": 331,
+        "patios": 0,
+        "dmc_comedor": 541
+      },
+      "orden_pliego": 15,
+      "orden_localidad": 196,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-52",
+      "nombre": "MS 52",
+      "direccion": "Araguaya 957",
+      "zona": "Zona 9",
+      "lat": -34.7883504,
+      "lng": -58.4208008,
+      "cupos": {
+        "modulos": 133,
+        "comedor": 70,
+        "dmc": 80,
+        "patios": 25,
+        "dmc_comedor": 150
+      },
+      "orden_pliego": 16,
+      "orden_localidad": 197,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-54",
+      "nombre": "MS 54",
+      "direccion": "La Madreselva 2550",
+      "zona": "Zona 9",
+      "lat": -34.7583434,
+      "lng": -58.3669697,
+      "cupos": {
+        "modulos": 200,
+        "comedor": 210,
+        "dmc": 155,
+        "patios": 0,
+        "dmc_comedor": 365
+      },
+      "orden_pliego": 17,
+      "orden_localidad": 198,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-58",
+      "nombre": "MS 58",
+      "direccion": "Olleros 1004",
+      "zona": "Zona 9",
+      "lat": -34.7892076,
+      "lng": -58.4273241,
+      "cupos": {
+        "modulos": 135,
+        "comedor": 274,
+        "dmc": 274,
+        "patios": 24,
+        "dmc_comedor": 548
+      },
+      "orden_pliego": 18,
+      "orden_localidad": 199,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-75",
+      "nombre": "MS 75",
+      "direccion": "La Calandria 4654",
+      "zona": "Zona 9",
+      "lat": -34.7653174,
+      "lng": -58.3666868,
+      "cupos": {
+        "modulos": 280,
+        "comedor": 0,
+        "dmc": 0,
+        "patios": 0,
+        "dmc_comedor": 0
+      },
+      "orden_pliego": 19,
+      "orden_localidad": 200,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-77",
+      "nombre": "MS 77",
+      "direccion": "De Heredia y Juramento 250",
+      "zona": "Zona 9",
+      "lat": -34.7758816,
+      "lng": -58.3971199,
+      "cupos": {
+        "modulos": 210,
+        "comedor": 277,
+        "dmc": 277,
+        "patios": 0,
+        "dmc_comedor": 554
+      },
+      "orden_pliego": 20,
+      "orden_localidad": 201,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-79",
+      "nombre": "MS 79",
+      "direccion": "Presidente Quintana 266",
+      "zona": "Zona 9",
+      "lat": -34.7431142,
+      "lng": -58.3797908,
+      "cupos": {
+        "modulos": 315,
+        "comedor": 0,
+        "dmc": 315,
+        "patios": 0,
+        "dmc_comedor": 315
+      },
+      "orden_pliego": 21,
+      "orden_localidad": 202,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-42",
+      "nombre": "MS 42",
+      "direccion": "Angel Gallardo 170",
+      "zona": "Zona 9",
+      "lat": -34.7693733,
+      "lng": -58.3952308,
+      "cupos": {
+        "modulos": 192,
+        "comedor": 100,
+        "dmc": 320,
+        "patios": 0,
+        "dmc_comedor": 420
+      },
+      "orden_pliego": 22,
+      "orden_localidad": 203,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-4",
+      "nombre": "PP 4",
+      "direccion": "Av. Antártida Argentina y Santa Catalina",
+      "zona": "Zona 9",
+      "lat": -34.7497312,
+      "lng": -58.4757182,
+      "cupos": {
+        "modulos": 187,
+        "comedor": 195,
+        "dmc": 255,
+        "patios": 0,
+        "dmc_comedor": 450
+      },
+      "orden_pliego": 23,
+      "orden_localidad": 204,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-17",
+      "nombre": "PP 17",
+      "direccion": "Olivan 107",
+      "zona": "Zona 9",
+      "lat": -34.7527522,
+      "lng": -58.4082001,
+      "cupos": {
+        "modulos": 350,
+        "comedor": 230,
+        "dmc": 250,
+        "patios": 0,
+        "dmc_comedor": 480
+      },
+      "orden_pliego": 24,
+      "orden_localidad": 205,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-42",
+      "nombre": "PP 42",
+      "direccion": "Aragón 950",
+      "zona": "Zona 9",
+      "lat": -34.7881313,
+      "lng": -58.419635,
+      "cupos": {
+        "modulos": 140,
+        "comedor": 150,
+        "dmc": 142,
+        "patios": 0,
+        "dmc_comedor": 292
+      },
+      "orden_pliego": 25,
+      "orden_localidad": 206,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-50",
+      "nombre": "PP 50",
+      "direccion": "El Trébol 3785",
+      "zona": "Zona 9",
+      "lat": -34.761152,
+      "lng": -58.3671271,
+      "cupos": {
+        "modulos": 236,
+        "comedor": 236,
+        "dmc": 236,
+        "patios": 0,
+        "dmc_comedor": 472
+      },
+      "orden_pliego": 26,
+      "orden_localidad": 207,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-52",
+      "nombre": "PP 52",
+      "direccion": "De Heredia 250",
+      "zona": "Zona 9",
+      "lat": -34.7711501,
+      "lng": -58.3607551,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 280,
+        "dmc": 280,
+        "patios": 0,
+        "dmc_comedor": 560
+      },
+      "orden_pliego": 27,
+      "orden_localidad": 208,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-54",
+      "nombre": "PP 54",
+      "direccion": "La madreselva 2550",
+      "zona": "Zona 9",
+      "lat": -34.7583434,
+      "lng": -58.3669697,
+      "cupos": {
+        "modulos": 205,
+        "comedor": 200,
+        "dmc": 239,
+        "patios": 0,
+        "dmc_comedor": 439
+      },
+      "orden_pliego": 28,
+      "orden_localidad": 209,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-61",
+      "nombre": "PP 61",
+      "direccion": "Avenida Pasco 4687",
+      "zona": "Zona 9",
+      "lat": -34.7627085,
+      "lng": -58.3641252,
+      "cupos": {
+        "modulos": 600,
+        "comedor": 620,
+        "dmc": 620,
+        "patios": 0,
+        "dmc_comedor": 1240
+      },
+      "orden_pliego": 29,
+      "orden_localidad": 210,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-71",
+      "nombre": "PP 71",
+      "direccion": "9 de Febrero 390",
+      "zona": "Zona 9",
+      "lat": -34.7939752,
+      "lng": -58.4348671,
+      "cupos": {
+        "modulos": 176,
+        "comedor": 200,
+        "dmc": 200,
+        "patios": 0,
+        "dmc_comedor": 400
+      },
+      "orden_pliego": 30,
+      "orden_localidad": 211,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-74",
+      "nombre": "PP 74",
+      "direccion": "Santos Vega y Pareta sin número Llavallol",
+      "zona": "Zona 9",
+      "lat": -34.8066373,
+      "lng": -58.4286211,
+      "cupos": {
+        "modulos": 98,
+        "comedor": 134,
+        "dmc": 134,
+        "patios": 0,
+        "dmc_comedor": 268
+      },
+      "orden_pliego": 31,
+      "orden_localidad": 212,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-78",
+      "nombre": "PP 78",
+      "direccion": "Moctezuma 400",
+      "zona": "Zona 9",
+      "lat": -34.7501332,
+      "lng": -58.3485061,
+      "cupos": {
+        "modulos": 500,
+        "comedor": 570,
+        "dmc": 570,
+        "patios": 0,
+        "dmc_comedor": 1140
+      },
+      "orden_pliego": 32,
+      "orden_localidad": 213,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-80",
+      "nombre": "PP 80",
+      "direccion": "El hornero 4975",
+      "zona": "Zona 9",
+      "lat": -34.7587586,
+      "lng": -58.3515942,
+      "cupos": {
+        "modulos": 400,
+        "comedor": 0,
+        "dmc": 441,
+        "patios": 0,
+        "dmc_comedor": 441
+      },
+      "orden_pliego": 33,
+      "orden_localidad": 214,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-24",
+      "nombre": "PP 24",
+      "direccion": "Quintana 266",
+      "zona": "Zona 9",
+      "lat": -34.7431142,
+      "lng": -58.3797908,
+      "cupos": {
+        "modulos": 329,
+        "comedor": 0,
+        "dmc": 329,
+        "patios": 0,
+        "dmc_comedor": 329
+      },
+      "orden_pliego": 34,
+      "orden_localidad": 215,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-36",
+      "nombre": "PP 36",
+      "direccion": "Angel Gallardo 170",
+      "zona": "Zona 9",
+      "lat": -34.7693733,
+      "lng": -58.3952308,
+      "cupos": {
+        "modulos": 250,
+        "comedor": 0,
+        "dmc": 262,
+        "patios": 0,
+        "dmc_comedor": 262
+      },
+      "orden_pliego": 35,
+      "orden_localidad": 216,
+      "zona_pliego": "Zona 9",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-905",
+      "nombre": "JI 905",
+      "direccion": "Belén 1490",
+      "zona": "Zona 10",
+      "lat": -34.7483348,
+      "lng": -58.4434372,
+      "cupos": {
+        "modulos": 190,
+        "comedor": 190,
+        "dmc": 190,
+        "patios": 0,
+        "dmc_comedor": 380
+      },
+      "orden_pliego": 1,
+      "orden_localidad": 217,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-925",
+      "nombre": "JI 925",
+      "direccion": "Rawson 2120",
+      "zona": "Zona 10",
+      "lat": -34.7381174,
+      "lng": -58.4443079,
+      "cupos": {
+        "modulos": 334,
+        "comedor": 334,
+        "dmc": 334,
+        "patios": 0,
+        "dmc_comedor": 668
+      },
+      "orden_pliego": 2,
+      "orden_localidad": 218,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JICC-5",
+      "nombre": "JI CC 5",
+      "direccion": "Einstein 4247 Lamadrid",
+      "zona": "Zona 10",
+      "lat": -34.7308463,
+      "lng": -58.4751538,
+      "cupos": {
+        "modulos": 80,
+        "comedor": 80,
+        "dmc": 80,
+        "patios": 0,
+        "dmc_comedor": 160
+      },
+      "orden_pliego": 3,
+      "orden_localidad": 219,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-26",
+      "nombre": "MS 26",
+      "direccion": "Ricardo Palma 195",
+      "zona": "Zona 10",
+      "lat": -34.7385929,
+      "lng": -58.4450646,
+      "cupos": {
+        "modulos": 786,
+        "comedor": 801,
+        "dmc": 810,
+        "patios": 0,
+        "dmc_comedor": 1611
+      },
+      "orden_pliego": 4,
+      "orden_localidad": 220,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-2",
+      "nombre": "MS 2",
+      "direccion": "Alazan E/ Santos Vega S/N",
+      "zona": "Zona 10",
+      "lat": -34.788,
+      "lng": -58.422,
+      "cupos": {
+        "modulos": 310,
+        "comedor": 450,
+        "dmc": 450,
+        "patios": 0,
+        "dmc_comedor": 900
+      },
+      "orden_pliego": 5,
+      "orden_localidad": 221,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora",
+      "coord_corregida": true
+    },
+    {
+      "id": "MS-10",
+      "nombre": "MS 10",
+      "direccion": "Los Palos Borrachos 185",
+      "zona": "Zona 10",
+      "lat": -34.764883,
+      "lng": -58.431608,
+      "cupos": {
+        "modulos": 817,
+        "comedor": 0,
+        "dmc": 737,
+        "patios": 60,
+        "dmc_comedor": 737
+      },
+      "orden_pliego": 6,
+      "orden_localidad": 222,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-31",
+      "nombre": "MS 31",
+      "direccion": "Bustos 860",
+      "zona": "Zona 10",
+      "lat": -34.760679,
+      "lng": -58.4474744,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 465,
+        "dmc": 465,
+        "patios": 0,
+        "dmc_comedor": 930
+      },
+      "orden_pliego": 7,
+      "orden_localidad": 223,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-39",
+      "nombre": "MS 39",
+      "direccion": "Voltaire 1650",
+      "zona": "Zona 10",
+      "lat": -34.7498497,
+      "lng": -58.4502093,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 320,
+        "dmc": 320,
+        "patios": 0,
+        "dmc_comedor": 640
+      },
+      "orden_pliego": 8,
+      "orden_localidad": 224,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-55",
+      "nombre": "MS 55",
+      "direccion": "Barbieri 1605",
+      "zona": "Zona 10",
+      "lat": -34.7380052,
+      "lng": -58.4351644,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 332,
+        "dmc": 330,
+        "patios": 0,
+        "dmc_comedor": 662
+      },
+      "orden_pliego": 9,
+      "orden_localidad": 225,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-85",
+      "nombre": "MS 85",
+      "direccion": "El Zorzal 2779",
+      "zona": "Zona 10",
+      "lat": -34.7607873,
+      "lng": -58.3523241,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 250,
+        "dmc": 280,
+        "patios": 0,
+        "dmc_comedor": 530
+      },
+      "orden_pliego": 10,
+      "orden_localidad": 226,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-62",
+      "nombre": "MS 62",
+      "direccion": "Muzzili 163",
+      "zona": "Zona 10",
+      "lat": -34.7437455,
+      "lng": -58.3960811,
+      "cupos": {
+        "modulos": 200,
+        "comedor": 230,
+        "dmc": 230,
+        "patios": 0,
+        "dmc_comedor": 460
+      },
+      "orden_pliego": 11,
+      "orden_localidad": 227,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MT-4",
+      "nombre": "MT 4",
+      "direccion": "Av Antartida Argentina 2750",
+      "zona": "Zona 10",
+      "lat": -34.7896444,
+      "lng": -58.4090933,
+      "cupos": {
+        "modulos": 465,
+        "comedor": 957,
+        "dmc": 957,
+        "patios": 30,
+        "dmc_comedor": 1914
+      },
+      "orden_pliego": 12,
+      "orden_localidad": 228,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-11",
+      "nombre": "PP 11",
+      "direccion": "Olmos 530",
+      "zona": "Zona 10",
+      "lat": -34.7604309,
+      "lng": -58.4480276,
+      "cupos": {
+        "modulos": 697,
+        "comedor": 668,
+        "dmc": 660,
+        "patios": 0,
+        "dmc_comedor": 1328
+      },
+      "orden_pliego": 13,
+      "orden_localidad": 229,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-18",
+      "nombre": "PP 18",
+      "direccion": "Rawson Y Espronceneda S/N",
+      "zona": "Zona 10",
+      "lat": -34.7585379,
+      "lng": -58.3993654,
+      "cupos": {
+        "modulos": 510,
+        "comedor": 560,
+        "dmc": 560,
+        "patios": 0,
+        "dmc_comedor": 1120
+      },
+      "orden_pliego": 14,
+      "orden_localidad": 230,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-41",
+      "nombre": "PP 41",
+      "direccion": "Vicente Barbieri 1605",
+      "zona": "Zona 10",
+      "lat": -34.7380052,
+      "lng": -58.4351644,
+      "cupos": {
+        "modulos": 325,
+        "comedor": 355,
+        "dmc": 355,
+        "patios": 0,
+        "dmc_comedor": 710
+      },
+      "orden_pliego": 15,
+      "orden_localidad": 231,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-48",
+      "nombre": "PP 48",
+      "direccion": "Lisandro de la Torre 2264",
+      "zona": "Zona 10",
+      "lat": -34.7501518,
+      "lng": -58.4423703,
+      "cupos": {
+        "modulos": 428,
+        "comedor": 314,
+        "dmc": 614,
+        "patios": 0,
+        "dmc_comedor": 928
+      },
+      "orden_pliego": 16,
+      "orden_localidad": 232,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-57",
+      "nombre": "PP 57",
+      "direccion": "Espronceneda 297",
+      "zona": "Zona 10",
+      "lat": -34.7368309,
+      "lng": -58.4446973,
+      "cupos": {
+        "modulos": 574,
+        "comedor": 460,
+        "dmc": 460,
+        "patios": 0,
+        "dmc_comedor": 920
+      },
+      "orden_pliego": 17,
+      "orden_localidad": 233,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-65",
+      "nombre": "PP 65",
+      "direccion": "Voltaire 1650",
+      "zona": "Zona 10",
+      "lat": -34.7498497,
+      "lng": -58.4502093,
+      "cupos": {
+        "modulos": 644,
+        "comedor": 618,
+        "dmc": 618,
+        "patios": 0,
+        "dmc_comedor": 1236
+      },
+      "orden_pliego": 18,
+      "orden_localidad": 234,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-66",
+      "nombre": "PP 66",
+      "direccion": "Mercedes 1100",
+      "zona": "Zona 10",
+      "lat": -34.807104,
+      "lng": -58.421091,
+      "cupos": {
+        "modulos": 533,
+        "comedor": 405,
+        "dmc": 405,
+        "patios": 0,
+        "dmc_comedor": 810
+      },
+      "orden_pliego": 19,
+      "orden_localidad": 235,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-96A",
+      "nombre": "PP 96 A",
+      "direccion": "José de Espronceda 150",
+      "zona": "Zona 10",
+      "lat": -34.7388792,
+      "lng": -58.4435356,
+      "cupos": {
+        "modulos": 306,
+        "comedor": 275,
+        "dmc": 260,
+        "patios": 60,
+        "dmc_comedor": 535
+      },
+      "orden_pliego": 20,
+      "orden_localidad": 236,
+      "zona_pliego": "Zona 10",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-952",
+      "nombre": "JI 952",
+      "direccion": "Gral Elizalde s/n y Calle 7",
+      "zona": "Zona 11",
+      "lat": -34.7758816,
+      "lng": -58.3971199,
+      "cupos": {
+        "modulos": 140,
+        "comedor": 152,
+        "dmc": 152,
+        "patios": 0,
+        "dmc_comedor": 304
+      },
+      "orden_pliego": 1,
+      "orden_localidad": 237,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JICC-1",
+      "nombre": "JI CC 1",
+      "direccion": "Euskadi 2949",
+      "zona": "Zona 11",
+      "lat": -34.7381481,
+      "lng": -58.4609585,
+      "cupos": {
+        "modulos": 132,
+        "comedor": 100,
+        "dmc": 100,
+        "patios": 0,
+        "dmc_comedor": 200
+      },
+      "orden_pliego": 2,
+      "orden_localidad": 238,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-9",
+      "nombre": "MS 9",
+      "direccion": "Quesada 2690",
+      "zona": "Zona 11",
+      "lat": -34.7252941,
+      "lng": -58.4636962,
+      "cupos": {
+        "modulos": 750,
+        "comedor": 850,
+        "dmc": 850,
+        "patios": 0,
+        "dmc_comedor": 1700
+      },
+      "orden_pliego": 3,
+      "orden_localidad": 239,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-24",
+      "nombre": "MS 24",
+      "direccion": "Cipolletti e/ R. Palma y",
+      "zona": "Zona 11",
+      "lat": -34.7613924,
+      "lng": -58.3935392,
+      "cupos": {
+        "modulos": 900,
+        "comedor": 1000,
+        "dmc": 1000,
+        "patios": 0,
+        "dmc_comedor": 2000
+      },
+      "orden_pliego": 4,
+      "orden_localidad": 240,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-33",
+      "nombre": "MS 33",
+      "direccion": "Homero y Cafayate",
+      "zona": "Zona 11",
+      "lat": -34.7223256,
+      "lng": -58.4645076,
+      "cupos": {
+        "modulos": 650,
+        "comedor": 0,
+        "dmc": 833,
+        "patios": 0,
+        "dmc_comedor": 833
+      },
+      "orden_pliego": 5,
+      "orden_localidad": 241,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-48",
+      "nombre": "MS 48",
+      "direccion": "Andres Bello 2763",
+      "zona": "Zona 11",
+      "lat": -34.7251236,
+      "lng": -58.4624131,
+      "cupos": {
+        "modulos": 250,
+        "comedor": 250,
+        "dmc": 250,
+        "patios": 60,
+        "dmc_comedor": 500
+      },
+      "orden_pliego": 6,
+      "orden_localidad": 242,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-49",
+      "nombre": "MS 49",
+      "direccion": "Oran 599",
+      "zona": "Zona 11",
+      "lat": -34.7270067,
+      "lng": -58.477407,
+      "cupos": {
+        "modulos": 319,
+        "comedor": 354,
+        "dmc": 354,
+        "patios": 0,
+        "dmc_comedor": 708
+      },
+      "orden_pliego": 7,
+      "orden_localidad": 243,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-72",
+      "nombre": "MS 72",
+      "direccion": "Juan Bucetich E/ Pergamino 4834",
+      "zona": "Zona 11",
+      "lat": -34.7268364,
+      "lng": -58.4800984,
+      "cupos": {
+        "modulos": 435,
+        "comedor": 350,
+        "dmc": 350,
+        "patios": 0,
+        "dmc_comedor": 700
+      },
+      "orden_pliego": 8,
+      "orden_localidad": 244,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-76",
+      "nombre": "MS 76",
+      "direccion": "Rivera Sur 1750",
+      "zona": "Zona 11",
+      "lat": -34.7555515,
+      "lng": -58.4023,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 300,
+        "dmc": 300,
+        "patios": 0,
+        "dmc_comedor": 600
+      },
+      "orden_pliego": 9,
+      "orden_localidad": 245,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-12",
+      "nombre": "PP 12",
+      "direccion": "Quesada 2610",
+      "zona": "Zona 11",
+      "lat": -34.7248631,
+      "lng": -58.462946,
+      "cupos": {
+        "modulos": 520,
+        "comedor": 467,
+        "dmc": 467,
+        "patios": 0,
+        "dmc_comedor": 934
+      },
+      "orden_pliego": 10,
+      "orden_localidad": 246,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-43",
+      "nombre": "PP 43",
+      "direccion": "Quesada 2672",
+      "zona": "Zona 11",
+      "lat": -34.7251971,
+      "lng": -58.4635274,
+      "cupos": {
+        "modulos": 620,
+        "comedor": 674,
+        "dmc": 674,
+        "patios": 0,
+        "dmc_comedor": 1348
+      },
+      "orden_pliego": 11,
+      "orden_localidad": 247,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-46",
+      "nombre": "PP 46",
+      "direccion": "Homero 3780",
+      "zona": "Zona 11",
+      "lat": -34.7309948,
+      "lng": -58.4652096,
+      "cupos": {
+        "modulos": 719,
+        "comedor": 600,
+        "dmc": 600,
+        "patios": 35,
+        "dmc_comedor": 1200
+      },
+      "orden_pliego": 12,
+      "orden_localidad": 248,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-58",
+      "nombre": "PP 58",
+      "direccion": "Campoamor 2789",
+      "zona": "Zona 11",
+      "lat": -34.7074748,
+      "lng": -58.4604916,
+      "cupos": {
+        "modulos": 500,
+        "comedor": 500,
+        "dmc": 500,
+        "patios": 0,
+        "dmc_comedor": 1000
+      },
+      "orden_pliego": 13,
+      "orden_localidad": 249,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-62",
+      "nombre": "PP 62",
+      "direccion": "Andres Bello 2763",
+      "zona": "Zona 11",
+      "lat": -34.7251236,
+      "lng": -58.4624131,
+      "cupos": {
+        "modulos": 289,
+        "comedor": 350,
+        "dmc": 350,
+        "patios": 0,
+        "dmc_comedor": 700
+      },
+      "orden_pliego": 14,
+      "orden_localidad": 250,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-82",
+      "nombre": "PP 82",
+      "direccion": "Ricardo Palma 2351",
+      "zona": "Zona 11",
+      "lat": -34.7165816,
+      "lng": -58.4625811,
+      "cupos": {
+        "modulos": 727,
+        "comedor": 650,
+        "dmc": 650,
+        "patios": 0,
+        "dmc_comedor": 1300
+      },
+      "orden_pliego": 15,
+      "orden_localidad": 251,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-83",
+      "nombre": "PP 83",
+      "direccion": "Oran 599",
+      "zona": "Zona 11",
+      "lat": -34.7270067,
+      "lng": -58.477407,
+      "cupos": {
+        "modulos": 440,
+        "comedor": 400,
+        "dmc": 400,
+        "patios": 40,
+        "dmc_comedor": 800
+      },
+      "orden_pliego": 16,
+      "orden_localidad": 252,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-87",
+      "nombre": "PP 87",
+      "direccion": "Juan Vucetich 4834",
+      "zona": "Zona 11",
+      "lat": -34.7268364,
+      "lng": -58.4800984,
+      "cupos": {
+        "modulos": 530,
+        "comedor": 585,
+        "dmc": 585,
+        "patios": 0,
+        "dmc_comedor": 1170
+      },
+      "orden_pliego": 17,
+      "orden_localidad": 253,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-95",
+      "nombre": "PP 95",
+      "direccion": "Homero 3870",
+      "zona": "Zona 11",
+      "lat": -34.7302635,
+      "lng": -58.4657889,
+      "cupos": {
+        "modulos": 600,
+        "comedor": 600,
+        "dmc": 600,
+        "patios": 0,
+        "dmc_comedor": 1200
+      },
+      "orden_pliego": 18,
+      "orden_localidad": 254,
+      "zona_pliego": "Zona 11",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "CEC-804",
+      "nombre": "CEC 804",
+      "direccion": "Antonio Machado 2546",
+      "zona": "Zona 12",
+      "lat": -34.7148563,
+      "lng": -58.465824,
+      "cupos": {
+        "modulos": 262,
+        "comedor": 252,
+        "dmc": 252,
+        "patios": 0,
+        "dmc_comedor": 504
+      },
+      "orden_pliego": 1,
+      "orden_localidad": 255,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "EE-504",
+      "nombre": "EE 504",
+      "direccion": "Bruno Tavano 3870",
+      "zona": "Zona 12",
+      "lat": -34.72963105319149,
+      "lng": -58.46456429148936,
+      "cupos": {
+        "modulos": 181,
+        "comedor": 262,
+        "dmc": 268,
+        "patios": 0,
+        "dmc_comedor": 530
+      },
+      "orden_pliego": 2,
+      "orden_localidad": 256,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-922",
+      "nombre": "JI 922",
+      "direccion": "Bucarest 1723",
+      "zona": "Zona 12",
+      "lat": -34.725796,
+      "lng": -58.4468535,
+      "cupos": {
+        "modulos": 238,
+        "comedor": 242,
+        "dmc": 242,
+        "patios": 0,
+        "dmc_comedor": 484
+      },
+      "orden_pliego": 3,
+      "orden_localidad": 257,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-938",
+      "nombre": "JI 938",
+      "direccion": "Gilberto Elizalde 3971",
+      "zona": "Zona 12",
+      "lat": -34.7458289,
+      "lng": -58.4839823,
+      "cupos": {
+        "modulos": 222,
+        "comedor": 200,
+        "dmc": 200,
+        "patios": 0,
+        "dmc_comedor": 400
+      },
+      "orden_pliego": 4,
+      "orden_localidad": 258,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-940",
+      "nombre": "JI 940",
+      "direccion": "Campoamor 2637",
+      "zona": "Zona 12",
+      "lat": -34.7093195,
+      "lng": -58.4590025,
+      "cupos": {
+        "modulos": 131,
+        "comedor": 131,
+        "dmc": 131,
+        "patios": 0,
+        "dmc_comedor": 262
+      },
+      "orden_pliego": 5,
+      "orden_localidad": 259,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-942",
+      "nombre": "JI 942",
+      "direccion": "Hipolito Yrigoyen 9428",
+      "zona": "Zona 12",
+      "lat": -34.7654586,
+      "lng": -58.4034059,
+      "cupos": {
+        "modulos": 260,
+        "comedor": 260,
+        "dmc": 260,
+        "patios": 0,
+        "dmc_comedor": 520
+      },
+      "orden_pliego": 6,
+      "orden_localidad": 260,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-943",
+      "nombre": "JI 943",
+      "direccion": "Las Tropas 1711",
+      "zona": "Zona 12",
+      "lat": -34.7498391,
+      "lng": -58.4281883,
+      "cupos": {
+        "modulos": 147,
+        "comedor": 150,
+        "dmc": 150,
+        "patios": 0,
+        "dmc_comedor": 300
+      },
+      "orden_pliego": 7,
+      "orden_localidad": 261,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-945",
+      "nombre": "JI 945",
+      "direccion": "soldado victor rodriguez 1569",
+      "zona": "Zona 12",
+      "lat": -34.7415615,
+      "lng": -58.4724719,
+      "cupos": {
+        "modulos": 208,
+        "comedor": 210,
+        "dmc": 210,
+        "patios": 0,
+        "dmc_comedor": 420
+      },
+      "orden_pliego": 8,
+      "orden_localidad": 262,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-946",
+      "nombre": "JI 946",
+      "direccion": "Cipolleti y Machado",
+      "zona": "Zona 12",
+      "lat": -34.7788398,
+      "lng": -58.383425,
+      "cupos": {
+        "modulos": 290,
+        "comedor": 280,
+        "dmc": 280,
+        "patios": 0,
+        "dmc_comedor": 560
+      },
+      "orden_pliego": 9,
+      "orden_localidad": 263,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-947",
+      "nombre": "JI 947",
+      "direccion": "Homero 2185",
+      "zona": "Zona 12",
+      "lat": -34.7440597,
+      "lng": -58.4553164,
+      "cupos": {
+        "modulos": 176,
+        "comedor": 176,
+        "dmc": 176,
+        "patios": 0,
+        "dmc_comedor": 352
+      },
+      "orden_pliego": 10,
+      "orden_localidad": 264,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-2645",
+      "nombre": "JI 2645",
+      "direccion": "Ostende y Labarden S/Nro",
+      "zona": "Zona 12",
+      "lat": -34.7242316,
+      "lng": -58.4408936,
+      "cupos": {
+        "modulos": 50,
+        "comedor": 40,
+        "dmc": 40,
+        "patios": 0,
+        "dmc_comedor": 80
+      },
+      "orden_pliego": 11,
+      "orden_localidad": 265,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "JI-908",
+      "nombre": "JI 908",
+      "direccion": "Piedrabuena 209",
+      "zona": "Zona 12",
+      "lat": -34.7943731,
+      "lng": -58.4309139,
+      "cupos": {
+        "modulos": 94,
+        "comedor": 150,
+        "dmc": 150,
+        "patios": 0,
+        "dmc_comedor": 300
+      },
+      "orden_pliego": 12,
+      "orden_localidad": 266,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-29",
+      "nombre": "MS 29",
+      "direccion": "La Haya 2195",
+      "zona": "Zona 12",
+      "lat": -34.7293218,
+      "lng": -58.4520986,
+      "cupos": {
+        "modulos": 300,
+        "comedor": 330,
+        "dmc": 330,
+        "patios": 0,
+        "dmc_comedor": 660
+      },
+      "orden_pliego": 13,
+      "orden_localidad": 267,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-35",
+      "nombre": "MS 35",
+      "direccion": "Victor Miatello 2061",
+      "zona": "Zona 12",
+      "lat": -34.7418035,
+      "lng": -58.4836746,
+      "cupos": {
+        "modulos": 450,
+        "comedor": 0,
+        "dmc": 0,
+        "patios": 0,
+        "dmc_comedor": 0
+      },
+      "orden_pliego": 14,
+      "orden_localidad": 268,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-70",
+      "nombre": "MS 70",
+      "direccion": "Homero Manzi 3954",
+      "zona": "Zona 12",
+      "lat": -34.7413307,
+      "lng": -58.4692693,
+      "cupos": {
+        "modulos": 690,
+        "comedor": 690,
+        "dmc": 690,
+        "patios": 0,
+        "dmc_comedor": 1380
+      },
+      "orden_pliego": 15,
+      "orden_localidad": 269,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-78",
+      "nombre": "MS 78",
+      "direccion": "Figueredo 1525",
+      "zona": "Zona 12",
+      "lat": -34.7100276,
+      "lng": -58.4559332,
+      "cupos": {
+        "modulos": 330,
+        "comedor": 248,
+        "dmc": 345,
+        "patios": 0,
+        "dmc_comedor": 593
+      },
+      "orden_pliego": 16,
+      "orden_localidad": 270,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "MS-50",
+      "nombre": "MS 50",
+      "direccion": "Vernet 281",
+      "zona": "Zona 12",
+      "lat": -34.7297857,
+      "lng": -58.4196105,
+      "cupos": {
+        "modulos": 224,
+        "comedor": 300,
+        "dmc": 300,
+        "patios": 0,
+        "dmc_comedor": 600
+      },
+      "orden_pliego": 17,
+      "orden_localidad": 271,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-16",
+      "nombre": "PP 16",
+      "direccion": "Avenida Elizalde 3971",
+      "zona": "Zona 12",
+      "lat": -34.7458289,
+      "lng": -58.4839823,
+      "cupos": {
+        "modulos": 1177,
+        "comedor": 1104,
+        "dmc": 1104,
+        "patios": 0,
+        "dmc_comedor": 2208
+      },
+      "orden_pliego": 18,
+      "orden_localidad": 272,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-64",
+      "nombre": "PP 64",
+      "direccion": "Figueredo 1525",
+      "zona": "Zona 12",
+      "lat": -34.7100276,
+      "lng": -58.4559332,
+      "cupos": {
+        "modulos": 343,
+        "comedor": 320,
+        "dmc": 320,
+        "patios": 0,
+        "dmc_comedor": 640
+      },
+      "orden_pliego": 19,
+      "orden_localidad": 273,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-68",
+      "nombre": "PP 68",
+      "direccion": "La Haya 2195",
+      "zona": "Zona 12",
+      "lat": -34.7293218,
+      "lng": -58.4520986,
+      "cupos": {
+        "modulos": 332,
+        "comedor": 299,
+        "dmc": 299,
+        "patios": 0,
+        "dmc_comedor": 598
+      },
+      "orden_pliego": 20,
+      "orden_localidad": 274,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-89",
+      "nombre": "PP 89",
+      "direccion": "Agustin Magaldi 3954",
+      "zona": "Zona 12",
+      "lat": -34.7310684,
+      "lng": -58.4796212,
+      "cupos": {
+        "modulos": 835,
+        "comedor": 0,
+        "dmc": 0,
+        "patios": 0,
+        "dmc_comedor": 0
+      },
+      "orden_pliego": 21,
+      "orden_localidad": 275,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    },
+    {
+      "id": "PP-93",
+      "nombre": "PP 93",
+      "direccion": "Cipolletti 2202",
+      "zona": "Zona 12",
+      "lat": -34.7437455,
+      "lng": -58.3960811,
+      "cupos": {
+        "modulos": 478,
+        "comedor": 508,
+        "dmc": 508,
+        "patios": 0,
+        "dmc_comedor": 1016
+      },
+      "orden_pliego": 22,
+      "orden_localidad": 276,
+      "zona_pliego": "Zona 12",
+      "localidad": "Lomas de Zamora"
+    }
+  ]
+}
