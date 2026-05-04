@@ -558,8 +558,8 @@ function DemoComparativa() {
 
   const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
-  // Typewriter: tipea `text` en setTwText caracter por caracter, dejando el caret
-  // visible mientras dure. Si el demo se detiene, corta limpio.
+  // Reveal: muestra el texto completo de una sola vez (la animación CSS de
+  // entrada se dispara con `key` en el render). NO es typewriter.
   const _clearTwTimer = () => {
     if (twTimerRef.current) {
       clearTimeout(twTimerRef.current);
@@ -568,18 +568,9 @@ function DemoComparativa() {
   };
   const typewrite = (text) => new Promise(resolve => {
     _clearTwTimer();
-    setTwText("");
-    setTwActive(true);
-    if (!text) { resolve(); return; }
-    let i = 0;
-    const tick = () => {
-      if (stopRef.current) { setTwActive(false); resolve(); return; }
-      i++;
-      setTwText(text.slice(0, i));
-      if (i >= text.length) { resolve(); return; }
-      twTimerRef.current = setTimeout(tick, TYPEWRITER_SPEED);
-    };
-    twTimerRef.current = setTimeout(tick, TYPEWRITER_SPEED);
+    setTwText(text || "");
+    setTwActive(false);
+    resolve();
   });
 
   const enterFs = async () => {
@@ -904,11 +895,10 @@ function DemoComparativa() {
               {overlay.sub && (
                 <div className="demo-overlay-sub">{overlay.sub}</div>
               )}
-              {/* typewriter (diagnóstico de zona o frase de barrio) */}
-              {(twText || twActive) && (
-                <div className="demo-overlay-diag">
+              {/* diagnóstico de zona o frase de barrio (fade-in suave) */}
+              {twText && (
+                <div className="demo-overlay-diag" key={twText}>
                   {twText}
-                  {twActive && <span className="tw-caret"/>}
                 </div>
               )}
               {/* línea del proveedor (sólo zonas) */}

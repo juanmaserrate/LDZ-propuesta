@@ -536,6 +536,11 @@
   min-height: 1.4em;
   letter-spacing: -0.01em;
   padding: 0 24px;
+  animation: diagReveal .7s cubic-bezier(.4,0,.2,1) both;
+}
+@keyframes diagReveal {
+  from { opacity: 0; transform: translateY(12px); filter: blur(4px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
 }
 .demo-overlay-diag .tw-caret {
   display: inline-block;
