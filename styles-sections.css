@@ -1056,3 +1056,109 @@
 .hero-grid-single .hero-copy { max-width: 1100px; margin: 0 auto; text-align: center; }
 .hero-grid-single .display-xl { max-width: 22ch; margin-left: auto; margin-right: auto; }
 
+
+/* ============================================================
+   ACENTOS LUMINOSOS CON LA PALETA CELESTE / ÁMBAR INSTITUCIONAL
+   ============================================================ */
+
+/* Subrayado degradado celeste→ámbar bajo cada título de sección */
+.bg-paper .section-head .display-lg,
+.bg-bone  .section-head .display-lg,
+.bg-deep  .section-head .display-lg,
+.bg-paper .section-head .display-md,
+.bg-bone  .section-head .display-md,
+.bg-deep  .section-head .display-md {
+  position: relative;
+  padding-bottom: 22px;
+}
+.bg-paper .section-head .display-lg::after,
+.bg-bone  .section-head .display-lg::after,
+.bg-deep  .section-head .display-lg::after,
+.bg-paper .section-head .display-md::after,
+.bg-bone  .section-head .display-md::after,
+.bg-deep  .section-head .display-md::after {
+  content: "";
+  display: block;
+  width: 96px; height: 3px;
+  background: linear-gradient(90deg, var(--celeste-400) 0%, var(--celeste-300) 50%, var(--amber) 100%);
+  border-radius: 2px;
+  margin: 16px auto 0;
+  box-shadow: 0 0 12px rgba(116,172,223,0.55), 0 0 24px rgba(242,169,59,0.25);
+}
+
+/* Cards: borde celeste sutil, halo luminoso al hover, lift suave.
+   Aplica a todas las grids principales (Diagnóstico, Propuesta, Beneficios, Demo benefits, Cierre, Impacto KPI). */
+.diag-card, .prop-card, .benef-card, .demo-benefit-card, .impacto-kpi-card, .cierre-card {
+  border-color: rgba(116,172,223,0.35) !important;
+  border-width: 1px !important;
+  position: relative;
+  transition: transform .25s cubic-bezier(.4,0,.2,1),
+              box-shadow .25s cubic-bezier(.4,0,.2,1),
+              border-color .25s ease;
+  background-image: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(240,247,252,1) 100%);
+}
+.diag-card::before, .prop-card::before, .benef-card::before,
+.demo-benefit-card::before, .cierre-card::before {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(120% 80% at 100% 0%, rgba(116,172,223,0.10) 0%, transparent 60%);
+  opacity: 0; transition: opacity .25s ease;
+}
+.diag-card:hover, .prop-card:hover, .benef-card:hover,
+.demo-benefit-card:hover, .impacto-kpi-card:hover, .cierre-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--celeste-400) !important;
+  box-shadow:
+    0 14px 36px -12px rgba(14,58,107,0.30),
+    0 6px 14px -6px rgba(116,172,223,0.35),
+    0 0 0 1px rgba(116,172,223,0.25) inset;
+}
+.diag-card:hover::before, .prop-card:hover::before, .benef-card:hover::before,
+.demo-benefit-card:hover::before, .cierre-card:hover::before { opacity: 1; }
+
+/* Pin del diagnóstico (chip 01..12) — pin con halo ámbar tenue */
+.diag-card .diag-n {
+  background: linear-gradient(135deg, var(--celeste-50) 0%, rgba(242,169,59,0.10) 100%) !important;
+  color: var(--celeste-700) !important;
+  border: 1px solid rgba(116,172,223,0.35);
+  box-shadow: 0 0 8px rgba(116,172,223,0.25);
+}
+
+/* Stat grande de beneficios — gradient celeste→ámbar con glow */
+.benef-stat .bs-v {
+  background: linear-gradient(135deg, var(--celeste-700) 0%, var(--celeste-500) 60%, var(--amber) 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 6px rgba(14,58,107,0.18));
+}
+
+/* Section-tag (01, 02b...) — pequeño glow celeste */
+.section-tag .num {
+  border-color: rgba(116,172,223,0.45) !important;
+  box-shadow: 0 0 0 3px rgba(116,172,223,0.10);
+}
+
+/* Punto luminoso ámbar al lado del título de cada card de Diagnóstico */
+.diag-card .diag-t {
+  position: relative;
+  padding-left: 14px;
+}
+.diag-card .diag-t::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.45em;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 8px var(--amber), 0 0 16px rgba(242,169,59,0.4);
+}
+
+/* Eyebrow más luminoso sobre fondos navy */
+.bg-deep .eyebrow,
+.bg-paper .eyebrow,
+.bg-bone .eyebrow {
+  text-shadow: 0 0 8px rgba(116,172,223,0.4);
+}
