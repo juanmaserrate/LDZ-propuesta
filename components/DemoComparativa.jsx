@@ -36,7 +36,7 @@ function overlayDurationForText(text) {
 const DEMO_INTRO_MS = 3500;
 const DEMO_HIDE_MS = 600;
 const DEMO_END_MS = 3000;
-const TYPEWRITER_SPEED = 18;   // ms por letra del diagnóstico (más rápido para no comer tiempo de lectura)
+const TYPEWRITER_SPEED = 5;    // ms por letra del diagnóstico (casi instantáneo)
 const OSRM_TIMEOUT_MS = 4000;
 const OSRM_PREFETCH_CONCURRENCY = 3; // limite concurrente para no caer al rate-limit
 const OSRM_RETRY_DELAY_MS = 350;
