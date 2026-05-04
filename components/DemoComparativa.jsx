@@ -22,11 +22,12 @@
    - Orden pre-calculado: se usa s.orden_pliego / s.orden_localidad
      directamente del JSON. NO se hace nearest-neighbor en el cliente. */
 
-const DEMO_STEP_MS = 11500;    // duración total de cada paso (zona o localidad)
-const DEMO_OVERLAY_MS = 6500;  // tiempo que se ve el cartel grande tapando el mapa
-const DEMO_REVEAL_MS = 5000;   // tiempo que se ve el ruteo / mapa SIN cartel
-const DEMO_INTRO_MS = 3200;
-const DEMO_HIDE_MS = 350;
+const DEMO_STEP_MS = 14000;    // duración total de cada paso (zona o localidad)
+const DEMO_OVERLAY_MS = 8500;  // tiempo que se ve el cartel grande tapando el mapa (incluye fade-out suave)
+const DEMO_OVERLAY_FADE_MS = 1000; // duración del fade-out del cartel
+const DEMO_REVEAL_MS = 5500;   // tiempo que se ve el ruteo / mapa SIN cartel
+const DEMO_INTRO_MS = 3500;
+const DEMO_HIDE_MS = 600;
 const DEMO_END_MS = 3000;
 const TYPEWRITER_SPEED = 18;   // ms por letra del diagnóstico (más rápido para no comer tiempo de lectura)
 const OSRM_TIMEOUT_MS = 4000;
@@ -608,11 +609,16 @@ function DemoComparativa() {
 
   const showMsg = async (title, sub, color, ms = DEMO_INTRO_MS) => {
     if (stopRef.current) return;
-    setOverlay({ visible: true, title, sub, prov: null, chips: null, color });
+    setOverlay({ visible: true, leaving: false, title, sub, prov: null, chips: null, color });
     setTwText(""); setTwActive(false);
-    await sleep(ms);
+    // Mantener visible durante (ms - fade), luego empezar a desvanecer
+    const stayMs = Math.max(0, ms - DEMO_OVERLAY_FADE_MS);
+    await sleep(stayMs);
     if (stopRef.current) return;
-    setOverlay(o => ({ ...o, visible: false }));
+    setOverlay(o => ({ ...o, leaving: true }));
+    await sleep(DEMO_OVERLAY_FADE_MS);
+    if (stopRef.current) return;
+    setOverlay(o => ({ ...o, visible: false, leaving: false }));
     await sleep(DEMO_HIDE_MS);
   };
 
@@ -693,11 +699,16 @@ function DemoComparativa() {
         // Lanzar typewriter del diagnóstico (no bloquea el reloj de 3s)
         typewrite(diagText);
 
-        await sleep(DEMO_OVERLAY_MS);
+        await sleep(Math.max(0, DEMO_OVERLAY_MS - DEMO_OVERLAY_FADE_MS));
         if (stopRef.current) break;
 
-        // Ocultar overlay y revelar el mapa con animaciones (3s)
-        setOverlay(o => ({ ...o, visible: false }));
+        // Iniciar fade-out suave del overlay
+        setOverlay(o => ({ ...o, leaving: true }));
+        await sleep(DEMO_OVERLAY_FADE_MS);
+        if (stopRef.current) break;
+
+        // Ocultar overlay y revelar el mapa con animaciones
+        setOverlay(o => ({ ...o, visible: false, leaving: false }));
         _clearTwTimer();
         setTwActive(false);
 
@@ -767,10 +778,15 @@ function DemoComparativa() {
         // Frase corta de la propuesta con typewriter
         typewrite(PROPUESTA_FRASE);
 
-        await sleep(DEMO_OVERLAY_MS);
+        await sleep(Math.max(0, DEMO_OVERLAY_MS - DEMO_OVERLAY_FADE_MS));
         if (stopRef.current) break;
 
-        setOverlay(o => ({ ...o, visible: false }));
+        // Fade-out suave
+        setOverlay(o => ({ ...o, leaving: true }));
+        await sleep(DEMO_OVERLAY_FADE_MS);
+        if (stopRef.current) break;
+
+        setOverlay(o => ({ ...o, visible: false, leaving: false }));
         _clearTwTimer();
         setTwActive(false);
 
@@ -872,7 +888,7 @@ function DemoComparativa() {
             </aside>
           )}
           {overlay.visible && (
-            <div className="demo-overlay">
+            <div className={"demo-overlay" + (overlay.leaving ? " demo-overlay-leaving" : "")}>
               <div className="demo-overlay-title" style={{ color: overlay.color }}>{overlay.title}</div>
               {/* sub clásico (intros) */}
               {overlay.sub && (

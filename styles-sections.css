@@ -524,16 +524,18 @@
 
 /* Overlay enriquecido: zona/localidad con typewriter, proveedor y chips */
 .demo-overlay-diag {
-  margin-top: 14px;
+  margin: 28px auto 0;
   font-family: var(--f-display);
-  font-size: clamp(16px, 2.1vw, 22px);
-  font-weight: 500;
-  color: var(--ink-700);
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 700;
+  color: var(--ink-900);
   text-align: center;
-  max-width: 78%;
-  line-height: 1.45;
-  min-height: 1.45em;
-  letter-spacing: -0.005em;
+  text-wrap: balance;
+  max-width: 38ch;
+  line-height: 1.4;
+  min-height: 1.4em;
+  letter-spacing: -0.01em;
+  padding: 0 24px;
 }
 .demo-overlay-diag .tw-caret {
   display: inline-block;
@@ -593,13 +595,15 @@
 .demo-overlay {
   position: absolute; inset: 0;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  background: linear-gradient(180deg, rgba(247,250,253,0.82) 0%, rgba(247,250,253,0.62) 100%);
-  backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+  background: linear-gradient(180deg, rgba(247,250,253,0.85) 0%, rgba(247,250,253,0.68) 100%);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
   pointer-events: none;
-  animation: demoFade .25s ease-out;
+  animation: demoFadeIn .55s cubic-bezier(.4,0,.2,1) both;
   z-index: 5;
+  transition: opacity 1s cubic-bezier(.4,0,.2,1);
 }
-@keyframes demoFade { from { opacity: 0; } to { opacity: 1; } }
+.demo-overlay.demo-overlay-leaving { opacity: 0; }
+@keyframes demoFadeIn { from { opacity: 0; transform: scale(.985); } to { opacity: 1; transform: scale(1); } }
 .demo-overlay-title {
   font-family: var(--f-display);
   font-size: clamp(36px, 5.5vw, 72px);
@@ -610,12 +614,18 @@
   padding: 0 24px;
 }
 .demo-overlay-sub {
-  margin-top: 12px;
-  font-family: var(--f-mono); font-size: 13px;
-  letter-spacing: .1em; text-transform: uppercase;
-  color: var(--ink-700);
+  margin-top: 22px;
+  font-family: var(--f-body);
+  font-size: clamp(18px, 1.7vw, 24px);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink-900);
   text-align: center;
-  max-width: 80%;
+  text-wrap: balance;
+  max-width: 56ch;
+  padding: 0 24px;
 }
 
 /* Leyenda lateral */
