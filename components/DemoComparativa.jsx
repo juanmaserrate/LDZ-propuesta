@@ -510,7 +510,7 @@ function DemoComparativa() {
         setOverlay({
           visible: true,
           title: z,
-          sub: `${subset.length} colegios | ${k.total.toLocaleString("es-AR")} cupos | zonas del pliego`,
+          sub: `${subset.length} escuelas | ${k.total.toLocaleString("es-AR")} cupos | zonas del pliego`,
           color: "var(--celeste-700)",
         });
         // Mostrar cartel grande breve, después ocultarlo y dejar el ruteo en vista
@@ -562,7 +562,7 @@ function DemoComparativa() {
         setOverlay({
           visible: true,
           title: loc,
-          sub: `${subset.length} colegios | ${k.total.toLocaleString("es-AR")} cupos | una zona por barrio`,
+          sub: `${subset.length} escuelas | ${k.total.toLocaleString("es-AR")} cupos | una zona por barrio`,
           color,
         });
         await sleep(DEMO_OVERLAY_MS);
@@ -671,10 +671,10 @@ function DemoBenefitIcon({ name }) {
 }
 
 const DEMO_BENEFITS = [
-  { icon: "users",  title: "Auditorias por barrio",      desc: "Un auditor cubre toda una localidad sin trasladarse. Mas colegios verificados por jornada con el mismo equipo." },
+  { icon: "users",  title: "Auditorias por barrio",      desc: "Un auditor cubre toda una localidad sin trasladarse. Mas escuelas verificadas por jornada con el mismo equipo." },
   { icon: "shield", title: "Trazabilidad inmediata",     desc: "Si falla algo en Banfield Este, el municipio sabe a quien llamar. Una zona = un equipo responsable." },
   { icon: "leaf",   title: "Cadena termica protegida",   desc: "Rutas cortas dentro del barrio. La vianda llega caliente, antes del recreo, sin riesgo de cadena de frio rota." },
-  { icon: "spark",  title: "Equidad de servicio",        desc: "Todos los colegios de un barrio reciben en la misma ventana horaria. Cero diferencias entre escuelas vecinas." },
+  { icon: "spark",  title: "Equidad de servicio",        desc: "Todas las escuelas de un barrio reciben en la misma ventana horaria. Cero diferencias entre escuelas vecinas." },
   { icon: "road",   title: "Resiliencia operativa",      desc: "Si una camioneta falla en una localidad, otra del mismo barrio cubre sin desorganizar el sistema." },
   { icon: "chart",  title: "Metrica reportable",         desc: "Indicadores claros por barrio para presentar al Concejo Deliberante: cumplimiento, km recorridos, frescura, tiempo medio." },
 ];

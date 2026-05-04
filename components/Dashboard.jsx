@@ -27,9 +27,9 @@ function Dashboard() {
       <div className="dash-header">
         <div>
           <div className="eyebrow">Mapa real interactivo</div>
-          <h3 className="display-sm" style={{ marginTop: 8 }}>80+ colegios del pliego — actuales vs. propuesta</h3>
+          <h3 className="display-sm" style={{ marginTop: 8 }}>80+ escuelas del pliego — actuales vs. propuesta</h3>
           <p className="text-mute" style={{ fontSize: 14, marginTop: 6, maxWidth: 540 }}>
-            Cambiá entre la zonificación vigente (12 zonas dispersas) y la propuesta de Real de Catorce: una zona por barrio, respetando la geografía real del partido. Hacé clic en cada colegio para ver su asignación.
+            Cambiá entre la zonificación vigente (12 zonas dispersas) y la propuesta de Real de Catorce: una zona por barrio, respetando la geografía real del partido. Hacé clic en cada escuela para ver su asignación.
           </p>
         </div>
         <div className="mode-switch" role="tablist" aria-label="Cambiar modo de mapa">
@@ -111,7 +111,7 @@ function RealSchoolsMap({ mode }) {
   return (
     <div style={{ marginTop: 28 }}>
       <div className="eyebrow" style={{ display: "block", marginBottom: 10 }}>
-        Mapa real · {schools.length} colegios del pliego de Lomas de Zamora
+        Mapa real · {schools.length} escuelas del pliego de Lomas de Zamora
       </div>
       <div ref={ref} style={{
         height: 460, borderRadius: "var(--r-md)", overflow: "hidden",
