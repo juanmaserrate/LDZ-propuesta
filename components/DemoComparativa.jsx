@@ -938,12 +938,49 @@ function DemoBenefitIcon({ name }) {
 }
 
 const DEMO_BENEFITS = [
-  { icon: "users",  title: "Auditorias por barrio",      desc: "Un auditor cubre toda una localidad sin trasladarse. Mas escuelas verificadas por jornada con el mismo equipo." },
-  { icon: "shield", title: "Trazabilidad inmediata",     desc: "Si falla algo en Banfield Este, el municipio sabe a quien llamar. Una zona = un equipo responsable." },
-  { icon: "leaf",   title: "Cadena termica protegida",   desc: "Rutas cortas dentro del barrio. La vianda llega caliente, antes del recreo, sin riesgo de cadena de frio rota." },
-  { icon: "spark",  title: "Equidad de servicio",        desc: "Todas las escuelas de un barrio reciben en la misma ventana horaria. Cero diferencias entre escuelas vecinas." },
-  { icon: "road",   title: "Resiliencia operativa",      desc: "Si una camioneta falla en una localidad, otra del mismo barrio cubre sin desorganizar el sistema." },
-  { icon: "chart",  title: "Metrica reportable",         desc: "Indicadores claros por barrio para presentar al Concejo Deliberante: cumplimiento, km recorridos, frescura, tiempo medio." },
+  // Control y auditoría
+  { icon: "users",  title: "Auditorías por barrio",        desc: "Un auditor cubre toda una localidad sin trasladarse entre zonas. Más escuelas verificadas por jornada con el mismo equipo municipal." },
+  { icon: "shield", title: "Trazabilidad inmediata",       desc: "Si falla algo en Banfield Este, el Municipio sabe exactamente a quién llamar. Una zona = un equipo responsable, sin diluir responsabilidad." },
+  { icon: "chart",  title: "Métrica reportable al Concejo", desc: "Indicadores claros y comparables por barrio: cumplimiento, km recorridos, frescura, tiempo medio. Listos para presentar." },
+  { icon: "shield", title: "Inspecciones bromatológicas más simples", desc: "Bromatología puede revisar todas las escuelas de un barrio en una sola jornada con un mismo recorrido." },
+  { icon: "users",  title: "Punto único de contacto",      desc: "Cada barrio tiene un referente operativo. Directivos, supervisión y Municipio dialogan con una sola contraparte por zona." },
+  { icon: "chart",  title: "Tablero municipal en tiempo real", desc: "Estado de cada entrega, temperatura de las viandas y KPIs por escuela disponibles para el área de Educación al instante." },
+
+  // Calidad de la vianda y de la entrega
+  { icon: "leaf",   title: "Cadena térmica protegida",     desc: "Rutas cortas dentro del barrio. La vianda llega caliente, antes del recreo, sin riesgo de cadena de frío rota." },
+  { icon: "leaf",   title: "Frescura comprobable",         desc: "Menos minutos en tránsito = más nutrientes preservados. La vianda llega como salió de la cocina." },
+  { icon: "spark",  title: "Equidad de servicio horario",  desc: "Todas las escuelas de un barrio reciben en la misma ventana. Cero diferencias entre escuelas vecinas (no más 11:30 vs 13:00)." },
+  { icon: "leaf",   title: "Menos viandas devueltas",      desc: "Llegando a tiempo y a temperatura, las devoluciones por mal estado bajan al mínimo. Menos comida desperdiciada." },
+  { icon: "spark",  title: "Recreo respetado",             desc: "La vianda está antes del horario de comedor en el 100% de las escuelas. Los chicos comen sin acortar el recreo ni la clase siguiente." },
+
+  // Operativa y resiliencia
+  { icon: "road",   title: "Resiliencia ante imprevistos", desc: "Si una camioneta falla en una localidad, otra del mismo barrio cubre sin desorganizar todo el sistema municipal." },
+  { icon: "road",   title: "Rutas cortas y predecibles",   desc: "Recorridos diseñados barrio por barrio: el conductor conoce sus calles, los tiempos son repetibles, los retrasos se detectan al instante." },
+  { icon: "road",   title: "Menos tránsito en avenidas",   desc: "Camionetas concentradas en sus barrios, no cruzando el partido. Menos congestión municipal y menos riesgo de incidentes." },
+  { icon: "spark",  title: "Cobertura ante eventos",       desc: "Cortes de calle, obras o lluvias: cada barrio tiene rutas alternativas internas conocidas. La entrega no se cae." },
+
+  // Sustentabilidad y costos
+  { icon: "leaf",   title: "Menos kilómetros = menos emisiones", desc: "Reducción estimada de 38% en km recorridos. Huella de carbono menor para la flota oficial del SAE — un dato comunicable." },
+  { icon: "chart",  title: "Eficiencia en combustible",    desc: "Rutas optimizadas reducen consumo de gasoil. El proveedor opera con menor costo y eso protege la sustentabilidad del contrato." },
+  { icon: "leaf",   title: "Menos horas extra de conductores", desc: "Recorridos más cortos terminan en tiempo. Menos fatiga del personal, menor riesgo laboral, menor sobrecosto operativo." },
+  { icon: "chart",  title: "Mejor relación precio/servicio", desc: "El Municipio recibe el mismo precio del pliego con un servicio sustancialmente mejor. Cero costo extra para el erario." },
+
+  // Vínculo con la comunidad educativa
+  { icon: "users",  title: "Relación directa con directivos", desc: "Cada barrio tiene un equipo conocido por las escuelas. Comunicación fluida, problemas resueltos sin escalar a Municipio." },
+  { icon: "spark",  title: "Visibilidad política positiva", desc: "Un servicio bien gestionado se traduce en percepción positiva del Municipio en cada barrio. Cero costo extra para el erario." },
+  { icon: "users",  title: "Encuestas de satisfacción por zona", desc: "Mediciones específicas por localidad permiten al Municipio detectar y corregir focos de insatisfacción con precisión quirúrgica." },
+  { icon: "shield", title: "Reclamos resueltos en horas, no días", desc: "Con un equipo asignado por barrio, cada reclamo de directivo o familia tiene una respuesta inmediata y trazable." },
+
+  // Adaptabilidad y largo plazo
+  { icon: "chart",  title: "Flexibilidad ante cambios de matrícula", desc: "Si una escuela suma o pierde alumnos, el rebalanceo es inmediato dentro del barrio. No hay que rehacer toda la zona del pliego." },
+  { icon: "spark",  title: "Escalable a nuevos servicios",  desc: "Una vez optimizado el reparto alimenticio, el mismo modelo aplica a kits escolares, materiales de educación física, libros, etc." },
+  { icon: "chart",  title: "Datos históricos por barrio",   desc: "Año tras año el Municipio acumula serie temporal por localidad: tendencias de matrícula, consumo, incidencias. Decisiones basadas en evidencia." },
+  { icon: "shield", title: "Alineado con normativa SAE",    desc: "Cumple con todas las exigencias del Servicio Alimentario Escolar provincial: trazabilidad, cadena de frío, registro nutricional." },
+  { icon: "users",  title: "Continuidad del servicio",      desc: "Si un proveedor rota, el conocimiento del barrio queda documentado y se transfiere sin pérdida de calidad." },
+
+  // Sin renegociar el pliego
+  { icon: "shield", title: "Sin modificar el contrato vigente", desc: "La rezonificación es una mejora operativa que asume el operador. No requiere reabrir el pliego ni renegociar precios." },
+  { icon: "spark",  title: "Implementación gradual",        desc: "Pilotos por barrios permiten validar y ajustar antes del despliegue total. Sin sorpresas, sin riesgo para el Municipio." },
 ];
 
 function DemoComparativaSection({ data, onlyDemo, onPrevPage, onNextPage }) {
