@@ -30,8 +30,6 @@
   --amber-deep: #C8861E;
   --green:   #2E9E6E;     /* positivo / "después" */
   --coral:   #D85A4A;     /* negativo / "antes" */
-  --rojo-lz: #C8102E;     /* rojo institucional Lomas de Zamora */
-  --rojo-lz-soft: rgba(200,16,46,0.55);
 
   /* Tipografía */
   --f-display: "Sora", system-ui, sans-serif;
