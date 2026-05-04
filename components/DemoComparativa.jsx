@@ -805,12 +805,6 @@ function DemoComparativa() {
 
       if (stopRef.current) return;
       setLegend(null);
-      await showMsg(
-        "Analisis comparativo finalizado",
-        "12 zonas dispersas vs. una zona por barrio | vista de conjunto restaurada",
-        "var(--celeste-800)",
-        DEMO_END_MS
-      );
     } catch (err) {
       console.error("Error en demo:", err);
     } finally {
