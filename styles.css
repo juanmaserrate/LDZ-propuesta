@@ -308,11 +308,28 @@ footer.foot .fine {
 .text-amber { color: var(--amber-deep); }
 .text-mute { color: var(--ink-500); }
 
-.bg-paper { background: var(--paper); }
-.bg-bone  { background: var(--bone); }
-.bg-deep  { background: var(--celeste-800); color: white; }
-.bg-deep .lead, .bg-deep p { color: var(--celeste-100); }
+.bg-paper, .bg-bone, .bg-deep {
+  background: var(--celeste-800);
+  color: white;
+}
+.bg-paper .lead, .bg-paper p,
+.bg-bone .lead,  .bg-bone p,
+.bg-deep .lead,  .bg-deep p { color: var(--celeste-100); }
+.bg-paper .text-mute,
+.bg-bone .text-mute,
 .bg-deep .text-mute { color: var(--celeste-300); }
+/* Títulos de sección sobre fondo navy: blancos */
+.bg-paper .display-lg, .bg-bone .display-lg, .bg-deep .display-lg,
+.bg-paper .display-md, .bg-bone .display-md, .bg-deep .display-md,
+.bg-paper .display-sm, .bg-bone .display-sm, .bg-deep .display-sm { color: white; }
+/* Eyebrow / section-tag sobre fondo navy: celeste claro */
+.bg-paper .eyebrow, .bg-bone .eyebrow, .bg-deep .eyebrow { color: var(--celeste-300); }
+.bg-paper .section-tag .num,
+.bg-bone .section-tag .num,
+.bg-deep .section-tag .num { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.18); color: var(--celeste-200); }
+.bg-paper .section-tag .txt,
+.bg-bone .section-tag .txt,
+.bg-deep .section-tag .txt { color: var(--celeste-300); }
 
 /* Sr-only for a11y */
 .sr-only {
