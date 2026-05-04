@@ -113,14 +113,9 @@
   </svg>
 
   <div class="intro-cta">
-    <button class="btn btn-primary" onclick="hideIntro(); openSlideshow();">Ver propuesta ↓</button>
+    <button class="btn btn-primary" onclick="hideIntro(); setTimeout(() => { document.getElementById('demo-comparativa')?.scrollIntoView({behavior:'smooth'}); }, 200);">Ver propuesta ↓</button>
     <a class="btn btn-ghost" href="#dashboard" onclick="hideIntro()">Ir al mapa</a>
   </div>
-</div>
-
-<!-- SLIDESHOW OVERLAY (fullscreen, mismo formato que intro) -->
-<div id="slideshowOverlay" class="hidden">
-  <div id="slideshowApp"></div>
 </div>
 
 <header class="topbar">
@@ -135,11 +130,11 @@
       </div>
     </div>
     <nav class="nav" aria-label="Secciones">
-      <a href="#" onclick="event.preventDefault(); openSlideshow();">Recorrido</a>
+      <a href="#recorrido">Recorrido</a>
       <a href="#diagnostico">Diagnóstico</a>
       <a href="#dashboard">Mapa</a>
       <a href="#calculadora">Calculadora</a>
-      <a href="#" onclick="event.preventDefault(); openSlideshow();">Beneficios</a>
+      <a href="#beneficios">Beneficios</a>
     </nav>
     <span class="pill-status"><span class="dot"></span> Propuesta · 2026</span>
   </div>
@@ -161,20 +156,6 @@
     if (el) el.classList.add("hidden");
     document.body.style.overflow = "";
   }
-  // Saltar intro y abrir slideshow directamente al cargar
-  hideIntro();
-  window.addEventListener("DOMContentLoaded", () => {
-    if (typeof window.openSlideshow === "function") {
-      window.openSlideshow();
-    } else {
-      // si todavía no se montó el script del slideshow, esperá un tick
-      const tryOpen = () => {
-        if (typeof window.openSlideshow === "function") window.openSlideshow();
-        else setTimeout(tryOpen, 100);
-      };
-      tryOpen();
-    }
-  });
 </script>
 
 <script type="text/babel">
@@ -301,122 +282,16 @@ const CONTENT = {
   },
 };
 
-const SLIDES = [
-  {
-    id: "page1",
-    pill: "PASO 1 DE 3 · DIAGNÓSTICO POR ZONA",
-    title: "¿Cuál es la situación actual?",
-    sub: "Recorré las 12 zonas del pliego municipal y conocé los problemas que enfrenta cada una.",
-  },
-  {
-    id: "page2",
-    pill: "PASO 2 DE 3 · DEMO COMPARATIVA",
-    title: "Pliego vigente vs. propuesta de rezonificación.",
-    sub: "Una vista en vivo: primero las 12 zonas del pliego, después una zona por cada barrio.",
-  },
-  {
-    id: "page3",
-    pill: "PASO 3 DE 3 · LO QUE GANA EL MUNICIPIO",
-    title: "Lo que gana el Municipio.",
-    sub: "Seis frentes concretos donde la rezonificación por barrio mejora el servicio escolar.",
-  },
-];
-
-function SlideshowOverlayApp() {
-  const [page, setPage] = React.useState("page1");
-  const [transitioning, setTransitioning] = React.useState(false);
-  const idx = SLIDES.findIndex(s => s.id === page);
-  const slide = SLIDES[idx] || SLIDES[0];
-
-  // Cambio con fade
-  const goTo = (newPage) => {
-    if (newPage === page) return;
-    setTransitioning(true);
-    setTimeout(() => {
-      setPage(newPage);
-      setTransitioning(false);
-    }, 280);
-  };
-
-  const goPrev = () => {
-    if (idx <= 0) return;
-    goTo(SLIDES[idx - 1].id);
-  };
-  const goNext = () => {
-    if (idx >= SLIDES.length - 1) return;
-    goTo(SLIDES[idx + 1].id);
-  };
-
-  // Tecla Escape cierra
-  React.useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape") {
-        if (typeof window.closeSlideshow === "function") window.closeSlideshow();
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
-
-  return (
-    <>
-      <header className="slideshow-header">
-        <h1 className="slideshow-title">{slide.title}</h1>
-        <p className="slideshow-sub">{slide.sub}</p>
-      </header>
-
-      <main className={"slideshow-main" + (transitioning ? " slide-transitioning" : "")}>
-        {page === "page1" && (
-          <ZoneSlider onNextPage={() => goTo("page2")}/>
-        )}
-        {page === "page2" && (
-          <DemoComparativa/>
-        )}
-        {page === "page3" && (
-          <div className="demo-benefits-grid">
-            {(window.DEMO_BENEFITS || []).map((b, i) => (
-              <div className="demo-benefit-card" key={i}>
-                <div className="demo-benefit-icon">
-                  {window.DemoBenefitIcon
-                    ? React.createElement(window.DemoBenefitIcon, { name: b.icon })
-                    : null}
-                </div>
-                <div className="demo-benefit-title">{b.title}</div>
-                <div className="demo-benefit-desc">{b.desc}</div>
-              </div>
-            ))}
-          </div>
-        )}
-      </main>
-
-      <footer className="slideshow-footer">
-        <div style={{ minWidth: 140, textAlign: "left" }}>
-          {idx > 0 && (
-            <button className="btn btn-ghost nav-arrow" onClick={goPrev}>
-              ◀ Atrás
-            </button>
-          )}
-        </div>
-        <div className="indicator">PASO {idx + 1} DE {SLIDES.length}</div>
-        <div style={{ minWidth: 140, textAlign: "right" }}>
-          {idx < SLIDES.length - 1 && (
-            <button className="btn btn-primary nav-arrow" onClick={goNext}>
-              Siguiente ▶
-            </button>
-          )}
-        </div>
-      </footer>
-    </>
-  );
-}
-
 function App() {
   return (
     <>
       <Hero data={CONTENT.hero}/>
+      <DemoComparativaSection onlyDemo={true}/>
+      <ZoneSliderSection data={CONTENT.recorrido}/>
       <Diagnostico data={CONTENT.diagnostico}/>
       <DashboardSection data={CONTENT.dashboard}/>
       <CalculadoraSection data={CONTENT.calculadora}/>
+      <BenefitsPage/>
       <CierreCustom data={CONTENT.cierre}/>
     </>
   );
@@ -453,32 +328,6 @@ function CierreCustom({ data }) {
 }
 
 ReactDOM.createRoot(document.getElementById("app")).render(<App/>);
-
-// Mount lazy del slideshow para que los mapas Leaflet se inicialicen
-// con el contenedor ya visible. Asi evitamos que arranquen en tamano 0.
-let __slideshowMounted = false;
-function mountSlideshowIfNeeded() {
-  if (__slideshowMounted) return;
-  __slideshowMounted = true;
-  ReactDOM.createRoot(document.getElementById("slideshowApp"))
-          .render(<SlideshowOverlayApp/>);
-}
-
-// Funciones globales para abrir / cerrar el slideshow overlay
-window.openSlideshow = function() {
-  const el = document.getElementById("slideshowOverlay");
-  if (!el) return;
-  el.classList.remove("hidden");
-  document.body.style.overflow = "hidden";
-  mountSlideshowIfNeeded();
-  setTimeout(() => window.dispatchEvent(new Event("resize")), 360);
-};
-window.closeSlideshow = function() {
-  const el = document.getElementById("slideshowOverlay");
-  if (!el) return;
-  el.classList.add("hidden");
-  document.body.style.overflow = "";
-};
 </script>
 </body>
 </html>
