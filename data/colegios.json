@@ -9629,5 +9629,37 @@
     "Villa Fiorito",
     "Villa Lamadrid",
     "Sin asignar"
-  ]
+  ],
+  "proveedores_locations": {
+    "LGE": {
+      "lat": -34.7736389,
+      "lng": -58.4344515,
+      "direccion": "Madrid 297, Lomas de Zamora, Buenos Aires, Argentina"
+    },
+    "LOGISTICA SOFIA": {
+      "lat": -34.7532936,
+      "lng": -58.4010599,
+      "direccion": "Av. Hipolito Yrigoyen 15892, Lomas de Zamora, Buenos Aires, Argentina"
+    },
+    "DISTRIBUIDORA COFEX": {
+      "lat": -34.7603942,
+      "lng": -58.4033766,
+      "direccion": "Uriarte 1020, Lomas de Zamora, Buenos Aires, Argentina"
+    },
+    "ALVAGAMA": {
+      "lat": -34.7696499,
+      "lng": -58.3961395,
+      "direccion": "Juncal 1763, Lomas de Zamora, Buenos Aires, Argentina"
+    },
+    "CENTURION": {
+      "lat": -34.7501518,
+      "lng": -58.4423703,
+      "direccion": "Lisandro de la Torre 1949, Lomas de Zamora, Buenos Aires, Argentina"
+    },
+    "NEFEZ": {
+      "lat": -34.7609625,
+      "lng": -58.4266216,
+      "direccion": "Amado Nervo 326, Lomas de Zamora, Buenos Aires, Argentina"
+    }
+  }
 }

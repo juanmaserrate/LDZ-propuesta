@@ -17,13 +17,41 @@ const ZONE_DIAGNOSTICS = {
   "Zona 12": { n: "12", t: "Control municipal disperso", c: "El área de Educación necesita supervisar 12 zonas con criterios diferentes. Imposible comparar performance entre zonas con datos homogéneos." },
 };
 
+// OSRM con cache: route por las calles entre dos puntos
+const _zoneRouteCache = new Map();
+async function fetchOSRM(a, b) {
+  const key = `${a.lat.toFixed(5)},${a.lng.toFixed(5)}|${b.lat.toFixed(5)},${b.lng.toFixed(5)}`;
+  if (_zoneRouteCache.has(key)) return _zoneRouteCache.get(key);
+  try {
+    const url = `https://router.project-osrm.org/route/v1/driving/${a.lng},${a.lat};${b.lng},${b.lat}?overview=full&geometries=geojson`;
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 4000);
+    const r = await fetch(url, { signal: ctrl.signal });
+    clearTimeout(t);
+    const j = await r.json();
+    const coords = (j.routes && j.routes[0] && j.routes[0].geometry.coordinates) || null;
+    if (!coords) throw new Error("no route");
+    const ll = coords.map(c => [c[1], c[0]]);
+    _zoneRouteCache.set(key, ll);
+    return ll;
+  } catch (_) {
+    const fallback = [[a.lat, a.lng], [b.lat, b.lng]];
+    _zoneRouteCache.set(key, fallback);
+    return fallback;
+  }
+}
+
 function ZoneSlider({ onNextPage, onPrevPage }) {
   const mapEl = React.useRef(null);
   const mapRef = React.useRef(null);
   const layerRef = React.useRef(null);
+  const routeLayerRef = React.useRef(null);
+  const provMarkerRef = React.useRef(null);
+  const seqRef = React.useRef(0);
   const [schools, setSchools] = React.useState([]);
   const [zones, setZones] = React.useState([]);
   const [provByZone, setProvByZone] = React.useState({});
+  const [provLocations, setProvLocations] = React.useState({});
   const [idx, setIdx] = React.useState(0);
 
   // Cargar colegios.json una sola vez (cache global)
@@ -33,15 +61,17 @@ function ZoneSlider({ onNextPage, onPrevPage }) {
       setSchools(d.colegios || []);
       setZones(d.zonas_disponibles || []);
       setProvByZone(d.proveedores_por_zona || {});
+      setProvLocations(d.proveedores_locations || {});
       return;
     }
-    fetch("data/colegios.json?v=2")
+    fetch("data/colegios.json?v=4")
       .then(r => r.json())
       .then(d => {
         window.__colegiosCache = d;
         setSchools(d.colegios || []);
         setZones(d.zonas_disponibles || []);
         setProvByZone(d.proveedores_por_zona || {});
+        setProvLocations(d.proveedores_locations || {});
       })
       .catch(() => {});
   }, []);
@@ -65,14 +95,39 @@ function ZoneSlider({ onNextPage, onPrevPage }) {
     [schools, currentZone]
   );
 
-  // Render markers + ajustar bounds al cambiar de zona
+  // Render markers + proveedor + rutas OSRM al cambiar de zona
   React.useEffect(() => {
     const map = mapRef.current;
     if (!map || typeof L === "undefined" || !currentZone) return;
     if (layerRef.current) map.removeLayer(layerRef.current);
+    if (routeLayerRef.current) map.removeLayer(routeLayerRef.current);
+    if (provMarkerRef.current) map.removeLayer(provMarkerRef.current);
 
+    const mySeq = ++seqRef.current;
     const group = L.layerGroup();
+    const routeLayer = L.layerGroup();
     const pts = [];
+
+    // Marker del proveedor
+    const provName = provByZone[currentZone];
+    const provLoc = provName && provLocations[provName];
+    if (provLoc && provLoc.lat && provLoc.lng) {
+      const provIcon = L.divIcon({
+        className: "zone-prov-icon",
+        html: `<div class="zone-prov-pin">📦</div>`,
+        iconSize: [40, 40], iconAnchor: [20, 20],
+      });
+      const pm = L.marker([provLoc.lat, provLoc.lng], { icon: provIcon, zIndexOffset: 1000 })
+        .bindPopup(`<strong>${provName}</strong><br/><span style="color:#5A6B82;font-size:12px">${provLoc.direccion || ""}</span>`);
+      pm.addTo(map);
+      provMarkerRef.current = pm;
+      pts.push([provLoc.lat, provLoc.lng]);
+    } else {
+      provMarkerRef.current = null;
+    }
+
+    // Marcadores de colegios + polyline recta inmediata como fallback
+    const fallbackLines = [];
     colegiosZona.forEach(s => {
       if (!s.lat || !s.lng) return;
       pts.push([s.lat, s.lng]);
@@ -88,20 +143,48 @@ function ZoneSlider({ onNextPage, onPrevPage }) {
         `<strong>${s.nombre}</strong><br/>` +
         `<span style="color:#5A6B82;font-size:12px">${s.direccion || ""}</span><br/>` +
         `<span style="font-size:12px">Localidad: <b>${s.localidad || "—"}</b></span><br/>` +
-        `<span style="font-size:12px">Proveedor: <b>${s.proveedor || "—"}</b></span><br/>` +
+        `<span style="font-size:12px">Proveedor: <b>${provName || "—"}</b></span><br/>` +
         `<span style="font-size:11px;color:#5A6B82">Matrícula: ${mat} · DM: ${dm} · COM: ${com}</span>` +
         `</div>`
       );
       group.addLayer(m);
+
+      if (provLoc && provLoc.lat && provLoc.lng) {
+        // Línea recta de fallback inmediato
+        const straight = L.polyline([[provLoc.lat, provLoc.lng], [s.lat, s.lng]], {
+          color: "#2563B0", weight: 2, opacity: 0.45, dashArray: "4 6",
+        });
+        routeLayer.addLayer(straight);
+        fallbackLines.push({ marker: m, school: s, straightLine: straight });
+      }
     });
+
     group.addTo(map);
+    routeLayer.addTo(map);
     layerRef.current = group;
+    routeLayerRef.current = routeLayer;
 
     if (pts.length) {
       map.fitBounds(L.latLngBounds(pts).pad(0.25), { animate: true });
     }
     setTimeout(() => map.invalidateSize(), 50);
-  }, [colegiosZona, currentZone]);
+
+    // Upgrade async a rutas OSRM por las calles
+    if (provLoc && provLoc.lat && provLoc.lng) {
+      fallbackLines.forEach(({ school, straightLine }) => {
+        fetchOSRM(provLoc, { lat: school.lat, lng: school.lng }).then(latlngs => {
+          if (mySeq !== seqRef.current || routeLayerRef.current !== routeLayer) return;
+          if (!latlngs || !latlngs.length) return;
+          // Reemplazar la línea recta por la ruta OSRM real
+          routeLayer.removeLayer(straightLine);
+          const route = L.polyline(latlngs, {
+            color: "#2563B0", weight: 3, opacity: 0.75, lineCap: "round", lineJoin: "round",
+          });
+          routeLayer.addLayer(route);
+        }).catch(() => {});
+      });
+    }
+  }, [colegiosZona, currentZone, provByZone, provLocations]);
 
   // Teclas izq/der
   React.useEffect(() => {
