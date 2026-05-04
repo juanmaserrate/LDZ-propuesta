@@ -45,7 +45,7 @@ const OSRM_RETRY_DELAY_MS = 350;
 const DEPOT = {
   lat: -34.8353338,
   lng: -58.4233261,
-  nombre: "Real de Catorce - Burzaco",
+  nombre: "Depósito central — Burzaco",
   direccion: "Ombu 1269",
 };
 
@@ -839,7 +839,7 @@ function DemoComparativa() {
 
   const phaseLabel =
     stage.phase === "pliego" ? "* Pliego vigente | ritmo nervioso" :
-    stage.phase === "propuesta" ? "* Propuesta R14 | una zona por barrio" :
+    stage.phase === "propuesta" ? "* Propuesta de rezonificación | una zona por barrio" :
     "* Vista en vivo";
   const phaseColor =
     stage.phase === "pliego" ? "var(--celeste-700)" :
@@ -949,7 +949,7 @@ const DEMO_BENEFITS = [
 function DemoComparativaSection({ data, onlyDemo, onPrevPage, onNextPage }) {
   const d = data || {
     tag: "DEMO COMPARATIVA",
-    title: "Pliego vigente vs. propuesta Real de Catorce",
+    title: "Pliego vigente vs. propuesta de rezonificación",
     lead: "Una sola vista en vivo: primero recorre las 12 zonas del pliego con ritmo nervioso, despues la propuesta barrio por barrio - una zona logistica por localidad.",
   };
   return (

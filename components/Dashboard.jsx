@@ -29,7 +29,7 @@ function Dashboard() {
           <div className="eyebrow">Mapa real interactivo</div>
           <h3 className="display-sm" style={{ marginTop: 8 }}>80+ escuelas del pliego — actuales vs. propuesta</h3>
           <p className="text-mute" style={{ fontSize: 14, marginTop: 6, maxWidth: 540 }}>
-            Cambiá entre la zonificación vigente (12 zonas dispersas) y la propuesta de Real de Catorce: una zona por barrio, respetando la geografía real del partido. Hacé clic en cada escuela para ver su asignación.
+            Cambiá entre la zonificación vigente (12 zonas dispersas) y la propuesta de rezonificación: una zona por barrio, respetando la geografía real del partido. Hacé clic en cada escuela para ver su asignación.
           </p>
         </div>
         <div className="mode-switch" role="tablist" aria-label="Cambiar modo de mapa">
