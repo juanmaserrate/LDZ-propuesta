@@ -53,71 +53,6 @@
 </head>
 <body>
 
-<!-- INTRO OVERLAY (presentación inicial — celeste, no dark) -->
-<div id="introOverlay">
-  <button class="intro-skip" onclick="hideIntro()">Saltar intro ✕</button>
-
-  <div class="intro-logos">
-    <img src="img/logo_r14.png" alt="Logo R14">
-    <span class="x">×</span>
-    <img src="img/logo_lz.png" alt="Lomas de Zamora">
-  </div>
-
-  <div class="intro-pill"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--celeste-500);margin-right:8px;vertical-align:middle"></span>Propuesta institucional · Reparto alimenticio escolar</div>
-
-  <h1 class="intro-title">Rezonificar para servir mejor a cada escuela.</h1>
-  <p class="intro-sub">Reagrupación geográfica de las escuelas del pliego municipal para reducir tiempos de entrega, mejorar la frescura de las viandas y simplificar las auditorías del Municipio de Lomas de Zamora.</p>
-
-  <svg class="intro-anim" viewBox="0 0 560 240" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <radialGradient id="g1" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" stop-color="#74ACDF" stop-opacity=".3"/>
-        <stop offset="100%" stop-color="#74ACDF" stop-opacity="0"/>
-      </radialGradient>
-    </defs>
-    <!-- 4 hubs propuestos -->
-    <circle cx="120" cy="120" r="60" fill="url(#g1)"/>
-    <circle cx="260" cy="90"  r="60" fill="url(#g1)"/>
-    <circle cx="400" cy="140" r="60" fill="url(#g1)"/>
-    <circle cx="500" cy="80"  r="55" fill="url(#g1)"/>
-
-    <!-- dots animados convergiendo -->
-    <g fill="#2563B0">
-      <circle class="intro-dot" cx="120" cy="120" r="4" style="--tx:-30px;--ty:-10px;animation-delay:.05s"/>
-      <circle class="intro-dot" cx="120" cy="120" r="4" style="--tx:25px;--ty:-20px;animation-delay:.10s"/>
-      <circle class="intro-dot" cx="120" cy="120" r="4" style="--tx:-10px;--ty:30px;animation-delay:.15s"/>
-      <circle class="intro-dot" cx="120" cy="120" r="4" style="--tx:35px;--ty:15px;animation-delay:.20s"/>
-
-      <circle class="intro-dot" cx="260" cy="90"  r="4" style="--tx:-25px;--ty:-15px;animation-delay:.25s"/>
-      <circle class="intro-dot" cx="260" cy="90"  r="4" style="--tx:30px;--ty:-25px;animation-delay:.30s"/>
-      <circle class="intro-dot" cx="260" cy="90"  r="4" style="--tx:20px;--ty:30px;animation-delay:.35s"/>
-      <circle class="intro-dot" cx="260" cy="90"  r="4" style="--tx:-20px;--ty:25px;animation-delay:.40s"/>
-
-      <circle class="intro-dot" cx="400" cy="140" r="4" style="--tx:-30px;--ty:-20px;animation-delay:.45s"/>
-      <circle class="intro-dot" cx="400" cy="140" r="4" style="--tx:25px;--ty:-15px;animation-delay:.50s"/>
-      <circle class="intro-dot" cx="400" cy="140" r="4" style="--tx:-15px;--ty:25px;animation-delay:.55s"/>
-      <circle class="intro-dot" cx="400" cy="140" r="4" style="--tx:30px;--ty:20px;animation-delay:.60s"/>
-
-      <circle class="intro-dot" cx="500" cy="80"  r="4" style="--tx:-22px;--ty:-15px;animation-delay:.65s"/>
-      <circle class="intro-dot" cx="500" cy="80"  r="4" style="--tx:18px;--ty:22px;animation-delay:.70s"/>
-      <circle class="intro-dot" cx="500" cy="80"  r="4" style="--tx:-18px;--ty:24px;animation-delay:.75s"/>
-    </g>
-
-    <!-- estrellas hub -->
-    <g fill="#F2A93B" stroke="#fff" stroke-width="2">
-      <circle cx="120" cy="120" r="9"/>
-      <circle cx="260" cy="90" r="9"/>
-      <circle cx="400" cy="140" r="9"/>
-      <circle cx="500" cy="80" r="9"/>
-    </g>
-  </svg>
-
-  <div class="intro-cta">
-    <button class="btn btn-primary" onclick="hideIntro(); setTimeout(() => { document.getElementById('demo-comparativa')?.scrollIntoView({behavior:'smooth'}); }, 200);">Ver propuesta ↓</button>
-    <a class="btn btn-ghost" href="#dashboard" onclick="hideIntro()">Ir al mapa</a>
-  </div>
-</div>
-
 <header class="topbar">
   <div class="shell topbar-row">
     <div class="brand-lock">
@@ -149,13 +84,6 @@
 <script type="text/babel" src="components/DemoComparativa.jsx"></script>
 <script type="text/babel" src="components/Sections.jsx"></script>
 
-<script>
-  function hideIntro() {
-    const el = document.getElementById("introOverlay");
-    if (el) el.classList.add("hidden");
-    document.body.style.overflow = "";
-  }
-</script>
 
 <script type="text/babel">
 const CONTENT = {
