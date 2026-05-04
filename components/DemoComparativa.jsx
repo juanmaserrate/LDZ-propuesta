@@ -22,13 +22,13 @@
    - Orden pre-calculado: se usa s.orden_pliego / s.orden_localidad
      directamente del JSON. NO se hace nearest-neighbor en el cliente. */
 
-const DEMO_STEP_MS = 6000;     // duración total de cada paso (zona o localidad)
-const DEMO_OVERLAY_MS = 3000;  // tiempo que se ve el cartel grande tapando el mapa
-const DEMO_REVEAL_MS = 3000;   // tiempo que se ve el ruteo / mapa SIN cartel
-const DEMO_INTRO_MS = 2500;
+const DEMO_STEP_MS = 11500;    // duración total de cada paso (zona o localidad)
+const DEMO_OVERLAY_MS = 6500;  // tiempo que se ve el cartel grande tapando el mapa
+const DEMO_REVEAL_MS = 5000;   // tiempo que se ve el ruteo / mapa SIN cartel
+const DEMO_INTRO_MS = 3200;
 const DEMO_HIDE_MS = 350;
-const DEMO_END_MS = 2400;
-const TYPEWRITER_SPEED = 25;   // ms por letra del diagnóstico
+const DEMO_END_MS = 3000;
+const TYPEWRITER_SPEED = 18;   // ms por letra del diagnóstico (más rápido para no comer tiempo de lectura)
 const OSRM_TIMEOUT_MS = 4000;
 const OSRM_PREFETCH_CONCURRENCY = 3; // limite concurrente para no caer al rate-limit
 const OSRM_RETRY_DELAY_MS = 350;
