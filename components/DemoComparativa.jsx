@@ -927,60 +927,91 @@ function DemoComparativa() {
 }
 
 function DemoBenefitIcon({ name }) {
-  const common = { width: 32, height: 32, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round" };
-  if (name === "users")  return (<svg {...common}><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15 14a4 4 0 0 1 6 4"/></svg>);
-  if (name === "shield") return (<svg {...common}><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3Z"/><path d="m9 12 2 2 4-4"/></svg>);
-  if (name === "leaf")   return (<svg {...common}><path d="M11 20a8 8 0 0 0 8-8c0-4.5-3-8-8-9-1 5-5 6-5 11a6 6 0 0 0 5 6"/><path d="M6 18c2-3 5-5 9-6"/></svg>);
-  if (name === "spark")  return (<svg {...common}><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg>);
-  if (name === "road")   return (<svg {...common}><path d="M5 21 8 3"/><path d="m16 3 3 18"/><path d="M12 5v3"/><path d="M12 12v3"/><path d="M12 19v2"/></svg>);
-  if (name === "chart")  return (<svg {...common}><path d="M3 3v18h18"/><path d="m7 14 4-4 4 4 5-7"/></svg>);
-  return null;
+  const c = { width: 32, height: 32, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.6, strokeLinecap: "round", strokeLinejoin: "round" };
+  switch (name) {
+    case "users":         return (<svg {...c}><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M15 14a4 4 0 0 1 6 4"/></svg>);
+    case "shield":        return (<svg {...c}><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3Z"/><path d="m9 12 2 2 4-4"/></svg>);
+    case "leaf":          return (<svg {...c}><path d="M11 20a8 8 0 0 0 8-8c0-4.5-3-8-8-9-1 5-5 6-5 11a6 6 0 0 0 5 6"/><path d="M6 18c2-3 5-5 9-6"/></svg>);
+    case "spark":         return (<svg {...c}><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg>);
+    case "road":          return (<svg {...c}><path d="M5 21 8 3"/><path d="m16 3 3 18"/><path d="M12 5v3"/><path d="M12 12v3"/><path d="M12 19v2"/></svg>);
+    case "chart":         return (<svg {...c}><path d="M3 3v18h18"/><path d="m7 14 4-4 4 4 5-7"/></svg>);
+    case "clock":         return (<svg {...c}><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>);
+    case "truck":         return (<svg {...c}><rect x="2" y="7" width="11" height="9" rx="1"/><path d="M13 10h4l4 4v2h-8z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>);
+    case "route":         return (<svg {...c}><circle cx="6" cy="5" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8 5h7a4 4 0 0 1 0 8H9a4 4 0 0 0 0 8h7"/></svg>);
+    case "thermometer":   return (<svg {...c}><path d="M14 14V5a2 2 0 0 0-4 0v9a4 4 0 1 0 4 0Z"/></svg>);
+    case "snowflake":     return (<svg {...c}><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4M12 6l-2-2 2-2 2 2-2 2zM12 22l-2-2 2-2 2 2-2 2zM6 12l-2-2-2 2 2 2 2-2zM22 12l-2-2-2 2 2 2 2-2z"/></svg>);
+    case "flame":         return (<svg {...c}><path d="M12 22a7 7 0 0 0 7-7c0-3-2-5-3-8-1.5 2-3 3-5 3s-3-2-2-5c-3 3-4 6-4 10a7 7 0 0 0 7 7Z"/></svg>);
+    case "alert":         return (<svg {...c}><path d="M12 3 2 21h20L12 3Z"/><path d="M12 10v5"/><circle cx="12" cy="18" r="0.7" fill="currentColor"/></svg>);
+    case "list-checks":   return (<svg {...c}><path d="M3 5h13M3 12h13M3 19h13"/><path d="m18 4 1.5 1.5L22 3"/><path d="m18 11 1.5 1.5L22 10"/><path d="m18 18 1.5 1.5L22 17"/></svg>);
+    case "message":       return (<svg {...c}><path d="M21 12a8 8 0 1 1-3-6.2L21 5l-1 4a8 8 0 0 1 1 3Z"/></svg>);
+    case "eye":           return (<svg {...c}><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>);
+    case "mail":          return (<svg {...c}><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>);
+    case "zap":           return (<svg {...c}><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>);
+    case "target":        return (<svg {...c}><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>);
+    case "ruler":         return (<svg {...c}><path d="M3 17 17 3l4 4L7 21l-4-4Z"/><path d="M7 13l2 2M9 11l2 2M11 9l2 2M13 7l2 2"/></svg>);
+    case "scale":         return (<svg {...c}><path d="M12 3v18M3 7h18"/><path d="M6 7l-3 7a3 3 0 0 0 6 0L6 7Zm12 0-3 7a3 3 0 0 0 6 0L18 7Z"/></svg>);
+    case "file":          return (<svg {...c}><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 13h6M9 17h4"/></svg>);
+    case "calendar":      return (<svg {...c}><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>);
+    case "trending":      return (<svg {...c}><path d="M3 17 9 11l4 4 8-9"/><path d="M14 6h7v7"/></svg>);
+    case "refresh":       return (<svg {...c}><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>);
+    case "lock":          return (<svg {...c}><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>);
+    case "badge":         return (<svg {...c}><path d="M12 3 3 7l9 4 9-4-9-4Z"/><path d="m3 12 9 4 9-4M3 17l9 4 9-4"/></svg>);
+    case "layers":        return (<svg {...c}><path d="m12 2 10 6-10 6L2 8l10-6Z"/><path d="m2 14 10 6 10-6"/></svg>);
+    case "navigation":    return (<svg {...c}><path d="M3 11 21 3l-8 18-3-7-7-3Z"/></svg>);
+    case "smile":         return (<svg {...c}><circle cx="12" cy="12" r="9"/><path d="M8 14a4 4 0 0 0 8 0"/><circle cx="9" cy="10" r="0.7" fill="currentColor"/><circle cx="15" cy="10" r="0.7" fill="currentColor"/></svg>);
+    case "gauge":         return (<svg {...c}><path d="M21 12a9 9 0 1 0-18 0"/><path d="m12 12 5-3"/></svg>);
+    case "user-check":    return (<svg {...c}><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="m17 11 2 2 4-4"/></svg>);
+    case "droplet":       return (<svg {...c}><path d="M12 3s7 7 7 12a7 7 0 1 1-14 0c0-5 7-12 7-12Z"/></svg>);
+    case "sun":           return (<svg {...c}><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg>);
+    case "compass":       return (<svg {...c}><circle cx="12" cy="12" r="9"/><path d="m9 15 3-9 3 9-3-3-3 3Z"/></svg>);
+    default: return null;
+  }
 }
 
 const DEMO_BENEFITS = [
   // Control y auditoría
-  { icon: "users",  title: "Auditorías por barrio",        desc: "Un auditor cubre toda una localidad sin trasladarse entre zonas. Más escuelas verificadas por jornada con el mismo equipo municipal." },
-  { icon: "shield", title: "Trazabilidad inmediata",       desc: "Si falla algo en Banfield Este, el Municipio sabe exactamente a quién llamar. Una zona = un equipo responsable, sin diluir responsabilidad." },
-  { icon: "chart",  title: "Métrica reportable al Concejo", desc: "Indicadores claros y comparables por barrio: cumplimiento, km recorridos, frescura, tiempo medio. Listos para presentar." },
-  { icon: "shield", title: "Inspecciones bromatológicas más simples", desc: "Bromatología puede revisar todas las escuelas de un barrio en una sola jornada con un mismo recorrido." },
-  { icon: "users",  title: "Punto único de contacto",      desc: "Cada barrio tiene un referente operativo. Directivos, supervisión y Municipio dialogan con una sola contraparte por zona." },
-  { icon: "chart",  title: "Tablero municipal en tiempo real", desc: "Estado de cada entrega, temperatura de las viandas y KPIs por escuela disponibles para el área de Educación al instante." },
+  { icon: "user-check", title: "Auditorías por barrio",        desc: "Un auditor cubre toda una localidad sin trasladarse entre zonas. Más escuelas verificadas por jornada con el mismo equipo municipal." },
+  { icon: "shield",     title: "Trazabilidad inmediata",       desc: "Si falla algo en Banfield Este, el Municipio sabe exactamente a quién llamar. Una zona = un equipo responsable, sin diluir responsabilidad." },
+  { icon: "chart",      title: "Métrica reportable al Concejo", desc: "Indicadores claros y comparables por barrio: cumplimiento, km recorridos, frescura, tiempo medio. Listos para presentar." },
+  { icon: "list-checks", title: "Inspecciones bromatológicas más simples", desc: "Bromatología puede revisar todas las escuelas de un barrio en una sola jornada con un mismo recorrido." },
+  { icon: "message",    title: "Punto único de contacto",      desc: "Cada barrio tiene un referente operativo. Directivos, supervisión y Municipio dialogan con una sola contraparte por zona." },
+  { icon: "eye",        title: "Tablero municipal en tiempo real", desc: "Estado de cada entrega, temperatura de las viandas y KPIs por escuela disponibles para el área de Educación al instante." },
 
   // Calidad de la vianda y de la entrega
-  { icon: "leaf",   title: "Cadena térmica protegida",     desc: "Rutas cortas dentro del barrio. La vianda llega caliente, antes del recreo, sin riesgo de cadena de frío rota." },
-  { icon: "leaf",   title: "Frescura comprobable",         desc: "Menos minutos en tránsito = más nutrientes preservados. La vianda llega como salió de la cocina." },
-  { icon: "spark",  title: "Equidad de servicio horario",  desc: "Todas las escuelas de un barrio reciben en la misma ventana. Cero diferencias entre escuelas vecinas (no más 11:30 vs 13:00)." },
-  { icon: "leaf",   title: "Menos viandas devueltas",      desc: "Llegando a tiempo y a temperatura, las devoluciones por mal estado bajan al mínimo. Menos comida desperdiciada." },
-  { icon: "spark",  title: "Recreo respetado",             desc: "La vianda está antes del horario de comedor en el 100% de las escuelas. Los chicos comen sin acortar el recreo ni la clase siguiente." },
+  { icon: "thermometer", title: "Cadena térmica protegida",     desc: "Rutas cortas dentro del barrio. La vianda llega caliente, antes del recreo, sin riesgo de cadena de frío rota." },
+  { icon: "leaf",        title: "Frescura comprobable",         desc: "Menos minutos en tránsito = más nutrientes preservados. La vianda llega como salió de la cocina." },
+  { icon: "clock",       title: "Equidad de servicio horario",  desc: "Todas las escuelas de un barrio reciben en la misma ventana. Cero diferencias entre escuelas vecinas (no más 11:30 vs 13:00)." },
+  { icon: "droplet",     title: "Menos viandas devueltas",      desc: "Llegando a tiempo y a temperatura, las devoluciones por mal estado bajan al mínimo. Menos comida desperdiciada." },
+  { icon: "smile",       title: "Recreo respetado",             desc: "La vianda está antes del horario de comedor en el 100% de las escuelas. Los chicos comen sin acortar el recreo ni la clase siguiente." },
 
   // Operativa y resiliencia
-  { icon: "road",   title: "Resiliencia ante imprevistos", desc: "Si una camioneta falla en una localidad, otra del mismo barrio cubre sin desorganizar todo el sistema municipal." },
-  { icon: "road",   title: "Rutas cortas y predecibles",   desc: "Recorridos diseñados barrio por barrio: el conductor conoce sus calles, los tiempos son repetibles, los retrasos se detectan al instante." },
-  { icon: "road",   title: "Menos tránsito en avenidas",   desc: "Camionetas concentradas en sus barrios, no cruzando el partido. Menos congestión municipal y menos riesgo de incidentes." },
-  { icon: "spark",  title: "Cobertura ante eventos",       desc: "Cortes de calle, obras o lluvias: cada barrio tiene rutas alternativas internas conocidas. La entrega no se cae." },
+  { icon: "refresh",    title: "Resiliencia ante imprevistos", desc: "Si una camioneta falla en una localidad, otra del mismo barrio cubre sin desorganizar todo el sistema municipal." },
+  { icon: "route",      title: "Rutas cortas y predecibles",   desc: "Recorridos diseñados barrio por barrio: el conductor conoce sus calles, los tiempos son repetibles, los retrasos se detectan al instante." },
+  { icon: "truck",      title: "Menos tránsito en avenidas",   desc: "Camionetas concentradas en sus barrios, no cruzando el partido. Menos congestión municipal y menos riesgo de incidentes." },
+  { icon: "alert",      title: "Cobertura ante eventos",       desc: "Cortes de calle, obras o lluvias: cada barrio tiene rutas alternativas internas conocidas. La entrega no se cae." },
 
   // Sustentabilidad y costos
-  { icon: "leaf",   title: "Menos kilómetros = menos emisiones", desc: "Reducción estimada de 38% en km recorridos. Huella de carbono menor para la flota oficial del SAE — un dato comunicable." },
-  { icon: "chart",  title: "Eficiencia en combustible",    desc: "Rutas optimizadas reducen consumo de gasoil. El proveedor opera con menor costo y eso protege la sustentabilidad del contrato." },
-  { icon: "leaf",   title: "Menos horas extra de conductores", desc: "Recorridos más cortos terminan en tiempo. Menos fatiga del personal, menor riesgo laboral, menor sobrecosto operativo." },
-  { icon: "chart",  title: "Mejor relación precio/servicio", desc: "El Municipio recibe el mismo precio del pliego con un servicio sustancialmente mejor. Cero costo extra para el erario." },
+  { icon: "sun",        title: "Menos kilómetros = menos emisiones", desc: "Reducción estimada de 38% en km recorridos. Huella de carbono menor para la flota oficial del SAE — un dato comunicable." },
+  { icon: "gauge",      title: "Eficiencia en combustible",    desc: "Rutas optimizadas reducen consumo de gasoil. El proveedor opera con menor costo y eso protege la sustentabilidad del contrato." },
+  { icon: "clock",      title: "Menos horas extra de conductores", desc: "Recorridos más cortos terminan en tiempo. Menos fatiga del personal, menor riesgo laboral, menor sobrecosto operativo." },
+  { icon: "scale",      title: "Mejor relación precio/servicio", desc: "El Municipio recibe el mismo precio del pliego con un servicio sustancialmente mejor. Cero costo extra para el erario." },
 
   // Vínculo con la comunidad educativa
-  { icon: "users",  title: "Relación directa con directivos", desc: "Cada barrio tiene un equipo conocido por las escuelas. Comunicación fluida, problemas resueltos sin escalar a Municipio." },
-  { icon: "spark",  title: "Visibilidad política positiva", desc: "Un servicio bien gestionado se traduce en percepción positiva del Municipio en cada barrio. Cero costo extra para el erario." },
-  { icon: "users",  title: "Encuestas de satisfacción por zona", desc: "Mediciones específicas por localidad permiten al Municipio detectar y corregir focos de insatisfacción con precisión quirúrgica." },
-  { icon: "shield", title: "Reclamos resueltos en horas, no días", desc: "Con un equipo asignado por barrio, cada reclamo de directivo o familia tiene una respuesta inmediata y trazable." },
+  { icon: "users",      title: "Relación directa con directivos", desc: "Cada barrio tiene un equipo conocido por las escuelas. Comunicación fluida, problemas resueltos sin escalar a Municipio." },
+  { icon: "spark",      title: "Visibilidad política positiva", desc: "Un servicio bien gestionado se traduce en percepción positiva del Municipio en cada barrio. Cero costo extra para el erario." },
+  { icon: "trending",   title: "Encuestas de satisfacción por zona", desc: "Mediciones específicas por localidad permiten al Municipio detectar y corregir focos de insatisfacción con precisión quirúrgica." },
+  { icon: "zap",        title: "Reclamos resueltos en horas, no días", desc: "Con un equipo asignado por barrio, cada reclamo de directivo o familia tiene una respuesta inmediata y trazable." },
 
   // Adaptabilidad y largo plazo
-  { icon: "chart",  title: "Flexibilidad ante cambios de matrícula", desc: "Si una escuela suma o pierde alumnos, el rebalanceo es inmediato dentro del barrio. No hay que rehacer toda la zona del pliego." },
-  { icon: "spark",  title: "Escalable a nuevos servicios",  desc: "Una vez optimizado el reparto alimenticio, el mismo modelo aplica a kits escolares, materiales de educación física, libros, etc." },
-  { icon: "chart",  title: "Datos históricos por barrio",   desc: "Año tras año el Municipio acumula serie temporal por localidad: tendencias de matrícula, consumo, incidencias. Decisiones basadas en evidencia." },
-  { icon: "shield", title: "Alineado con normativa SAE",    desc: "Cumple con todas las exigencias del Servicio Alimentario Escolar provincial: trazabilidad, cadena de frío, registro nutricional." },
-  { icon: "users",  title: "Continuidad del servicio",      desc: "Si un proveedor rota, el conocimiento del barrio queda documentado y se transfiere sin pérdida de calidad." },
+  { icon: "ruler",      title: "Flexibilidad ante cambios de matrícula", desc: "Si una escuela suma o pierde alumnos, el rebalanceo es inmediato dentro del barrio. No hay que rehacer toda la zona del pliego." },
+  { icon: "layers",     title: "Escalable a nuevos servicios",  desc: "Una vez optimizado el reparto alimenticio, el mismo modelo aplica a kits escolares, materiales de educación física, libros, etc." },
+  { icon: "calendar",   title: "Datos históricos por barrio",   desc: "Año tras año el Municipio acumula serie temporal por localidad: tendencias de matrícula, consumo, incidencias. Decisiones basadas en evidencia." },
+  { icon: "badge",      title: "Alineado con normativa SAE",    desc: "Cumple con todas las exigencias del Servicio Alimentario Escolar provincial: trazabilidad, cadena de frío, registro nutricional." },
+  { icon: "compass",    title: "Continuidad del servicio",      desc: "Si un proveedor rota, el conocimiento del barrio queda documentado y se transfiere sin pérdida de calidad." },
 
   // Sin renegociar el pliego
-  { icon: "shield", title: "Sin modificar el contrato vigente", desc: "La rezonificación es una mejora operativa que asume el operador. No requiere reabrir el pliego ni renegociar precios." },
-  { icon: "spark",  title: "Implementación gradual",        desc: "Pilotos por barrios permiten validar y ajustar antes del despliegue total. Sin sorpresas, sin riesgo para el Municipio." },
+  { icon: "lock",       title: "Sin modificar el contrato vigente", desc: "La rezonificación es una mejora operativa que asume el operador. No requiere reabrir el pliego ni renegociar precios." },
+  { icon: "target",     title: "Implementación gradual",        desc: "Pilotos por barrios permiten validar y ajustar antes del despliegue total. Sin sorpresas, sin riesgo para el Municipio." },
 ];
 
 function DemoComparativaSection({ data, onlyDemo, onPrevPage, onNextPage }) {
