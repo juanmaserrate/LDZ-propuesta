@@ -22,10 +22,17 @@
    - Orden pre-calculado: se usa s.orden_pliego / s.orden_localidad
      directamente del JSON. NO se hace nearest-neighbor en el cliente. */
 
-const DEMO_STEP_MS = 14000;    // duración total de cada paso (zona o localidad)
-const DEMO_OVERLAY_MS = 8500;  // tiempo que se ve el cartel grande tapando el mapa (incluye fade-out suave)
-const DEMO_OVERLAY_FADE_MS = 1000; // duración del fade-out del cartel
-const DEMO_REVEAL_MS = 5500;   // tiempo que se ve el ruteo / mapa SIN cartel
+const DEMO_OVERLAY_BASE_MS = 13000; // tiempo base del cartel para el texto más corto (13s)
+const DEMO_OVERLAY_PER_CHAR_MS = 30; // ms adicionales por cada caracter por encima del mínimo
+const DEMO_OVERLAY_MIN_CHARS = 80;  // referencia: longitud "corta" del diagnóstico
+const DEMO_OVERLAY_FADE_MS = 1000;  // duración del fade-out del cartel
+const DEMO_REVEAL_MS = 5500;        // tiempo que se ve el ruteo / mapa SIN cartel
+// Calcula la duración total del cartel según largo del texto
+function overlayDurationForText(text) {
+  const len = (text || "").length;
+  const extraChars = Math.max(0, len - DEMO_OVERLAY_MIN_CHARS);
+  return DEMO_OVERLAY_BASE_MS + extraChars * DEMO_OVERLAY_PER_CHAR_MS;
+}
 const DEMO_INTRO_MS = 3500;
 const DEMO_HIDE_MS = 600;
 const DEMO_END_MS = 3000;
@@ -696,10 +703,12 @@ function DemoComparativa() {
           chips,
           color: "var(--celeste-700)",
         });
-        // Lanzar typewriter del diagnóstico (no bloquea el reloj de 3s)
+        // Lanzar typewriter del diagnóstico
         typewrite(diagText);
 
-        await sleep(Math.max(0, DEMO_OVERLAY_MS - DEMO_OVERLAY_FADE_MS));
+        // Tiempo de cartel ajustado al largo del diagnóstico
+        const overlayMsZ = overlayDurationForText(diagText);
+        await sleep(Math.max(0, overlayMsZ - DEMO_OVERLAY_FADE_MS));
         if (stopRef.current) break;
 
         // Iniciar fade-out suave del overlay
@@ -778,7 +787,8 @@ function DemoComparativa() {
         // Frase corta de la propuesta con typewriter
         typewrite(PROPUESTA_FRASE);
 
-        await sleep(Math.max(0, DEMO_OVERLAY_MS - DEMO_OVERLAY_FADE_MS));
+        const overlayMsL = overlayDurationForText(PROPUESTA_FRASE);
+        await sleep(Math.max(0, overlayMsL - DEMO_OVERLAY_FADE_MS));
         if (stopRef.current) break;
 
         // Fade-out suave
