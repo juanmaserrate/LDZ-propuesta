@@ -38,7 +38,7 @@ function Hero({ data }) {
   return (
     <section className="hero bg-deep" id="inicio">
       <div className="shell">
-        <div className="hero-grid">
+        <div className="hero-grid hero-grid-single">
           <div className="hero-copy">
             {data.statusPill && (
               <span className="pill-status" style={{ background: "rgba(255,255,255,.06)", borderColor: "rgba(255,255,255,.14)", color: "var(--celeste-200)" }}>
@@ -48,10 +48,6 @@ function Hero({ data }) {
             <h1 className="display-xl" style={{ color: "white", marginTop: data.statusPill ? 22 : 0 }}>
               <Typewriter text={data.title} speed={32} startDelay={250}/>
             </h1>
-          </div>
-
-          <div className="hero-card hero-visual">
-            <HeroMap/>
           </div>
         </div>
       </div>

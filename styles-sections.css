@@ -969,3 +969,8 @@
 }
 .typewriter-caret-blink { animation: caretBlink 0.9s steps(2, start) infinite; }
 @keyframes caretBlink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+
+/* Hero sin mapa: columna única, título centrado y más amplio */
+.hero-grid-single { grid-template-columns: 1fr !important; padding-bottom: 80px; }
+.hero-grid-single .hero-copy { max-width: 1100px; margin: 0 auto; text-align: center; }
+.hero-grid-single .display-xl { max-width: 22ch; margin-left: auto; margin-right: auto; }
