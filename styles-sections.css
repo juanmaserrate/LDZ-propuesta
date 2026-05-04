@@ -505,7 +505,73 @@
   border: 2px solid #fff;
   box-shadow: 0 2px 6px rgba(26,74,140,.45);
   line-height: 1;
+  transform-origin: center center;
+  animation: pinPop 200ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
 }
+@keyframes pinPop {
+  0%   { transform: scale(0); opacity: 0; }
+  60%  { transform: scale(1.18); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Polyline animada (stroke-dashoffset) */
+.demo-route-anim {
+  animation: routeDraw 1500ms ease-out forwards;
+}
+@keyframes routeDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Overlay enriquecido: zona/localidad con typewriter, proveedor y chips */
+.demo-overlay-diag {
+  margin-top: 14px;
+  font-family: var(--f-display);
+  font-size: clamp(16px, 2.1vw, 22px);
+  font-weight: 500;
+  color: var(--ink-700);
+  text-align: center;
+  max-width: 78%;
+  line-height: 1.45;
+  min-height: 1.45em;
+  letter-spacing: -0.005em;
+}
+.demo-overlay-diag .tw-caret {
+  display: inline-block;
+  width: 2px; height: 1em;
+  background: currentColor;
+  vertical-align: -0.12em;
+  margin-left: 2px;
+  opacity: 0.7;
+  animation: twBlink 0.9s steps(2, end) infinite;
+}
+@keyframes twBlink { 50% { opacity: 0; } }
+.demo-overlay-prov {
+  margin-top: 14px;
+  font-family: var(--f-mono);
+  font-size: 14px;
+  letter-spacing: .06em;
+  color: var(--celeste-800);
+  text-align: center;
+}
+.demo-overlay-prov b { color: var(--celeste-900); }
+.demo-overlay-chips {
+  margin-top: 14px;
+  display: flex; flex-wrap: wrap; gap: 8px 10px;
+  justify-content: center;
+  max-width: 86%;
+}
+.demo-overlay-chip {
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  letter-spacing: .08em;
+  padding: 5px 10px;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid var(--celeste-200);
+  border-radius: 999px;
+  color: var(--ink-700);
+  box-shadow: 0 1px 2px rgba(26,74,140,0.06);
+}
+.demo-overlay-chip b { color: var(--celeste-900); font-weight: 700; }
 
 /* Mini loader de prefetch de rutas OSRM. Esquina inferior izquierda. */
 .demo-prefetch {

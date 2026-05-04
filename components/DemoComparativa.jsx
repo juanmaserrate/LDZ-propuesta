@@ -22,22 +22,44 @@
    - Orden pre-calculado: se usa s.orden_pliego / s.orden_localidad
      directamente del JSON. NO se hace nearest-neighbor en el cliente. */
 
-const DEMO_STEP_MS = 3500;     // duración total de cada paso (zona o localidad)
-const DEMO_OVERLAY_MS = 1200;  // tiempo que se ve el cartel grande tapando el mapa
-const DEMO_REVEAL_MS = 2300;   // tiempo que se ve el ruteo / mapa SIN cartel
+const DEMO_STEP_MS = 6000;     // duración total de cada paso (zona o localidad)
+const DEMO_OVERLAY_MS = 3000;  // tiempo que se ve el cartel grande tapando el mapa
+const DEMO_REVEAL_MS = 3000;   // tiempo que se ve el ruteo / mapa SIN cartel
 const DEMO_INTRO_MS = 2500;
 const DEMO_HIDE_MS = 350;
 const DEMO_END_MS = 2400;
+const TYPEWRITER_SPEED = 25;   // ms por letra del diagnóstico
 const OSRM_TIMEOUT_MS = 4000;
 const OSRM_PREFETCH_CONCURRENCY = 3; // limite concurrente para no caer al rate-limit
 const OSRM_RETRY_DELAY_MS = 350;
 
+// Depot de fallback (sólo si la zona no tiene proveedor o falta location)
 const DEPOT = {
   lat: -34.8353338,
   lng: -58.4233261,
   nombre: "Real de Catorce - Burzaco",
   direccion: "Ombu 1269",
 };
+
+// Diagnóstico por zona (mismo contenido que ZoneSlider.jsx, copiado para no
+// crear acoplamiento de carga entre archivos)
+const ZONE_DIAGNOSTICS_DEMO = {
+  "Zona 1":  { n: "01", t: "Zonas dispersas",          c: "Escuelas vecinas quedan en zonas distintas y otras lejanas comparten zona. Las rutas se cruzan y se duplican." },
+  "Zona 2":  { n: "02", t: "Tiempos largos de entrega", c: "El recorrido medio actual ronda los 47 minutos por vianda. La cadena térmica se compromete antes de llegar a la escuela." },
+  "Zona 3":  { n: "03", t: "Auditoría ineficiente",     c: "Un auditor municipal pierde más tiempo en traslados que controlando: pocas escuelas cubiertas por jornada." },
+  "Zona 4":  { n: "04", t: "Frescura comprometida",     c: "Más minutos en tránsito = más riesgo de cadena de frío rota, alimentos tibios y reclamos de directivos." },
+  "Zona 5":  { n: "05", t: "Cruces entre cuadrillas",   c: "Distintos vehículos del operador atraviesan las mismas calles para cubrir escuelas de zonas separadas. Kilómetros duplicados sobre el mismo eje." },
+  "Zona 6":  { n: "06", t: "Trazabilidad débil",        c: "Ante un reclamo de un directivo, reconstruir qué vianda llegó a qué escuela y en qué condiciones lleva horas: papel, planillas y llamadas cruzadas." },
+  "Zona 7":  { n: "07", t: "Combustible y horas extra", c: "Rutas largas inflan el consumo de gasoil y obligan a horas extra de conductores. Costo operativo que el pliego no premia evitar." },
+  "Zona 8":  { n: "08", t: "Inequidad horaria",         c: "Escuelas de la misma zona reciben la vianda con diferencias de hasta 90 minutos. Algunas comen 11:30, otras casi 13:00." },
+  "Zona 9":  { n: "09", t: "Frágil ante imprevistos",   c: "Si falta un vehículo o se corta una calle por obra, no hay grupo cercano que absorba esas escuelas. Se cae la entrega del día." },
+  "Zona 10": { n: "10", t: "Comunicación fragmentada",  c: "Cada zona maneja su propio canal informal con directivos. El Municipio no tiene un único punto de contacto consolidado por grupo." },
+  "Zona 11": { n: "11", t: "Inflexible ante matrícula", c: "Cuando una escuela cambia su matrícula a mitad de año, reasignar cupos exige rehacer la zona entera. El pliego no contempla rebalanceo simple." },
+  "Zona 12": { n: "12", t: "Control municipal disperso", c: "El área de Educación necesita supervisar 12 zonas con criterios diferentes. Imposible comparar performance entre zonas con datos homogéneos." },
+};
+
+// Frase corta de la propuesta para cada localidad (típica narrativa Real de Catorce)
+const PROPUESTA_FRASE = "Una sola unidad logística por barrio. Rutas cortas, control simple.";
 
 function inferLocalidad(s) {
   return ((s.localidad || s.barrio || s.direccion || "") + "").toLowerCase();
@@ -73,6 +95,33 @@ function kpisOf(subset) {
   return { modulos, comedor, dmc, total: modulos + comedor + dmc };
 }
 
+// Cupos por unidad de negocio (para overlay enriquecido).
+// Devuelve todos los campos relevantes con fallback a 0.
+function kpisByUnit(subset) {
+  const acc = {
+    dm: 0, com: 0,
+    patologias_dm: 0, patologias_com: 0,
+    patios_dm: 0, lc_dm: 0,
+    dmc: 0, modulos: 0, comedor: 0,
+  };
+  subset.forEach(s => {
+    const c = s.cupos || {};
+    acc.dm             += (c.dm             || c.modulos || 0);
+    acc.com            += (c.com            || c.comedor || 0);
+    acc.patologias_dm  += (c.patologias_dm  || 0);
+    acc.patologias_com += (c.patologias_com || 0);
+    acc.patios_dm      += (c.patios_dm      || 0);
+    acc.lc_dm          += (c.lc_dm          || 0);
+    acc.dmc            += (c.dmc            || 0);
+    acc.modulos        += (c.modulos        || 0);
+    acc.comedor        += (c.comedor        || 0);
+  });
+  return acc;
+}
+
+// Formato corto en es-AR (10.234)
+const fmt = (n) => (n || 0).toLocaleString("es-AR");
+
 // Ordena un subset por el campo `orderKey` ascendente.
 // Los que no tienen orden valido (0 o undefined) van al final.
 function sortByOrden(subset, orderKey) {
@@ -97,19 +146,34 @@ function DemoComparativa() {
   const [schools, setSchools] = React.useState([]);
   const [zones, setZones] = React.useState([]);
   const [localidades, setLocalidades] = React.useState([]);
+  const [provByZone, setProvByZone] = React.useState({});
+  const [provLocations, setProvLocations] = React.useState({});
   const [running, setRunning] = React.useState(false);
-  const [overlay, setOverlay] = React.useState({ visible: false, title: "", sub: "", color: "var(--celeste-700)" });
+  const [overlay, setOverlay] = React.useState({
+    visible: false,
+    title: "",
+    sub: "",                  // typewriter (diagnóstico/frase)
+    prov: null,               // { name, dir }
+    chips: null,              // [{ label, value }, ...]
+    color: "var(--celeste-700)",
+  });
+  const [twText, setTwText] = React.useState("");        // texto ya tipeado
+  const [twActive, setTwActive] = React.useState(false); // muestra el caret
   const [stage, setStage] = React.useState({ phase: "idle" });
   const [legend, setLegend] = React.useState(null);
   const [isFs, setIsFs] = React.useState(false);
   const [prefetch, setPrefetch] = React.useState({ active: false, done: 0, total: 0 });
+  const twTimerRef = React.useRef(null);
 
   // Datos
   React.useEffect(() => {
     if (window.__colegiosCache) {
-      setSchools(window.__colegiosCache.colegios || []);
-      setZones(window.__colegiosCache.zonas_disponibles || []);
-      setLocalidades(window.__colegiosCache.localidades_disponibles || []);
+      const d = window.__colegiosCache;
+      setSchools(d.colegios || []);
+      setZones(d.zonas_disponibles || []);
+      setLocalidades(d.localidades_disponibles || []);
+      setProvByZone(d.proveedores_por_zona || {});
+      setProvLocations(d.proveedores_locations || {});
       return;
     }
     fetch("data/colegios.json?v=3")
@@ -119,6 +183,8 @@ function DemoComparativa() {
         setSchools(d.colegios || []);
         setZones(d.zonas_disponibles || []);
         setLocalidades(d.localidades_disponibles || []);
+        setProvByZone(d.proveedores_por_zona || {});
+        setProvLocations(d.proveedores_locations || {});
       })
       .catch(() => {});
   }, []);
@@ -269,20 +335,31 @@ function DemoComparativa() {
     return null;
   };
 
+  // Resuelve el "depot efectivo" de una zona (proveedor de la zona, o fallback Burzaco).
+  const _depotForZone = (z) => {
+    const provName = provByZone[z];
+    const loc = provName && provLocations[provName];
+    if (loc && loc.lat && loc.lng) {
+      return { lat: loc.lat, lng: loc.lng, nombre: provName, direccion: loc.direccion || "" };
+    }
+    return DEPOT;
+  };
+
   // Construye la lista de jobs de prefetch: zonas + localidades.
   // Cada job: { key, waypoints }
   const _buildAllRouteJobs = () => {
     const jobs = [];
-    // Zonas: orden por orden_pliego ascendente
+    // Zonas: orden por orden_pliego ascendente, depot = proveedor de la zona
     const zonaList = (zones && zones.length ? zones : Array.from(new Set(schools.map(s => s.zona))).sort());
     zonaList.forEach(z => {
       const subset = schools.filter(s => (s.zona || s.zona_pliego) === z && s.lat && s.lng);
       if (!subset.length) return;
       const ordered = sortByOrden(subset, "orden_pliego");
-      const wp = [DEPOT, ...ordered.map(s => ({ lat: s.lat, lng: s.lng })), DEPOT];
+      const dep = _depotForZone(z);
+      const wp = [dep, ...ordered.map(s => ({ lat: s.lat, lng: s.lng })), dep];
       jobs.push({ key: _cacheKey(wp), waypoints: wp });
     });
-    // Localidades (excluye Sin asignar)
+    // Localidades (excluye Sin asignar). Usa depot Burzaco (no hay un proveedor por barrio).
     const locList = (localidades && localidades.length
       ? localidades
       : Array.from(new Set(schools.map(s => s.localidad).filter(Boolean))).sort()
@@ -323,16 +400,53 @@ function DemoComparativa() {
     setPrefetch(p => ({ ...p, active: false }));
   };
 
+  // Anima la polyline existente: stroke-dasharray = totalLength,
+  // stroke-dashoffset de totalLength → 0 vía clase CSS.
+  const _animatePolylineDraw = () => {
+    const rl = routeLineRef.current;
+    if (!rl || !rl._path) return;
+    const path = rl._path;
+    try {
+      const total = path.getTotalLength();
+      if (!total || !isFinite(total)) return;
+      // Reset clase para forzar reflow
+      path.classList.remove("demo-route-anim");
+      path.style.strokeDasharray = total + " " + total;
+      path.style.strokeDashoffset = total;
+      // Forzar reflow para que el navegador respete el estado inicial
+      // antes de aplicar la animación.
+      // eslint-disable-next-line no-unused-expressions
+      path.getBoundingClientRect();
+      path.classList.add("demo-route-anim");
+    } catch (_) { /* path puede no estar en DOM aún */ }
+  };
+
   // Highlight subset + dibuja UN SOLO recorrido depot -> 1 -> 2 -> ... -> depot.
   // - Reusa el markersGroupRef.current (clearLayers + add).
   // - Reusa el routeLineRef.current (setLatLngs + setStyle).
   // - Pinta primero linea recta como fallback, luego intenta upgrade a OSRM.
+  // - depotOverride: { lat, lng, nombre, direccion } - reemplaza el depot Burzaco
+  //   por el proveedor de la zona (stage 1) o lo deja como Burzaco (stage 2).
   // Devuelve cuando los markers/linea recta estan pintados (no espera OSRM).
-  const highlightAndRoute = (subset, color, orderKey) => {
+  const highlightAndRoute = (subset, color, orderKey, depotOverride) => {
     const map = mapRef.current;
     const mg = markersGroupRef.current;
     const rl = routeLineRef.current;
     if (!map || !mg || !rl) return;
+
+    const dep = depotOverride || DEPOT;
+
+    // Mover el marker depot a la nueva posición y reescribir su popup
+    const dm = depotMarkerRef.current;
+    if (dm) {
+      try {
+        dm.setLatLng([dep.lat, dep.lng]);
+        dm.setPopupContent(
+          `<strong>${dep.nombre || "Depot"}</strong><br>` +
+          `<span style="color:#5C7796">${dep.direccion || ""}</span>`
+        );
+      } catch (_) {}
+    }
 
     // sequence guard: incrementa para invalidar respuestas OSRM previas
     seqRef.current += 1;
@@ -357,13 +471,15 @@ function DemoComparativa() {
     const validSubset = subset.filter(s => s.lat && s.lng);
     const ordered = sortByOrden(validSubset, orderKey);
 
-    // Pines numerados sobre cada colegio activo
-    const pts = [[DEPOT.lat, DEPOT.lng]];
+    // Pines numerados sobre cada colegio activo, con animation-delay escalonado
+    // (idx * 100ms) — la animación pinPop está definida en CSS.
+    const pts = [[dep.lat, dep.lng]];
     ordered.forEach((s, idx) => {
       const ord = s[orderKey] || (idx + 1);
+      const delay = idx * 100;
       const icon = L.divIcon({
         className: "demo-pin-icon",
-        html: `<div class="demo-pin" style="background:${color}">${ord}</div>`,
+        html: `<div class="demo-pin" style="background:${color};animation-delay:${delay}ms">${ord}</div>`,
         iconSize: [28, 28],
         iconAnchor: [14, 14],
       });
@@ -391,21 +507,30 @@ function DemoComparativa() {
 
     // Fallback inmediato: linea recta uniendo todos los puntos.
     const straight = [
-      [DEPOT.lat, DEPOT.lng],
+      [dep.lat, dep.lng],
       ...ordered.map(s => [s.lat, s.lng]),
-      [DEPOT.lat, DEPOT.lng],
+      [dep.lat, dep.lng],
     ];
     try {
       rl.setStyle({ color });
       rl.setLatLngs(straight);
     } catch (_) {}
+    // Animar el dibujo de la línea recta de fallback en cuanto Leaflet renderiza
+    setTimeout(() => {
+      if (mySeq === seqRef.current && !stopRef.current) _animatePolylineDraw();
+    }, 30);
 
     // Intento de upgrade a ruta OSRM real (cache primero).
-    const waypoints = [DEPOT, ...ordered.map(s => ({ lat: s.lat, lng: s.lng })), DEPOT];
+    const waypoints = [dep, ...ordered.map(s => ({ lat: s.lat, lng: s.lng })), dep];
     const key = _cacheKey(waypoints);
     const cached = routeCacheRef.current.get(key);
     if (cached && cached.length) {
-      try { rl.setLatLngs(cached); } catch (_) {}
+      try {
+        rl.setLatLngs(cached);
+        setTimeout(() => {
+          if (mySeq === seqRef.current && !stopRef.current) _animatePolylineDraw();
+        }, 30);
+      } catch (_) {}
       return;
     }
     // Async upgrade
@@ -414,11 +539,40 @@ function DemoComparativa() {
       if (mySeq !== seqRef.current) return;
       if (stopRef.current) return;
       if (!latlngs || !latlngs.length) return;
-      try { rl.setLatLngs(latlngs); } catch (_) {}
+      try {
+        rl.setLatLngs(latlngs);
+        setTimeout(() => {
+          if (mySeq === seqRef.current && !stopRef.current) _animatePolylineDraw();
+        }, 30);
+      } catch (_) {}
     }).catch(() => {});
   };
 
   const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+  // Typewriter: tipea `text` en setTwText caracter por caracter, dejando el caret
+  // visible mientras dure. Si el demo se detiene, corta limpio.
+  const _clearTwTimer = () => {
+    if (twTimerRef.current) {
+      clearTimeout(twTimerRef.current);
+      twTimerRef.current = null;
+    }
+  };
+  const typewrite = (text) => new Promise(resolve => {
+    _clearTwTimer();
+    setTwText("");
+    setTwActive(true);
+    if (!text) { resolve(); return; }
+    let i = 0;
+    const tick = () => {
+      if (stopRef.current) { setTwActive(false); resolve(); return; }
+      i++;
+      setTwText(text.slice(0, i));
+      if (i >= text.length) { resolve(); return; }
+      twTimerRef.current = setTimeout(tick, TYPEWRITER_SPEED);
+    };
+    twTimerRef.current = setTimeout(tick, TYPEWRITER_SPEED);
+  });
 
   const enterFs = async () => {
     const el = frameEl.current;
@@ -439,8 +593,11 @@ function DemoComparativa() {
   const stop = async () => {
     stopRef.current = true;
     seqRef.current += 1; // invalida respuestas OSRM en vuelo
+    _clearTwTimer();
+    setTwText("");
+    setTwActive(false);
     setRunning(false);
-    setOverlay({ visible: false, title: "", sub: "", color: "var(--celeste-700)" });
+    setOverlay({ visible: false, title: "", sub: "", prov: null, chips: null, color: "var(--celeste-700)" });
     setStage({ phase: "idle" });
     setLegend(null);
     renderBase();
@@ -451,7 +608,8 @@ function DemoComparativa() {
 
   const showMsg = async (title, sub, color, ms = DEMO_INTRO_MS) => {
     if (stopRef.current) return;
-    setOverlay({ visible: true, title, sub, color });
+    setOverlay({ visible: true, title, sub, prov: null, chips: null, color });
+    setTwText(""); setTwActive(false);
     await sleep(ms);
     if (stopRef.current) return;
     setOverlay(o => ({ ...o, visible: false }));
@@ -491,12 +649,29 @@ function DemoComparativa() {
         const z = zonaList[i];
         const subset = schools.filter(s => (s.zona || s.zona_pliego) === z);
         if (!subset.length) continue;
+
+        // KPIs por unidad de negocio (para chips)
+        const ku = kpisByUnit(subset);
         const k = kpisOf(subset);
-        try {
-          highlightAndRoute(subset, "#1A4A8C", "orden_pliego");
-        } catch (e) {
-          console.warn("highlightAndRoute zona err", z, e);
-        }
+        const provName = provByZone[z] || null;
+        const provLoc = provName && provLocations[provName];
+        const dep = (provLoc && provLoc.lat && provLoc.lng)
+          ? { lat: provLoc.lat, lng: provLoc.lng, nombre: provName, direccion: provLoc.direccion || "" }
+          : DEPOT;
+        const diag = ZONE_DIAGNOSTICS_DEMO[z];
+        const diagText = (diag && diag.c) || "";
+
+        // Chips por unidad de negocio (todos con valores enteros, fallback 0)
+        const chips = [
+          { label: "DM",            value: fmt(ku.dm) },
+          { label: "COM",           value: fmt(ku.com) },
+          { label: "Patologías DM", value: fmt(ku.patologias_dm) },
+          { label: "Patologías COM",value: fmt(ku.patologias_com) },
+          { label: "Patios DM",     value: fmt(ku.patios_dm) },
+          { label: "LC DM",         value: fmt(ku.lc_dm) },
+        ];
+
+        // Mostrar overlay enriquecido (3s)
         setLegend({
           name: z,
           kpis: k,
@@ -510,24 +685,39 @@ function DemoComparativa() {
         setOverlay({
           visible: true,
           title: z,
-          sub: `${subset.length} escuelas | ${k.total.toLocaleString("es-AR")} cupos | zonas del pliego`,
+          sub: "",
+          prov: provName ? { name: provName, dir: (provLoc && provLoc.direccion) || "" } : null,
+          chips,
           color: "var(--celeste-700)",
         });
-        // Mostrar cartel grande breve, después ocultarlo y dejar el ruteo en vista
+        // Lanzar typewriter del diagnóstico (no bloquea el reloj de 3s)
+        typewrite(diagText);
+
         await sleep(DEMO_OVERLAY_MS);
         if (stopRef.current) break;
+
+        // Ocultar overlay y revelar el mapa con animaciones (3s)
         setOverlay(o => ({ ...o, visible: false }));
+        _clearTwTimer();
+        setTwActive(false);
+
+        try {
+          highlightAndRoute(subset, "#1A4A8C", "orden_pliego", dep);
+        } catch (e) {
+          console.warn("highlightAndRoute zona err", z, e);
+        }
+
         await sleep(DEMO_REVEAL_MS);
         if (stopRef.current) break;
       }
 
       if (stopRef.current) return;
 
-      // Stage 2 - Propuesta R14: una zona por barrio
+      // Stage 2 - Propuesta: agrupar por coherencia logística
       setStage({ phase: "propuesta" });
       await showMsg(
-        "Propuesta Real de Catorce",
-        "Ruteo barrio por barrio: una zona logistica por localidad",
+        "Propuesta de rezonificación",
+        "Agrupar por coherencia logística",
         "var(--celeste-800)"
       );
       if (stopRef.current) return;
@@ -542,13 +732,20 @@ function DemoComparativa() {
         const loc = locNames[i];
         const subset = schools.filter(s => s.localidad === loc);
         if (!subset.length) continue;
+
+        const ku = kpisByUnit(subset);
         const k = kpisOf(subset);
         const color = _demoColorForLoc(loc);
-        try {
-          highlightAndRoute(subset, color, "orden_localidad");
-        } catch (e) {
-          console.warn("highlightAndRoute loc err", loc, e);
-        }
+
+        const chips = [
+          { label: "DM",            value: fmt(ku.dm) },
+          { label: "COM",           value: fmt(ku.com) },
+          { label: "Patologías DM", value: fmt(ku.patologias_dm) },
+          { label: "Patologías COM",value: fmt(ku.patologias_com) },
+          { label: "Patios DM",     value: fmt(ku.patios_dm) },
+          { label: "LC DM",         value: fmt(ku.lc_dm) },
+        ];
+
         setLegend({
           name: loc,
           kpis: k,
@@ -562,12 +759,29 @@ function DemoComparativa() {
         setOverlay({
           visible: true,
           title: loc,
-          sub: `${subset.length} escuelas | ${k.total.toLocaleString("es-AR")} cupos | una zona por barrio`,
+          sub: "",
+          prov: null,
+          chips,
           color,
         });
+        // Frase corta de la propuesta con typewriter
+        typewrite(PROPUESTA_FRASE);
+
         await sleep(DEMO_OVERLAY_MS);
         if (stopRef.current) break;
+
         setOverlay(o => ({ ...o, visible: false }));
+        _clearTwTimer();
+        setTwActive(false);
+
+        try {
+          // Stage 2: el "depot" sigue siendo Real de Catorce (Burzaco) ya que
+          // la propuesta agrupa por barrio sin un proveedor designado por barrio.
+          highlightAndRoute(subset, color, "orden_localidad", DEPOT);
+        } catch (e) {
+          console.warn("highlightAndRoute loc err", loc, e);
+        }
+
         await sleep(DEMO_REVEAL_MS);
         if (stopRef.current) break;
       }
@@ -585,9 +799,20 @@ function DemoComparativa() {
     } finally {
       stopRef.current = false;
       seqRef.current += 1;
+      _clearTwTimer();
+      setTwText("");
+      setTwActive(false);
       setRunning(false);
       setStage({ phase: "idle" });
       setLegend(null);
+      // Restaurar el depot a Burzaco al cerrar
+      const dm = depotMarkerRef.current;
+      if (dm) {
+        try {
+          dm.setLatLng([DEPOT.lat, DEPOT.lng]);
+          dm.setPopupContent(`<strong>${DEPOT.nombre}</strong><br><span style="color:#5C7796">${DEPOT.direccion}</span>`);
+        } catch (_) {}
+      }
       renderBase();
       const map = mapRef.current;
       if (map) map.fitBounds([[-34.84, -58.50], [-34.69, -58.34]], { animate: true });
@@ -649,7 +874,33 @@ function DemoComparativa() {
           {overlay.visible && (
             <div className="demo-overlay">
               <div className="demo-overlay-title" style={{ color: overlay.color }}>{overlay.title}</div>
-              <div className="demo-overlay-sub">{overlay.sub}</div>
+              {/* sub clásico (intros) */}
+              {overlay.sub && (
+                <div className="demo-overlay-sub">{overlay.sub}</div>
+              )}
+              {/* typewriter (diagnóstico de zona o frase de barrio) */}
+              {(twText || twActive) && (
+                <div className="demo-overlay-diag">
+                  {twText}
+                  {twActive && <span className="tw-caret"/>}
+                </div>
+              )}
+              {/* línea del proveedor (sólo zonas) */}
+              {overlay.prov && (
+                <div className="demo-overlay-prov">
+                  Proveedor: <b>{overlay.prov.name}</b>
+                </div>
+              )}
+              {/* chips de cupos por unidad de negocio */}
+              {overlay.chips && overlay.chips.length > 0 && (
+                <div className="demo-overlay-chips">
+                  {overlay.chips.map((c, i) => (
+                    <span key={i} className="demo-overlay-chip">
+                      {c.label}: <b>{c.value}</b>
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>
