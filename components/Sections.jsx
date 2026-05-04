@@ -4,17 +4,49 @@
    La estructura visual queda igual al diseño original.
    ============================================ */
 
+// Componente: efecto máquina de escribir.
+// Va revelando caracteres uno a uno. El cursor parpadea al final.
+function Typewriter({ text, speed = 35, startDelay = 200 }) {
+  const [shown, setShown] = React.useState(0);
+  const [done, setDone] = React.useState(false);
+  React.useEffect(() => {
+    setShown(0);
+    setDone(false);
+    let i = 0;
+    let timer;
+    const start = setTimeout(() => {
+      timer = setInterval(() => {
+        i++;
+        setShown(i);
+        if (i >= text.length) {
+          clearInterval(timer);
+          setDone(true);
+        }
+      }, speed);
+    }, startDelay);
+    return () => { clearTimeout(start); if (timer) clearInterval(timer); };
+  }, [text, speed, startDelay]);
+  return (
+    <span className="typewriter">
+      {text.slice(0, shown)}
+      <span className={"typewriter-caret" + (done ? " typewriter-caret-blink" : "")}/>
+    </span>
+  );
+}
+
 function Hero({ data }) {
   return (
     <section className="hero bg-deep" id="inicio">
       <div className="shell">
         <div className="hero-grid">
           <div className="hero-copy">
-            <span className="pill-status" style={{ background: "rgba(255,255,255,.06)", borderColor: "rgba(255,255,255,.14)", color: "var(--celeste-200)" }}>
-              <span className="dot"/> {data.statusPill}
-            </span>
-            <h1 className="display-xl" style={{ color: "white", marginTop: 22 }}>
-              {data.title}
+            {data.statusPill && (
+              <span className="pill-status" style={{ background: "rgba(255,255,255,.06)", borderColor: "rgba(255,255,255,.14)", color: "var(--celeste-200)" }}>
+                <span className="dot"/> {data.statusPill}
+              </span>
+            )}
+            <h1 className="display-xl" style={{ color: "white", marginTop: data.statusPill ? 22 : 0 }}>
+              <Typewriter text={data.title} speed={32} startDelay={250}/>
             </h1>
           </div>
 

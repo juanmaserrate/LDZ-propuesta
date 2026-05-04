@@ -954,3 +954,18 @@
 @media (max-width: 600px) {
   .zone-diag-card { display: none; }
 }
+
+/* ---------- TYPEWRITER (efecto máquina de escribir en Hero) ---------- */
+.typewriter { white-space: pre-wrap; }
+.typewriter-caret {
+  display: inline-block;
+  width: 4px;
+  height: 0.95em;
+  background: var(--celeste-300);
+  margin-left: 6px;
+  vertical-align: -0.08em;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(116,172,223,0.5);
+}
+.typewriter-caret-blink { animation: caretBlink 0.9s steps(2, start) infinite; }
+@keyframes caretBlink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
