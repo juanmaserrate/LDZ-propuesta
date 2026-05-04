@@ -950,7 +950,7 @@ function DemoComparativaSection({ data, onlyDemo, onPrevPage, onNextPage }) {
   const d = data || {
     tag: "DEMO COMPARATIVA",
     title: "Pliego vigente vs. propuesta de rezonificación",
-    lead: "Una sola vista en vivo: primero recorre las 12 zonas del pliego con ritmo nervioso, despues la propuesta barrio por barrio - una zona logistica por localidad.",
+    lead: "",
   };
   return (
     <section id="demo-comparativa" className="bg-bone">
@@ -958,7 +958,7 @@ function DemoComparativaSection({ data, onlyDemo, onPrevPage, onNextPage }) {
         <div className="section-tag"><span className="num">02b</span><span className="txt">{d.tag}</span></div>
         <div className="section-head">
           <h2 className="display-lg">{d.title}</h2>
-          <p className="lead" style={{ marginTop: 18 }}>{d.lead}</p>
+          {d.lead && <p className="lead" style={{ marginTop: 18 }}>{d.lead}</p>}
         </div>
         <DemoComparativa/>
 
