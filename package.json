@@ -1,0 +1,15 @@
+{
+  "name": "ldz-propuesta",
+  "version": "1.0.0",
+  "description": "Propuesta de rezonificación logístico-alimenticia para el Municipio de Lomas de Zamora",
+  "private": true,
+  "scripts": {
+    "start": "serve -s . -l ${PORT:-8765} --no-clipboard"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
