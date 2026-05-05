@@ -2386,3 +2386,208 @@
   .bloque-intro { padding-top: 44px; padding-bottom: 8px; }
   .bloque-intro-step-label { font-size: 14px; }
 }
+
+/* ============================================================
+   B4 — CUPOS POR BARRIO
+   Cada barrio: card grande blanca con badge ||, KPIs en fila,
+   y tabla de escuelas. Estetica del sitio nuevo: paleta celeste,
+   eyebrow Newsreader, hover lift, reveal-on-scroll global.
+   ============================================================ */
+.cupos-section { padding-top: 96px; padding-bottom: 96px; }
+.cupos-section .section-head { margin-bottom: 48px; }
+.cupos-section .section-head .display-lg { color: white; }
+.cupos-section .section-head .lead { color: var(--celeste-100); max-width: 78ch; }
+
+.cupos-barrio-card {
+  position: relative;
+  background: white;
+  border: 1px solid var(--celeste-200);
+  border-radius: var(--r-xl);
+  padding: 28px;
+  margin-bottom: 32px;
+  box-shadow: var(--sh-md);
+  transition: transform .28s cubic-bezier(.4,0,.2,1),
+              box-shadow .28s ease,
+              border-color .28s ease;
+}
+.cupos-barrio-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-lg);
+  border-color: var(--celeste-300);
+}
+.cupos-barrio-card:last-of-type { margin-bottom: 0; }
+
+.cupos-barrio-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--celeste-100);
+  flex-wrap: wrap;
+}
+.cupos-barrio-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px 8px 12px;
+  background: linear-gradient(135deg, var(--celeste-50) 0%, var(--celeste-100) 100%);
+  border: 1px solid var(--celeste-200);
+  border-radius: 999px;
+  box-shadow: 0 1px 3px rgba(11, 26, 44, 0.04);
+}
+.cupos-barrio-bars {
+  font-family: var(--f-mono);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--celeste-500);
+  letter-spacing: -2px;
+  line-height: 1;
+}
+.cupos-barrio-name {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--celeste-800);
+  letter-spacing: -0.01em;
+}
+.cupos-barrio-count {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--celeste-500);
+  font-weight: 500;
+}
+
+/* KPI grid */
+.cupos-kpis {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.cupos-kpi {
+  position: relative;
+  background: var(--celeste-50);
+  border: 1px solid var(--celeste-100);
+  border-radius: var(--r-md);
+  padding: 18px 16px 16px;
+  overflow: hidden;
+  transition: background .25s ease, border-color .25s ease, transform .25s ease;
+}
+.cupos-kpi:hover {
+  transform: translateY(-2px);
+  background: white;
+  border-color: var(--celeste-200);
+  box-shadow: var(--sh-sm);
+}
+.cupos-kpi-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: var(--r-md) var(--r-md) 0 0;
+}
+.cupos-kpi-eyebrow {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  font-weight: 500;
+  margin-bottom: 10px;
+  line-height: 1.3;
+  min-height: 26px;
+}
+.cupos-kpi-valor {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: clamp(28px, 2.6vw, 42px);
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+/* Tabla */
+.cupos-tabla-wrap {
+  border: 1px solid var(--celeste-100);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: white;
+}
+.cupos-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.cupos-tabla thead {
+  background: var(--celeste-100);
+}
+.cupos-tabla th {
+  text-align: left;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--celeste-700);
+  font-weight: 600;
+  padding: 12px 14px;
+  white-space: nowrap;
+}
+.cupos-tabla th.cupos-col-n,
+.cupos-tabla td.cupos-col-n { text-align: right; font-variant-numeric: tabular-nums; }
+.cupos-tabla th.cupos-col-num,
+.cupos-tabla td.cupos-col-num {
+  width: 44px;
+  text-align: center;
+  color: var(--ink-500);
+}
+.cupos-tabla tbody tr {
+  border-bottom: 1px solid var(--celeste-50);
+  transition: background .15s ease;
+}
+.cupos-tabla tbody tr:nth-child(even) {
+  background: rgba(240, 247, 252, 0.45);
+}
+.cupos-tabla tbody tr:last-child { border-bottom: 0; }
+.cupos-tabla tbody tr:hover { background: var(--celeste-50); }
+.cupos-tabla td {
+  padding: 12px 14px;
+  color: var(--ink-900);
+  vertical-align: middle;
+}
+.cupos-esc-nombre {
+  font-family: var(--f-display);
+  font-weight: 600;
+  color: var(--ink-900);
+  display: block;
+  font-size: 14.5px;
+}
+.cupos-esc-dir {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-500);
+  margin-top: 2px;
+  font-family: var(--f-body);
+}
+
+/* Colores de los numeros por tipo de cupo */
+.cupos-tabla td.cupos-n-modulos { color: var(--green); font-weight: 600; }
+.cupos-tabla td.cupos-n-comedor { color: var(--amber-deep); font-weight: 600; }
+.cupos-tabla td.cupos-n-dmc { color: var(--celeste-700); font-weight: 600; }
+.cupos-tabla td.cupos-n-patios { color: var(--celeste-500); font-weight: 600; }
+.cupos-tabla td.cupos-n-dym { color: var(--celeste-600); font-weight: 600; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cupos-kpis { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .cupos-section { padding-top: 64px; padding-bottom: 64px; }
+  .cupos-barrio-card { padding: 22px 18px; }
+  .cupos-kpis { grid-template-columns: 1fr; }
+  .cupos-tabla-wrap { overflow-x: auto; }
+  .cupos-tabla { min-width: 640px; }
+  .cupos-barrio-name { font-size: 16px; }
+  .cupos-barrio-count { font-size: 10px; }
+}

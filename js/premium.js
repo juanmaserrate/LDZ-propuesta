@@ -65,6 +65,7 @@
       ".ahorro-sim-result",
       ".ahorro-sim-control",
       ".cap-diag",
+      ".cupos-barrio-card",
     ];
 
     const apply = () => {

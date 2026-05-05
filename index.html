@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/><link rel="stylesheet" href="styles.css?v=18">
-<link rel="stylesheet" href="styles-sections.css?v=18">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/><link rel="stylesheet" href="styles.css?v=19">
+<link rel="stylesheet" href="styles-sections.css?v=19">
 
 <style>
   /* Header con logos reales */
@@ -72,6 +72,7 @@
 <script type="text/babel" src="components/AnalisisCapacidad.jsx"></script>
 <script type="text/babel" src="components/BloqueAntesDespues.jsx"></script>
 <script type="text/babel" src="components/ComunidadGana.jsx"></script>
+<script type="text/babel" src="components/CuposPorBarrio.jsx"></script>
 <script type="text/babel" src="components/Sections.jsx"></script>
 
 
@@ -210,6 +211,7 @@ function App() {
       <BenefitsPage/>
       <AhorroSimulatorSection/>
       <ComunidadGana/>
+      <CuposPorBarrio/>
     </>
   );
 }
@@ -249,6 +251,6 @@ ReactDOM.createRoot(document.getElementById("app")).render(<App/>);
 
 <!-- Premium layer: smooth scroll + interacciones -->
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="js/premium.js?v=15"></script>
+<script src="js/premium.js?v=16"></script>
 </body>
 </html>
