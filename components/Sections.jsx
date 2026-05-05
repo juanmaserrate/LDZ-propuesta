@@ -67,7 +67,7 @@ function HeroMap() {
       setSchools(window.__colegiosCache.colegios || []);
       return;
     }
-    fetch("data/colegios.json?v=2")
+    fetch("data/colegios.json?v=5")
       .then(r => r.json())
       .then(d => {
         window.__colegiosCache = d;
