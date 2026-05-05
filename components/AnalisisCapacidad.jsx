@@ -127,31 +127,13 @@ function AnalisisCapacidad() {
               más cercano. Eso son recorridos largos que afectan la cadena térmica y el horario de entrega.
             </li>
             <li>
-              <strong>Solución propuesta:</strong> sumar al menos un hub adicional en zona norte del
-              partido (Villa Fiorito / Ingeniero Budge) para descargar a Centurión y cubrir las escuelas
-              hoy lejanas. Hasta {data.hub_adicional_sugerido?.n_escuelas_servidas_potenciales || 30} escuelas
-              {" "}podrían reasignarse y bajar el recorrido global ~{Math.round((data.hub_adicional_sugerido?.ahorro_potencial_km_dia || 0))} km/día adicionales.
+              <strong>Lectura para el Municipio:</strong> la rezonificación es una mejora necesaria pero
+              no resuelve sola la asimetría de carga. Sumar capacidad adicional —vía nuevos proveedores
+              o sucursales— ayudaría a equilibrar la operación y a sostener calidad uniforme en barrios
+              hoy mal cubiertos.
             </li>
           </ol>
         </div>
-
-        {/* Hub sugerido */}
-        {data.hub_adicional_sugerido && (
-          <div className="cap-hub">
-            <div className="cap-hub-icon">+</div>
-            <div className="cap-hub-body">
-              <div className="cap-hub-title">Hub adicional sugerido</div>
-              <p>
-                Centroide geográfico de las {data.hub_adicional_sugerido.n_escuelas_servidas_potenciales} escuelas
-                hoy más alejadas de cualquier proveedor: zona <strong>norte del partido</strong>
-                {" "}(coordenadas aprox. {Math.abs(data.hub_adicional_sugerido.lat).toFixed(3)}°S, {Math.abs(data.hub_adicional_sugerido.lng).toFixed(3)}°O).
-                Un séptimo proveedor o una sucursal de uno existente en esa zona reduciría el recorrido
-                global aproximadamente <strong>{Math.round(data.hub_adicional_sugerido.ahorro_potencial_km_dia)} km/día</strong> adicionales y
-                {" "}equilibraría la carga operativa entre todos los proveedores.
-              </p>
-            </div>
-          </div>
-        )}
 
         <p className="cap-foot">
           <strong>Metodología:</strong> velocidad urbana {data.supuestos.velocidad_kmh} km/h,
