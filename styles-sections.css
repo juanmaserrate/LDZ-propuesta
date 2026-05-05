@@ -1289,3 +1289,36 @@
   letter-spacing: -0.02em;
   text-shadow: 0 0 16px rgba(46,158,110,0.45);
 }
+
+/* Bloque "Cómo se calcula" del simulador */
+.ahorro-sim-formula {
+  margin-top: 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--r-md);
+  padding: 16px 20px 14px;
+}
+.ahorro-sim-formula-title {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--celeste-300);
+  margin-bottom: 10px;
+}
+.ahorro-sim-formula ol {
+  margin: 0; padding-left: 22px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.ahorro-sim-formula li {
+  font-size: 13.5px;
+  color: var(--celeste-100);
+  line-height: 1.55;
+}
+.ahorro-sim-formula li strong { color: white; font-weight: 600; }
+.ahorro-sim-formula li strong.acc-green { color: var(--green); font-weight: 700; }
+.ahorro-sim-formula li::marker {
+  color: var(--celeste-300);
+  font-family: var(--f-mono);
+  font-size: 12px;
+}

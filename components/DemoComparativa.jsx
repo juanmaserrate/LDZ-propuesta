@@ -1064,9 +1064,28 @@ function AhorroSimulator() {
         <p style={{ marginTop: 14, color: "var(--ink-700)", fontSize: 15, maxWidth: 64 + "ch", lineHeight: 1.55 }}>
           Moviendo la barrita, elegís cuánto se acortan los recorridos al rezonificar por barrio.
           A la derecha vas a ver, en tiempo real, cuántos kilómetros se ahorran por día y
-          cuánta plata se libera al año. Sirve para mostrar, en números concretos,
-          el impacto económico de la propuesta sobre el contrato vigente.
+          cuánta plata se libera al año.
         </p>
+        <div className="ahorro-sim-formula">
+          <div className="ahorro-sim-formula-title">Cómo se calcula</div>
+          <ol>
+            <li>
+              <strong>Hoy se recorren {KM_DIA_BASE.toLocaleString("es-AR")} km por día</strong> con la flota actual del SAE en Lomas.
+            </li>
+            <li>
+              Si la rezonificación recorta un <strong>{pct}%</strong>, eso equivale a
+              {" "}<strong className="acc-green">{KM_DIA_BASE.toLocaleString("es-AR")} × {pct}% = {reduccionKmDia.toLocaleString("es-AR")} km menos</strong> cada día.
+            </li>
+            <li>
+              Cada km cuesta <strong>${COSTO_KM}</strong> (combustible, mantenimiento, conductor): {" "}
+              <strong className="acc-green">{reduccionKmDia.toLocaleString("es-AR")} × $&#8203;{COSTO_KM} = {fmt(ahorroDia)}</strong> ahorrados por día.
+            </li>
+            <li>
+              El ciclo escolar tiene <strong>{DIAS_HABILES} días hábiles</strong>: {" "}
+              <strong className="acc-green">{fmt(ahorroDia)} × {DIAS_HABILES} = {fmt(ahorroAnual)}</strong> al año.
+            </li>
+          </ol>
+        </div>
       </div>
       <div className="ahorro-sim-grid">
         <div className="ahorro-sim-control">
