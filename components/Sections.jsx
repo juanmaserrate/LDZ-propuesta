@@ -171,7 +171,7 @@ function Diagnostico({ data }) {
   return (
     <section id="diagnostico" className="bg-paper">
       <div className="shell">
-        <div className="section-tag"><span className="num">02</span><span className="txt">{data.tag}</span></div>
+        <div className="section-tag"><span className="num">A1</span><span className="txt">{data.tag}</span></div>
         <div className="section-head">
           <h2 className="display-lg">{data.title}</h2>
           <p className="lead" style={{ marginTop: 18 }}>{data.lead}</p>

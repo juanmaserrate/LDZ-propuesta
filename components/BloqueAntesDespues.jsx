@@ -8,23 +8,23 @@ function BloqueAntesDespues() {
       <div className="shell">
         <div className="bloque-intro-tag mono">EL ANTES Y EL DESPUÉS</div>
         <h2 className="display-lg bloque-intro-title">
-          De los problemas concretos del pliego a los beneficios concretos para Lomas
+          Del diagnóstico del pliego vigente a los beneficios concretos para Lomas
         </h2>
         <p className="bloque-intro-lead">
-          Primero vemos qué le pasa al sistema hoy: doce diagnósticos operativos
-          que el pliego vigente no resuelve. Después, la otra cara de la misma moneda:
-          treinta razones por las que reagrupar por barrio devuelve esos costos al
-          Municipio en forma de mejor servicio, sin tocar el contrato.
+          Primero la foto de hoy: los problemas operativos del pliego y la ineficiencia
+          geográfica medida sobre las distancias reales. Después la otra cara: lo que
+          gana el Municipio al rezonificar, cuánto ahorro libera y cómo se siente esa
+          mejora en cada barrio.
         </p>
         <div className="bloque-intro-arrows">
           <div className="bloque-intro-step">
-            <span className="bloque-intro-step-num mono">01</span>
-            <span className="bloque-intro-step-label">Problemas actuales</span>
+            <span className="bloque-intro-step-num mono">A</span>
+            <span className="bloque-intro-step-label">Antes · Diagnóstico y eficiencia del pliego</span>
           </div>
           <span className="bloque-intro-arrow" aria-hidden="true">↓</span>
           <div className="bloque-intro-step">
-            <span className="bloque-intro-step-num mono">02</span>
-            <span className="bloque-intro-step-label">Lo que gana el Municipio</span>
+            <span className="bloque-intro-step-num mono">B</span>
+            <span className="bloque-intro-step-label">Después · Beneficios, ahorro y comunidad</span>
           </div>
         </div>
       </div>

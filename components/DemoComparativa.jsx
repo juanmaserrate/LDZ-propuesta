@@ -1461,13 +1461,6 @@ function AhorroSimulator() {
   return (
     <div className="ahorro-sim">
       <div className="ahorro-sim-head">
-        <div className="eyebrow" style={{ marginBottom: 6 }}>SIMULADOR · CÁLCULO REAL</div>
-        <h3 className="display-sm" style={{ margin: 0 }}>Simulá el ahorro de kilómetros</h3>
-        <p style={{ marginTop: 14, color: "var(--ink-700)", fontSize: 15, maxWidth: 64 + "ch", lineHeight: 1.55 }}>
-          Cálculo basado en las <strong>{ahorroData.escuelas_consideradas} escuelas reales</strong> del pliego y las
-          coordenadas de los <strong>6 proveedores</strong>. La barrita ajusta el grado de implementación
-          de la propuesta: cuánto del techo real de ahorro se materializa según se va aplicando.
-        </p>
         <div className="ahorro-sim-formula">
           <div className="ahorro-sim-formula-title">Cómo se calcula (datos reales)</div>
           <ol>
@@ -1561,7 +1554,7 @@ function BenefitsPage({ onPrevPage }) {
   return (
     <section id="beneficios" className="bg-paper">
       <div className="shell">
-        <div className="section-tag"><span className="num">03</span><span className="txt">BENEFICIOS</span></div>
+        <div className="section-tag"><span className="num">B1</span><span className="txt">BENEFICIOS PARA EL MUNICIPIO</span></div>
         <div className="section-head">
           <h2 className="display-lg">Lo que gana el municipio</h2>
           <p className="lead" style={{ marginTop: 18 }}>
@@ -1579,10 +1572,29 @@ function BenefitsPage({ onPrevPage }) {
             ))}
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* Sección dedicada al simulador de costos (sacada de BenefitsPage). */
+function AhorroSimulatorSection() {
+  return (
+    <section id="simulador" className="bg-paper">
+      <div className="shell">
+        <div className="section-tag"><span className="num">B2</span><span className="txt">SIMULADOR DE COSTOS</span></div>
+        <div className="section-head">
+          <h2 className="display-lg">Simulá el ahorro de kilómetros</h2>
+          <p className="lead" style={{ marginTop: 18 }}>
+            Movés la barrita y el simulador calcula, en tiempo real, cuántos kilómetros y
+            cuánta plata se ahorra el sistema cuando se aplica la rezonificación. Los
+            números se basan en las distancias reales entre las 289 escuelas y los 6 proveedores.
+          </p>
+        </div>
         <AhorroSimulator/>
       </div>
     </section>
   );
 }
 
-Object.assign(window, { DemoComparativa, DemoComparativaSection, BenefitsPage, DEMO_BENEFITS, DemoBenefitIcon, AhorroSimulator });
+Object.assign(window, { DemoComparativa, DemoComparativaSection, BenefitsPage, DEMO_BENEFITS, DemoBenefitIcon, AhorroSimulator, AhorroSimulatorSection });

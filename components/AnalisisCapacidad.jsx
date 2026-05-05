@@ -28,7 +28,7 @@ function AnalisisCapacidad() {
   return (
     <section id="capacidad" className="bg-bone">
       <div className="shell">
-        <div className="section-tag"><span className="num">04</span><span className="txt">EFICIENCIA GEOGRÁFICA DEL PLIEGO</span></div>
+        <div className="section-tag"><span className="num">A2</span><span className="txt">EFICIENCIA GEOGRÁFICA DEL PLIEGO</span></div>
         <div className="section-head">
           <h2 className="display-lg">El pliego vigente recorre kilómetros evitables todos los días</h2>
           <p className="lead" style={{ marginTop: 18 }}>

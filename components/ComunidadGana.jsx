@@ -99,7 +99,7 @@ function ComunidadGana() {
     <section id="comunidad" className="bg-bone com-section">
       <div className="shell">
         <div className="section-tag">
-          <span className="num">05</span>
+          <span className="num">B3</span>
           <span className="txt">LO QUE GANA LA COMUNIDAD</span>
         </div>
         <div className="section-head">
