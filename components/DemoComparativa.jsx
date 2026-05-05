@@ -1119,6 +1119,42 @@ function AhorroSimulator() {
           </div>
         </div>
       </div>
+
+      <div className="ahorro-sim-note">
+        <div className="ahorro-sim-note-title">¿Por qué el tope es 25%?</div>
+        <p>
+          El 25% es el techo realista de una <strong>rezonificación pura</strong>: solo
+          reagrupar las escuelas por barrio sin tocar la infraestructura del contrato.
+          Para superar ese límite haría falta intervenir más estructuralmente:
+        </p>
+        <ul>
+          <li>
+            <strong>Reubicar el depot.</strong> Hoy todas las rutas salen de Burzaco,
+            en el extremo sur del partido. Mover el depósito a un punto más céntrico
+            del Municipio (por ejemplo Lomas Centro o Banfield) acortaría el viaje
+            de ida y vuelta de cada camioneta y podría sumar entre <strong>5% y 10%</strong> adicionales
+            de reducción de km.
+          </li>
+          <li>
+            <strong>Sumar centros de distribución intermedios.</strong> En lugar de
+            cargar las viandas en un solo depot, instalar 2 o 3 hubs satélites cerca
+            de los clusters de barrios (norte, centro y sur del partido). Las
+            camionetas hacen viajes mucho más cortos desde el hub hasta las escuelas
+            — esto puede aportar entre <strong>10% y 20%</strong> de reducción extra.
+          </li>
+          <li>
+            <strong>Optimizar la flota.</strong> Vehículos más chicos para barrios
+            densos y más grandes para zonas dispersas, en vez de una flota uniforme.
+            Otro <strong>5%-8%</strong> potencial sobre los costos operativos.
+          </li>
+        </ul>
+        <p className="ahorro-sim-note-foot">
+          Combinando los tres movimientos, los estudios de logística urbana muestran
+          reducciones de hasta <strong>40-50%</strong> de km recorridos. Pero eso
+          implica inversión inicial y modificar el contrato — por eso queda fuera del
+          alcance de esta propuesta, que se puede ejecutar sin renegociar nada.
+        </p>
+      </div>
     </div>
   );
 }

@@ -1322,3 +1322,48 @@
   font-family: var(--f-mono);
   font-size: 12px;
 }
+
+/* Nota explicativa del simulador (debajo del slider/resultado) */
+.ahorro-sim-note {
+  margin-top: 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--r-md);
+  padding: 22px 26px 20px;
+  color: var(--celeste-100);
+}
+.ahorro-sim-note-title {
+  font-family: var(--f-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.ahorro-sim-note p {
+  margin: 0 0 14px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--celeste-100) !important;
+}
+.ahorro-sim-note ul {
+  margin: 0 0 14px;
+  padding-left: 20px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.ahorro-sim-note ul li {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--celeste-100);
+}
+.ahorro-sim-note ul li::marker {
+  color: var(--green);
+}
+.ahorro-sim-note strong { color: white; }
+.ahorro-sim-note-foot {
+  font-size: 13px !important;
+  color: var(--celeste-200) !important;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding-top: 14px;
+  margin-bottom: 0 !important;
+}
