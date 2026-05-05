@@ -225,7 +225,7 @@ function DemoComparativa() {
       setProvLocations(d.proveedores_locations || {});
       return;
     }
-    fetch("data/colegios.json?v=20")
+    fetch("data/colegios.json?v=21")
       .then(r => r.json())
       .then(d => {
         window.__colegiosCache = d;
@@ -251,7 +251,7 @@ function DemoComparativa() {
       attributionControl: false,
     });
     map.fitBounds([[-34.84, -58.50], [-34.69, -58.34]], { animate: false });
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/voyager/{z}/{x}/{y}{r}.png", {
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
       subdomains: "abcd", maxZoom: 19,
     }).addTo(map);
 
@@ -1443,7 +1443,7 @@ function AhorroSimulator() {
       setAhorroData(window.__colegiosCache.simulador_ahorro);
       return;
     }
-    fetch("data/colegios.json?v=20")
+    fetch("data/colegios.json?v=21")
       .then(r => r.json())
       .then(data => {
         window.__colegiosCache = data;

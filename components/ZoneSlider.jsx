@@ -64,7 +64,7 @@ function ZoneSlider({ onNextPage, onPrevPage }) {
       setProvLocations(d.proveedores_locations || {});
       return;
     }
-    fetch("data/colegios.json?v=20")
+    fetch("data/colegios.json?v=21")
       .then(r => r.json())
       .then(d => {
         window.__colegiosCache = d;
@@ -81,7 +81,7 @@ function ZoneSlider({ onNextPage, onPrevPage }) {
     if (!mapEl.current || mapRef.current || typeof L === "undefined") return;
     const map = L.map(mapEl.current, { zoomControl: true, scrollWheelZoom: false })
                  .setView([-34.762, -58.405], 12);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/voyager/{z}/{x}/{y}{r}.png", {
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
       attribution: "© OpenStreetMap · © CARTO",
       subdomains: "abcd",
       maxZoom: 19,
