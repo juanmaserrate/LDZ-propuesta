@@ -1123,36 +1123,40 @@ function AhorroSimulator() {
       <div className="ahorro-sim-note">
         <div className="ahorro-sim-note-title">¿Por qué el tope es 25%?</div>
         <p>
-          El 25% es el techo realista de una <strong>rezonificación pura</strong>: solo
-          reagrupar las escuelas por barrio sin tocar la infraestructura del contrato.
-          Para superar ese límite haría falta intervenir más estructuralmente:
+          La propuesta trabaja sobre los <strong>seis proveedores reales del pliego</strong>
+          (Alvagama, Cofex, Logística Sofía, Centurión, LGE y Panila Sur), cada uno con su
+          sede operativa ya instalada dentro de Lomas de Zamora. La rezonificación
+          <strong> reasigna las escuelas al proveedor cuya sede queda más cerca</strong>,
+          sin tocar el contrato ni los precios. Ese reordenamiento puro tiene un techo
+          natural cercano al <strong>25%</strong> de reducción de km, porque:
         </p>
         <ul>
           <li>
-            <strong>Reubicar el depot.</strong> Hoy todas las rutas salen de Burzaco,
-            en el extremo sur del partido. Mover el depósito a un punto más céntrico
-            del Municipio (por ejemplo Lomas Centro o Banfield) acortaría el viaje
-            de ida y vuelta de cada camioneta y podría sumar entre <strong>5% y 10%</strong> adicionales
-            de reducción de km.
+            <strong>Las sedes ya están distribuidas en el partido.</strong> No estamos
+            consolidando todo en un único depot lejano; los proveedores ya tienen base
+            en Lomas Centro, Llavallol, Temperley, Banfield, etc. La mejora viene de
+            ajustar qué escuelas le tocan a cada uno, no de mover sedes.
           </li>
           <li>
-            <strong>Sumar centros de distribución intermedios.</strong> En lugar de
-            cargar las viandas en un solo depot, instalar 2 o 3 hubs satélites cerca
-            de los clusters de barrios (norte, centro y sur del partido). Las
-            camionetas hacen viajes mucho más cortos desde el hub hasta las escuelas
-            — esto puede aportar entre <strong>10% y 20%</strong> de reducción extra.
+            <strong>Una parte del recorrido es estructuralmente irreducible.</strong>
+            Aunque cada escuela quede asignada al proveedor más cercano, siempre hay
+            kilómetros mínimos para entrar en cada cuadra y volver. La rezonificación
+            ataca el <em>recorrido entre escuelas</em>, no el último tramo dentro del
+            barrio.
           </li>
           <li>
-            <strong>Optimizar la flota.</strong> Vehículos más chicos para barrios
-            densos y más grandes para zonas dispersas, en vez de una flota uniforme.
-            Otro <strong>5%-8%</strong> potencial sobre los costos operativos.
+            <strong>El contrato y los precios se mantienen.</strong> No se cambia la
+            cantidad de proveedores, ni los precios por vianda, ni los días hábiles.
+            Por diseño, la propuesta es una <em>mejora operativa</em> que no requiere
+            inversión nueva del Municipio.
           </li>
         </ul>
         <p className="ahorro-sim-note-foot">
-          Combinando los tres movimientos, los estudios de logística urbana muestran
-          reducciones de hasta <strong>40-50%</strong> de km recorridos. Pero eso
-          implica inversión inicial y modificar el contrato — por eso queda fuera del
-          alcance de esta propuesta, que se puede ejecutar sin renegociar nada.
+          Por encima del 25% ya no se trata de rezonificar: se trata de cambios
+          estructurales (consolidar proveedores, modificar el pliego, sumar flota
+          municipal propia, construir centros de transferencia compartidos). Esas
+          decisiones exceden esta propuesta, que está diseñada para ejecutarse sin
+          renegociar nada.
         </p>
       </div>
     </div>
