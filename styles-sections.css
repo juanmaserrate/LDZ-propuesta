@@ -2064,4 +2064,154 @@
 .cap-prov-flag.tag-disperso    { background: rgba(242,169,59,0.14); color: var(--amber-deep); border: 1px solid rgba(242,169,59,0.40); }
 
 .cap-prov-card .cap-prov-name { color: var(--celeste-900); }
+
+/* ============================================
+   COMUNIDAD GANA — Sección "Lo que gana la comunidad"
+   Tono comunicacional alineado al Gobierno de la Comunidad
+   de Lomas de Zamora. Tres ejes: chicos, escuelas, familias.
+   ============================================ */
+.com-section { padding-top: 96px; padding-bottom: 96px; }
+.com-section .section-head { margin-bottom: 56px; }
+.com-section .section-head .display-lg { color: white; }
+.com-section .section-head .lead { color: var(--celeste-100); max-width: 78ch; }
+
+.com-eje {
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(220, 235, 247, 0.12);
+}
+.com-eje:first-of-type { border-top: none; padding-top: 0; }
+
+.com-eje-head {
+  display: flex; gap: 22px; align-items: flex-start;
+  margin-bottom: 30px;
+  max-width: 76ch;
+}
+.com-eje-icon {
+  flex: 0 0 56px;
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(116, 172, 223, 0.16), rgba(116, 172, 223, 0.06));
+  border: 1px solid rgba(220, 235, 247, 0.22);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--celeste-200);
+  box-shadow: 0 4px 18px -8px rgba(10, 36, 70, 0.4);
+}
+.com-eje-icon svg { width: 26px; height: 26px; }
+.com-eje-text { flex: 1 1 auto; }
+.com-eje-eyebrow {
+  color: var(--celeste-300);
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: .16em;
+}
+.com-eje-titulo {
+  color: white;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.com-eje-lead {
+  color: var(--celeste-100);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 64ch;
+  margin: 0;
+}
+
+.com-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+.com-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(220, 235, 247, 0.14);
+  border-radius: var(--r-lg);
+  padding: 26px 24px;
+  display: flex; flex-direction: column;
+  transition: transform .28s cubic-bezier(.4,0,.2,1),
+              border-color .28s ease,
+              background .28s ease,
+              box-shadow .28s ease;
+  backdrop-filter: blur(2px);
+}
+.com-card::before {
+  content: "";
+  position: absolute; left: 0; top: 0;
+  width: 3px; height: 100%;
+  border-radius: var(--r-lg) 0 0 var(--r-lg);
+  background: linear-gradient(180deg, var(--celeste-400), var(--celeste-700));
+  opacity: 0;
+  transition: opacity .28s ease;
+}
+.com-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(220, 235, 247, 0.32);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 18px 40px -22px rgba(10, 36, 70, 0.55),
+              0 4px 12px -6px rgba(10, 36, 70, 0.3);
+}
+.com-card:hover::before { opacity: 1; }
+.com-card-icon {
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  background: rgba(116, 172, 223, 0.14);
+  border: 1px solid rgba(220, 235, 247, 0.18);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--celeste-200);
+  margin-bottom: 16px;
+}
+.com-card-icon svg { width: 22px; height: 22px; }
+.com-card-title {
+  font-family: var(--f-display);
+  font-size: 17px; font-weight: 600;
+  line-height: 1.3;
+  color: white;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.com-card-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--celeste-100);
+}
+
+.com-cierre {
+  display: flex; gap: 18px;
+  align-items: flex-start;
+  margin-top: 64px;
+  padding: 28px 30px;
+  border-radius: var(--r-lg);
+  background: linear-gradient(135deg,
+    rgba(242, 169, 59, 0.10) 0%,
+    rgba(116, 172, 223, 0.10) 100%);
+  border: 1px solid rgba(242, 169, 59, 0.28);
+}
+.com-cierre-mark {
+  flex: 0 0 44px;
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: rgba(242, 169, 59, 0.20);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--amber);
+  border: 1px solid rgba(242, 169, 59, 0.45);
+}
+.com-cierre-text {
+  flex: 1 1 auto;
+  margin: 0;
+  color: white;
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 72ch;
+}
+.com-cierre-text strong { color: var(--amber); font-weight: 600; }
+
+@media (max-width: 720px) {
+  .com-eje-head { flex-direction: column; gap: 14px; }
+  .com-eje-icon { flex: 0 0 48px; width: 48px; height: 48px; }
+  .com-grid { grid-template-columns: 1fr; }
+  .com-cierre { flex-direction: column; gap: 14px; padding: 22px; }
+}
 .cap-prov-card .cap-prov-addr { font-size: 12.5px; color: var(--ink-500); font-family: var(--f-mono); margin-bottom: 14px; }
