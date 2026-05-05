@@ -842,6 +842,43 @@
   from { opacity: 0; transform: translateY(-6px); }
   to   { opacity: .9; transform: translateY(0);   }
 }
+/* Etiqueta de beneficio por barrio (stage 2). Aparece arriba del título de la
+   localidad como una pequeña banda celeste-verde con el fundamento puntual. */
+.demo-overlay-bonus {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto 10px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(58,164,194,0.14), rgba(126,194,167,0.18));
+  border: 1px solid rgba(58,164,194,0.32);
+  font-family: var(--f-mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-size: clamp(11px, 0.92vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--celeste-800, #1A4A8C);
+  opacity: 0;
+  animation: demoBonusIn .75s cubic-bezier(.4,0,.2,1) .05s forwards;
+}
+.demo-overlay-bonus-dot {
+  color: #3AA4C2;
+  font-size: 10px;
+  line-height: 1;
+}
+.demo-overlay-bonus-tag { font-weight: 700; letter-spacing: 0.08em; }
+.demo-overlay-bonus-sep { opacity: 0.55; }
+.demo-overlay-bonus-titulo {
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  color: var(--celeste-900, #0E2B52);
+}
+@keyframes demoBonusIn {
+  from { opacity: 0; transform: translateY(-8px) scale(.96); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);   }
+}
 .demo-overlay-title {
   font-family: var(--f-display);
   font-size: clamp(36px, 5.5vw, 72px);
@@ -1056,6 +1093,7 @@
   .demo-depot-pin .demo-depot-halo,
   .demo-overlay,
   .demo-overlay-eyebrow,
+  .demo-overlay-bonus,
   .demo-overlay-title,
   .demo-overlay-chip,
   .demo-legend,

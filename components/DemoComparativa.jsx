@@ -38,7 +38,7 @@ const DEMO_HIDE_MS = 600;
 const DEMO_END_MS = 3000;
 const TYPEWRITER_SPEED = 5;    // ms por letra del diagnóstico (casi instantáneo)
 const OSRM_TIMEOUT_MS = 4000;
-const OSRM_PREFETCH_CONCURRENCY = 3; // limite concurrente para no caer al rate-limit
+const OSRM_PREFETCH_CONCURRENCY = 2; // limite concurrente para no caer al rate-limit
 const OSRM_RETRY_DELAY_MS = 350;
 
 // Depot de fallback (sólo si la zona no tiene proveedor o falta location)
@@ -52,7 +52,7 @@ const DEPOT = {
 // Diagnóstico por zona (mismo contenido que ZoneSlider.jsx, copiado para no
 // crear acoplamiento de carga entre archivos)
 const ZONE_DIAGNOSTICS_DEMO = {
-  "Zona 1":  { n: "01", t: "Zonas dispersas",          c: "Escuelas vecinas quedan en zonas distintas y otras lejanas comparten zona. Las rutas se cruzan y se duplican." },
+  "Zona 1":  { n: "01", t: "Control municipal disperso", c: "El área de Educación necesita supervisar 12 zonas con criterios diferentes. Imposible comparar performance entre zonas con datos homogéneos." },
   "Zona 2":  { n: "02", t: "Tiempos largos de entrega", c: "El recorrido medio actual ronda los 47 minutos por vianda. La cadena térmica se compromete antes de llegar a la escuela." },
   "Zona 3":  { n: "03", t: "Auditoría ineficiente",     c: "Un auditor municipal pierde más tiempo en traslados que controlando: pocas escuelas cubiertas por jornada." },
   "Zona 4":  { n: "04", t: "Frescura comprometida",     c: "Más minutos en tránsito = más riesgo de cadena de frío rota, alimentos tibios y reclamos de directivos." },
@@ -63,11 +63,31 @@ const ZONE_DIAGNOSTICS_DEMO = {
   "Zona 9":  { n: "09", t: "Frágil ante imprevistos",   c: "Si falta un vehículo o se corta una calle por obra, no hay grupo cercano que absorba esas escuelas. Se cae la entrega del día." },
   "Zona 10": { n: "10", t: "Comunicación fragmentada",  c: "Cada zona maneja su propio canal informal con directivos. El Municipio no tiene un único punto de contacto consolidado por grupo." },
   "Zona 11": { n: "11", t: "Inflexible ante matrícula", c: "Cuando una escuela cambia su matrícula a mitad de año, reasignar cupos exige rehacer la zona entera. El pliego no contempla rebalanceo simple." },
-  "Zona 12": { n: "12", t: "Control municipal disperso", c: "El área de Educación necesita supervisar 12 zonas con criterios diferentes. Imposible comparar performance entre zonas con datos homogéneos." },
+  "Zona 12": { n: "12", t: "Zonas dispersas",          c: "Escuelas vecinas quedan en zonas distintas y otras lejanas comparten zona. Las rutas se cruzan y se duplican." },
 };
 
 // Frase corta de la propuesta para cada localidad (típica narrativa Real de Catorce)
 const PROPUESTA_FRASE = "Una sola unidad logística por barrio. Rutas cortas, control simple.";
+
+// Beneficio puntual por localidad: cada barrio muestra un fundamento potente
+// distinto, tomado de los DEMO_BENEFITS. Si la localidad no está mapeada,
+// se usa PROPUESTA_FRASE como fallback.
+const LOCALIDAD_BENEFICIO = {
+  "Banfield":          { titulo: "Trazabilidad inmediata",        desc: "Si falla algo en Banfield Este, el Municipio sabe exactamente a quién llamar. Una zona = un equipo responsable." },
+  "Ingeniero Budge":   { titulo: "Auditorías por barrio",          desc: "Un auditor cubre toda la localidad sin trasladarse entre zonas. Más escuelas verificadas por jornada con el mismo equipo." },
+  "Llavallol":         { titulo: "Cadena térmica protegida",       desc: "Rutas cortas dentro del barrio. La vianda llega caliente, antes del recreo, sin riesgo de cadena de frío rota." },
+  "Lomas Centro":      { titulo: "Tablero municipal en tiempo real", desc: "Estado de cada entrega, temperatura de las viandas y KPIs por escuela disponibles para Educación al instante." },
+  "Parque Barón":      { titulo: "Equidad de servicio horario",    desc: "Todas las escuelas del barrio reciben en la misma ventana. Cero diferencias entre escuelas vecinas." },
+  "San José":          { titulo: "Métrica reportable al Concejo",  desc: "Indicadores claros y comparables por barrio: cumplimiento, km recorridos, frescura, tiempo medio. Listos para presentar." },
+  "Santa Catalina":    { titulo: "Resiliencia ante imprevistos",   desc: "Si una camioneta falla en la localidad, otra del mismo barrio cubre sin desorganizar todo el sistema." },
+  "Santa Marta":       { titulo: "Punto único de contacto",        desc: "Un referente operativo por barrio. Directivos, supervisión y Municipio dialogan con una sola contraparte." },
+  "Temperley":         { titulo: "Reclamos resueltos en horas",    desc: "Con un equipo asignado por barrio, cada reclamo de directivo o familia tiene una respuesta inmediata y trazable." },
+  "Turdera":           { titulo: "Recreo respetado",               desc: "La vianda llega antes del horario de comedor en el 100% de las escuelas. Los chicos comen sin acortar el recreo." },
+  "Villa Albertina":   { titulo: "Mejor relación precio/servicio", desc: "El Municipio recibe el mismo precio del pliego con un servicio sustancialmente mejor. Cero costo extra." },
+  "Villa Centenario":  { titulo: "Rutas cortas y predecibles",     desc: "Recorridos diseñados barrio por barrio. El conductor conoce sus calles, los tiempos son repetibles." },
+  "Villa Fiorito":     { titulo: "Menos kilómetros, menos emisiones", desc: "Reducción estimada de km recorridos. Huella de carbono menor para la flota oficial — un dato comunicable." },
+  "Villa Lamadrid":    { titulo: "Sin modificar el contrato vigente", desc: "La rezonificación es una mejora operativa que asume el operador. No requiere reabrir el pliego ni renegociar precios." },
+};
 
 function inferLocalidad(s) {
   return ((s.localidad || s.barrio || s.direccion || "") + "").toLowerCase();
@@ -363,42 +383,32 @@ function DemoComparativa() {
   const _cacheKey = (waypoints) =>
     waypoints.map(p => `${p.lat.toFixed(5)},${p.lng.toFixed(5)}`).join("|");
 
-  // OSRM multi-waypoint con cache, timeout y retry suave.
-  // Devuelve un array [[lat,lng], ...] o null si todo fallo.
-  const fetchOSRMRoute = async (waypoints, retries = 1) => {
+  // OSRM segmentado con cache: un request por par de waypoints consecutivos.
+  // Garantiza que cada pin esté unido al siguiente porque cada segmento es
+  // una ruta dedicada. Si un segmento falla, se inserta línea recta como
+  // fallback, así nunca queda un pin "fuera" del recorrido.
+  // Devuelve un array [[lat,lng], ...] o null si waypoints insuficiente.
+  const fetchOSRMRoute = async (waypoints, retries = 0) => {
     if (waypoints.length < 2) return null;
     const cache = routeCacheRef.current;
     const key = _cacheKey(waypoints);
     if (cache.has(key)) return cache.get(key);
 
-    // OSRM publico tolera ~10 puntos por request. Partir en chunks.
-    const CHUNK = 10;
-    const chunks = [];
-    if (waypoints.length <= CHUNK) {
-      chunks.push(waypoints);
-    } else {
-      let i = 0;
-      while (i < waypoints.length - 1) {
-        const end = Math.min(i + CHUNK, waypoints.length);
-        chunks.push(waypoints.slice(i, end));
-        if (end >= waypoints.length) break;
-        i = end - 1; // overlap del ultimo punto
-      }
-    }
-
-    for (let attempt = 0; attempt <= retries; attempt++) {
-      try {
-        const all = [];
-        for (const ch of chunks) {
-          const coordsStr = ch.map(p => `${p.lng},${p.lat}`).join(";");
-          const url = `https://router.project-osrm.org/route/v1/driving/${coordsStr}?overview=full&geometries=geojson`;
-          const ctrl = new AbortController();
-          const t = setTimeout(() => ctrl.abort(), OSRM_TIMEOUT_MS);
+    const all = [];
+    for (let i = 0; i < waypoints.length - 1; i++) {
+      const a = waypoints[i], b = waypoints[i + 1];
+      const url = `https://router.project-osrm.org/route/v1/driving/${a.lng},${a.lat};${b.lng},${b.lat}?overview=full&geometries=geojson`;
+      let segmentOk = false;
+      // Intento principal + retries por segmento (default 0)
+      for (let attempt = 0; attempt <= retries; attempt++) {
+        const ctrl = new AbortController();
+        const t = setTimeout(() => ctrl.abort(), OSRM_TIMEOUT_MS);
+        try {
           const r = await fetch(url, { signal: ctrl.signal });
           clearTimeout(t);
           if (!r.ok) throw new Error("status " + r.status);
           const j = await r.json();
-          const coords = (j.routes && j.routes[0] && j.routes[0].geometry && j.routes[0].geometry.coordinates) || null;
+          const coords = j.routes && j.routes[0] && j.routes[0].geometry && j.routes[0].geometry.coordinates;
           if (!coords) throw new Error("no route");
           const latlngs = coords.map(c => [c[1], c[0]]);
           if (all.length && latlngs.length) {
@@ -406,19 +416,30 @@ function DemoComparativa() {
           } else {
             all.push(...latlngs);
           }
-        }
-        if (all.length) {
-          cache.set(key, all);
-          return all;
-        }
-      } catch (e) {
-        if (attempt < retries) {
-          await new Promise(r => setTimeout(r, OSRM_RETRY_DELAY_MS * (attempt + 1)));
-          continue;
+          segmentOk = true;
+          break;
+        } catch (_) {
+          clearTimeout(t);
+          if (attempt < retries) {
+            await new Promise(r => setTimeout(r, OSRM_RETRY_DELAY_MS * (attempt + 1)));
+            continue;
+          }
         }
       }
+      if (!segmentOk) {
+        // Fallback: línea recta entre los dos waypoints para no dejar pins sueltos
+        if (all.length) {
+          all.push([b.lat, b.lng]);
+        } else {
+          all.push([a.lat, a.lng], [b.lat, b.lng]);
+        }
+      }
+      // Rate-limit guard: 80ms entre requests para no saturar OSRM público
+      await new Promise(r => setTimeout(r, 80));
     }
-    return null;
+    if (!all.length) return null;
+    cache.set(key, all);
+    return all;
   };
 
   // Resuelve el "depot efectivo" de una zona (proveedor de la zona, o fallback Burzaco).
@@ -474,7 +495,7 @@ function DemoComparativa() {
         if (!job) return;
         if (stopRef.current) return;
         if (!routeCacheRef.current.has(job.key)) {
-          await fetchOSRMRoute(job.waypoints, 1);
+          await fetchOSRMRoute(job.waypoints, 0);
         }
         done++;
         setPrefetch(p => ({ ...p, done }));
@@ -855,6 +876,13 @@ function DemoComparativa() {
           { label: "LC DM",         value: fmt(ku.lc_dm) },
         ];
 
+        // Beneficio específico de la localidad (con fallback a PROPUESTA_FRASE)
+        const beneficio = LOCALIDAD_BENEFICIO[loc];
+        const beneficioDesc = (beneficio && beneficio.desc) || PROPUESTA_FRASE;
+        const beneficioBonus = beneficio
+          ? { titulo: beneficio.titulo, desc: beneficio.desc }
+          : null;
+
         setLegend({
           name: loc,
           kpis: k,
@@ -872,11 +900,12 @@ function DemoComparativa() {
           prov: null,
           chips,
           color,
+          bonus: beneficioBonus,
         });
-        // Frase corta de la propuesta con typewriter
-        typewrite(PROPUESTA_FRASE);
+        // Beneficio por barrio con typewriter (fallback a la frase genérica)
+        typewrite(beneficioDesc);
 
-        const overlayMsL = overlayDurationForText(PROPUESTA_FRASE);
+        const overlayMsL = overlayDurationForText(beneficioDesc);
         await sleep(Math.max(0, overlayMsL - DEMO_OVERLAY_FADE_MS));
         if (stopRef.current) break;
 
@@ -1026,6 +1055,14 @@ function DemoComparativa() {
             <div className={"demo-overlay" + (overlay.leaving ? " demo-overlay-leaving" : "")}>
               {overlayEyebrow && overlay.chips && (
                 <div className="demo-overlay-eyebrow">{overlayEyebrow}</div>
+              )}
+              {overlay.bonus && overlay.bonus.titulo && (
+                <div className="demo-overlay-bonus" key={"bonus-" + overlay.bonus.titulo}>
+                  <span className="demo-overlay-bonus-dot" aria-hidden="true">●</span>
+                  <span className="demo-overlay-bonus-tag">BENEFICIO POR BARRIO</span>
+                  <span className="demo-overlay-bonus-sep">·</span>
+                  <span className="demo-overlay-bonus-titulo">{overlay.bonus.titulo}</span>
+                </div>
               )}
               <div className="demo-overlay-title" style={{ color: overlay.color }} key={overlay.title}>{overlay.title}</div>
               {/* sub clásico (intros) */}
