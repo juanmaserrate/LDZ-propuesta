@@ -30,15 +30,15 @@ function AnalisisCapacidad() {
   return (
     <section id="capacidad" className="bg-bone">
       <div className="shell">
-        <div className="section-tag"><span className="num">04</span><span className="txt">CAPACIDAD OPERATIVA</span></div>
+        <div className="section-tag"><span className="num">04</span><span className="txt">CAPACIDAD OPERATIVA · PLIEGO VIGENTE</span></div>
         <div className="section-head">
-          <h2 className="display-lg">Capacidad operativa con el pliego vigente</h2>
+          <h2 className="display-lg">El pliego vigente opera al borde de su capacidad</h2>
           <p className="lead" style={{ marginTop: 18 }}>
-            Análisis sobre la situación actual: cada escuela operada por el proveedor que le
+            Análisis sobre la situación actual: cada escuela atendida por el proveedor que le
             asigna el pliego hoy. <strong>{sobrecargados.length} de {data.total_proveedores} proveedores</strong>
             {" "}operan por encima de una jornada razonable y <strong>{data.n_escuelas_lejanas_total} escuelas</strong>
-            {" "}quedan a más de 3 km de su proveedor. Esto fundamenta a la vez la necesidad de
-            rezonificar y de sumar capacidad adicional al sistema.
+            {" "}({Math.round(data.n_escuelas_lejanas_total / data.total_escuelas * 100)}% del padrón) quedan a más de 3 km de su proveedor. Esto fundamenta a la
+            vez la necesidad de rezonificar y de sumar capacidad adicional al sistema.
           </p>
         </div>
 
