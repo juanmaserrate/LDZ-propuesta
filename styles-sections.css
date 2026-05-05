@@ -1367,3 +1367,15 @@
   padding-top: 14px;
   margin-bottom: 0 !important;
 }
+
+/* Pie de metodología del simulador */
+.ahorro-sim-method {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(255,255,255,0.10);
+  font-size: 12px;
+  color: var(--celeste-300);
+  line-height: 1.5;
+  font-family: var(--f-mono);
+}
+.ahorro-sim-method strong { color: var(--celeste-200); }

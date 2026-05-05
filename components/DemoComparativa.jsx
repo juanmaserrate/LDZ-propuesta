@@ -1045,63 +1045,103 @@ function DemoComparativaSection({ data, onlyDemo, onPrevPage, onNextPage }) {
 }
 
 function AhorroSimulator() {
-  // Constantes del simulador (mismas que el repo viejo)
-  const COSTO_KM = 202;        // pesos por km
-  const KM_DIA_BASE = 1800;    // km/día base recorridos hoy
-  const DIAS_HABILES = 172;    // días hábiles escolares al año
-  const [pct, setPct] = React.useState(15);
+  // Datos calculados desde colegios.json (cache global)
+  const [ahorroData, setAhorroData] = React.useState(null);
+  React.useEffect(() => {
+    if (window.__colegiosCache?.simulador_ahorro) {
+      setAhorroData(window.__colegiosCache.simulador_ahorro);
+      return;
+    }
+    fetch("data/colegios.json?v=4")
+      .then(r => r.json())
+      .then(data => {
+        window.__colegiosCache = data;
+        if (data.simulador_ahorro) setAhorroData(data.simulador_ahorro);
+      })
+      .catch(() => {});
+  }, []);
 
-  const reduccionKmDia = Math.round(KM_DIA_BASE * (pct / 100));
+  // Slider: nivel de implementación (0% a 100% del techo real)
+  const [pctImpl, setPctImpl] = React.useState(70);
+
+  if (!ahorroData) {
+    return (
+      <div className="ahorro-sim">
+        <div className="ahorro-sim-head">
+          <div className="eyebrow" style={{ marginBottom: 6 }}>SIMULADOR</div>
+          <h3 className="display-sm" style={{ margin: 0 }}>Cargando datos…</h3>
+        </div>
+      </div>
+    );
+  }
+
+  const KM_ACTUAL = ahorroData.km_dia_actual;
+  const KM_PROPUESTA_TECHO = ahorroData.km_dia_propuesta;
+  const AHORRO_TECHO = ahorroData.ahorro_km_dia;
+  const AHORRO_PCT_TECHO = ahorroData.ahorro_pct;
+  const COSTO_KM = ahorroData.supuestos.costo_km_ars;
+  const DIAS_HABILES = ahorroData.supuestos.dias_habiles;
+
+  // Implementación parcial: el ahorro escala linealmente con el nivel de implementación
+  const reduccionKmDia = Math.round(AHORRO_TECHO * (pctImpl / 100));
+  const ahorroPctEfectivo = (AHORRO_PCT_TECHO * pctImpl / 100);
   const ahorroDia = reduccionKmDia * COSTO_KM;
   const ahorroAnual = ahorroDia * DIAS_HABILES;
-  const fmt = (n) => "$" + (n || 0).toLocaleString("es-AR");
+  const fmt = (n) => "$" + Math.round(n || 0).toLocaleString("es-AR");
+  const fmtKm = (n) => Math.round(n).toLocaleString("es-AR");
 
   return (
     <div className="ahorro-sim">
       <div className="ahorro-sim-head">
-        <div className="eyebrow" style={{ marginBottom: 6 }}>SIMULADOR</div>
+        <div className="eyebrow" style={{ marginBottom: 6 }}>SIMULADOR · CÁLCULO REAL</div>
         <h3 className="display-sm" style={{ margin: 0 }}>Simulá el ahorro de kilómetros</h3>
         <p style={{ marginTop: 14, color: "var(--ink-700)", fontSize: 15, maxWidth: 64 + "ch", lineHeight: 1.55 }}>
-          Moviendo la barrita, elegís cuánto se acortan los recorridos al rezonificar por barrio.
-          A la derecha vas a ver, en tiempo real, cuántos kilómetros se ahorran por día y
-          cuánta plata se libera al año.
+          Cálculo basado en las <strong>{ahorroData.escuelas_consideradas} escuelas reales</strong> del pliego y las
+          coordenadas de los <strong>6 proveedores</strong>. La barrita ajusta el grado de implementación
+          de la propuesta: cuánto del techo real de ahorro se materializa según se va aplicando.
         </p>
         <div className="ahorro-sim-formula">
-          <div className="ahorro-sim-formula-title">Cómo se calcula</div>
+          <div className="ahorro-sim-formula-title">Cómo se calcula (datos reales)</div>
           <ol>
             <li>
-              <strong>Hoy se recorren {KM_DIA_BASE.toLocaleString("es-AR")} km por día</strong> con la flota actual del SAE en Lomas.
+              Para cada escuela calculamos la distancia hasta su <em>proveedor del pliego actual</em> y
+              hasta el <em>proveedor más cercano</em> (la propuesta).
+              Total: <strong className="acc-green">{fmtKm(KM_ACTUAL)} km/día</strong> hoy →
+              {" "}<strong className="acc-green">{fmtKm(KM_PROPUESTA_TECHO)} km/día</strong> con rezonificación.
             </li>
             <li>
-              Si la rezonificación recorta un <strong>{pct}%</strong>, eso equivale a
-              {" "}<strong className="acc-green">{KM_DIA_BASE.toLocaleString("es-AR")} × {pct}% = {reduccionKmDia.toLocaleString("es-AR")} km menos</strong> cada día.
+              El ahorro máximo posible es <strong className="acc-green">{fmtKm(AHORRO_TECHO)} km/día ({AHORRO_PCT_TECHO.toFixed(1)}%)</strong>,
+              al implementar la propuesta al 100%.
             </li>
             <li>
-              Cada km cuesta <strong>${COSTO_KM}</strong> (combustible, mantenimiento, conductor): {" "}
-              <strong className="acc-green">{reduccionKmDia.toLocaleString("es-AR")} × $&#8203;{COSTO_KM} = {fmt(ahorroDia)}</strong> ahorrados por día.
+              Con un grado de implementación del <strong>{pctImpl}%</strong>, el ahorro efectivo es
+              {" "}<strong className="acc-green">{fmtKm(reduccionKmDia)} km/día ({ahorroPctEfectivo.toFixed(1)}%)</strong>.
             </li>
             <li>
-              El ciclo escolar tiene <strong>{DIAS_HABILES} días hábiles</strong>: {" "}
-              <strong className="acc-green">{fmt(ahorroDia)} × {DIAS_HABILES} = {fmt(ahorroAnual)}</strong> al año.
+              A <strong>${COSTO_KM}/km</strong> de costo operativo y <strong>{DIAS_HABILES} días hábiles</strong>:
+              {" "}<strong className="acc-green">{fmtKm(reduccionKmDia)} × ${COSTO_KM} × {DIAS_HABILES} = {fmt(ahorroAnual)}</strong> al año.
             </li>
           </ol>
+          <div className="ahorro-sim-method">
+            <strong>Metodología:</strong> distancia haversine proveedor↔escuela × 1.35 (factor de calle urbana) × 2 (ida + vuelta).
+          </div>
         </div>
       </div>
       <div className="ahorro-sim-grid">
         <div className="ahorro-sim-control">
           <div className="ahorro-sim-control-row">
-            <span className="mono ahorro-sim-label">Reducción de km/día</span>
-            <span className="ahorro-sim-pct">{pct}%</span>
+            <span className="mono ahorro-sim-label">Grado de implementación</span>
+            <span className="ahorro-sim-pct">{pctImpl}%</span>
           </div>
           <input
-            type="range" min="0" max="25" step="1"
-            value={pct}
-            onChange={e => setPct(parseInt(e.target.value, 10))}
+            type="range" min="0" max="100" step="5"
+            value={pctImpl}
+            onChange={e => setPctImpl(parseInt(e.target.value, 10))}
             className="ahorro-sim-slider"
-            aria-label="Porcentaje de reducción de km"
+            aria-label="Grado de implementación de la propuesta"
           />
           <div className="ahorro-sim-ticks">
-            <span>0%</span><span>5%</span><span>10%</span><span>15%</span><span>20%</span><span>25%</span>
+            <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
           </div>
         </div>
         <div className="ahorro-sim-result">
@@ -1121,42 +1161,28 @@ function AhorroSimulator() {
       </div>
 
       <div className="ahorro-sim-note">
-        <div className="ahorro-sim-note-title">¿Por qué el tope es 25%?</div>
+        <div className="ahorro-sim-note-title">¿Por qué el techo es {AHORRO_PCT_TECHO.toFixed(1)}%?</div>
         <p>
-          La propuesta trabaja sobre los <strong>seis proveedores reales del pliego</strong>
-          (Alvagama, Cofex, Logística Sofía, Centurión, LGE y Panila Sur), cada uno con su
-          sede operativa ya instalada dentro de Lomas de Zamora. La rezonificación
-          <strong> reasigna las escuelas al proveedor cuya sede queda más cerca</strong>,
-          sin tocar el contrato ni los precios. Ese reordenamiento puro tiene un techo
-          natural cercano al <strong>25%</strong> de reducción de km, porque:
+          Este número <strong>no es una estimación</strong>: surge de calcular la
+          distancia real entre cada una de las {ahorroData.escuelas_consideradas} escuelas
+          y los <strong>6 proveedores reales del pliego</strong> (Alvagama, Cofex,
+          Logística Sofía, Centurión, LGE, Panila Sur). El pliego actual asigna escuelas
+          a proveedores que en muchos casos no están geográficamente cercanos; la
+          propuesta corrige eso reasignando cada escuela al proveedor más cercano.
         </p>
-        <ul>
-          <li>
-            <strong>Las sedes ya están distribuidas en el partido.</strong> No estamos
-            consolidando todo en un único depot lejano; los proveedores ya tienen base
-            en Lomas Centro, Llavallol, Temperley, Banfield, etc. La mejora viene de
-            ajustar qué escuelas le tocan a cada uno, no de mover sedes.
-          </li>
-          <li>
-            <strong>Una parte del recorrido es estructuralmente irreducible.</strong>
-            Aunque cada escuela quede asignada al proveedor más cercano, siempre hay
-            kilómetros mínimos para entrar en cada cuadra y volver. La rezonificación
-            ataca el <em>recorrido entre escuelas</em>, no el último tramo dentro del
-            barrio.
-          </li>
-          <li>
-            <strong>El contrato y los precios se mantienen.</strong> No se cambia la
-            cantidad de proveedores, ni los precios por vianda, ni los días hábiles.
-            Por diseño, la propuesta es una <em>mejora operativa</em> que no requiere
-            inversión nueva del Municipio.
-          </li>
-        </ul>
+        <p>
+          El techo natural lo marca la geografía: cuando todas las escuelas ya están
+          asignadas a su proveedor óptimo, no hay más km que recortar sin cambios
+          estructurales (consolidar proveedores, modificar precios, sumar flota
+          municipal). Esa parte excede esta propuesta, que está diseñada para
+          ejecutarse <strong>sin renegociar el pliego</strong>.
+        </p>
         <p className="ahorro-sim-note-foot">
-          Por encima del 25% ya no se trata de rezonificar: se trata de cambios
-          estructurales (consolidar proveedores, modificar el pliego, sumar flota
-          municipal propia, construir centros de transferencia compartidos). Esas
-          decisiones exceden esta propuesta, que está diseñada para ejecutarse sin
-          renegociar nada.
+          La barrita simula <strong>implementación parcial</strong>: muchas
+          rezonificaciones se hacen por etapas (no todas las escuelas migran de
+          proveedor el primer día). Vas a poder ver, por ejemplo, qué pasa si en el
+          primer trimestre se aplica al 50%: ya hay un ahorro material que justifica
+          seguir avanzando.
         </p>
       </div>
     </div>

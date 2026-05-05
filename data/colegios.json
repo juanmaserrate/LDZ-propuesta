@@ -9661,5 +9661,28 @@
       "lng": -58.4266216,
       "direccion": "Amado Nervo 326, Lomas de Zamora, Buenos Aires, Argentina"
     }
+  },
+  "simulador_ahorro": {
+    "metodologia": "Distancia haversine proveedor↔escuela × 1.35 (factor urbano) × 2 (ida+vuelta)",
+    "supuestos": {
+      "factor_urbano": 1.35,
+      "round_trip": 2.0,
+      "dias_habiles": 172,
+      "costo_km_ars": 202
+    },
+    "escuelas_consideradas": 289,
+    "km_dia_actual": 3136.4,
+    "km_dia_propuesta": 1643.1,
+    "ahorro_km_dia": 1493.3,
+    "ahorro_pct": 47.61,
+    "ahorro_anual_ars": 51881724,
+    "asignaciones_propuesta": {
+      "LOGISTICA SOFIA": 45,
+      "DISTRIBUIDORA COFEX": 42,
+      "CENTURION": 114,
+      "ALVAGAMA": 57,
+      "NEFEZ": 11,
+      "LGE": 20
+    }
   }
 }
