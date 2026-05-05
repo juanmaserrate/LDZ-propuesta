@@ -674,3 +674,17 @@ body::after {
   .scroll-progress-fill { transition: none !important; }
   .cursor-dot, .cursor-ring { display: none !important; }
 }
+
+/* Topbar centrado: solo logo + título */
+.topbar-centered .topbar-row { justify-content: center; }
+.topbar-centered .brand-lock {
+  display: flex; align-items: center; gap: 14px;
+}
+.brand-title {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+  line-height: 1;
+}
