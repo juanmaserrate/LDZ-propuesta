@@ -171,6 +171,10 @@ function DemoComparativa() {
   const stopRef = React.useRef(false);
   const seqRef = React.useRef(0);
   const routeCacheRef = React.useRef(new Map()); // key -> latlngs[]
+  // Controles manuales del demo
+  const pausedRef = React.useRef(false);   // pausa el avance
+  const skipRef = React.useRef(false);     // saltar al paso siguiente
+  const goBackRef = React.useRef(false);   // volver al paso anterior
 
   const [schools, setSchools] = React.useState([]);
   const [zones, setZones] = React.useState([]);
@@ -178,6 +182,9 @@ function DemoComparativa() {
   const [provByZone, setProvByZone] = React.useState({});
   const [provLocations, setProvLocations] = React.useState({});
   const [running, setRunning] = React.useState(false);
+  const [paused, setPaused] = React.useState(false);
+  const [stepIdx, setStepIdx] = React.useState(0);   // 1-based para UI
+  const [stepTotal, setStepTotal] = React.useState(0);
   const [overlay, setOverlay] = React.useState({
     visible: false,
     title: "",
@@ -674,6 +681,49 @@ function DemoComparativa() {
 
   const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
+  // sleep interrumpible: chequea stop / skip / goBack cada 100ms.
+  // Si stopRef se activa: termina inmediatamente.
+  // Si skipRef o goBackRef se activan: termina (consumen el sleep restante).
+  // Mientras pausedRef esté activo, congela el reloj (no avanza).
+  const interruptibleSleep = async (ms) => {
+    const STEP = 100;
+    let elapsed = 0;
+    while (elapsed < ms) {
+      if (stopRef.current) return;
+      if (skipRef.current || goBackRef.current) return;
+      // Si está pausado, no acumulamos tiempo. Nos quedamos en bucle hasta
+      // que el usuario reanude o detenga / skip / back.
+      while (pausedRef.current && !stopRef.current && !skipRef.current && !goBackRef.current) {
+        await sleep(STEP);
+      }
+      if (stopRef.current) return;
+      if (skipRef.current || goBackRef.current) return;
+      const chunk = Math.min(STEP, ms - elapsed);
+      await sleep(chunk);
+      elapsed += chunk;
+    }
+  };
+
+  // Handlers de los controles manuales
+  const togglePause = () => {
+    if (!running) return;
+    pausedRef.current = !pausedRef.current;
+    setPaused(pausedRef.current);
+  };
+  const skipStep = () => {
+    if (!running) return;
+    // Si está pausado, también queremos avanzar: salimos de la pausa.
+    pausedRef.current = false;
+    setPaused(false);
+    skipRef.current = true;
+  };
+  const prevStep = () => {
+    if (!running) return;
+    pausedRef.current = false;
+    setPaused(false);
+    goBackRef.current = true;
+  };
+
   // Reveal: muestra el texto completo de una sola vez (la animación CSS de
   // entrada se dispara con `key` en el render). NO es typewriter.
   const _clearTwTimer = () => {
@@ -707,11 +757,17 @@ function DemoComparativa() {
 
   const stop = async () => {
     stopRef.current = true;
+    pausedRef.current = false;
+    skipRef.current = false;
+    goBackRef.current = false;
     seqRef.current += 1; // invalida respuestas OSRM en vuelo
     _clearTwTimer();
     setTwText("");
     setTwActive(false);
     setRunning(false);
+    setPaused(false);
+    setStepIdx(0);
+    setStepTotal(0);
     setOverlay({ visible: false, title: "", sub: "", prov: null, chips: null, color: "var(--celeste-700)" });
     setStage({ phase: "idle" });
     setLegend(null);
@@ -725,9 +781,10 @@ function DemoComparativa() {
     if (stopRef.current) return;
     setOverlay({ visible: true, leaving: false, title, sub, prov: null, chips: null, color });
     setTwText(""); setTwActive(false);
-    // Mantener visible durante (ms - fade), luego empezar a desvanecer
+    // Mantener visible durante (ms - fade), luego empezar a desvanecer.
+    // Usar sleep interrumpible para que skip / back / pausar respondan.
     const stayMs = Math.max(0, ms - DEMO_OVERLAY_FADE_MS);
-    await sleep(stayMs);
+    await interruptibleSleep(stayMs);
     if (stopRef.current) return;
     setOverlay(o => ({ ...o, leaving: true }));
     await sleep(DEMO_OVERLAY_FADE_MS);
@@ -747,188 +804,223 @@ function DemoComparativa() {
     prefetchAllRoutes();
 
     try {
-      // Stage 1 - Pliego vigente
-      setStage({ phase: "pliego" });
-      setBreathKey(k => k + 1);
-      await showMsg(
-        "Propuesta municipal vigente",
-        "Ruteo basado en zonas de pliego (Zona 1 a Zona 12)",
-        "var(--celeste-700)"
-      );
-      if (stopRef.current) return;
-
-      // Orden numerico estable Zona 1, Zona 2, ..., Zona 12
+      // Construir un único array de pasos que abarca ambos stages.
+      // Cada paso lleva su tipo (pliego/propuesta) y todos los datos
+      // necesarios para renderizarlo. Eso permite navegación con skip/back
+      // entre stages con un único índice global.
       const zonaList = (zones && zones.length ? zones.slice() : []).sort((a, b) => {
         const na = parseInt((a.match(/\d+/) || ["0"])[0], 10);
         const nb = parseInt((b.match(/\d+/) || ["0"])[0], 10);
         return na - nb;
       });
-      const totalZ = zonaList.length;
-
-      for (let i = 0; i < zonaList.length; i++) {
-        if (stopRef.current) break;
-        const z = zonaList[i];
-        const subset = schools.filter(s => (s.zona || s.zona_pliego) === z);
-        if (!subset.length) continue;
-
-        // KPIs por unidad de negocio (para chips)
-        const ku = kpisByUnit(subset);
-        const k = kpisOf(subset);
-        const provName = provByZone[z] || null;
-        const provLoc = provName && provLocations[provName];
-        const dep = (provLoc && provLoc.lat && provLoc.lng)
-          ? { lat: provLoc.lat, lng: provLoc.lng, nombre: provName, direccion: provLoc.direccion || "" }
-          : DEPOT;
-        const diag = ZONE_DIAGNOSTICS_DEMO[z];
-        const diagText = (diag && diag.c) || "";
-
-        // Chips por unidad de negocio (todos con valores enteros, fallback 0)
-        const chips = [
-          { label: "DM",            value: fmt(ku.dm) },
-          { label: "COM",           value: fmt(ku.com) },
-          { label: "Patologías DM", value: fmt(ku.patologias_dm) },
-          { label: "Patologías COM",value: fmt(ku.patologias_com) },
-          { label: "Patios DM",     value: fmt(ku.patios_dm) },
-          { label: "LC DM",         value: fmt(ku.lc_dm) },
-        ];
-
-        // Mostrar overlay enriquecido (3s)
-        setLegend({
-          name: z,
-          kpis: k,
-          ritmo: "zonas dispersas del pliego",
-          idx: i + 1,
-          total: totalZ,
-          color: "var(--celeste-700)",
-          phase: "pliego",
-          schools: subset.length,
-        });
-        setOverlay({
-          visible: true,
-          title: z,
-          sub: "",
-          prov: provName ? { name: provName, dir: (provLoc && provLoc.direccion) || "" } : null,
-          chips,
-          color: "var(--celeste-700)",
-        });
-        // Lanzar typewriter del diagnóstico
-        typewrite(diagText);
-
-        // Tiempo de cartel ajustado al largo del diagnóstico
-        const overlayMsZ = overlayDurationForText(diagText);
-        await sleep(Math.max(0, overlayMsZ - DEMO_OVERLAY_FADE_MS));
-        if (stopRef.current) break;
-
-        // Iniciar fade-out suave del overlay
-        setOverlay(o => ({ ...o, leaving: true }));
-        await sleep(DEMO_OVERLAY_FADE_MS);
-        if (stopRef.current) break;
-
-        // Ocultar overlay y revelar el mapa con animaciones
-        setOverlay(o => ({ ...o, visible: false, leaving: false }));
-        _clearTwTimer();
-        setTwActive(false);
-
-        try {
-          highlightAndRoute(subset, "#1A4A8C", "orden_pliego", dep);
-          setFlashKey(k => k + 1);
-        } catch (e) {
-          console.warn("highlightAndRoute zona err", z, e);
-        }
-
-        await sleep(DEMO_REVEAL_MS);
-        if (stopRef.current) break;
-      }
-
-      if (stopRef.current) return;
-
-      // Stage 2 - Propuesta: agrupar por coherencia logística
-      setStage({ phase: "propuesta" });
-      setBreathKey(k => k + 1);
-      await showMsg(
-        "Propuesta de rezonificación",
-        "Agrupar por coherencia logística",
-        "var(--celeste-800)"
-      );
-      if (stopRef.current) return;
-
       const locNames = (localidades && localidades.length
         ? localidades
         : Array.from(new Set(schools.map(s => s.localidad).filter(Boolean))).sort()
       ).filter(l => l && l !== "Sin asignar").slice().sort();
 
-      for (let i = 0; i < locNames.length; i++) {
-        if (stopRef.current) break;
-        const loc = locNames[i];
+      const allSteps = [];
+      zonaList.forEach(z => {
+        const subset = schools.filter(s => (s.zona || s.zona_pliego) === z);
+        if (!subset.length) return;
+        allSteps.push({ phase: "pliego", name: z, subset });
+      });
+      locNames.forEach(loc => {
         const subset = schools.filter(s => s.localidad === loc);
-        if (!subset.length) continue;
+        if (!subset.length) return;
+        allSteps.push({ phase: "propuesta", name: loc, subset });
+      });
 
-        const ku = kpisByUnit(subset);
-        const k = kpisOf(subset);
-        const color = _demoColorForLoc(loc);
+      const totalSteps = allSteps.length;
+      setStepTotal(totalSteps);
 
-        const chips = [
-          { label: "DM",            value: fmt(ku.dm) },
-          { label: "COM",           value: fmt(ku.com) },
-          { label: "Patologías DM", value: fmt(ku.patologias_dm) },
-          { label: "Patologías COM",value: fmt(ku.patologias_com) },
-          { label: "Patios DM",     value: fmt(ku.patios_dm) },
-          { label: "LC DM",         value: fmt(ku.lc_dm) },
-        ];
+      let i = 0;
+      let lastPhase = null;
 
-        // Beneficio específico de la localidad (con fallback a PROPUESTA_FRASE)
-        const beneficio = LOCALIDAD_BENEFICIO[loc];
-        const beneficioDesc = (beneficio && beneficio.desc) || PROPUESTA_FRASE;
-        const beneficioBonus = beneficio
-          ? { titulo: beneficio.titulo, desc: beneficio.desc }
-          : null;
-
-        setLegend({
-          name: loc,
-          kpis: k,
-          ritmo: "una zona por barrio",
-          idx: i + 1,
-          total: locNames.length,
-          color,
-          phase: "propuesta",
-          schools: subset.length,
-        });
-        setOverlay({
-          visible: true,
-          title: loc,
-          sub: "",
-          prov: null,
-          chips,
-          color,
-          bonus: beneficioBonus,
-        });
-        // Beneficio por barrio con typewriter (fallback a la frase genérica)
-        typewrite(beneficioDesc);
-
-        const overlayMsL = overlayDurationForText(beneficioDesc);
-        await sleep(Math.max(0, overlayMsL - DEMO_OVERLAY_FADE_MS));
+      while (i < totalSteps) {
         if (stopRef.current) break;
+        const step = allSteps[i];
 
-        // Fade-out suave
-        setOverlay(o => ({ ...o, leaving: true }));
-        await sleep(DEMO_OVERLAY_FADE_MS);
-        if (stopRef.current) break;
-
-        setOverlay(o => ({ ...o, visible: false, leaving: false }));
-        _clearTwTimer();
-        setTwActive(false);
-
-        try {
-          // Stage 2: el "depot" sigue siendo Real de Catorce (Burzaco) ya que
-          // la propuesta agrupa por barrio sin un proveedor designado por barrio.
-          highlightAndRoute(subset, color, "orden_localidad", DEPOT);
-          setFlashKey(k => k + 1);
-        } catch (e) {
-          console.warn("highlightAndRoute loc err", loc, e);
+        // Cambio de stage: al entrar a una nueva fase mostramos el cartel
+        // intro correspondiente. Solo se muestra cuando i avanza naturalmente
+        // o vuelve, pero la primera vez de cada fase.
+        if (step.phase !== lastPhase) {
+          if (step.phase === "pliego") {
+            setStage({ phase: "pliego" });
+            setBreathKey(k => k + 1);
+            await showMsg(
+              "Propuesta municipal vigente",
+              "Ruteo basado en zonas de pliego (Zona 1 a Zona 12)",
+              "var(--celeste-700)"
+            );
+          } else if (step.phase === "propuesta") {
+            setStage({ phase: "propuesta" });
+            setBreathKey(k => k + 1);
+            await showMsg(
+              "Propuesta de rezonificación",
+              "Agrupar por coherencia logística",
+              "var(--celeste-800)"
+            );
+          }
+          if (stopRef.current) break;
+          // El cartel intro puede ser saltado con skip/back: en ese caso
+          // procesamos el step en este mismo ciclo y consumimos las flags
+          // dentro del paso en sí. Pero el cambio de stage ya fue marcado.
+          lastPhase = step.phase;
+          if (skipRef.current || goBackRef.current) {
+            // Si el usuario skipeó el intro, seguir directo al paso real,
+            // sin consumir el flag (lo consumirá la lógica de fin de paso).
+          }
         }
 
-        await sleep(DEMO_REVEAL_MS);
-        if (stopRef.current) break;
+        // Renderizar el paso (zona o localidad)
+        setStepIdx(i + 1);
+
+        if (step.phase === "pliego") {
+          const z = step.name;
+          const subset = step.subset;
+          const ku = kpisByUnit(subset);
+          const k = kpisOf(subset);
+          const provName = provByZone[z] || null;
+          const provLoc = provName && provLocations[provName];
+          const dep = (provLoc && provLoc.lat && provLoc.lng)
+            ? { lat: provLoc.lat, lng: provLoc.lng, nombre: provName, direccion: provLoc.direccion || "" }
+            : DEPOT;
+          const diag = ZONE_DIAGNOSTICS_DEMO[z];
+          const diagText = (diag && diag.c) || "";
+          const chips = [
+            { label: "DM",            value: fmt(ku.dm) },
+            { label: "COM",           value: fmt(ku.com) },
+            { label: "Patologías DM", value: fmt(ku.patologias_dm) },
+            { label: "Patologías COM",value: fmt(ku.patologias_com) },
+            { label: "Patios DM",     value: fmt(ku.patios_dm) },
+            { label: "LC DM",         value: fmt(ku.lc_dm) },
+          ];
+
+          setLegend({
+            name: z,
+            kpis: k,
+            ritmo: "zonas dispersas del pliego",
+            idx: i + 1,
+            total: totalSteps,
+            color: "var(--celeste-700)",
+            phase: "pliego",
+            schools: subset.length,
+          });
+          setOverlay({
+            visible: true,
+            title: z,
+            sub: "",
+            prov: provName ? { name: provName, dir: (provLoc && provLoc.direccion) || "" } : null,
+            chips,
+            color: "var(--celeste-700)",
+          });
+          typewrite(diagText);
+
+          const overlayMsZ = overlayDurationForText(diagText);
+          await interruptibleSleep(Math.max(0, overlayMsZ - DEMO_OVERLAY_FADE_MS));
+          if (stopRef.current) break;
+
+          setOverlay(o => ({ ...o, leaving: true }));
+          await sleep(DEMO_OVERLAY_FADE_MS);
+          if (stopRef.current) break;
+
+          setOverlay(o => ({ ...o, visible: false, leaving: false }));
+          _clearTwTimer();
+          setTwActive(false);
+
+          try {
+            highlightAndRoute(subset, "#1A4A8C", "orden_pliego", dep);
+            setFlashKey(k => k + 1);
+          } catch (e) {
+            console.warn("highlightAndRoute zona err", z, e);
+          }
+
+          await interruptibleSleep(DEMO_REVEAL_MS);
+          if (stopRef.current) break;
+
+        } else {
+          // PROPUESTA
+          const loc = step.name;
+          const subset = step.subset;
+          const ku = kpisByUnit(subset);
+          const k = kpisOf(subset);
+          const color = _demoColorForLoc(loc);
+          const chips = [
+            { label: "DM",            value: fmt(ku.dm) },
+            { label: "COM",           value: fmt(ku.com) },
+            { label: "Patologías DM", value: fmt(ku.patologias_dm) },
+            { label: "Patologías COM",value: fmt(ku.patologias_com) },
+            { label: "Patios DM",     value: fmt(ku.patios_dm) },
+            { label: "LC DM",         value: fmt(ku.lc_dm) },
+          ];
+          const beneficio = LOCALIDAD_BENEFICIO[loc];
+          const beneficioDesc = (beneficio && beneficio.desc) || PROPUESTA_FRASE;
+          const beneficioBonus = beneficio
+            ? { titulo: beneficio.titulo, desc: beneficio.desc }
+            : null;
+
+          setLegend({
+            name: loc,
+            kpis: k,
+            ritmo: "una zona por barrio",
+            idx: i + 1,
+            total: totalSteps,
+            color,
+            phase: "propuesta",
+            schools: subset.length,
+          });
+          setOverlay({
+            visible: true,
+            title: loc,
+            sub: "",
+            prov: null,
+            chips,
+            color,
+            bonus: beneficioBonus,
+          });
+          typewrite(beneficioDesc);
+
+          const overlayMsL = overlayDurationForText(beneficioDesc);
+          await interruptibleSleep(Math.max(0, overlayMsL - DEMO_OVERLAY_FADE_MS));
+          if (stopRef.current) break;
+
+          setOverlay(o => ({ ...o, leaving: true }));
+          await sleep(DEMO_OVERLAY_FADE_MS);
+          if (stopRef.current) break;
+
+          setOverlay(o => ({ ...o, visible: false, leaving: false }));
+          _clearTwTimer();
+          setTwActive(false);
+
+          try {
+            highlightAndRoute(subset, color, "orden_localidad", DEPOT);
+            setFlashKey(k => k + 1);
+          } catch (e) {
+            console.warn("highlightAndRoute loc err", loc, e);
+          }
+
+          await interruptibleSleep(DEMO_REVEAL_MS);
+          if (stopRef.current) break;
+        }
+
+        // Decidir avance / retroceso al cierre del paso
+        if (goBackRef.current) {
+          goBackRef.current = false;
+          const prevI = i;
+          i = Math.max(0, i - 1);
+          // Si retrocedimos a un step de fase distinta (ej. primer paso
+          // de propuesta -> último de pliego), forzar re-render del cartel
+          // intro de la fase anterior. Si retrocedemos dentro del mismo
+          // stage, no reseteamos lastPhase para no repetir el intro.
+          if (allSteps[i] && allSteps[i].phase !== allSteps[prevI].phase) {
+            lastPhase = null;
+          }
+          continue;
+        }
+        if (skipRef.current) {
+          skipRef.current = false;
+        }
+        i++;
       }
 
       if (stopRef.current) return;
@@ -937,11 +1029,17 @@ function DemoComparativa() {
       console.error("Error en demo:", err);
     } finally {
       stopRef.current = false;
+      pausedRef.current = false;
+      skipRef.current = false;
+      goBackRef.current = false;
       seqRef.current += 1;
       _clearTwTimer();
       setTwText("");
       setTwActive(false);
       setRunning(false);
+      setPaused(false);
+      setStepIdx(0);
+      setStepTotal(0);
       setStage({ phase: "idle" });
       setLegend(null);
       // Restaurar el depot a Burzaco al cerrar
@@ -991,6 +1089,54 @@ function DemoComparativa() {
           <span className="demo-badge-txt">{phaseLabel}</span>
         </div>
         <div className="demo-controls">
+          {running && (
+            <div className="demo-step-controls" role="group" aria-label="Controles del paso">
+              <button
+                className="btn btn-ghost demo-step-btn"
+                onClick={prevStep}
+                title="Paso anterior"
+                aria-label="Paso anterior"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polygon points="19 20 9 12 19 4 19 20"/>
+                  <line x1="5" y1="19" x2="5" y2="5"/>
+                </svg>
+              </button>
+              <button
+                className="btn btn-ghost demo-step-btn"
+                onClick={togglePause}
+                title={paused ? "Continuar" : "Pausar"}
+                aria-label={paused ? "Continuar" : "Pausar"}
+              >
+                {paused ? (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <polygon points="6 4 20 12 6 20 6 4"/>
+                  </svg>
+                ) : (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <rect x="5" y="4" width="4" height="16"/>
+                    <rect x="15" y="4" width="4" height="16"/>
+                  </svg>
+                )}
+              </button>
+              <button
+                className="btn btn-ghost demo-step-btn"
+                onClick={skipStep}
+                title="Paso siguiente"
+                aria-label="Paso siguiente"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polygon points="5 4 15 12 5 20 5 4"/>
+                  <line x1="19" y1="5" x2="19" y2="19"/>
+                </svg>
+              </button>
+              {stepTotal > 0 && (
+                <span className="demo-step-counter mono" aria-live="polite">
+                  Paso <b>{stepIdx}</b> / {stepTotal}
+                </span>
+              )}
+            </div>
+          )}
           <button
             className="btn btn-ghost demo-fs-btn"
             onClick={() => (isFs ? exitFs() : enterFs())}

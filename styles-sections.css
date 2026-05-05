@@ -491,6 +491,52 @@
 }
 .demo-badge-txt { display: inline-block; }
 .demo-controls .btn { padding: 10px 20px; font-size: 14px; font-weight: 600; }
+
+/* Controles manuales del demo: prev / pause / skip + step counter */
+.demo-step-controls {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px 4px 4px;
+  border: 1px solid var(--celeste-200);
+  background: white;
+  border-radius: 999px;
+  box-shadow: var(--sh-sm);
+}
+.demo-controls .btn.demo-step-btn {
+  padding: 0;
+  width: 36px; height: 36px;
+  min-width: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  color: var(--celeste-800);
+  border-color: transparent;
+  background: transparent;
+  font-size: 0;
+  transition: background .2s ease, color .2s ease, transform .15s ease;
+}
+.demo-controls .btn.demo-step-btn:hover {
+  background: var(--celeste-50);
+  color: var(--celeste-900);
+  transform: translateY(-1px);
+}
+.demo-controls .btn.demo-step-btn:active { transform: translateY(0); }
+.demo-controls .btn.demo-step-btn svg { display: block; }
+.demo-step-counter {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  padding: 0 10px 0 6px;
+  white-space: nowrap;
+}
+.demo-step-counter b {
+  color: var(--celeste-800);
+  font-weight: 700;
+}
+@media (max-width: 720px) {
+  .demo-step-controls { padding: 3px 6px 3px 3px; }
+  .demo-controls .btn.demo-step-btn { width: 32px; height: 32px; }
+  .demo-step-counter { padding: 0 6px 0 4px; }
+}
 .demo-stop {
   color: var(--coral); border-color: var(--coral);
   animation: demoStopPulse 1.6s cubic-bezier(.4,0,.2,1) infinite;
