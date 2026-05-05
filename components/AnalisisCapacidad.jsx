@@ -10,7 +10,7 @@ function AnalisisCapacidad() {
       setData(window.__colegiosCache.analisis_capacidad);
       return;
     }
-    fetch("data/colegios.json?v=6")
+    fetch("data/colegios.json?v=19")
       .then(r => r.json())
       .then(d => {
         window.__colegiosCache = d;

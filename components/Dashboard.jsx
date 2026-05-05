@@ -52,7 +52,7 @@ function RealSchoolsMap({ mode }) {
   const [localidades, setLocalidades] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("data/colegios.json?v=6")
+    fetch("data/colegios.json?v=19")
       .then(r => r.json())
       .then(d => {
         setSchools(d.colegios || d.schools || []);

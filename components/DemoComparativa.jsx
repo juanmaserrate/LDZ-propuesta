@@ -217,7 +217,7 @@ function DemoComparativa() {
       setProvLocations(d.proveedores_locations || {});
       return;
     }
-    fetch("data/colegios.json?v=6")
+    fetch("data/colegios.json?v=19")
       .then(r => r.json())
       .then(d => {
         window.__colegiosCache = d;
@@ -1435,7 +1435,7 @@ function AhorroSimulator() {
       setAhorroData(window.__colegiosCache.simulador_ahorro);
       return;
     }
-    fetch("data/colegios.json?v=6")
+    fetch("data/colegios.json?v=19")
       .then(r => r.json())
       .then(data => {
         window.__colegiosCache = data;
