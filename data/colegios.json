@@ -9691,7 +9691,7 @@
     "total_proveedores": 6,
     "eficiencia": {
       "escuelas_optimas": 43,
-      "escuelas_subóptimas": 246,
+      "escuelas_suboptimas": 246,
       "eficiencia_pct": 14.9,
       "ineficiencia_pct": 85.1,
       "km_extra_dia": 1493.3,

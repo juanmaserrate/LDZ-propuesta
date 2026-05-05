@@ -64,7 +64,7 @@ function ZoneSlider({ onNextPage, onPrevPage }) {
       setProvLocations(d.proveedores_locations || {});
       return;
     }
-    fetch("data/colegios.json?v=5")
+    fetch("data/colegios.json?v=6")
       .then(r => r.json())
       .then(d => {
         window.__colegiosCache = d;

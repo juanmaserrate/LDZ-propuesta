@@ -145,7 +145,7 @@ resultado = {
     # Bloque A — eficiencia del pliego
     "eficiencia": {
         "escuelas_optimas": optimos,
-        "escuelas_subóptimas": no_optimos,
+        "escuelas_suboptimas": no_optimos,
         "eficiencia_pct": eficiencia_pct,
         "ineficiencia_pct": round(100 - eficiencia_pct, 1),
         "km_extra_dia": km_extra_dia_total,

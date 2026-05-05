@@ -10,7 +10,7 @@ function AnalisisCapacidad() {
       setData(window.__colegiosCache.analisis_capacidad);
       return;
     }
-    fetch("data/colegios.json?v=5")
+    fetch("data/colegios.json?v=6")
       .then(r => r.json())
       .then(d => {
         window.__colegiosCache = d;
@@ -49,7 +49,7 @@ function AnalisisCapacidad() {
               <span className="cap-eficiencia-pct-sub">de las escuelas asignadas a su proveedor óptimo</span>
             </div>
             <p className="cap-eficiencia-narrative">
-              <strong>{ef.escuelas_subóptimas} de {data.total_escuelas} escuelas</strong> están operadas hoy
+              <strong>{ef.escuelas_suboptimas} de {data.total_escuelas} escuelas</strong> están operadas hoy
               por un proveedor que <em>no es el más cercano</em> de los 6 disponibles. La asignación
               actual del pliego es geográficamente ineficiente: hay un proveedor más conveniente para
               el <strong>{ef.ineficiencia_pct}%</strong> de las escuelas.
