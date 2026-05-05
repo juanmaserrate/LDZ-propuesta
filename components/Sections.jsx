@@ -35,6 +35,7 @@ function Typewriter({ text, speed = 35, startDelay = 200 }) {
 }
 
 function Hero({ data }) {
+  // Title como texto plano: premium.js lo convierte en SplitText para animar.
   return (
     <section className="hero bg-deep" id="inicio">
       <div className="shell">
@@ -45,8 +46,8 @@ function Hero({ data }) {
                 <span className="dot"/> {data.statusPill}
               </span>
             )}
-            <h1 className="display-xl" style={{ color: "white", marginTop: data.statusPill ? 22 : 0 }}>
-              <Typewriter text={data.title} speed={32} startDelay={250}/>
+            <h1 className="display-xl hero-title-split" style={{ color: "white", marginTop: data.statusPill ? 22 : 0 }}>
+              {data.title}
             </h1>
           </div>
         </div>
