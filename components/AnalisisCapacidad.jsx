@@ -32,13 +32,13 @@ function AnalisisCapacidad() {
       <div className="shell">
         <div className="section-tag"><span className="num">04</span><span className="txt">CAPACIDAD OPERATIVA</span></div>
         <div className="section-head">
-          <h2 className="display-lg">¿Alcanza con la rezonificación?</h2>
+          <h2 className="display-lg">Capacidad operativa con el pliego vigente</h2>
           <p className="lead" style={{ marginTop: 18 }}>
-            Aun reasignando cada escuela al proveedor más cercano, la propuesta deja en
-            evidencia que <strong>{sobrecargados.length} de {data.total_proveedores} proveedores</strong>
-            {" "}quedan operando por encima de una jornada razonable. La conclusión es operativa:
-            la rezonificación es necesaria pero no suficiente — el Municipio debería evaluar
-            sumar hubs adicionales para sostener calidad uniforme.
+            Análisis sobre la situación actual: cada escuela operada por el proveedor que le
+            asigna el pliego hoy. <strong>{sobrecargados.length} de {data.total_proveedores} proveedores</strong>
+            {" "}operan por encima de una jornada razonable y <strong>{data.n_escuelas_lejanas_total} escuelas</strong>
+            {" "}quedan a más de 3 km de su proveedor. Esto fundamenta a la vez la necesidad de
+            rezonificar y de sumar capacidad adicional al sistema.
           </p>
         </div>
 
@@ -113,24 +113,25 @@ function AnalisisCapacidad() {
           <div className="cap-diag-title">Lectura operativa</div>
           <ol>
             <li>
-              <strong>Centurión concentra el 39% de las escuelas</strong> ({data.proveedores[0].escuelas} de
-              {" "}{data.total_escuelas}). Con una sola sede operativa, su jornada estimada supera ampliamente las 8h
-              razonables. Necesita <em>varios vehículos en paralelo</em> o un hub satélite.
+              <strong>{data.proveedores[0].proveedor} concentra el {data.proveedores[0].porcentaje_escuelas}% de las escuelas</strong>
+              {" "}({data.proveedores[0].escuelas} de {data.total_escuelas}). Aún con flota propia, su jornada teórica
+              con un solo vehículo desborda el umbral de 8h, evidenciando que el pliego no equilibró carga.
             </li>
             <li>
-              <strong>Cuatro proveedores quedan por encima del techo de 8h diarias</strong>. Aún con la
-              rezonificación óptima, su capacidad teórica con un solo vehículo no alcanza para
-              cubrir su zona en una sola jornada.
+              <strong>Los {data.proveedores_sobrecargados.length} proveedores quedan por encima del techo de 8h diarias</strong>
+              {" "}cuando se calcula el recorrido real entre su sede y las escuelas que el pliego les asignó. La carga
+              está distribuida sin criterio geográfico.
             </li>
             <li>
-              <strong>{data.n_escuelas_lejanas_total} escuelas siguen a más de 3 km</strong> de su proveedor
-              más cercano. Eso son recorridos largos que afectan la cadena térmica y el horario de entrega.
+              <strong>{data.n_escuelas_lejanas_total} escuelas operan a más de 3 km</strong> del proveedor que les
+              corresponde — el {Math.round(data.n_escuelas_lejanas_total / data.total_escuelas * 100)}% del padrón. Recorridos largos comprometen la cadena térmica
+              y el horario de entrega.
             </li>
             <li>
-              <strong>Lectura para el Municipio:</strong> la rezonificación es una mejora necesaria pero
-              no resuelve sola la asimetría de carga. Sumar capacidad adicional —vía nuevos proveedores
-              o sucursales— ayudaría a equilibrar la operación y a sostener calidad uniforme en barrios
-              hoy mal cubiertos.
+              <strong>Lectura para el Municipio:</strong> el pliego vigente carga a todos los proveedores por encima
+              de su capacidad razonable y deja muchas escuelas mal cubiertas. La rezonificación corrige la asignación
+              geográfica, pero la asimetría de cantidad de escuelas por proveedor amerita evaluar sumar capacidad
+              adicional —nuevos proveedores o sucursales— para sostener calidad uniforme en todo el partido.
             </li>
           </ol>
         </div>

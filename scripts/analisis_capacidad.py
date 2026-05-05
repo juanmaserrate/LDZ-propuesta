@@ -46,13 +46,20 @@ provedores = {k: v for k, v in d.get("proveedores_locations", {}).items()
               if v.get("lat") is not None}
 escuelas = [s for s in d["colegios"] if s.get("lat") and s.get("lng")]
 
-# Asignar cada escuela al proveedor más cercano y calcular su distancia
+# Asignar cada escuela según el PLIEGO VIGENTE: el proveedor que le toca por zona
+prov_by_zone = d.get("proveedores_por_zona", {})
 escuelas_asignadas = []  # cada item: (escuela, prov_name, distancia_km_lin)
+sin_asignar = 0
 for s in escuelas:
-    best = min(provedores.items(), key=lambda kv: haversine((kv[1]["lat"], kv[1]["lng"]), (s["lat"], s["lng"])))
-    prov_name, p = best
+    zona = s.get("zona") or s.get("zona_pliego")
+    prov_name = prov_by_zone.get(zona)
+    if not prov_name or prov_name not in provedores:
+        sin_asignar += 1
+        continue
+    p = provedores[prov_name]
     dist = haversine((p["lat"], p["lng"]), (s["lat"], s["lng"]))
     escuelas_asignadas.append((s, prov_name, dist))
+print(f"Escuelas sin asignación válida en el pliego: {sin_asignar}")
 
 # Agrupar por proveedor
 by_prov = defaultdict(list)
