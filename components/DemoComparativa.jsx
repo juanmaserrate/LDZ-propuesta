@@ -849,6 +849,14 @@ function DemoComparativa() {
           {phaseLabel}
         </div>
         <div className="demo-controls">
+          <button
+            className="btn btn-ghost demo-fs-btn"
+            onClick={() => (isFs ? exitFs() : enterFs())}
+            title={isFs ? "Salir de pantalla completa" : "Pantalla completa"}
+            aria-label={isFs ? "Salir de pantalla completa" : "Pantalla completa"}
+          >
+            {isFs ? "↙ Salir pantalla completa" : "⛶ Pantalla completa"}
+          </button>
           {!running ? (
             <button className="btn btn-primary" onClick={play}>&#9654; Iniciar demo comparativa</button>
           ) : (
