@@ -1549,3 +1549,111 @@
   line-height: 1.55;
 }
 .cap-foot strong { color: var(--celeste-200); }
+
+/* ============================================================
+   EFICIENCIA DEL PLIEGO (BLOQUE A) — KPI hero
+   ============================================================ */
+.cap-eficiencia {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 28px;
+  margin: 8px 0 48px;
+  background: linear-gradient(135deg, var(--celeste-800) 0%, var(--celeste-900) 100%);
+  border: 1px solid rgba(116,172,223,0.25);
+  border-radius: var(--r-xl);
+  padding: 32px;
+  box-shadow: 0 14px 40px -16px rgba(14,58,107,0.40);
+}
+@media (max-width: 880px) { .cap-eficiencia { grid-template-columns: 1fr; } }
+.cap-eficiencia-eyebrow {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--celeste-300);
+  margin-bottom: 12px;
+}
+.cap-eficiencia-pct-wrap {
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+}
+.cap-eficiencia-pct {
+  font-family: var(--f-display);
+  font-size: clamp(64px, 9vw, 120px);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--amber) 0%, #FF9D00 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  filter: drop-shadow(0 4px 16px rgba(242,169,59,0.35));
+}
+.cap-eficiencia-pct-sub {
+  font-size: 14px;
+  color: var(--celeste-200);
+  max-width: 26ch;
+  line-height: 1.4;
+}
+.cap-eficiencia-narrative {
+  margin-top: 18px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--celeste-100) !important;
+  max-width: 50ch;
+}
+.cap-eficiencia-narrative strong { color: white; }
+.cap-eficiencia-narrative em { color: var(--amber); font-style: normal; font-weight: 600; }
+
+.cap-eficiencia-stats {
+  display: flex; flex-direction: column; gap: 14px;
+  justify-content: center;
+}
+.cap-eficiencia-stat {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--r-md);
+  padding: 16px 20px;
+}
+.cap-eficiencia-stat.highlight {
+  background: rgba(46,158,110,0.15);
+  border-color: rgba(46,158,110,0.45);
+}
+.cap-eficiencia-stat-v {
+  font-family: var(--f-display);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.cap-eficiencia-stat.highlight .cap-eficiencia-stat-v { color: var(--green); text-shadow: 0 0 14px rgba(46,158,110,0.40); }
+.cap-eficiencia-stat-l {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--celeste-200);
+  line-height: 1.4;
+}
+.cap-eficiencia-stat-l small { font-size: 11.5px; color: var(--celeste-300); }
+
+/* ============================================================
+   DISPERSIÓN POR PROVEEDOR (BLOQUE B)
+   ============================================================ */
+.cap-disp-head {
+  margin: 0 0 24px;
+  text-align: center;
+}
+.cap-disp-head .eyebrow { color: var(--celeste-300); margin-bottom: 6px; display: block; }
+.cap-disp-head .display-sm { color: white; }
+.cap-disp-head p { max-width: 70ch; margin: 10px auto 0; }
+
+/* Variante de cap-prov-card según concentración */
+.cap-prov-card.cap-tag-concentrado { border-color: rgba(46,158,110,0.45); }
+.cap-prov-card.cap-tag-mixto       { border-color: rgba(116,172,223,0.45); }
+.cap-prov-card.cap-tag-disperso    { border-color: rgba(242,169,59,0.55); }
+
+.cap-prov-flag.tag-concentrado { background: rgba(46,158,110,0.10); color: var(--green); border: 1px solid rgba(46,158,110,0.35); }
+.cap-prov-flag.tag-mixto       { background: rgba(116,172,223,0.12); color: var(--celeste-700); border: 1px solid rgba(116,172,223,0.35); }
+.cap-prov-flag.tag-disperso    { background: rgba(242,169,59,0.14); color: var(--amber-deep); border: 1px solid rgba(242,169,59,0.40); }
+
+.cap-prov-card .cap-prov-name { color: var(--celeste-900); }
+.cap-prov-card .cap-prov-addr { font-size: 12.5px; color: var(--ink-500); font-family: var(--f-mono); margin-bottom: 14px; }

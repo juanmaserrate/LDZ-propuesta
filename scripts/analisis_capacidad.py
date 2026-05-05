@@ -1,20 +1,12 @@
-"""Analiza la carga operativa de cada proveedor en el escenario de la propuesta
-(reasignación al proveedor más cercano).
+"""Análisis combinado A + B sobre el PLIEGO VIGENTE:
 
-Calcula por proveedor:
-- Cantidad de escuelas asignadas
-- Cupos totales (DM + COM)
-- Matrícula total
-- Distancia promedio, mediana y máxima a sus escuelas
-- Escuelas a >3 km (lejanas)
-- Tiempo estimado de jornada (velocidad urbana + tiempo de entrega)
-- Carga relativa (% del total)
-- Sobrecarga: si la jornada estimada supera las 8 horas
+A) Eficiencia geográfica del pliego: % de escuelas con su proveedor óptimo
+   (el más cercano de los 6) y km/día evitables.
 
-Identifica también las escuelas que quedan más lejos de cualquier proveedor
-para sugerir dónde ubicar 1-2 hubs adicionales.
+B) Dispersión geográfica por proveedor: distancia promedio/mediana/máxima a
+   sus escuelas, radio del 80% (área natural) y escuelas fuera de esa área.
 
-Resultado se guarda en colegios.json bajo `analisis_capacidad`.
+Resultado en colegios.json bajo `analisis_capacidad`.
 """
 import json, math, os
 from collections import defaultdict
@@ -23,11 +15,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 JSON_PATH = os.path.join(ROOT, "data", "colegios.json")
 
 URBAN_FACTOR = 1.35     # haversine -> km por calle
-ROUND_TRIP = 2.0        # ida + vuelta
-VELOCIDAD_KMH = 22      # velocidad urbana promedio
-MIN_POR_ENTREGA = 6     # minutos de descarga + handoff por escuela
-HORAS_JORNADA_OBJETIVO = 8  # techo razonable
-DIST_LEJANA_KM = 3.0    # umbral "escuela lejana"
+ROUND_TRIP = 2.0
 DIAS_HABILES = 172
 COSTO_KM = 202
 
@@ -39,121 +27,139 @@ def haversine(a, b):
     h = math.sin(dlat/2)**2 + math.cos(la1)*math.cos(la2)*math.sin(dlon/2)**2
     return 2*R*math.asin(math.sqrt(h))
 
+def percentile(xs, p):
+    if not xs: return 0
+    xs = sorted(xs)
+    k = (len(xs) - 1) * p
+    f, c = math.floor(k), math.ceil(k)
+    if f == c: return xs[int(k)]
+    return xs[f] * (c - k) + xs[c] * (k - f)
+
 with open(JSON_PATH, "r", encoding="utf-8") as f:
     d = json.load(f)
 
 provedores = {k: v for k, v in d.get("proveedores_locations", {}).items()
               if v.get("lat") is not None}
+prov_by_zone = d.get("proveedores_por_zona", {})
 escuelas = [s for s in d["colegios"] if s.get("lat") and s.get("lng")]
 
-# Asignar cada escuela según el PLIEGO VIGENTE: el proveedor que le toca por zona
-prov_by_zone = d.get("proveedores_por_zona", {})
-escuelas_asignadas = []  # cada item: (escuela, prov_name, distancia_km_lin)
+# Para cada escuela: distancia al proveedor del pliego y al más cercano disponible
+detalle = []  # cada item: {school, prov_pliego, dist_pliego_km, prov_optimo, dist_optimo_km, optimo}
 sin_asignar = 0
+
+for s in escuelas:
+    zona = s.get("zona") or s.get("zona_pliego")
+    prov_pliego_name = prov_by_zone.get(zona)
+    if not prov_pliego_name or prov_pliego_name not in provedores:
+        sin_asignar += 1
+        continue
+
+    p_pliego = provedores[prov_pliego_name]
+    dist_pliego = haversine((p_pliego["lat"], p_pliego["lng"]), (s["lat"], s["lng"])) * URBAN_FACTOR
+
+    # Proveedor más cercano (óptimo)
+    best_name, best_dist = None, float("inf")
+    for name, p in provedores.items():
+        d_lin = haversine((p["lat"], p["lng"]), (s["lat"], s["lng"])) * URBAN_FACTOR
+        if d_lin < best_dist:
+            best_dist, best_name = d_lin, name
+
+    detalle.append({
+        "id": s.get("id"),
+        "prov_pliego": prov_pliego_name,
+        "dist_pliego_km": round(dist_pliego, 3),
+        "prov_optimo": best_name,
+        "dist_optimo_km": round(best_dist, 3),
+        "optimo": (prov_pliego_name == best_name),
+        "km_extra_dia": round(max(0, dist_pliego - best_dist) * ROUND_TRIP, 3),
+    })
+
+total = len(detalle)
+optimos = sum(1 for x in detalle if x["optimo"])
+no_optimos = total - optimos
+eficiencia_pct = round(optimos / total * 100, 1) if total else 0
+km_extra_dia_total = round(sum(x["km_extra_dia"] for x in detalle), 1)
+ahorro_anual_potencial = round(km_extra_dia_total * COSTO_KM * DIAS_HABILES)
+
+# Dispersión por proveedor (escenario PLIEGO VIGENTE — escuelas que le toca hoy)
+disp_by_prov = defaultdict(list)  # prov_name -> [dist_km, ...]
+escuelas_por_prov = defaultdict(int)
+cupos_por_prov = defaultdict(lambda: {"dm": 0, "com": 0, "matricula": 0})
+
+# Necesitamos las escuelas con el detalle completo, no solo distancia
+escuelas_por_prov_full = defaultdict(list)
 for s in escuelas:
     zona = s.get("zona") or s.get("zona_pliego")
     prov_name = prov_by_zone.get(zona)
     if not prov_name or prov_name not in provedores:
-        sin_asignar += 1
         continue
     p = provedores[prov_name]
-    dist = haversine((p["lat"], p["lng"]), (s["lat"], s["lng"]))
-    escuelas_asignadas.append((s, prov_name, dist))
-print(f"Escuelas sin asignación válida en el pliego: {sin_asignar}")
+    dist_km = haversine((p["lat"], p["lng"]), (s["lat"], s["lng"])) * URBAN_FACTOR
+    disp_by_prov[prov_name].append(dist_km)
+    escuelas_por_prov[prov_name] += 1
+    c = s.get("cupos") or {}
+    cupos_por_prov[prov_name]["dm"] += c.get("dm", 0) or c.get("modulos", 0)
+    cupos_por_prov[prov_name]["com"] += c.get("com", 0) or c.get("comedor", 0)
+    cupos_por_prov[prov_name]["matricula"] += s.get("matricula", 0)
 
-# Agrupar por proveedor
-by_prov = defaultdict(list)
-for tup in escuelas_asignadas:
-    by_prov[tup[1]].append(tup)
-
-# Métricas por proveedor
-analisis = []
-total_escuelas = len(escuelas_asignadas)
-total_cupos_global = sum(((s.get("cupos") or {}).get("dm", 0) + (s.get("cupos") or {}).get("com", 0))
-                          for s, _, _ in escuelas_asignadas)
-
-for prov_name, items in by_prov.items():
-    n = len(items)
-    dists_lin = sorted(d_lin for _, _, d_lin in items)
-    dists_km = [d_lin * URBAN_FACTOR for d_lin in dists_lin]
-    cupos_dm = sum((s.get("cupos") or {}).get("dm", 0) for s, _, _ in items)
-    cupos_com = sum((s.get("cupos") or {}).get("com", 0) for s, _, _ in items)
-    cupos_total = cupos_dm + cupos_com
-    matricula = sum(s.get("matricula", 0) for s, _, _ in items)
-    lejanas = sum(1 for d in dists_km if d > DIST_LEJANA_KM)
-
-    # Tiempo estimado: km totales (con factor urbano y round-trip) / velocidad + entregas
-    km_totales_dia = sum(d_lin * URBAN_FACTOR * ROUND_TRIP for d_lin in dists_lin)
-    horas_recorrido = km_totales_dia / VELOCIDAD_KMH
-    horas_entregas = (n * MIN_POR_ENTREGA) / 60.0
-    horas_totales = horas_recorrido + horas_entregas
-
-    sobrecargado = horas_totales > HORAS_JORNADA_OBJETIVO
-
-    def median_v(xs):
-        if not xs: return 0
-        xs = sorted(xs); n2 = len(xs)
-        return xs[n2//2] if n2%2 else (xs[n2//2-1]+xs[n2//2])/2
-
-    analisis.append({
+proveedores_analisis = []
+for prov_name, dists in disp_by_prov.items():
+    if not dists: continue
+    p_loc = provedores[prov_name]
+    dist_avg = sum(dists) / len(dists)
+    dist_med = percentile(dists, 0.5)
+    dist_max = max(dists)
+    radio_80 = percentile(dists, 0.8)  # 80% de las escuelas están dentro de este radio
+    fuera_area = sum(1 for d in dists if d > radio_80)
+    cupos_t = cupos_por_prov[prov_name]
+    proveedores_analisis.append({
         "proveedor": prov_name,
-        "escuelas": n,
-        "porcentaje_escuelas": round(n / total_escuelas * 100, 1),
-        "cupos_dm": cupos_dm,
-        "cupos_com": cupos_com,
-        "cupos_total": cupos_total,
-        "porcentaje_cupos": round(cupos_total / total_cupos_global * 100, 1) if total_cupos_global else 0,
-        "matricula": matricula,
-        "distancia_km_promedio": round(sum(dists_km)/len(dists_km), 2) if dists_km else 0,
-        "distancia_km_mediana": round(median_v(dists_km), 2),
-        "distancia_km_max": round(max(dists_km), 2) if dists_km else 0,
-        "escuelas_lejanas_3km": lejanas,
-        "km_dia": round(km_totales_dia, 1),
-        "horas_jornada_est": round(horas_totales, 2),
-        "sobrecargado": sobrecargado,
+        "direccion": p_loc.get("direccion", ""),
+        "lat": p_loc["lat"],
+        "lng": p_loc["lng"],
+        "escuelas": len(dists),
+        "porcentaje_escuelas": round(len(dists) / total * 100, 1) if total else 0,
+        "dist_avg_km": round(dist_avg, 2),
+        "dist_med_km": round(dist_med, 2),
+        "dist_max_km": round(dist_max, 2),
+        "radio_natural_km": round(radio_80, 2),
+        "escuelas_fuera_area": fuera_area,
+        "concentrado": dist_max <= 3.0,  # todas dentro de 3 km = bien concentrado
+        "disperso": dist_max > 6.0,      # alguna a más de 6 km = muy disperso
+        "cupos_dm": cupos_t["dm"],
+        "cupos_com": cupos_t["com"],
+        "cupos_total": cupos_t["dm"] + cupos_t["com"],
+        "matricula": cupos_t["matricula"],
     })
 
-analisis.sort(key=lambda x: -x["escuelas"])
+proveedores_analisis.sort(key=lambda x: -x["escuelas"])
 
-# Identificar escuelas que aún quedan lejos (>3 km del proveedor más cercano)
-escuelas_lejanas = [(s, prov, dist*URBAN_FACTOR) for s, prov, dist in escuelas_asignadas if dist*URBAN_FACTOR > DIST_LEJANA_KM]
-escuelas_lejanas.sort(key=lambda x: -x[2])
-
-# Sugerir nuevos hubs: si hay un cluster de escuelas lejanas, su centroide es el hub
-# Para simplificar, calculamos centroide de las top-30 escuelas más lejanas
-top_lejanas = escuelas_lejanas[:30]
-if top_lejanas:
-    cx = sum(s["lat"] for s, _, _ in top_lejanas) / len(top_lejanas)
-    cy = sum(s["lng"] for s, _, _ in top_lejanas) / len(top_lejanas)
-    hub_sugerido = {
-        "lat": round(cx, 6),
-        "lng": round(cy, 6),
-        "n_escuelas_servidas_potenciales": len(top_lejanas),
-        "ahorro_potencial_km_dia": round(sum(d for _, _, d in top_lejanas) * 2 * 0.6, 1),  # 60% reducción
-    }
-else:
-    hub_sugerido = None
-
-# Resumen general
-total_km_dia = sum(a["km_dia"] for a in analisis)
-total_horas = sum(a["horas_jornada_est"] for a in analisis)
-proveedores_sobrecargados = [a for a in analisis if a["sobrecargado"]]
+# Resumen global
+total_km_optimo = round(sum(x["dist_optimo_km"] for x in detalle) * ROUND_TRIP, 1)
+total_km_pliego = round(sum(x["dist_pliego_km"] for x in detalle) * ROUND_TRIP, 1)
 
 resultado = {
-    "total_escuelas": total_escuelas,
-    "total_proveedores": len(analisis),
-    "total_km_dia": round(total_km_dia, 1),
-    "total_horas_jornada": round(total_horas, 1),
-    "proveedores": analisis,
-    "proveedores_sobrecargados": [a["proveedor"] for a in proveedores_sobrecargados],
-    "n_escuelas_lejanas_total": len(escuelas_lejanas),
-    "hub_adicional_sugerido": hub_sugerido,
+    "metodologia": "Distancia haversine × 1.35 (factor calle urbana). Eficiencia = % escuelas asignadas al proveedor más cercano disponible.",
+    "total_escuelas": total,
+    "total_proveedores": len(provedores),
+    # Bloque A — eficiencia del pliego
+    "eficiencia": {
+        "escuelas_optimas": optimos,
+        "escuelas_subóptimas": no_optimos,
+        "eficiencia_pct": eficiencia_pct,
+        "ineficiencia_pct": round(100 - eficiencia_pct, 1),
+        "km_extra_dia": km_extra_dia_total,
+        "km_pliego_dia": total_km_pliego,
+        "km_optimo_dia": total_km_optimo,
+        "ahorro_anual_potencial_ars": ahorro_anual_potencial,
+    },
+    # Bloque B — dispersión por proveedor
+    "proveedores": proveedores_analisis,
     "supuestos": {
-        "velocidad_kmh": VELOCIDAD_KMH,
-        "min_por_entrega": MIN_POR_ENTREGA,
-        "horas_jornada_objetivo": HORAS_JORNADA_OBJETIVO,
-        "dist_lejana_km": DIST_LEJANA_KM,
         "factor_urbano": URBAN_FACTOR,
+        "round_trip": ROUND_TRIP,
+        "dias_habiles": DIAS_HABILES,
+        "costo_km_ars": COSTO_KM,
     },
 }
 
@@ -162,21 +168,16 @@ d["analisis_capacidad"] = resultado
 with open(JSON_PATH, "w", encoding="utf-8") as f:
     json.dump(d, f, ensure_ascii=False, indent=2)
 
-# Imprimir reporte
 print("="*70)
-print("ANÁLISIS DE CAPACIDAD POR PROVEEDOR (escenario propuesta)")
+print(f"EFICIENCIA DEL PLIEGO VIGENTE")
+print(f"  Escuelas: {total}")
+print(f"  Asignadas al optimo: {optimos} ({eficiencia_pct}%)")
+print(f"  Subptimas: {no_optimos} ({round(100-eficiencia_pct,1)}%)")
+print(f"  Km extra/dia recorridos: {km_extra_dia_total} km")
+print(f"  Ahorro anual potencial: ${ahorro_anual_potencial:,}")
+print("")
+print("DISPERSION GEOGRAFICA POR PROVEEDOR")
 print("="*70)
-for a in analisis:
-    flag = " ⚠️ SOBRECARGADO" if a["sobrecargado"] else ""
-    print(f"\n{a['proveedor']}{flag}")
-    print(f"  Escuelas: {a['escuelas']} ({a['porcentaje_escuelas']}%)  Cupos: {a['cupos_total']:,}  Matrícula: {a['matricula']:,}")
-    print(f"  Distancia avg/med/max: {a['distancia_km_promedio']:.2f} / {a['distancia_km_mediana']:.2f} / {a['distancia_km_max']:.2f} km")
-    print(f"  Escuelas a >3 km: {a['escuelas_lejanas_3km']}")
-    print(f"  Km/día: {a['km_dia']:.0f}  Horas estimadas: {a['horas_jornada_est']:.1f}h")
-
-print("\n" + "="*70)
-print(f"Proveedores sobrecargados: {len(proveedores_sobrecargados)}")
-print(f"Escuelas a >3km del proveedor más cercano: {len(escuelas_lejanas)}")
-if hub_sugerido:
-    print(f"Hub sugerido: ({hub_sugerido['lat']}, {hub_sugerido['lng']})")
-    print(f"  Cubriría hasta {hub_sugerido['n_escuelas_servidas_potenciales']} escuelas hoy lejanas")
+for p in proveedores_analisis:
+    tag = "CONCENTRADO" if p["concentrado"] else ("DISPERSO" if p["disperso"] else "MIXTO")
+    print(f"  {p['proveedor']:22} {p['escuelas']:>4} esc | avg {p['dist_avg_km']:>5.2f} med {p['dist_med_km']:>5.2f} max {p['dist_max_km']:>5.2f} km | radio80%={p['radio_natural_km']:>5.2f} | {tag}")
