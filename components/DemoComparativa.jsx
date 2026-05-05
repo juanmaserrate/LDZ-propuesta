@@ -146,6 +146,7 @@ function DemoComparativa() {
   const mapRef = React.useRef(null);
   const markersGroupRef = React.useRef(null);
   const routeLineRef = React.useRef(null);
+  const routeGlowRef = React.useRef(null);
   const depotMarkerRef = React.useRef(null);
   const stopRef = React.useRef(false);
   const seqRef = React.useRef(0);
@@ -171,6 +172,10 @@ function DemoComparativa() {
   const [legend, setLegend] = React.useState(null);
   const [isFs, setIsFs] = React.useState(false);
   const [prefetch, setPrefetch] = React.useState({ active: false, done: 0, total: 0 });
+  // flashKey: incrementa en cada cambio de zona/localidad para disparar el flash overlay
+  const [flashKey, setFlashKey] = React.useState(0);
+  // breathKey: incrementa al cambiar de fase para disparar el breath del frame
+  const [breathKey, setBreathKey] = React.useState(0);
   const twTimerRef = React.useRef(null);
 
   // Datos
@@ -214,12 +219,21 @@ function DemoComparativa() {
       subdomains: "abcd", maxZoom: 19,
     }).addTo(map);
 
-    // Depot marker (siempre visible) - cuadradito ambar al estilo del original
+    // Depot marker (siempre visible). SVG truck institucional + halo pulsante.
     const depotIcon = L.divIcon({
       className: "demo-depot-icon",
-      html: '<div class="demo-depot-pin">⌂</div>',
-      iconSize: [38, 38],
-      iconAnchor: [19, 19],
+      html:
+        '<div class="demo-depot-pin">' +
+          '<span class="demo-depot-halo"></span>' +
+          '<svg class="demo-depot-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' +
+            '<rect x="2" y="7" width="11" height="9" rx="1.4"/>' +
+            '<path d="M13 10h4l4 4v2h-8z"/>' +
+            '<circle cx="7" cy="18" r="2"/>' +
+            '<circle cx="18" cy="18" r="2"/>' +
+          '</svg>' +
+        '</div>',
+      iconSize: [48, 48],
+      iconAnchor: [24, 24],
     });
     const dm = L.marker([DEPOT.lat, DEPOT.lng], { icon: depotIcon, zIndexOffset: 1000 })
       .addTo(map)
@@ -230,20 +244,82 @@ function DemoComparativa() {
     const mg = L.layerGroup().addTo(map);
     markersGroupRef.current = mg;
 
+    // Polyline GLOW (debajo). Misma geometria, mas ancha y borrosa, da profundidad luminosa.
+    const glow = L.polyline([], {
+      color: "#1A4A8C",
+      weight: 14,
+      opacity: 0.32,
+      lineCap: "round",
+      lineJoin: "round",
+      className: "demo-route-glow",
+    }).addTo(map);
+    routeGlowRef.current = glow;
+
     // Polyline UNICA persistente. Se reusa en cada paso con setLatLngs() y setStyle().
     // Color literal hex porque las SVG vars de CSS no resuelven en stroke.
     const rl = L.polyline([], {
       color: "#1A4A8C",
       weight: 4,
-      opacity: 0.85,
+      opacity: 0.92,
       dashArray: "10 8",
       lineCap: "round",
       lineJoin: "round",
+      className: "demo-route-main",
     }).addTo(map);
     routeLineRef.current = rl;
 
     mapRef.current = map;
   }, []);
+
+  // Breath: al cambiar breathKey, agrega clase `is-breathing` por 600ms.
+  React.useEffect(() => {
+    if (!breathKey) return;
+    const el = frameEl.current;
+    if (!el) return;
+    el.classList.remove("is-breathing");
+    // Forzar reflow para reiniciar animacion
+    // eslint-disable-next-line no-unused-expressions
+    el.offsetWidth;
+    el.classList.add("is-breathing");
+    const t = setTimeout(() => {
+      if (el) el.classList.remove("is-breathing");
+    }, 650);
+    return () => clearTimeout(t);
+  }, [breathKey]);
+
+  // Counter animation: cuando cambia legend.name, anima los KPIs del aside
+  // de 0 al valor final en 600ms. Respeta prefers-reduced-motion.
+  const legendNameRef = React.useRef(null);
+  React.useEffect(() => {
+    if (!legend || !legend.name) { legendNameRef.current = null; return; }
+    if (legend.name === legendNameRef.current) return;
+    legendNameRef.current = legend.name;
+    const reduced = (typeof window !== "undefined" && window.matchMedia)
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches : false;
+    const nodes = document.querySelectorAll(".demo-legend .demo-kpi-num");
+    if (!nodes || !nodes.length) return;
+    if (reduced) return; // no animar
+    const DURATION = 600;
+    const start = performance.now();
+    const targets = Array.from(nodes).map(n => {
+      const t = parseInt(n.getAttribute("data-target") || "0", 10) || 0;
+      return { n, target: t };
+    });
+    targets.forEach(t => { t.n.textContent = "0"; });
+    const ease = (x) => 1 - Math.pow(1 - x, 3);
+    let raf = 0;
+    const tick = (now) => {
+      const elapsed = Math.min(1, (now - start) / DURATION);
+      const k = ease(elapsed);
+      targets.forEach(({ n, target }) => {
+        const v = Math.round(target * k);
+        n.textContent = v.toLocaleString("es-AR");
+      });
+      if (elapsed < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => { if (raf) cancelAnimationFrame(raf); };
+  }, [legend && legend.name]);
 
   // Fullscreen change handler
   React.useEffect(() => {
@@ -267,9 +343,11 @@ function DemoComparativa() {
     const map = mapRef.current;
     const mg = markersGroupRef.current;
     const rl = routeLineRef.current;
+    const gl = routeGlowRef.current;
     if (!map || !mg) return;
     mg.clearLayers();
     if (rl) rl.setLatLngs([]);
+    if (gl) gl.setLatLngs([]);
     schools.forEach(s => {
       if (!s.lat || !s.lng) return;
       const m = L.circleMarker([s.lat, s.lng], {
@@ -409,24 +487,29 @@ function DemoComparativa() {
   };
 
   // Anima la polyline existente: stroke-dasharray = totalLength,
-  // stroke-dashoffset de totalLength → 0 vía clase CSS.
+  // stroke-dashoffset de totalLength → 0 vía clase CSS. Tambien anima el path
+  // glow (mismo recorrido, debajo) para profundidad luminosa.
   const _animatePolylineDraw = () => {
     const rl = routeLineRef.current;
-    if (!rl || !rl._path) return;
-    const path = rl._path;
-    try {
-      const total = path.getTotalLength();
-      if (!total || !isFinite(total)) return;
-      // Reset clase para forzar reflow
-      path.classList.remove("demo-route-anim");
-      path.style.strokeDasharray = total + " " + total;
-      path.style.strokeDashoffset = total;
-      // Forzar reflow para que el navegador respete el estado inicial
-      // antes de aplicar la animación.
-      // eslint-disable-next-line no-unused-expressions
-      path.getBoundingClientRect();
-      path.classList.add("demo-route-anim");
-    } catch (_) { /* path puede no estar en DOM aún */ }
+    const gl = routeGlowRef.current;
+    const animatePath = (poly, klass) => {
+      if (!poly || !poly._path) return;
+      const path = poly._path;
+      try {
+        const total = path.getTotalLength();
+        if (!total || !isFinite(total)) return;
+        path.classList.remove(klass);
+        path.style.strokeDasharray = total + " " + total;
+        path.style.strokeDashoffset = total;
+        // Forzar reflow para que el navegador respete el estado inicial
+        // antes de aplicar la animación.
+        // eslint-disable-next-line no-unused-expressions
+        path.getBoundingClientRect();
+        path.classList.add(klass);
+      } catch (_) { /* path puede no estar en DOM aún */ }
+    };
+    animatePath(rl, "demo-route-anim");
+    animatePath(gl, "demo-route-anim-glow");
   };
 
   // Highlight subset + dibuja UN SOLO recorrido depot -> 1 -> 2 -> ... -> depot.
@@ -440,6 +523,7 @@ function DemoComparativa() {
     const map = mapRef.current;
     const mg = markersGroupRef.current;
     const rl = routeLineRef.current;
+    const gl = routeGlowRef.current;
     if (!map || !mg || !rl) return;
 
     const dep = depotOverride || DEPOT;
@@ -480,14 +564,18 @@ function DemoComparativa() {
     const ordered = sortByOrden(validSubset, orderKey);
 
     // Pines numerados sobre cada colegio activo, con animation-delay escalonado
-    // (idx * 100ms) — la animación pinPop está definida en CSS.
+    // (idx * 100ms) — la animación pinPop bounce + halo expansivo definidos en CSS.
+    // El ultimo pin de la zona recibe `is-last` para el ring pulsante perpetuo.
     const pts = [[dep.lat, dep.lng]];
+    const lastIdx = ordered.length - 1;
     ordered.forEach((s, idx) => {
       const ord = s[orderKey] || (idx + 1);
       const delay = idx * 100;
+      const isLast = idx === lastIdx;
+      const cls = "demo-pin" + (isLast ? " is-last" : "");
       const icon = L.divIcon({
         className: "demo-pin-icon",
-        html: `<div class="demo-pin" style="background:${color};animation-delay:${delay}ms">${ord}</div>`,
+        html: `<div class="${cls}" style="background:${color};animation-delay:${delay}ms;--pin-color:${color}"><span class="demo-pin-halo"></span><span class="demo-pin-num">${ord}</span></div>`,
         iconSize: [28, 28],
         iconAnchor: [14, 14],
       });
@@ -510,6 +598,7 @@ function DemoComparativa() {
 
     if (!ordered.length) {
       rl.setLatLngs([]);
+      if (gl) gl.setLatLngs([]);
       return;
     }
 
@@ -522,6 +611,10 @@ function DemoComparativa() {
     try {
       rl.setStyle({ color });
       rl.setLatLngs(straight);
+      if (gl) {
+        gl.setStyle({ color });
+        gl.setLatLngs(straight);
+      }
     } catch (_) {}
     // Animar el dibujo de la línea recta de fallback en cuanto Leaflet renderiza
     setTimeout(() => {
@@ -535,6 +628,7 @@ function DemoComparativa() {
     if (cached && cached.length) {
       try {
         rl.setLatLngs(cached);
+        if (gl) gl.setLatLngs(cached);
         setTimeout(() => {
           if (mySeq === seqRef.current && !stopRef.current) _animatePolylineDraw();
         }, 30);
@@ -549,6 +643,7 @@ function DemoComparativa() {
       if (!latlngs || !latlngs.length) return;
       try {
         rl.setLatLngs(latlngs);
+        if (gl) gl.setLatLngs(latlngs);
         setTimeout(() => {
           if (mySeq === seqRef.current && !stopRef.current) _animatePolylineDraw();
         }, 30);
@@ -633,6 +728,7 @@ function DemoComparativa() {
     try {
       // Stage 1 - Pliego vigente
       setStage({ phase: "pliego" });
+      setBreathKey(k => k + 1);
       await showMsg(
         "Propuesta municipal vigente",
         "Ruteo basado en zonas de pliego (Zona 1 a Zona 12)",
@@ -714,6 +810,7 @@ function DemoComparativa() {
 
         try {
           highlightAndRoute(subset, "#1A4A8C", "orden_pliego", dep);
+          setFlashKey(k => k + 1);
         } catch (e) {
           console.warn("highlightAndRoute zona err", z, e);
         }
@@ -726,6 +823,7 @@ function DemoComparativa() {
 
       // Stage 2 - Propuesta: agrupar por coherencia logística
       setStage({ phase: "propuesta" });
+      setBreathKey(k => k + 1);
       await showMsg(
         "Propuesta de rezonificación",
         "Agrupar por coherencia logística",
@@ -795,6 +893,7 @@ function DemoComparativa() {
           // Stage 2: el "depot" sigue siendo Real de Catorce (Burzaco) ya que
           // la propuesta agrupa por barrio sin un proveedor designado por barrio.
           highlightAndRoute(subset, color, "orden_localidad", DEPOT);
+          setFlashKey(k => k + 1);
         } catch (e) {
           console.warn("highlightAndRoute loc err", loc, e);
         }
@@ -832,21 +931,35 @@ function DemoComparativa() {
   };
 
   const phaseLabel =
-    stage.phase === "pliego" ? "* Pliego vigente | ritmo nervioso" :
-    stage.phase === "propuesta" ? "* Propuesta de rezonificación | una zona por barrio" :
-    "* Vista en vivo";
+    stage.phase === "pliego" ? "Pliego vigente · ritmo nervioso" :
+    stage.phase === "propuesta" ? "Propuesta de rezonificación · una zona por barrio" :
+    "Vista en vivo";
   const phaseColor =
     stage.phase === "pliego" ? "var(--celeste-700)" :
-    stage.phase === "propuesta" ? "var(--celeste-800)" :
+    stage.phase === "propuesta" ? "var(--amber-deep)" :
     "var(--ink-500)";
+  const phaseDotColor =
+    stage.phase === "pliego" ? "var(--celeste-500)" :
+    stage.phase === "propuesta" ? "var(--amber)" :
+    "var(--ink-400)";
+
+  const overlayEyebrow =
+    stage.phase === "pliego" ? "Zona de pliego vigente · diagnostico" :
+    stage.phase === "propuesta" ? "Barrio agrupado · propuesta R14" :
+    null;
 
   const prefetchPct = prefetch.total ? Math.round((prefetch.done / prefetch.total) * 100) : 0;
 
   return (
     <div className="demo-wrap">
       <div className="demo-head">
-        <div className="demo-badge" style={{ color: phaseColor, borderColor: phaseColor }}>
-          {phaseLabel}
+        <div
+          className={"demo-badge demo-badge-" + (stage.phase || "idle")}
+          style={{ color: phaseColor, borderColor: phaseColor }}
+          key={stage.phase}
+        >
+          <span className="demo-badge-dot" style={{ background: phaseDotColor }}/>
+          <span className="demo-badge-txt">{phaseLabel}</span>
         </div>
         <div className="demo-controls">
           <button
@@ -858,7 +971,7 @@ function DemoComparativa() {
             {isFs ? "↙ Salir pantalla completa" : "⛶ Pantalla completa"}
           </button>
           {!running ? (
-            <button className="btn btn-primary" onClick={play}>&#9654; Iniciar demo comparativa</button>
+            <button className="btn btn-primary demo-play-btn" onClick={play}>&#9654; Iniciar demo comparativa</button>
           ) : (
             <button className="btn btn-ghost demo-stop" onClick={stop}>&#9632; Detener</button>
           )}
@@ -866,33 +979,55 @@ function DemoComparativa() {
       </div>
 
       <div className={"demo-stage" + (legend ? " has-legend" : "")}>
-        <div ref={frameEl} className={"demo-frame" + (isFs ? " is-fs" : "")}>
+        <div
+          ref={frameEl}
+          className={"demo-frame" + (isFs ? " is-fs" : "") + (running ? " is-running" : "")}
+        >
           <div ref={mapEl} id="demoComparativaMap" className="demo-map"/>
+          {/* Flash overlay editorial: se reinicia con cada cambio de paso (key=flashKey). */}
+          {flashKey > 0 && running && (
+            <span className="demo-flash" key={"flash-" + flashKey} aria-hidden="true"/>
+          )}
           {prefetch.active && running && (
-            <div className="demo-prefetch mono">
-              Cargando rutas... {prefetch.done} / {prefetch.total} ({prefetchPct}%)
+            <div className="demo-prefetch">
+              <span className="demo-prefetch-spinner" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="14" height="14">
+                  <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="2.4" opacity="0.18"/>
+                  <path d="M21 12a9 9 0 0 1-9 9" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"/>
+                </svg>
+              </span>
+              <span className="demo-prefetch-text mono">
+                Cargando rutas <b>{prefetch.done}</b> / {prefetch.total}
+                <span className="demo-prefetch-pct"> · {prefetchPct}%</span>
+              </span>
+              <span className="demo-prefetch-bar" aria-hidden="true">
+                <span className="demo-prefetch-bar-fill" style={{ width: prefetchPct + "%" }}/>
+              </span>
             </div>
           )}
           {legend && (
-            <aside className={"demo-legend" + (isFs ? " floating" : "")}>
+            <aside className={"demo-legend" + (isFs ? " floating" : "")} key={"legend-" + (legend.name || "")}>
               <div className="demo-legend-head" style={{ color: legend.color }}>
                 <span className="demo-legend-dot" style={{ background: legend.color }}/>
                 <strong>{legend.name}</strong>
                 <span className="demo-legend-idx mono">{legend.idx} / {legend.total}</span>
               </div>
               <div className="demo-legend-ritmo mono">{legend.ritmo}</div>
-              <div className="demo-legend-kpis">
-                <div className="demo-kpi"><span className="k">Colegios</span><strong>{legend.schools}</strong></div>
-                <div className="demo-kpi"><span className="k">Modulos</span><strong>{legend.kpis.modulos.toLocaleString("es-AR")}</strong></div>
-                <div className="demo-kpi"><span className="k">Comedor</span><strong>{legend.kpis.comedor.toLocaleString("es-AR")}</strong></div>
-                <div className="demo-kpi"><span className="k">DyM/DMC</span><strong>{legend.kpis.dmc.toLocaleString("es-AR")}</strong></div>
-                <div className="demo-kpi total"><span className="k">Total cupos</span><strong>{legend.kpis.total.toLocaleString("es-AR")}</strong></div>
+              <div className={"demo-legend-kpis demo-legend-phase-" + (legend.phase || "idle")}>
+                <div className="demo-kpi"><span className="k">Colegios</span><strong className="demo-kpi-num" data-target={legend.schools}>{legend.schools}</strong></div>
+                <div className="demo-kpi"><span className="k">Modulos</span><strong className="demo-kpi-num" data-target={legend.kpis.modulos}>{legend.kpis.modulos.toLocaleString("es-AR")}</strong></div>
+                <div className="demo-kpi"><span className="k">Comedor</span><strong className="demo-kpi-num" data-target={legend.kpis.comedor}>{legend.kpis.comedor.toLocaleString("es-AR")}</strong></div>
+                <div className="demo-kpi"><span className="k">DyM/DMC</span><strong className="demo-kpi-num" data-target={legend.kpis.dmc}>{legend.kpis.dmc.toLocaleString("es-AR")}</strong></div>
+                <div className="demo-kpi total"><span className="k">Total cupos</span><strong className="demo-kpi-num" data-target={legend.kpis.total}>{legend.kpis.total.toLocaleString("es-AR")}</strong></div>
               </div>
             </aside>
           )}
           {overlay.visible && (
             <div className={"demo-overlay" + (overlay.leaving ? " demo-overlay-leaving" : "")}>
-              <div className="demo-overlay-title" style={{ color: overlay.color }}>{overlay.title}</div>
+              {overlayEyebrow && overlay.chips && (
+                <div className="demo-overlay-eyebrow">{overlayEyebrow}</div>
+              )}
+              <div className="demo-overlay-title" style={{ color: overlay.color }} key={overlay.title}>{overlay.title}</div>
               {/* sub clásico (intros) */}
               {overlay.sub && (
                 <div className="demo-overlay-sub">{overlay.sub}</div>
@@ -909,11 +1044,11 @@ function DemoComparativa() {
                   Proveedor: <b>{overlay.prov.name}</b>
                 </div>
               )}
-              {/* chips de cupos por unidad de negocio */}
+              {/* chips de cupos por unidad de negocio (entrada en cascada via --i) */}
               {overlay.chips && overlay.chips.length > 0 && (
                 <div className="demo-overlay-chips">
                   {overlay.chips.map((c, i) => (
-                    <span key={i} className="demo-overlay-chip">
+                    <span key={i} className="demo-overlay-chip" style={{ "--i": i }}>
                       {c.label}: <b>{c.value}</b>
                     </span>
                   ))}
@@ -1023,10 +1158,14 @@ function DemoComparativaSection({ data, onlyDemo, onPrevPage, onNextPage }) {
     lead: "",
   };
   return (
-    <section id="demo-comparativa" className="bg-bone">
+    <section id="demo-comparativa" className="bg-bone demo-section">
       <div className="shell">
-        <div className="section-tag"><span className="num">02b</span><span className="txt">{d.tag}</span></div>
-        <div className="section-head">
+        <div className="section-tag demo-section-tag">
+          <span className="demo-section-tag-dot" aria-hidden="true"/>
+          <span className="num">02b</span><span className="txt">{d.tag}</span>
+        </div>
+        <div className="section-head demo-section-head">
+          <span className="demo-section-bignum" aria-hidden="true">01</span>
           <h2 className="display-lg">{d.title}</h2>
           {d.lead && <p className="lead" style={{ marginTop: 18 }}>{d.lead}</p>}
         </div>
