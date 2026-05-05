@@ -1059,12 +1059,13 @@ function AhorroSimulator() {
   return (
     <div className="ahorro-sim">
       <div className="ahorro-sim-head">
-        <div className="eyebrow" style={{ marginBottom: 6 }}>MÓDULO 2 — SIMULADOR</div>
+        <div className="eyebrow" style={{ marginBottom: 6 }}>SIMULADOR</div>
         <h3 className="display-sm" style={{ margin: 0 }}>Simulá el ahorro de kilómetros</h3>
-        <p style={{ marginTop: 10, color: "var(--ink-700)", fontSize: 14, maxWidth: 60 + "ch" }}>
-          Ajustá el factor de optimización para ver cómo impacta en costos logísticos anuales.
-          Estimación basada en {KM_DIA_BASE.toLocaleString("es-AR")} km/día de flota actual,
-          ${COSTO_KM}/km de costo operativo y {DIAS_HABILES} días hábiles escolares al año.
+        <p style={{ marginTop: 14, color: "var(--ink-700)", fontSize: 15, maxWidth: 64 + "ch", lineHeight: 1.55 }}>
+          Moviendo la barrita, elegís cuánto se acortan los recorridos al rezonificar por barrio.
+          A la derecha vas a ver, en tiempo real, cuántos kilómetros se ahorran por día y
+          cuánta plata se libera al año. Sirve para mostrar, en números concretos,
+          el impacto económico de la propuesta sobre el contrato vigente.
         </p>
       </div>
       <div className="ahorro-sim-grid">
