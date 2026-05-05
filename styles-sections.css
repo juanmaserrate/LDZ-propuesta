@@ -2298,3 +2298,91 @@
   .com-cierre { flex-direction: column; gap: 14px; padding: 22px; }
 }
 .cap-prov-card .cap-prov-addr { font-size: 12.5px; color: var(--ink-500); font-family: var(--f-mono); margin-bottom: 14px; }
+
+/* ============================================================
+   BLOQUE INTRO — encabezado conceptual del bloque problema/beneficio
+   ============================================================ */
+.bloque-intro {
+  padding-top: 60px;
+  padding-bottom: 16px;
+}
+.bloque-intro .shell {
+  text-align: center;
+  max-width: 920px;
+}
+.bloque-intro-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--celeste-300);
+  padding: 6px 16px;
+  border: 1px solid rgba(116, 172, 223, 0.32);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  margin-bottom: 22px;
+}
+.bloque-intro-title {
+  color: white;
+  text-wrap: balance;
+  margin: 0 auto;
+  max-width: 22ch;
+}
+.bloque-intro-lead {
+  margin: 22px auto 0;
+  max-width: 64ch;
+  color: var(--celeste-100) !important;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.bloque-intro-arrows {
+  margin-top: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  flex-direction: column;
+}
+.bloque-intro-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 10px 22px 10px 14px;
+  backdrop-filter: blur(8px);
+}
+.bloque-intro-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--amber);
+  color: var(--celeste-900);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.bloque-intro-step-label {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  letter-spacing: -0.005em;
+}
+.bloque-intro-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  font-size: 22px;
+  color: var(--celeste-300);
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.85;
+}
+@media (max-width: 720px) {
+  .bloque-intro { padding-top: 44px; padding-bottom: 8px; }
+  .bloque-intro-step-label { font-size: 14px; }
+}
