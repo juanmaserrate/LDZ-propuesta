@@ -1162,3 +1162,130 @@
 .bg-bone .eyebrow {
   text-shadow: 0 0 8px rgba(116,172,223,0.4);
 }
+
+/* ============================================================
+   SIMULADOR DE AHORRO DE KM (BenefitsPage)
+   ============================================================ */
+.ahorro-sim {
+  margin-top: 48px;
+  background: linear-gradient(135deg, var(--celeste-800) 0%, var(--celeste-900) 100%);
+  border: 1px solid rgba(116,172,223,0.25);
+  border-radius: var(--r-xl);
+  padding: 32px 32px 28px;
+  box-shadow: 0 14px 40px -16px rgba(14,58,107,0.40);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.ahorro-sim::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(60% 80% at 100% 0%, rgba(116,172,223,0.18), transparent 60%),
+    radial-gradient(50% 60% at 0% 100%, rgba(46,158,110,0.10), transparent 60%);
+  pointer-events: none;
+}
+.ahorro-sim > * { position: relative; z-index: 1; }
+.ahorro-sim-head .eyebrow { color: var(--celeste-300); }
+.ahorro-sim-head .display-sm { color: white; }
+.ahorro-sim-head p { color: var(--celeste-100) !important; }
+
+.ahorro-sim-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 28px;
+  align-items: stretch;
+}
+@media (max-width: 880px) { .ahorro-sim-grid { grid-template-columns: 1fr; } }
+
+.ahorro-sim-control {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--r-lg);
+  padding: 22px 22px 18px;
+  display: flex; flex-direction: column; gap: 14px;
+  justify-content: center;
+}
+.ahorro-sim-control-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.ahorro-sim-label {
+  font-size: 13px; color: var(--celeste-200);
+  letter-spacing: .08em; text-transform: uppercase;
+}
+.ahorro-sim-pct {
+  font-family: var(--f-display);
+  font-size: 30px; font-weight: 700;
+  color: var(--green);
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 12px rgba(46,158,110,0.45);
+}
+
+/* Slider custom */
+.ahorro-sim-slider {
+  width: 100%;
+  -webkit-appearance: none; appearance: none;
+  height: 6px;
+  background: linear-gradient(90deg, var(--celeste-400) 0%, var(--green) 100%);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+.ahorro-sim-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 3px solid white;
+  cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(46,158,110,0.25), 0 4px 10px rgba(0,0,0,0.25);
+  transition: transform .15s ease;
+}
+.ahorro-sim-slider::-webkit-slider-thumb:hover { transform: scale(1.1); }
+.ahorro-sim-slider::-moz-range-thumb {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 3px solid white;
+  cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(46,158,110,0.25), 0 4px 10px rgba(0,0,0,0.25);
+}
+.ahorro-sim-ticks {
+  display: flex; justify-content: space-between;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--celeste-300);
+  letter-spacing: .04em;
+}
+
+.ahorro-sim-result {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--r-lg);
+  padding: 22px 24px;
+  display: flex; flex-direction: column; gap: 12px;
+  font-family: var(--f-mono);
+}
+.ahorro-sim-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 14px;
+}
+.ahorro-sim-row-k { color: var(--celeste-200); }
+.ahorro-sim-row-v {
+  color: var(--green); font-weight: 700;
+  font-size: 16px;
+}
+.ahorro-sim-row.total {
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding-top: 14px; margin-top: 2px;
+  align-items: baseline;
+}
+.ahorro-sim-row.total .ahorro-sim-row-k { color: white; font-size: 14px; }
+.ahorro-sim-total {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 800;
+  color: var(--green);
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 16px rgba(46,158,110,0.45);
+}

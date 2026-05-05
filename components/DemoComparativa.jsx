@@ -1044,6 +1044,65 @@ function DemoComparativaSection({ data, onlyDemo, onPrevPage, onNextPage }) {
   );
 }
 
+function AhorroSimulator() {
+  // Constantes del simulador (mismas que el repo viejo)
+  const COSTO_KM = 202;        // pesos por km
+  const KM_DIA_BASE = 1800;    // km/día base recorridos hoy
+  const DIAS_HABILES = 172;    // días hábiles escolares al año
+  const [pct, setPct] = React.useState(15);
+
+  const reduccionKmDia = Math.round(KM_DIA_BASE * (pct / 100));
+  const ahorroDia = reduccionKmDia * COSTO_KM;
+  const ahorroAnual = ahorroDia * DIAS_HABILES;
+  const fmt = (n) => "$" + (n || 0).toLocaleString("es-AR");
+
+  return (
+    <div className="ahorro-sim">
+      <div className="ahorro-sim-head">
+        <div className="eyebrow" style={{ marginBottom: 6 }}>MÓDULO 2 — SIMULADOR</div>
+        <h3 className="display-sm" style={{ margin: 0 }}>Simulá el ahorro de kilómetros</h3>
+        <p style={{ marginTop: 10, color: "var(--ink-700)", fontSize: 14, maxWidth: 60 + "ch" }}>
+          Ajustá el factor de optimización para ver cómo impacta en costos logísticos anuales.
+          Estimación basada en {KM_DIA_BASE.toLocaleString("es-AR")} km/día de flota actual,
+          ${COSTO_KM}/km de costo operativo y {DIAS_HABILES} días hábiles escolares al año.
+        </p>
+      </div>
+      <div className="ahorro-sim-grid">
+        <div className="ahorro-sim-control">
+          <div className="ahorro-sim-control-row">
+            <span className="mono ahorro-sim-label">Reducción de km/día</span>
+            <span className="ahorro-sim-pct">{pct}%</span>
+          </div>
+          <input
+            type="range" min="0" max="25" step="1"
+            value={pct}
+            onChange={e => setPct(parseInt(e.target.value, 10))}
+            className="ahorro-sim-slider"
+            aria-label="Porcentaje de reducción de km"
+          />
+          <div className="ahorro-sim-ticks">
+            <span>0%</span><span>5%</span><span>10%</span><span>15%</span><span>20%</span><span>25%</span>
+          </div>
+        </div>
+        <div className="ahorro-sim-result">
+          <div className="ahorro-sim-row">
+            <span className="ahorro-sim-row-k">Km ahorrados/día</span>
+            <strong className="ahorro-sim-row-v">{reduccionKmDia.toLocaleString("es-AR")} km</strong>
+          </div>
+          <div className="ahorro-sim-row">
+            <span className="ahorro-sim-row-k">Ahorro/día</span>
+            <strong className="ahorro-sim-row-v">{fmt(ahorroDia)}</strong>
+          </div>
+          <div className="ahorro-sim-row total">
+            <span className="ahorro-sim-row-k">Ahorro anual estimado</span>
+            <strong className="ahorro-sim-total">{fmt(ahorroAnual)}</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function BenefitsPage({ onPrevPage }) {
   return (
     <section id="beneficios" className="bg-paper">
@@ -1052,7 +1111,7 @@ function BenefitsPage({ onPrevPage }) {
         <div className="section-head">
           <h2 className="display-lg">Lo que gana el municipio</h2>
           <p className="lead" style={{ marginTop: 18 }}>
-            Seis frentes concretos en los que la rezonificación por barrio mejora el servicio sin sumar gasto municipal.
+            Treinta razones concretas por las cuales la rezonificación por barrio mejora el servicio sin sumar gasto municipal.
           </p>
         </div>
         <div className="demo-benefits" style={{ marginTop: 28 }}>
@@ -1066,20 +1125,10 @@ function BenefitsPage({ onPrevPage }) {
             ))}
           </div>
         </div>
-        <div style={{
-          marginTop: 36, padding: "22px 24px",
-          background: "var(--celeste-50)", border: "1px solid var(--celeste-200)",
-          borderRadius: "var(--r-md)", textAlign: "center",
-        }}>
-          <div className="eyebrow" style={{ marginBottom: 8 }}>CIERRE DEL RECORRIDO</div>
-          <p style={{ fontSize: 16, color: "var(--ink-700)", margin: 0, lineHeight: 1.6 }}>
-            Una rezonificación por barrio convierte logística en servicio público auditable.
-            Sigue explorando: mapa interactivo, diagnóstico operativo y calculadora abajo.
-          </p>
-        </div>
+        <AhorroSimulator/>
       </div>
     </section>
   );
 }
 
-Object.assign(window, { DemoComparativa, DemoComparativaSection, BenefitsPage, DEMO_BENEFITS, DemoBenefitIcon });
+Object.assign(window, { DemoComparativa, DemoComparativaSection, BenefitsPage, DEMO_BENEFITS, DemoBenefitIcon, AhorroSimulator });
