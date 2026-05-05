@@ -185,6 +185,7 @@ function DemoComparativa() {
   const [paused, setPaused] = React.useState(false);
   const [stepIdx, setStepIdx] = React.useState(0);   // 1-based para UI
   const [stepTotal, setStepTotal] = React.useState(0);
+  const [stepSubphase, setStepSubphase] = React.useState(null); // "cartel" | "ruteo" | null
   const [overlay, setOverlay] = React.useState({
     visible: false,
     title: "",
@@ -804,6 +805,7 @@ function DemoComparativa() {
     setPaused(false);
     setStepIdx(0);
     setStepTotal(0);
+    setStepSubphase(null);
     setOverlay({ visible: false, title: "", sub: "", prov: null, chips: null, color: "var(--celeste-700)" });
     setStage({ phase: "idle" });
     setLegend(null);
@@ -869,7 +871,20 @@ function DemoComparativa() {
       const totalSteps = allSteps.length;
       setStepTotal(totalSteps);
 
+      // === STATE MACHINE: cada step se subdivide en (cartel, ruteo) ===
+      // Las flechas y los atajos navegan entre subphase, no entre steps completos.
+      //
+      // Matriz de transiciones:
+      //   cartel + skip  -> ruteo de la MISMA zona
+      //   cartel + back  -> ruteo de la zona ANTERIOR (en step 0 se queda)
+      //   ruteo  + skip  -> cartel de la SIGUIENTE zona
+      //   ruteo  + back  -> cartel de la MISMA zona
+      //
+      // El intro de stage (pliego/propuesta) sólo se muestra al avanzar
+      // naturalmente o al entrar al stage por primera vez. Si back cruza
+      // de stage 2 -> stage 1, NO se re-muestra el intro (sería confuso).
       let i = 0;
+      let subphase = "cartel"; // "cartel" | "ruteo"
       let lastPhase = null;
 
       while (i < totalSteps) {
@@ -877,9 +892,11 @@ function DemoComparativa() {
         const step = allSteps[i];
 
         // Cambio de stage: al entrar a una nueva fase mostramos el cartel
-        // intro correspondiente. Solo se muestra cuando i avanza naturalmente
-        // o vuelve, pero la primera vez de cada fase.
-        if (step.phase !== lastPhase) {
+        // intro correspondiente. Sólo se muestra cuando lastPhase != step.phase
+        // y solo cuando estamos entrando por subphase=cartel (avance natural
+        // o cruce de stage). Si volvemos atrás cruzando stages, el bloque de
+        // back ya seteó lastPhase para EVITAR el intro al retroceder.
+        if (step.phase !== lastPhase && subphase === "cartel") {
           if (step.phase === "pliego") {
             setStage({ phase: "pliego" });
             setBreathKey(k => k + 1);
@@ -898,165 +915,161 @@ function DemoComparativa() {
             );
           }
           if (stopRef.current) break;
-          // El cartel intro puede ser saltado con skip/back: en ese caso
-          // procesamos el step en este mismo ciclo y consumimos las flags
-          // dentro del paso en sí. Pero el cambio de stage ya fue marcado.
           lastPhase = step.phase;
-          if (skipRef.current || goBackRef.current) {
-            // Si el usuario skipeó el intro, seguir directo al paso real,
-            // sin consumir el flag (lo consumirá la lógica de fin de paso).
-          }
+          // Si el usuario skipeó / volvió durante el intro, consumimos el flag
+          // para que la sub-fase cartel siguiente no se salte de inmediato.
+          if (skipRef.current) skipRef.current = false;
+          if (goBackRef.current) goBackRef.current = false;
+        } else if (step.phase !== lastPhase) {
+          // Subphase = ruteo y cruzamos stage: actualizar el badge y el
+          // lastPhase pero SIN mostrar intro (es un retorno hacia atrás).
+          if (step.phase === "pliego") setStage({ phase: "pliego" });
+          else if (step.phase === "propuesta") setStage({ phase: "propuesta" });
+          setBreathKey(k => k + 1);
+          lastPhase = step.phase;
         }
 
-        // Renderizar el paso (zona o localidad)
-        setStepIdx(i + 1);
-
-        if (step.phase === "pliego") {
+        // Datos derivados del step (compartidos entre cartel y ruteo)
+        const isPliego = step.phase === "pliego";
+        const subset = step.subset;
+        const ku = kpisByUnit(subset);
+        const k = kpisOf(subset);
+        let depForStep, color, orderKey, diagText, provInfo, beneficioBonus;
+        if (isPliego) {
           const z = step.name;
-          const subset = step.subset;
-          const ku = kpisByUnit(subset);
-          const k = kpisOf(subset);
           const provName = provByZone[z] || null;
           const provLoc = provName && provLocations[provName];
-          const dep = (provLoc && provLoc.lat && provLoc.lng)
+          depForStep = (provLoc && provLoc.lat && provLoc.lng)
             ? { lat: provLoc.lat, lng: provLoc.lng, nombre: provName, direccion: provLoc.direccion || "" }
             : DEPOT;
+          color = "var(--celeste-700)";
+          orderKey = "orden_pliego";
           const diag = ZONE_DIAGNOSTICS_DEMO[z];
-          const diagText = (diag && diag.c) || "";
-          const chips = [
-            { label: "DM",            value: fmt(ku.dm) },
-            { label: "COM",           value: fmt(ku.com) },
-            { label: "Patologías DM", value: fmt(ku.patologias_dm) },
-            { label: "Patologías COM",value: fmt(ku.patologias_com) },
-            { label: "Patios DM",     value: fmt(ku.patios_dm) },
-            { label: "LC DM",         value: fmt(ku.lc_dm) },
-          ];
-
-          setLegend({
-            name: z,
-            kpis: k,
-            ritmo: "zonas dispersas del pliego",
-            idx: i + 1,
-            total: totalSteps,
-            color: "var(--celeste-700)",
-            phase: "pliego",
-            schools: subset.length,
-          });
-          setOverlay({
-            visible: true,
-            title: z,
-            sub: "",
-            prov: provName ? { name: provName, dir: (provLoc && provLoc.direccion) || "" } : null,
-            chips,
-            color: "var(--celeste-700)",
-          });
-          typewrite(diagText);
-
-          const overlayMsZ = overlayDurationForText(diagText);
-          await interruptibleSleep(Math.max(0, overlayMsZ - DEMO_OVERLAY_FADE_MS));
-          if (stopRef.current) break;
-
-          setOverlay(o => ({ ...o, leaving: true }));
-          await sleep(DEMO_OVERLAY_FADE_MS);
-          if (stopRef.current) break;
-
-          setOverlay(o => ({ ...o, visible: false, leaving: false }));
-          _clearTwTimer();
-          setTwActive(false);
-
-          try {
-            highlightAndRoute(subset, "#1A4A8C", "orden_pliego", dep);
-            setFlashKey(k => k + 1);
-          } catch (e) {
-            console.warn("highlightAndRoute zona err", z, e);
-          }
-
-          await interruptibleSleep(DEMO_REVEAL_MS);
-          if (stopRef.current) break;
-
+          diagText = (diag && diag.c) || "";
+          provInfo = provName ? { name: provName, dir: (provLoc && provLoc.direccion) || "" } : null;
+          beneficioBonus = null;
         } else {
-          // PROPUESTA
           const loc = step.name;
-          const subset = step.subset;
-          const ku = kpisByUnit(subset);
-          const k = kpisOf(subset);
-          const color = _demoColorForLoc(loc);
-          const chips = [
-            { label: "DM",            value: fmt(ku.dm) },
-            { label: "COM",           value: fmt(ku.com) },
-            { label: "Patologías DM", value: fmt(ku.patologias_dm) },
-            { label: "Patologías COM",value: fmt(ku.patologias_com) },
-            { label: "Patios DM",     value: fmt(ku.patios_dm) },
-            { label: "LC DM",         value: fmt(ku.lc_dm) },
-          ];
+          depForStep = DEPOT;
+          color = _demoColorForLoc(loc);
+          orderKey = "orden_localidad";
           const beneficio = LOCALIDAD_BENEFICIO[loc];
-          const beneficioDesc = (beneficio && beneficio.desc) || PROPUESTA_FRASE;
-          const beneficioBonus = beneficio
-            ? { titulo: beneficio.titulo, desc: beneficio.desc }
-            : null;
+          diagText = (beneficio && beneficio.desc) || PROPUESTA_FRASE;
+          provInfo = null;
+          beneficioBonus = beneficio ? { titulo: beneficio.titulo, desc: beneficio.desc } : null;
+        }
+        const chips = [
+          { label: "DM",            value: fmt(ku.dm) },
+          { label: "COM",           value: fmt(ku.com) },
+          { label: "Patologías DM", value: fmt(ku.patologias_dm) },
+          { label: "Patologías COM",value: fmt(ku.patologias_com) },
+          { label: "Patios DM",     value: fmt(ku.patios_dm) },
+          { label: "LC DM",         value: fmt(ku.lc_dm) },
+        ];
 
-          setLegend({
-            name: loc,
-            kpis: k,
-            ritmo: "una zona por barrio",
-            idx: i + 1,
-            total: totalSteps,
-            color,
-            phase: "propuesta",
-            schools: subset.length,
-          });
+        // Legend lateral siempre visible con info del step actual
+        setLegend({
+          name: step.name,
+          kpis: k,
+          ritmo: isPliego ? "zonas dispersas del pliego" : "una zona por barrio",
+          idx: i + 1,
+          total: totalSteps,
+          color: isPliego ? "var(--celeste-700)" : color,
+          phase: step.phase,
+          schools: subset.length,
+        });
+        setStepIdx(i + 1);
+        setStepSubphase(subphase);
+
+        if (subphase === "cartel") {
+          // === SUB-FASE A: Cartel ===
           setOverlay({
             visible: true,
-            title: loc,
+            leaving: false,
+            title: step.name,
             sub: "",
-            prov: null,
+            prov: provInfo,
             chips,
             color,
             bonus: beneficioBonus,
           });
-          typewrite(beneficioDesc);
+          typewrite(diagText);
 
-          const overlayMsL = overlayDurationForText(beneficioDesc);
-          await interruptibleSleep(Math.max(0, overlayMsL - DEMO_OVERLAY_FADE_MS));
+          const overlayMs = overlayDurationForText(diagText);
+          await interruptibleSleep(Math.max(0, overlayMs - DEMO_OVERLAY_FADE_MS));
           if (stopRef.current) break;
 
+          // BACK desde cartel: ir al ruteo de la zona ANTERIOR
+          if (goBackRef.current) {
+            goBackRef.current = false;
+            if (i === 0) {
+              // No hay anterior. Quedarse en el cartel del step 0.
+              // (Re-loop: el while reentra y vuelve a mostrar el cartel.)
+              continue;
+            }
+            // Fade out rápido del cartel antes de saltar
+            setOverlay(o => ({ ...o, leaving: true }));
+            await sleep(DEMO_OVERLAY_FADE_MS);
+            setOverlay(o => ({ ...o, visible: false, leaving: false }));
+            _clearTwTimer();
+            setTwActive(false);
+            i = i - 1;
+            subphase = "ruteo";
+            continue;
+          }
+
+          // SKIP desde cartel: ir directo al ruteo de la MISMA zona
+          if (skipRef.current) {
+            skipRef.current = false;
+            setOverlay(o => ({ ...o, leaving: true }));
+            await sleep(DEMO_OVERLAY_FADE_MS);
+            setOverlay(o => ({ ...o, visible: false, leaving: false }));
+            _clearTwTimer();
+            setTwActive(false);
+            subphase = "ruteo";
+            continue;
+          }
+
+          // Avance natural: fade out del cartel y entrar al ruteo
           setOverlay(o => ({ ...o, leaving: true }));
           await sleep(DEMO_OVERLAY_FADE_MS);
           if (stopRef.current) break;
-
           setOverlay(o => ({ ...o, visible: false, leaving: false }));
           _clearTwTimer();
           setTwActive(false);
-
-          try {
-            highlightAndRoute(subset, color, "orden_localidad", DEPOT);
-            setFlashKey(k => k + 1);
-          } catch (e) {
-            console.warn("highlightAndRoute loc err", loc, e);
-          }
-
-          await interruptibleSleep(DEMO_REVEAL_MS);
-          if (stopRef.current) break;
-        }
-
-        // Decidir avance / retroceso al cierre del paso
-        if (goBackRef.current) {
-          goBackRef.current = false;
-          const prevI = i;
-          i = Math.max(0, i - 1);
-          // Si retrocedimos a un step de fase distinta (ej. primer paso
-          // de propuesta -> último de pliego), forzar re-render del cartel
-          // intro de la fase anterior. Si retrocedemos dentro del mismo
-          // stage, no reseteamos lastPhase para no repetir el intro.
-          if (allSteps[i] && allSteps[i].phase !== allSteps[prevI].phase) {
-            lastPhase = null;
-          }
+          subphase = "ruteo";
           continue;
         }
+
+        // === SUB-FASE B: Ruteo ===
+        try {
+          highlightAndRoute(subset, isPliego ? "#1A4A8C" : color, orderKey, depForStep);
+          setFlashKey(k => k + 1);
+        } catch (e) {
+          console.warn("highlightAndRoute err", step.name, e);
+        }
+
+        await interruptibleSleep(DEMO_REVEAL_MS);
+        if (stopRef.current) break;
+
+        // BACK desde ruteo: volver al cartel de la MISMA zona
+        if (goBackRef.current) {
+          goBackRef.current = false;
+          subphase = "cartel";
+          continue;
+        }
+
+        // SKIP desde ruteo: ir al cartel de la SIGUIENTE zona
         if (skipRef.current) {
           skipRef.current = false;
+          i = i + 1;
+          subphase = "cartel";
+          continue;
         }
-        i++;
+
+        // Avance natural
+        i = i + 1;
+        subphase = "cartel";
       }
 
       if (stopRef.current) return;
@@ -1076,6 +1089,7 @@ function DemoComparativa() {
       setPaused(false);
       setStepIdx(0);
       setStepTotal(0);
+      setStepSubphase(null);
       setStage({ phase: "idle" });
       setLegend(null);
       // Restaurar el depot a Burzaco al cerrar
@@ -1195,7 +1209,8 @@ function DemoComparativa() {
               </button>
               {stepTotal > 0 && (
                 <span className="demo-step-counter mono" aria-live="polite">
-                  <b>{stepIdx}</b> <span className="demo-step-counter-of">/ {stepTotal}</span>
+                  <b>{stepIdx}{stepSubphase ? (stepSubphase === "cartel" ? "A" : "B") : ""}</b>
+                  <span className="demo-step-counter-of"> / {stepTotal}</span>
                 </span>
               )}
               <span className="demo-step-hint mono" aria-hidden="true">← · espacio · →</span>
