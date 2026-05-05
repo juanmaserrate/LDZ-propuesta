@@ -9684,5 +9684,135 @@
       "NEFEZ": 11,
       "LGE": 20
     }
+  },
+  "analisis_capacidad": {
+    "total_escuelas": 289,
+    "total_proveedores": 6,
+    "total_km_dia": 1643.2,
+    "total_horas_jornada": 103.6,
+    "proveedores": [
+      {
+        "proveedor": "CENTURION",
+        "escuelas": 114,
+        "porcentaje_escuelas": 39.4,
+        "cupos_dm": 39497,
+        "cupos_com": 37969,
+        "cupos_total": 77466,
+        "porcentaje_cupos": 52.2,
+        "matricula": 49550,
+        "distancia_km_promedio": 3.91,
+        "distancia_km_mediana": 4.06,
+        "distancia_km_max": 7.66,
+        "escuelas_lejanas_3km": 80,
+        "km_dia": 891.3,
+        "horas_jornada_est": 51.91,
+        "sobrecargado": true
+      },
+      {
+        "proveedor": "ALVAGAMA",
+        "escuelas": 57,
+        "porcentaje_escuelas": 19.7,
+        "cupos_dm": 14095,
+        "cupos_com": 10546,
+        "cupos_total": 24641,
+        "porcentaje_cupos": 16.6,
+        "matricula": 18238,
+        "distancia_km_promedio": 2.97,
+        "distancia_km_mediana": 2.54,
+        "distancia_km_max": 6.21,
+        "escuelas_lejanas_3km": 28,
+        "km_dia": 338.3,
+        "horas_jornada_est": 21.08,
+        "sobrecargado": true
+      },
+      {
+        "proveedor": "LOGISTICA SOFIA",
+        "escuelas": 45,
+        "porcentaje_escuelas": 15.6,
+        "cupos_dm": 12962,
+        "cupos_com": 5211,
+        "cupos_total": 18173,
+        "porcentaje_cupos": 12.2,
+        "matricula": 16177,
+        "distancia_km_promedio": 2.13,
+        "distancia_km_mediana": 1.47,
+        "distancia_km_max": 6.5,
+        "escuelas_lejanas_3km": 8,
+        "km_dia": 191.8,
+        "horas_jornada_est": 13.22,
+        "sobrecargado": true
+      },
+      {
+        "proveedor": "DISTRIBUIDORA COFEX",
+        "escuelas": 42,
+        "porcentaje_escuelas": 14.5,
+        "cupos_dm": 9354,
+        "cupos_com": 6557,
+        "cupos_total": 15911,
+        "porcentaje_cupos": 10.7,
+        "matricula": 11624,
+        "distancia_km_promedio": 0.61,
+        "distancia_km_mediana": 0.61,
+        "distancia_km_max": 1.23,
+        "escuelas_lejanas_3km": 0,
+        "km_dia": 51.6,
+        "horas_jornada_est": 6.54,
+        "sobrecargado": false
+      },
+      {
+        "proveedor": "LGE",
+        "escuelas": 20,
+        "porcentaje_escuelas": 6.9,
+        "cupos_dm": 4448,
+        "cupos_com": 2961,
+        "cupos_total": 7409,
+        "porcentaje_cupos": 5.0,
+        "matricula": 6285,
+        "distancia_km_promedio": 3.56,
+        "distancia_km_mediana": 3.1,
+        "distancia_km_max": 5.3,
+        "escuelas_lejanas_3km": 11,
+        "km_dia": 142.5,
+        "horas_jornada_est": 8.48,
+        "sobrecargado": true
+      },
+      {
+        "proveedor": "NEFEZ",
+        "escuelas": 11,
+        "porcentaje_escuelas": 3.8,
+        "cupos_dm": 3213,
+        "cupos_com": 1708,
+        "cupos_total": 4921,
+        "porcentaje_cupos": 3.3,
+        "matricula": 3864,
+        "distancia_km_promedio": 1.26,
+        "distancia_km_mediana": 1.09,
+        "distancia_km_max": 1.76,
+        "escuelas_lejanas_3km": 0,
+        "km_dia": 27.7,
+        "horas_jornada_est": 2.36,
+        "sobrecargado": false
+      }
+    ],
+    "proveedores_sobrecargados": [
+      "CENTURION",
+      "ALVAGAMA",
+      "LOGISTICA SOFIA",
+      "LGE"
+    ],
+    "n_escuelas_lejanas_total": 127,
+    "hub_adicional_sugerido": {
+      "lat": -34.717423,
+      "lng": -58.43119,
+      "n_escuelas_servidas_potenciales": 30,
+      "ahorro_potencial_km_dia": 231.6
+    },
+    "supuestos": {
+      "velocidad_kmh": 22,
+      "min_por_entrega": 6,
+      "horas_jornada_objetivo": 8,
+      "dist_lejana_km": 3.0,
+      "factor_urbano": 1.35
+    }
   }
 }

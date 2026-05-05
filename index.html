@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/><link rel="stylesheet" href="styles.css?v=10">
-<link rel="stylesheet" href="styles-sections.css?v=10">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/><link rel="stylesheet" href="styles.css?v=11">
+<link rel="stylesheet" href="styles-sections.css?v=11">
 
 <style>
   /* Header con logos reales */
@@ -77,6 +77,7 @@
 <script type="text/babel" src="components/Dashboard.jsx"></script>
 <script type="text/babel" src="components/ZoneSlider.jsx"></script>
 <script type="text/babel" src="components/DemoComparativa.jsx"></script>
+<script type="text/babel" src="components/AnalisisCapacidad.jsx"></script>
 <script type="text/babel" src="components/Sections.jsx"></script>
 
 
@@ -211,6 +212,7 @@ function App() {
       <DemoComparativaSection onlyDemo={true}/>
       <Diagnostico data={CONTENT.diagnostico}/>
       <BenefitsPage/>
+      <AnalisisCapacidad/>
     </>
   );
 }
