@@ -104,7 +104,7 @@ function ComunidadGana() {
         </div>
         <div className="section-head">
           <h2 className="display-lg">
-            Más allá de los kilómetros: lo que gana cada vecino y vecina de Lomas
+            Lo que gana la comunidad
           </h2>
           <p className="lead" style={{ marginTop: 18 }}>
             Rezonificar por barrio no es un cambio técnico abstracto: es una mejora
