@@ -1,5 +1,5 @@
 /* DemoComparativa — Vista en vivo unica que recorre primero las 12 zonas
-   del pliego y luego las localidades de la propuesta R14.
+   del pliego y luego las localidades agrupadas por barrio.
    Replica la mecanica de playPresentation() + renderMap() del repo viejo
    (js/app.js lineas 1877-1986 y 399-525) pero con estetica celeste
    institucional (NO dark mode).
@@ -49,24 +49,32 @@ const DEPOT = {
   direccion: "Ombu 1269",
 };
 
+// Punto de partida para el ruteo por barrios (stage 2): sede del Municipio
+const MUNICIPIO_LZ = {
+  lat: -34.7619,
+  lng: -58.4017,
+  nombre: "Municipio de Lomas de Zamora",
+  direccion: "Manuel Castro 220, Lomas de Zamora",
+};
+
 // Diagnóstico por zona (mismo contenido que ZoneSlider.jsx, copiado para no
 // crear acoplamiento de carga entre archivos)
 const ZONE_DIAGNOSTICS_DEMO = {
   "Zona 1":  { n: "01", t: "Control municipal disperso", c: "El área de Educación necesita supervisar 12 zonas con criterios diferentes. Imposible comparar performance entre zonas con datos homogéneos." },
   "Zona 2":  { n: "02", t: "Tiempos largos de entrega", c: "El recorrido medio actual ronda los 47 minutos por vianda. La cadena térmica se compromete antes de llegar a la escuela." },
   "Zona 3":  { n: "03", t: "Auditoría ineficiente",     c: "Un auditor municipal pierde más tiempo en traslados que controlando: pocas escuelas cubiertas por jornada." },
-  "Zona 4":  { n: "04", t: "Frescura comprometida",     c: "Más minutos en tránsito = más riesgo de cadena de frío rota, alimentos tibios y reclamos de directivos." },
+  "Zona 4":  { n: "04", t: "Frescura comprometida",     c: "Más minutos en tránsito = mayor riesgo de pérdida de cadena de frío, alteración de los alimentos y reclamos de directivos." },
   "Zona 5":  { n: "05", t: "Cruces entre cuadrillas",   c: "Distintos vehículos del operador atraviesan las mismas calles para cubrir escuelas de zonas separadas. Kilómetros duplicados sobre el mismo eje." },
   "Zona 6":  { n: "06", t: "Trazabilidad débil",        c: "Ante un reclamo de un directivo, reconstruir qué vianda llegó a qué escuela y en qué condiciones lleva horas: papel, planillas y llamadas cruzadas." },
   "Zona 7":  { n: "07", t: "Combustible y horas extra", c: "Rutas largas inflan el consumo de gasoil y obligan a horas extra de conductores. Costo operativo que el pliego no premia evitar." },
-  "Zona 8":  { n: "08", t: "Inequidad horaria",         c: "Escuelas de la misma zona reciben la vianda con diferencias de hasta 90 minutos. Algunas comen 11:30, otras casi 13:00." },
+  "Zona 8":  { n: "08", t: "Inequidad horaria",         c: "Escuelas de la misma zona reciben la vianda con diferencias de hasta 56 minutos según el orden del recorrido." },
   "Zona 9":  { n: "09", t: "Frágil ante imprevistos",   c: "Si falta un vehículo o se corta una calle por obra, no hay grupo cercano que absorba esas escuelas. Se cae la entrega del día." },
   "Zona 10": { n: "10", t: "Comunicación fragmentada",  c: "Cada zona maneja su propio canal informal con directivos. El Municipio no tiene un único punto de contacto consolidado por grupo." },
-  "Zona 11": { n: "11", t: "Inflexible ante matrícula", c: "Cuando una escuela cambia su matrícula a mitad de año, reasignar cupos exige rehacer la zona entera. El pliego no contempla rebalanceo simple." },
+  "Zona 11": { n: "11", t: "Solapamiento entre proveedores", c: "Distintos proveedores cubren escuelas que están a metros entre sí. Las camionetas se cruzan en las mismas calles, duplicando recorridos y costos sin agregar valor al servicio." },
   "Zona 12": { n: "12", t: "Zonas dispersas",          c: "Escuelas vecinas quedan en zonas distintas y otras lejanas comparten zona. Las rutas se cruzan y se duplican." },
 };
 
-// Frase corta de la propuesta para cada localidad (típica narrativa Real de Catorce)
+// Frase corta de la propuesta para cada localidad
 const PROPUESTA_FRASE = "Una sola unidad logística por barrio. Rutas cortas, control simple.";
 
 // Beneficio puntual por localidad: cada barrio muestra un fundamento potente
@@ -75,7 +83,7 @@ const PROPUESTA_FRASE = "Una sola unidad logística por barrio. Rutas cortas, co
 const LOCALIDAD_BENEFICIO = {
   "Banfield":          { titulo: "Trazabilidad inmediata",        desc: "Si falla algo en Banfield Este, el Municipio sabe exactamente a quién llamar. Una zona = un equipo responsable." },
   "Ingeniero Budge":   { titulo: "Auditorías por barrio",          desc: "Un auditor cubre toda la localidad sin trasladarse entre zonas. Más escuelas verificadas por jornada con el mismo equipo." },
-  "Llavallol":         { titulo: "Cadena térmica protegida",       desc: "Rutas cortas dentro del barrio. La vianda llega caliente, antes del recreo, sin riesgo de cadena de frío rota." },
+  "Llavallol":         { titulo: "Cadena térmica protegida",       desc: "Rutas cortas dentro del barrio: la vianda llega antes del recreo, con la cadena de frío preservada y en mejores condiciones para el consumo." },
   "Lomas Centro":      { titulo: "Tablero municipal en tiempo real", desc: "Estado de cada entrega, temperatura de las viandas y KPIs por escuela disponibles para Educación al instante." },
   "Parque Barón":      { titulo: "Equidad de servicio horario",    desc: "Todas las escuelas del barrio reciben en la misma ventana. Cero diferencias entre escuelas vecinas." },
   "San José":          { titulo: "Métrica reportable al Concejo",  desc: "Indicadores claros y comparables por barrio: cumplimiento, km recorridos, frescura, tiempo medio. Listos para presentar." },
@@ -217,7 +225,7 @@ function DemoComparativa() {
       setProvLocations(d.proveedores_locations || {});
       return;
     }
-    fetch("data/colegios.json?v=19")
+    fetch("data/colegios.json?v=20")
       .then(r => r.json())
       .then(d => {
         window.__colegiosCache = d;
@@ -243,7 +251,7 @@ function DemoComparativa() {
       attributionControl: false,
     });
     map.fitBounds([[-34.84, -58.50], [-34.69, -58.34]], { animate: false });
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/voyager/{z}/{x}/{y}{r}.png", {
       subdomains: "abcd", maxZoom: 19,
     }).addTo(map);
 
@@ -499,7 +507,7 @@ function DemoComparativa() {
       const wp = [dep, ...ordered.map(s => ({ lat: s.lat, lng: s.lng })), dep];
       jobs.push({ key: _cacheKey(wp), waypoints: wp });
     });
-    // Localidades (excluye Sin asignar). Usa depot Burzaco (no hay un proveedor por barrio).
+    // Localidades (excluye Sin asignar). Usa Municipio de Lomas como punto de partida.
     const locList = (localidades && localidades.length
       ? localidades
       : Array.from(new Set(schools.map(s => s.localidad).filter(Boolean))).sort()
@@ -508,7 +516,7 @@ function DemoComparativa() {
       const subset = schools.filter(s => s.localidad === loc && s.lat && s.lng);
       if (!subset.length) return;
       const ordered = sortByOrden(subset, "orden_localidad");
-      const wp = [DEPOT, ...ordered.map(s => ({ lat: s.lat, lng: s.lng })), DEPOT];
+      const wp = [MUNICIPIO_LZ, ...ordered.map(s => ({ lat: s.lat, lng: s.lng })), MUNICIPIO_LZ];
       jobs.push({ key: _cacheKey(wp), waypoints: wp });
     });
     return jobs;
@@ -643,7 +651,7 @@ function DemoComparativa() {
       try {
         map.fitBounds(L.latLngBounds(pts).pad(0.25), {
           padding: [40, 40],
-          maxZoom: 15,
+          maxZoom: 17,
           animate: true,
           duration: 0.5,
         });
@@ -950,7 +958,7 @@ function DemoComparativa() {
           beneficioBonus = null;
         } else {
           const loc = step.name;
-          depForStep = DEPOT;
+          depForStep = MUNICIPIO_LZ;
           color = _demoColorForLoc(loc);
           orderKey = "orden_localidad";
           const beneficio = LOCALIDAD_BENEFICIO[loc];
@@ -1122,7 +1130,7 @@ function DemoComparativa() {
 
   const overlayEyebrow =
     stage.phase === "pliego" ? "Zona de pliego vigente · diagnostico" :
-    stage.phase === "propuesta" ? "Barrio agrupado · propuesta R14" :
+    stage.phase === "propuesta" ? "Barrio agrupado · propuesta de rezonificación" :
     null;
 
   const prefetchPct = prefetch.total ? Math.round((prefetch.done / prefetch.total) * 100) : 0;
@@ -1351,7 +1359,7 @@ const DEMO_BENEFITS = [
   { icon: "eye",        title: "Tablero municipal en tiempo real", desc: "Estado de cada entrega, temperatura de las viandas y KPIs por escuela disponibles para el área de Educación al instante." },
 
   // Calidad de la vianda y de la entrega
-  { icon: "thermometer", title: "Cadena térmica protegida",     desc: "Rutas cortas dentro del barrio. La vianda llega caliente, antes del recreo, sin riesgo de cadena de frío rota." },
+  { icon: "thermometer", title: "Cadena térmica protegida",     desc: "Rutas cortas dentro del barrio: la vianda llega antes del recreo, con la cadena de frío preservada y en mejores condiciones para el consumo." },
   { icon: "leaf",        title: "Frescura comprobable",         desc: "Menos minutos en tránsito = más nutrientes preservados. La vianda llega como salió de la cocina." },
   { icon: "clock",       title: "Equidad de servicio horario",  desc: "Todas las escuelas de un barrio reciben en la misma ventana. Cero diferencias entre escuelas vecinas (no más 11:30 vs 13:00)." },
   { icon: "droplet",     title: "Menos viandas devueltas",      desc: "Llegando a tiempo y a temperatura, las devoluciones por mal estado bajan al mínimo. Menos comida desperdiciada." },
@@ -1435,7 +1443,7 @@ function AhorroSimulator() {
       setAhorroData(window.__colegiosCache.simulador_ahorro);
       return;
     }
-    fetch("data/colegios.json?v=19")
+    fetch("data/colegios.json?v=20")
       .then(r => r.json())
       .then(data => {
         window.__colegiosCache = data;

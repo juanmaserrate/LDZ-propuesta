@@ -9,7 +9,7 @@ function ComunidadGana() {
     {
       eyebrow: "PARA LOS CHICOS Y CHICAS",
       titulo: "Una vianda que respeta el tiempo de la infancia",
-      lead: "El derecho a comer caliente, en hora y entre compañeros — sin perder ni un minuto del recreo ni de la clase siguiente.",
+      lead: "El derecho a comer en hora, en condiciones, entre compañeros — sin perder ni un minuto del recreo ni de la clase siguiente.",
       icon: "smile",
       cards: [
         {

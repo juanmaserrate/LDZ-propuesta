@@ -16,7 +16,7 @@ function CuposPorBarrio() {
       setData(window.__colegiosCache);
       return;
     }
-    fetch("data/colegios.json?v=19")
+    fetch("data/colegios.json?v=20")
       .then((r) => r.json())
       .then((d) => {
         window.__colegiosCache = d;

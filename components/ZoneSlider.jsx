@@ -6,14 +6,14 @@ const ZONE_DIAGNOSTICS = {
   "Zona 1":  { n: "01", t: "Zonas dispersas",          c: "Escuelas vecinas quedan en zonas distintas y otras lejanas comparten zona. Las rutas se cruzan y se duplican." },
   "Zona 2":  { n: "02", t: "Tiempos largos de entrega", c: "El recorrido medio actual ronda los 47 minutos por vianda. La cadena térmica se compromete antes de llegar a la escuela." },
   "Zona 3":  { n: "03", t: "Auditoría ineficiente",     c: "Un auditor municipal pierde más tiempo en traslados que controlando: pocas escuelas cubiertas por jornada." },
-  "Zona 4":  { n: "04", t: "Frescura comprometida",     c: "Más minutos en tránsito = más riesgo de cadena de frío rota, alimentos tibios y reclamos de directivos." },
+  "Zona 4":  { n: "04", t: "Frescura comprometida",     c: "Más minutos en tránsito = mayor riesgo de pérdida de cadena de frío, alteración de los alimentos y reclamos de directivos." },
   "Zona 5":  { n: "05", t: "Cruces entre cuadrillas",   c: "Distintos vehículos del operador atraviesan las mismas calles para cubrir escuelas de zonas separadas. Kilómetros duplicados sobre el mismo eje." },
   "Zona 6":  { n: "06", t: "Trazabilidad débil",        c: "Ante un reclamo de un directivo, reconstruir qué vianda llegó a qué escuela y en qué condiciones lleva horas: papel, planillas y llamadas cruzadas." },
   "Zona 7":  { n: "07", t: "Combustible y horas extra", c: "Rutas largas inflan el consumo de gasoil y obligan a horas extra de conductores. Costo operativo que el pliego no premia evitar." },
-  "Zona 8":  { n: "08", t: "Inequidad horaria",         c: "Escuelas de la misma zona reciben la vianda con diferencias de hasta 90 minutos. Algunas comen 11:30, otras casi 13:00." },
+  "Zona 8":  { n: "08", t: "Inequidad horaria",         c: "Escuelas de la misma zona reciben la vianda con diferencias de hasta 56 minutos según el orden del recorrido." },
   "Zona 9":  { n: "09", t: "Frágil ante imprevistos",   c: "Si falta un vehículo o se corta una calle por obra, no hay grupo cercano que absorba esas escuelas. Se cae la entrega del día." },
   "Zona 10": { n: "10", t: "Comunicación fragmentada",  c: "Cada zona maneja su propio canal informal con directivos. El Municipio no tiene un único punto de contacto consolidado por grupo." },
-  "Zona 11": { n: "11", t: "Inflexible ante matrícula", c: "Cuando una escuela cambia su matrícula a mitad de año, reasignar cupos exige rehacer la zona entera. El pliego no contempla rebalanceo simple." },
+  "Zona 11": { n: "11", t: "Solapamiento entre proveedores", c: "Distintos proveedores cubren escuelas que están a metros entre sí. Las camionetas se cruzan en las mismas calles, duplicando recorridos y costos sin agregar valor al servicio." },
   "Zona 12": { n: "12", t: "Control municipal disperso", c: "El área de Educación necesita supervisar 12 zonas con criterios diferentes. Imposible comparar performance entre zonas con datos homogéneos." },
 };
 
@@ -64,7 +64,7 @@ function ZoneSlider({ onNextPage, onPrevPage }) {
       setProvLocations(d.proveedores_locations || {});
       return;
     }
-    fetch("data/colegios.json?v=19")
+    fetch("data/colegios.json?v=20")
       .then(r => r.json())
       .then(d => {
         window.__colegiosCache = d;
@@ -81,7 +81,7 @@ function ZoneSlider({ onNextPage, onPrevPage }) {
     if (!mapEl.current || mapRef.current || typeof L === "undefined") return;
     const map = L.map(mapEl.current, { zoomControl: true, scrollWheelZoom: false })
                  .setView([-34.762, -58.405], 12);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/voyager/{z}/{x}/{y}{r}.png", {
       attribution: "© OpenStreetMap · © CARTO",
       subdomains: "abcd",
       maxZoom: 19,
