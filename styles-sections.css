@@ -492,50 +492,87 @@
 .demo-badge-txt { display: inline-block; }
 .demo-controls .btn { padding: 10px 20px; font-size: 14px; font-weight: 600; }
 
-/* Controles manuales del demo: prev / pause / skip + step counter */
+/* Controles manuales del demo (floating dentro del frame, también visible en fullscreen) */
 .demo-step-controls {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
   display: inline-flex; align-items: center; gap: 6px;
-  padding: 4px 10px 4px 4px;
-  border: 1px solid var(--celeste-200);
-  background: white;
+  padding: 6px 16px 6px 6px;
+  background: rgba(11, 26, 44, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
-  box-shadow: var(--sh-sm);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: 0 14px 40px -10px rgba(11,26,44,0.50), 0 4px 12px -4px rgba(11,26,44,0.30);
+  pointer-events: auto;
+  font-family: var(--f-body);
 }
-.demo-controls .btn.demo-step-btn {
-  padding: 0;
-  width: 36px; height: 36px;
-  min-width: 0;
+.demo-step-btn {
+  width: 38px; height: 38px;
+  border: 0; padding: 0;
   display: inline-flex; align-items: center; justify-content: center;
   border-radius: 50%;
-  color: var(--celeste-800);
-  border-color: transparent;
-  background: transparent;
-  font-size: 0;
-  transition: background .2s ease, color .2s ease, transform .15s ease;
+  color: white;
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease, transform .15s ease, box-shadow .18s ease;
 }
-.demo-controls .btn.demo-step-btn:hover {
-  background: var(--celeste-50);
-  color: var(--celeste-900);
+.demo-step-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px -2px rgba(0,0,0,0.30);
 }
-.demo-controls .btn.demo-step-btn:active { transform: translateY(0); }
-.demo-controls .btn.demo-step-btn svg { display: block; }
+.demo-step-btn:active { transform: translateY(0); }
+.demo-step-btn svg { display: block; }
+.demo-step-btn.demo-step-btn-main {
+  width: 44px; height: 44px;
+  background: var(--amber);
+  color: var(--celeste-900);
+  box-shadow: 0 4px 14px -2px rgba(242,169,59,0.50);
+}
+.demo-step-btn.demo-step-btn-main:hover {
+  background: #ffc14a;
+  box-shadow: 0 6px 18px -2px rgba(242,169,59,0.60);
+}
 .demo-step-counter {
-  font-size: 11px;
-  letter-spacing: .12em;
+  font-size: 12px;
+  letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--ink-500);
-  padding: 0 10px 0 6px;
+  color: var(--celeste-100);
+  padding: 0 8px 0 6px;
   white-space: nowrap;
 }
 .demo-step-counter b {
-  color: var(--celeste-800);
+  color: white;
+  font-size: 14px;
   font-weight: 700;
+  margin-right: 2px;
+}
+.demo-step-counter-of {
+  color: var(--celeste-300);
+}
+.demo-step-hint {
+  font-size: 10px;
+  color: var(--celeste-300);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255,255,255,0.14);
+  margin-left: 2px;
+  white-space: nowrap;
 }
 @media (max-width: 720px) {
-  .demo-step-controls { padding: 3px 6px 3px 3px; }
-  .demo-controls .btn.demo-step-btn { width: 32px; height: 32px; }
-  .demo-step-counter { padding: 0 6px 0 4px; }
+  .demo-step-controls { bottom: 12px; gap: 4px; padding: 5px 12px 5px 5px; }
+  .demo-step-btn { width: 34px; height: 34px; }
+  .demo-step-btn.demo-step-btn-main { width: 38px; height: 38px; }
+  .demo-step-counter { font-size: 11px; padding: 0 4px 0 2px; }
+  .demo-step-hint { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .demo-step-btn:hover { transform: none; }
 }
 .demo-stop {
   color: var(--coral); border-color: var(--coral);

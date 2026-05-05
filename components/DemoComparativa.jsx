@@ -364,6 +364,31 @@ function DemoComparativa() {
     };
   }, []);
 
+  // Atajos de teclado para controlar el demo
+  // ← / →  : paso anterior / siguiente
+  // Espacio: pausar / continuar
+  // Solo activos cuando el demo está corriendo. Ignorar si el foco está en
+  // un input/textarea/select.
+  React.useEffect(() => {
+    if (!running) return;
+    const onKey = (e) => {
+      const tag = (e.target && e.target.tagName) || "";
+      if (/INPUT|TEXTAREA|SELECT/.test(tag) || (e.target && e.target.isContentEditable)) return;
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        prevStepRef.current && prevStepRef.current();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        skipStepRef.current && skipStepRef.current();
+      } else if (e.key === " " || e.code === "Space") {
+        e.preventDefault();
+        togglePauseRef.current && togglePauseRef.current();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [running]);
+
   // Render base: pinta TODOS los colegios como circleMarkers tenues.
   // Se llama al inicio y al final del demo (vista total).
   const renderBase = React.useCallback(() => {
@@ -723,6 +748,17 @@ function DemoComparativa() {
     setPaused(false);
     goBackRef.current = true;
   };
+
+  // Refs a los handlers para usarlos desde listeners de teclado
+  // (evita capturar versiones obsoletas en useEffect)
+  const togglePauseRef = React.useRef(togglePause);
+  const skipStepRef = React.useRef(skipStep);
+  const prevStepRef = React.useRef(prevStep);
+  React.useEffect(() => {
+    togglePauseRef.current = togglePause;
+    skipStepRef.current = skipStep;
+    prevStepRef.current = prevStep;
+  });
 
   // Reveal: muestra el texto completo de una sola vez (la animación CSS de
   // entrada se dispara con `key` en el render). NO es typewriter.
@@ -1089,54 +1125,6 @@ function DemoComparativa() {
           <span className="demo-badge-txt">{phaseLabel}</span>
         </div>
         <div className="demo-controls">
-          {running && (
-            <div className="demo-step-controls" role="group" aria-label="Controles del paso">
-              <button
-                className="btn btn-ghost demo-step-btn"
-                onClick={prevStep}
-                title="Paso anterior"
-                aria-label="Paso anterior"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polygon points="19 20 9 12 19 4 19 20"/>
-                  <line x1="5" y1="19" x2="5" y2="5"/>
-                </svg>
-              </button>
-              <button
-                className="btn btn-ghost demo-step-btn"
-                onClick={togglePause}
-                title={paused ? "Continuar" : "Pausar"}
-                aria-label={paused ? "Continuar" : "Pausar"}
-              >
-                {paused ? (
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <polygon points="6 4 20 12 6 20 6 4"/>
-                  </svg>
-                ) : (
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <rect x="5" y="4" width="4" height="16"/>
-                    <rect x="15" y="4" width="4" height="16"/>
-                  </svg>
-                )}
-              </button>
-              <button
-                className="btn btn-ghost demo-step-btn"
-                onClick={skipStep}
-                title="Paso siguiente"
-                aria-label="Paso siguiente"
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polygon points="5 4 15 12 5 20 5 4"/>
-                  <line x1="19" y1="5" x2="19" y2="19"/>
-                </svg>
-              </button>
-              {stepTotal > 0 && (
-                <span className="demo-step-counter mono" aria-live="polite">
-                  Paso <b>{stepIdx}</b> / {stepTotal}
-                </span>
-              )}
-            </div>
-          )}
           <button
             className="btn btn-ghost demo-fs-btn"
             onClick={() => (isFs ? exitFs() : enterFs())}
@@ -1162,6 +1150,56 @@ function DemoComparativa() {
           {/* Flash overlay editorial: se reinicia con cada cambio de paso (key=flashKey). */}
           {flashKey > 0 && running && (
             <span className="demo-flash" key={"flash-" + flashKey} aria-hidden="true"/>
+          )}
+          {/* Controles flotantes del paso (dentro del frame, visible en fullscreen) */}
+          {running && (
+            <div className="demo-step-controls" role="group" aria-label="Controles del paso">
+              <button
+                className="demo-step-btn"
+                onClick={prevStep}
+                title="Paso anterior (Flecha izquierda)"
+                aria-label="Paso anterior"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polygon points="19 20 9 12 19 4 19 20"/>
+                  <line x1="5" y1="19" x2="5" y2="5"/>
+                </svg>
+              </button>
+              <button
+                className="demo-step-btn demo-step-btn-main"
+                onClick={togglePause}
+                title={paused ? "Continuar (Espacio)" : "Pausar (Espacio)"}
+                aria-label={paused ? "Continuar" : "Pausar"}
+              >
+                {paused ? (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <polygon points="6 4 20 12 6 20 6 4"/>
+                  </svg>
+                ) : (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <rect x="5" y="4" width="4" height="16"/>
+                    <rect x="15" y="4" width="4" height="16"/>
+                  </svg>
+                )}
+              </button>
+              <button
+                className="demo-step-btn"
+                onClick={skipStep}
+                title="Paso siguiente (Flecha derecha)"
+                aria-label="Paso siguiente"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polygon points="5 4 15 12 5 20 5 4"/>
+                  <line x1="19" y1="5" x2="19" y2="19"/>
+                </svg>
+              </button>
+              {stepTotal > 0 && (
+                <span className="demo-step-counter mono" aria-live="polite">
+                  <b>{stepIdx}</b> <span className="demo-step-counter-of">/ {stepTotal}</span>
+                </span>
+              )}
+              <span className="demo-step-hint mono" aria-hidden="true">← · espacio · →</span>
+            </div>
           )}
           {prefetch.active && running && (
             <div className="demo-prefetch">
